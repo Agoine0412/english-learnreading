@@ -918,7 +918,6 @@ body {
       { href: '2008/英二-text1.html', title: 'Text 1', desc: '女性与压力——性别差异下的压力反应与应对', num: 1 },
       { href: '2008/英二-text2.html', title: 'Text 2', desc: '学术出版的变革——从传统期刊到开放获取的转型之路', num: 2 },
       { href: '2008/英二-text3.html', title: 'Text 3', desc: '身高的极限——美国人为何停止长高？', num: 3 },
-      { href: '2009/英二-text4.html', title: 'Text 4', desc: '新英格兰的知识生活与早期定居者——清教徒、迷信与捕鱼', num: 4 },
       { href: '2008/英二-text4.html', title: 'Text 4', desc: '华盛顿与奴隶制——从"拔牙"案看开国元勋的历史复杂性', num: 4 }
     ],
     '2009': [
@@ -934,7 +933,6 @@ body {
       { href: '2015/英二-text1.html', title: 'Text 1', desc: '家比工作更有压力——皮质醇研究揭示的颠覆性真相', num: 1 },
       { href: '2015/英二-text2.html', title: 'Text 2', desc: '第一代大学生的困境与出路——一小时干预缩小63%成就差距', num: 2 },
       { href: '2015/英二-text3.html', title: 'Text 3', desc: 'Office Speak：企业话术——人人嘲笑却人人接受的职场悖论', num: 3 },
-      { href: '2009/英二-text4.html', title: 'Text 4', desc: '新英格兰的知识生活与早期定居者——清教徒、迷信与捕鱼', num: 4 },
       { href: '2015/英二-text4.html', title: 'Text 4', desc: '就业市场：被忽视的兼职真相与奥巴马医改', num: 4 }
     ],
     '2016': [
@@ -944,7 +942,7 @@ body {
 
   // ===== 缓存破坏：强制移动端/浏览器重新请求最新文章页，绕过 HTML 缓存 =====
   (function () {
-    const ART_CACHE_VER = '20260719d';
+    const ART_CACHE_VER = '20260719e';
     Object.values(articlesData).forEach(list => list.forEach(a => {
       if (a.href && !a.href.includes('?v=')) a.href += '?v=' + ART_CACHE_VER;
     }));
