@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015 考研英语（二）Text 2 — 第一代大学生的困境与出路</title>
+<style>
+/* ====== 🎓 深邃学术紫金风（Academic Purple & Gold）—— 教育公平篇专属配色 ====== */
+:root {
+  --bg: #f8f6fc;
+  --card: #ffffff;
+  --text: #1a1633;
+  --text-soft: #4a4468;
+  --text-muted: #787294;
+  /* 主色系：深邃紫 + 学术金 + 希望珊瑚 */
+  --accent: #6b5b95;          /* 深紫，知识/学术 */
+  --accent-light: #edeaf5;
+  --gold: #c9a227;             /* 学术金，成就/荣耀 */
+  --gold-light: #fdf8e8;
+  --coral: #e07a5f;            /* 珊瑚色，希望/行动 */
+  --coral-light: #fef0ec;
+  --indigo: #4a3f6b;           /* 靛蓝，深度思考 */
+  --indigo-light: #eef0f8;
+  --panel-bg: #faf9fd;
+  --panel-border: #ddd8ea;
+  --border: #e2dced;
+  --shadow: 0 2px 10px rgba(26,22,51,0.06);
+  --shadow-hover: 0 6px 22px rgba(26,22,51,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+
+/* ====== Header ====== */
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--gold),var(--coral));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--accent);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  display:inline-block;padding:3px 11px;border-radius:20px;font-size:.78em;font-weight:600;
+  transition:all var(--transition);cursor:default;
+}
+.badge-purple{background:var(--accent-light);color:var(--accent);}
+.badge-gold{background:var(--gold-light);color:#a68518;}
+.badge-coral{background:var(--coral-light);color:var(--coral);}
+.badge-indigo{background:var(--indigo-light);color:var(--indigo);}
+.badge:hover{transform:translateY(-2px);box-shadow:0 3px 10px rgba(0,0,0,.08);}
+
+.notice{text-align:center;margin:20px auto;max-width:600px;font-size:.84em;color:var(--text-muted);animation:fadeUp .55s ease both;animation-delay:.05s;}
+
+.divider{width:40px;height:3px;background:linear-gradient(90deg,var(--accent),transparent);margin:24px auto;transition:width .35s ease;border-radius:2px;}
+.divider:hover{width:120px;}
+
+/* ====== 句子卡片（上下单栏）===== */
+.sent{
+  background:var(--card);border-radius:var(--radius);padding:22px 24px;
+  box-shadow:var(--shadow);margin-bottom:16px;
+  transition:box-shadow var(--transition),transform var(--transition);
+  animation:fadeUp .48s ease both;
+}
+.sent:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px);}
+.snum{
+  display:inline-block;background:linear-gradient(135deg,var(--accent),var(--indigo));
+  color:#fff;font-size:.68em;font-weight:700;padding:2px 9px;border-radius:12px;
+  vertical-align:middle;margin-right:8px;
+}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;word-wrap:break-word;vertical-align:middle;}
+mark{
+  background:linear-gradient(180deg,#e8dff5 40%,#ddd0ef 100%);
+  border-radius:3px;padding:1px 3px;color:inherit;transition:background .2s;
+}
+mark:hover{background:linear-gradient(180deg,#ddd0ef 40%,#cec0df 100%);}
+u{text-decoration:none;border-bottom:2px dashed var(--gold);transition:border-color .2s;}
+u:hover{border-color:#a68518;}
+.sent-hr{border:none;height:1px;background:linear-gradient(90deg,var(--border),var(--accent),transparent);margin:14px 0;opacity:.6;}
+.tl{display:inline-block;font-size:.74em;color:var(--accent);font-weight:700;margin-bottom:4px;}
+.zh{font-size:.94em;color:var(--text-soft);line-height:1.72;margin-bottom:8px;}
+details.complex[open] summary::after{content:' ⭐长难句';color:var(--gold);font-size:.78em;margin-left:4px;}
+summary{cursor:pointer;list-style:none;font-size:.85em;color:var(--indigo);font-weight:600;outline:none;padding:4px 0;transition:color var(--transition);}
+summary::-webkit-details-marker{display:none;}
+summary::before{content:'▸ ';margin-right:3px;display:inline-block;transition:transform .25s;}
+details[open] summary::before{transform:rotate(90deg);}
+summary:hover{color:var(--accent);}
+.panel{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin-top:8px;font-size:.86em;line-height:1.7;
+}
+.panel .row{display:flex;gap:8px;margin-bottom:4px;flex-wrap:wrap;}
+.panel b{color:var(--accent);white-space:nowrap;}
+
+/* ====== 底部汇总区 ====== */
+.bottom{margin-top:24px;}
+.card{
+  background:var(--card);border-radius:var(--radius);padding:24px 26px;
+  box-shadow:var(--shadow);margin-bottom:18px;transition:box-shadow var(--transition);
+  animation:fadeUp .5s ease both;
+}
+.card:hover{box-shadow:var(--shadow-hover);}
+.card h2{font-size:1.08em;color:var(--text);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+.card h2 .toggle{font-size:.72px;cursor:pointer;color:var(--accent);font-weight:600;background:var(--accent-light);padding:3px 10px;border-radius:12px;user-select:none;transition:all var(--transition);}
+.card h2 .toggle:hover{background:var(--accent);color:#fff;}
+.collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
+.item{padding:7px 0;border-bottom:1px dashed var(--border);font-size:.91em;color:var(--text-soft);}
+.item:last-child{border:none;}
+.item b{color:var(--accent);}
+table.voc-table{width:100%;border-collapse:collapse;font-size:.88em;margin:4px 0;}
+table.voc-table th{background:linear-gradient(135deg,var(--accent),var(--indigo));color:#fff;padding:9px 12px;text-align:left;font-size:.88em;}
+table.voc-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+table.voc-table tr:last-child td{border-bottom:none;}
+table.voc-table tr:hover{background:var(--accent-light);}
+table.voc-table td:first-child{color:var(--accent);font-weight:600;width:28%;word-break:break-word;}
+table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
+.p-item{
+  background:linear-gradient(135deg,var(--gold-light),var(--accent-light));
+  border-left:4px solid var(--gold);padding:13px 16px;margin:10px 0;
+  border-radius:0 8px 8px 0;font-size:.90em;line-height:1.72;
+  transition:transform var(--transition);cursor:default;
+}
+.p-item:hover{transform:translateX(4px);}
+.p-item b{color:var(--gold);}
+
+.er{padding:15px 0;border-bottom:1px solid var(--border);}
+.er:last-child{border:none;}
+.qhead{margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;background:linear-gradient(135deg,var(--accent),var(--indigo));color:#fff;font-size:.82em;font-weight:700;border-radius:8px;flex-shrink:0;transition:transform .2s;}
+.er:hover .qnum{transform:scale(1.12);}
+.qtext{font-size:.93em;color:var(--text);line-height:1.6;padding-top:3px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0;}
+.opt{padding:9px 12px;border-radius:8px;font-size:.85em;line-height:1.5;border:1px solid var(--border);transition:all var(--transition);}
+.opt.ok{background:var(--gold-light);border-color:var(--gold);color:#a68518;font-weight:600;}
+.opt.no{background:#fdfdfd;border-color:var(--border);color:var(--text-muted);}
+.opt.ok:hover{background:#f5edc0;}
+.opt.no:hover{background:#f5f5f5;}
+.ua{font-size:.83em;color:var(--coral);font-weight:700;margin:8px 0 6px;padding:6px 12px;background:var(--coral-light);border-radius:8px;display:inline-block;}
+.analysis{font-size:.86em;color:var(--text-soft);line-height:1.72;padding-left:8px;margin-top:6px;}
+.analysis p{margin-bottom:5px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+@media print{
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .badge,.divider,.toggle,.sent-hr{display:none;}
+}
+@media(max-width:720px){.opts{grid-template-columns:1fr;}body{padding:12px 10px 60px;}.header{padding:24px 18px 20px;}.sent{padding:16px 16px;}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>第一代大学生的困境与出路<small>First-Generation Students' Paradox</small></h1>
+<div class="sub">一项一小时低成本干预就能缩小 63% 成绩差距的研究——打破阶层再生产的悖论</div>
+<div class="badges">
+<span class="badge badge-purple">2015 考研英语（二）</span>
+<span class="badge badge-gold">Text 2</span>
+<span class="badge badge-coral">教育社会学</span>
+<span class="badge badge-indigo">难度 ★★★☆☆</span>
+</div>
+</div>
+
+<div class="notice">💡 点击各板块标题旁「收起」可折叠内容 · 生词已用 <mark>高亮</mark> 标注 · 长难句带 ⭐ 标记</div>
+
+<!-- ====== P1 ====== -->
+<div class="divider"></div>
+
+<div class="sent" style="animation-delay:.06s">
+<span class="snum">S01</span><span class="en">For years, <u>studies have found</u> that first-generation college students—those who do not have a parent with a college degree—<u>lag</u> other students on a range of education <u>achievement factors</u>.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">多年来的研究发现，第一代大学生——即父母均无大学学位的学生——在多项教育成就指标上落后于其他学生。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>主句结构</b>studies have found that ... lag ...</div>
+    <div class="row"><b>that 从句</b>found 的宾语从句，陈述研究发现的核心结论</div>
+    <div class="row"><b>破折号部分</b>同位语，解释 first-generation college students 的定义——those who do not have a parent with a college degree</div>
+    <div class="row"><b>lag v.</b>落后、滞后（及物动词，此处 lag other students = 落后于其他同学）</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.09s">
+<span class="snum">S02</span><span class="en">Their <u>grades</u> are lower and their <u>dropout rates</u> are higher.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">他们的成绩更差，辍学率也更高。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>grades n.</b>成绩、分数（grade point average 的简称）</div>
+    <div class="row"><b>dropout rate n.</b>辍学率（dropout = 辍学者）</div>
+    <div class="row"><b>平行结构</b>A are ... and B are ... —— 两项并列对比</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.12s">
+<span class="snum">S03</span><span class="en">But since such students are most likely to advance <u>economically</u> if they succeed in higher education, colleges and universities have <u>pushed</u> for decades to recruit more of them.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">但由于这些学生一旦在高等教育中取得成功，就最有可能实现经济跃升，因此几十年来各高校一直在努力招收更多这类学生。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>since 引导原因状语从句</b>说明高校积极招生的动机——经济回报驱动</div>
+    <div class="row"><b>advance economically</b>在经济层面向上发展/提升社会经济地位</div>
+    <div class="row"><b>push for decades to do sth.</b>几十年一直致力于/推动做某事；push = 积极推进/大力争取</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.15s">
+<span class="snum">S04</span><span class="en">This has created "a <u>paradox</u>" in that recruiting first-generation students, but then watching many of them fail, means that higher education has "<u>continued to reproduce and widen</u>, rather than close" an <u>achievement gap</u> based on social class, according to the <u>depressing</u> beginning of a paper forthcoming in the journal Psychological Science.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">这就制造了一个"悖论"：大量招录第一代学生却又看着他们大批失败，意味着高等教育实际上"延续并扩大了而非缩小"基于社会阶层的成就差距——《心理科学》期刊即将发表的一篇论文开篇令人沮丧地指出。</div>
+<details class="complex"><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>This has created "a paradox"</b>主句——指出当前局面构成悖论</div>
+    <div class="row"><b>in that = because</b>引导原因状语从句，解释为什么说是"paradox"</div>
+    <div class="row"><b>recruiting ..., but then watching ...</b>两个并列动名词短语作 in that 从句的主语成分，形成强烈对比</div>
+    <div class="row"><b>means that ...</b>动名词短语的谓语，引出悖论的实质</div>
+    <div class="row"><b>continued to reproduce and widen, rather than close</b>核心论点——延续并扩大而非缩小（reproduce = 再生产/复制原有模式）</div>
+    <div class="row"><b>based on social class</b>过去分词作后置定语修饰 achievement gap——基于社会阶层的成就差距</div>
+    <div class="row"><b>forthcoming adj.</b>即将发表的（论文/书籍等）</div></div>
+</details>
+</div>
+
+<!-- ====== P2 ====== -->
+<div class="divider"></div>
+
+<div class="sent" style="animation-delay:.18s">
+<span class="snum">S05</span><span class="en">But the article is actually quite <u>optimistic</u>, as it outlines a potential solution to this problem, suggesting that an approach (which involves a one-hour, next-to-no-cost program) can close 63 percent of the achievement gap (measured by such factors as <u>grades</u>) between first-generation and other students.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">但这篇文章实际上相当乐观，因为它勾勒出了解决这一问题的潜在方案：一种只需一小时且几乎零成本的干预方式可以缩小两类学生之间 63% 的成就差距（以成绩等因素衡量）。</div>
+<details class="complex"><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>as it outlines ...</b>as 引导的原因状语从句，解释为什么说文章"乐观"</div>
+    <div class="row"><b>suggesting that ...</b>现在分词作伴随状语，进一步展开方案细节</div>
+    <div class="row"><b>which involves a one-hour, next-to-no-cost program</b>非限制性定语从句修饰 approach——强调方案的可行性（时间极短+成本极低）</div>
+    <div class="row"><b>next-to-no-cost</b>复合形容词 = almost free / virtually no cost，"几乎零成本"</div>
+    <div class="row"><b>63 percent of the achievement gap</b>量化效果——缩小 63% 差距，数据极具说服力</div></div>
+</details>
+</div>
+
+<!-- ====== P3 ====== -->
+<div class="divider"></div>
+
+<div class="sent" style="animation-delay:.21s">
+<span class="snum">S06</span><span class="en">The authors of the paper are from different universities, and their findings are based on a study involving 147 students (who completed the project) at an unnamed <u>private</u> university.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">该论文作者来自不同大学，其研究结果基于一项涉及 147 名完成项目的学生的研究，在一所未具名的私立大学进行。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>involving 147 students</b>现在分词短语作后置定语修饰 study</div>
+    <div class="row"><b>(who completed the project)</b>非限制性定语从句补充说明 147 名学生的情况</div>
+    <div class="row"><b>unnamed adj.</b>未透露名称的/匿名的——出于隐私保护不公开校名</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.24s">
+<span class="snum">S07</span><span class="en">First generation was defined as not having a parent with a four-year college degree.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">第一代的定义是父母中没有一人拥有四年制大学学位。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>was defined as ...</b>被动语态，「被定义为……」</div>
+    <div class="row"><b>a four-year college degree</b>四年制本科学位（美国高等教育的标准学制）</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.27s">
+<span class="snum">S08</span><span class="en">Most of the first-generation students (59.1 percent) were <u>recipients</u> of Pell Grants, a federal grant for undergraduates with financial need, while this was true only for 8.6 percent of the students with at least one parent with a four-year degree.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">大多数第一代学生（59.1%）是佩尔助学金的受领者——这是一项面向有经济需求的本科生的联邦助学金——而这一比例在至少有一名父母拥有四年制学位的学生中仅占 8.6%。</div>
+<details class="complex"><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>Pell Grants</b>佩尔助学金——美国最大的联邦大学生资助项目，以参议员 Claiborne Pell 命名，专供低收入家庭学生</div>
+    <div class="row"><b>recipients n.</b>接受者/受领者（recipient 单数）</div>
+    <div class="row"><b>federal grant for undergraduates with financial need</b>Pell Grants 的同位语解释——面向经济困难本科生的联邦资助</div>
+    <div class="row"><b>while ... only for 8.6%</b>while 引导的对比状语从句——59.1% vs 8.6%，悬殊的数据对比凸显经济差异</div></div>
+</details>
+</div>
+
+<!-- ====== P4 ====== -->
+<div class="divider"></div>
+
+<div class="sent" style="animation-delay:.3s">
+<span class="snum">S09</span><span class="en">Their <u>thesis</u>—that a relatively <u>modest intervention</u> could have a big impact—was based on the view that first-generation students may be most lacking not in potential but in practical knowledge about how to deal with the issues that face most college students.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">他们的核心论点——即相对温和的干预措施也能产生巨大影响——基于这样一种观点：第一代大学生最欠缺的可能不是潜力，而是应对大多数大学生所面临的实际问题的实用知识。</div>
+<details class="complex"><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>thesis n.</b>论点/命题（学术论文的核心主张），注意不是"论文"本身而是其中的核心观点</div>
+    <div class="row"><b>破折号之间</b>that 从句是 thesis 的同位语，具体阐述论点内容</div>
+    <div class="row"><b>modest intervention</b>温和的/适度的干预措施（modest = 不大的/谦逊的）</div>
+    <div class="row"><b>based on the view that ...</b>that 引导同位语从句解释 view 的内容</div>
+    <div class="row"><b>not A but B 结构</b>not in potential but in practical knowledge —— 不是缺潜力而是缺实用知识，这是全文的关键判断</div>
+    <div class="row"><b>issues that face most college students</b>定语从句修饰 issues——大多数学生都会面对的问题</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.33s">
+<span class="snum">S10</span><span class="en">They cite past research by several authors to show that this is the gap that must be narrowed to close the achievement gap.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">他们引用多位学者的既往研究来证明：正是这种（实用知识的）差距必须被缩小才能最终弥合成就差距。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>cite v.</b>引用/援引（学术写作常用动词）</div>
+    <div class="row"><b>the gap that must be narrowed</b>定语从句——指前文提到的 practical knowledge gap</div>
+    <div class="row"><b>close the achievement gap</b>消除/弥合成就差距（close 在此处 = 缩小至零）</div></div>
+</details>
+</div>
+
+<!-- ====== P5 ====== -->
+<div class="divider"></div>
+
+<div class="sent" style="animation-delay:.36s">
+<span class="snum">S11</span><span class="en">Many first-generation students "struggle to navigate the <u>middle-class culture</u> of higher education, learn the '<u>rules of the game</u>,' and take advantage of college resources," they write.</span>
+<hr class="sent-hr">
+<div class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">他们写道，许多第一代大学生"难以适应高等教育的'中层阶级文化'、不懂'游戏规则'、也不会利用大学资源"。</div>
+<details class="complex"><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>struggle to do sth.</b>费力做某事/挣扎着去做……（struggle = 挣扎、吃力）</div>
+    <div class="row"><b>navigate v.</b>导航/穿越 → 此处比喻义：在……环境中找到方向、顺利前行</div>
+    <div class="row"><b>middle-class culture</b>中层阶级文化——暗示美国高等教育体系本质上是为中产及以上家庭设计的</div>
+    <div class="row"><b>rules of the game</b>游戏规则/潜规则——此处指大学运作的隐性规范（如何选课、找导师、申请资助等）</div>
+    <div class="row"><b>take advantage of</b>充分利用/好好利用（固定搭配）</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.39s">
+<span class="snum">S12</span><span class="en">And this becomes more of a problem when colleges don't talk about the class advantages and disadvantages of different groups of students.</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">而当高校不去讨论不同学生群体的阶层优势和劣势时，这个问题就变得更加严重。</div>
+<details><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>this becomes more of a problem when ...</b>when 引导时间/条件状语从句</div>
+    <div class="row"><b>class advantages and disadvantages</b>基于社会阶层的优势与劣势（class = 社会阶层）</div>
+    <div class="row"><b>don't talk about = avoid discussing / remain silent about</b>回避讨论/对此保持沉默</div></div>
+</details>
+</div>
+
+<div class="sent" style="animation-delay:.42s">
+<span class="snum">S13</span><span class="en">"<u>Because</u> U.S. colleges and universities seldom acknowledge how social class can affect students' educational experience, many first-generation students lack insight about why they are struggling and do not understand how students 'like them' can improve."</span>
+<hr class="sent-hr">
+<div class="tl">📖 译文</div>
+<div class="zh">「因为美国高校极少承认社会阶层会如何影响学生的受教育体验，许多第一代大学生不清楚自己为何苦苦挣扎，也不理解像他们这样的学生该如何改善。」</div>
+<details class="complex"><summary>语法分析</summary>
+<div class="panel"><div class="row"><b>Because ... , many ... lack ... and do not understand ...</b>因果复合句——因为（学校沉默）所以（学生困惑）</div>
+    <div class="row"><b>seldom acknowledge</b>很少承认/几乎不承认（seldom = rarely）</div>
+    <div class="row"><b>how social class can affect ...</b>宾语从句作 acknowledge 的宾语</div>
+    <div class="row"><b>lack insight about / into</b>缺乏对……的洞察/认识（insight = 洞察力/深刻理解）</div>
+    <div class="row"><b>'like them'</b>加引号表示特殊含义——指同样背景的第一代学生群体</div></div>
+</details>
+</div>
+
+<!-- ====== 底部汇总区 ====== -->
+<div class="bottom">
+
+<!-- 全文脉络 -->
+<div class="card" style="animation-delay:.45s">
+<h2>📋 全文脉络<span class="toggle" onclick="toggleBody('flow')">收起</span></h2>
+<div class="collapsible-body" id="flow">
+<div class="item"><b>P1（S01-S04）</b> 问题提出：第一代大学生成绩差、辍学率高；高校大力招录却反而扩大了阶层成就差距（paradox 悖论）</div>
+<div class="item"><b>P2（S05）</b> 方案提出：文章其实很乐观——一小时几乎零成本的干预能缩小 63% 成绩差距</div>
+<div class="item"><b>P3（S06-S08）</b> 研究方法：147 名学生参与；定义"第一代"；数据佐证——59.1% 领 Pell Grants vs 非 First-gen 仅 8.6%</div>
+<div class="item"><b>P4（S09-S10）</b> 核心论点：问题不在潜力而在于缺少实用知识（practical knowledge）；引用多份研究支持</div>
+<div class="item"><b>P5（S11-S13）</b> 深层归因：难以适应"中产阶层文化"、不懂"游戏规则"、高校回避谈论阶层议题导致学生迷茫无助</div>
+</div>
+</div>
+
+<!-- 重点词汇 -->
+<div class="card" style="animation-delay:.48s">
+<h2>📚 重点词汇<span class="toggle" onclick="toggleBody('vocab')">收起</span></h2>
+<div class="collapsible-body" id="vocab">
+<table class="voc-table">
+<tr><th>单词/短语</th><th>释义与拓展</th></tr>
+<tr><td>first-generation</td><td>adj./n. 第一代的；（本文特指）父母没有大学学历的大学生。first-generation college student = 第一代大学生（家庭中第一个上大学的人）。考研高频社会学术语。</td></tr>
+<tr><td>lag</td><td>v. 落后于；滞后。常接 behind 或直接接宾语（lag other students）。n. lag 时间差/滞后。搭配：lag behind / fall into lag</td></tr>
+<tr><td>achievement factor</td><td>n. 成就因素/指标（复数 factors）。文中指衡量学生学业表现的多维度指标（成绩、毕业率、GPA 等）</td></tr>
+<tr><td>dropout rate</td><td>n. 辍学率。dropout n. 辍学者；drop out of school 退学。反义：graduation rate / retention rate（毕业率/保留率）</td></tr>
+<tr><td>advance economically</td><td>固定搭配 实现经济跃升/改善经济状况。advance v. 前进/提升；economically adv. 经济层面上</td></tr>
+<tr><td>recruit</td><td>v. 招募/招收（尤指招生、征兵）。recruitment n. 招募；recruiter n. 招募者。高校语境：recruit students = 招生</td></tr>
+<tr><td>paradox</td><td>n. 悖论/自相矛盾的局面。paradoxical adj. 悖论的/似非而是的。经典例："poverty amid plenty"（富足中的贫困）</td></tr>
+<tr><td>reproduce</td><td>v. 再生产/复制/繁殖。本文指"再生产社会不平等"——阶层差异通过教育系统被复制传递给下一代（布迪厄理论核心概念）</td></tr>
+<tr><td>widen vs. close</td><td>v. 扩大 vs. 缩小/弥合（差距）。widen the gap 扩大差距；close the gap 弥合差距。近义：bridge/narrow the gap</td></tr>
+<tr><td>achievement gap</td><td>n. 成就差距/学业表现差距（通常指不同种族/阶层/性别群体之间的成绩差异）。美国教育政策核心术语</td></tr>
+<tr><td>social class</td><td>n. 社会阶层。class structure 阶级结构；class mobility 阶层流动。文中指基于家庭背景的社会分层</td></tr>
+<tr><td>forthcoming</td><td>adj. 即将发表的/即将到来的。forthcoming publication 即将出版的刊物；forthcoming election 即将到来的选举</td></tr>
+<tr><td>depressing</td><td>adj. 令人沮丧的/压抑的。depress v. 使沮丧；depression n. 抑郁/萧条</td></tr>
+<tr><td>optimistic</td><td>adj. 乐观的。反义 pessimistic 悲观的；optimism n. 乐观主义</td></tr>
+<tr><td>outline</td><td>v. 概述/勾勒/列出纲要。outline a plan / outline a solution 提出计划大纲/勾勒解决方案</td></tr>
+<tr><td>next-to-no-cost</td><td>复合形容词 几乎零成本。类似表达：cost-free / virtually free / low-cost。next to = 几乎/差不多</td></tr>
+<tr><td>private (university)</td><td>adj. 私立的（大学）。public university 公立大学。美国高等教育双轨制</td></tr>
+<tr><td>define ... as ...</td><td>固定搭配 将……定义为……。definition n. 定义；definite adj. 明确的</td></tr>
+<tr><td>four-year college degree</td><td>四年制大学学位（即本科学士学位 bachelor's degree）。美国标准高等教育学历</td></tr>
+<tr><td>recipient</td><td>n. 接受者/受领者。receive v. 接收；reception n. 接待/ receptionist n. 接待员。文中指奖学金/助学金领取者</td></tr>
+<tr><td>Pell Grant</td><td>n. 佩尔助学金（专有名词）。美国最大联邦本科生资助项目（1972年设立），以经济需求为唯一标准，无需偿还。考研阅读常见背景知识</td></tr>
+<tr><td>federal grant</td><td>n. 联邦补助金/拨款。grant n. 补助/拨款（无需偿还的资助，区别于 loan 贷款）</td></tr>
+<tr><td>financial need</td><td>n. 经济需求/财务困难（用于判定是否符合资助资格的标准）。need-based aid 按需资助</td></tr>
+<tr><td>thesis</td><td>n. 论点/命题（本文用法）；也指学位论文（硕士 thesis / 博士 dissertation）。文中指研究的核心主张</td></tr>
+<tr><td>intervention</td><td>n. 干预/介入。intervene v. 干预。教育研究术语——人为设计的改进措施/实验处理</td></tr>
+<tr><td>modest</td><td>adj. 适度的/温和的/谦虚的。a modest proposal 适度建议；live modestly 生活简朴</td></tr>
+<tr><td>potential</td><td>n. 潜力/潜能。have potential 有潜力；reach one's potential 发挥潜能。adj. 潜在的/可能的</td></tr>
+<tr><td>practical knowledge</td><td>n. 实用知识/实践性知识（vs. theoretical knowledge 理论知识）。文中指大学生存技能（选课、找资源、社交等）</td></tr>
+<tr><td>cite</td><td>v. 引用/援引（文献/研究）。citation n. 引用；bibliography n. 参考文献</td></tr>
+<tr><td>narrow</td><td>v. 缩小/变窄。narrow the gap 缩小差距。adj. 狭窄的/狭隘的。近义：reduce / shrink / bridge</td></tr>
+<tr><td>navigate</td><td>v. 导航/穿越；引申为：在复杂环境中找到方向、成功穿行。navigate the system 应对/驾驭某个系统</td></tr>
+<tr><td>middle-class culture</td><td>n. 中产阶级文化/中层阶级文化。暗含美国高等教育体系隐性的文化偏向——为中产以上家庭设计</td></tr>
+<tr><td>rules of the game</td><td>n. 游戏规则/潜规则。指某一体系内不成文但人人默认的行为准则和操作方式</td></tr>
+<tr><td>take advantage of</td><td>固定短语 充分利用/好好利用。近义：make use of / capitalize on / leverage</td></tr>
+<tr><td>advantage / disadvantage</td><td>n. 优势 / 劣势。class advantages and disadvantages 阶层优势与劣势</td></tr>
+<tr><td>seldom</td><td>adv. 很少/难得（比 rarely 更正式）。seldom if ever 极少/几乎从不</td></tr>
+<tr><td>acknowledge</td><td>v. 承认/确认/致谢。acknowledgement n. 确认/感谢（论文致谢部分）</td></tr>
+<tr><td>educational experience</td><td>n. 受教育经历/体验。experience 在此不可数 = 经历过程（不是"经验"那种可数的）</td></tr>
+<tr><td>insight</td><td>n. 洞察/深刻理解。gain insight into 对……获得深入认识；lack insight 缺乏洞察力</td></tr>
+</table>
+</div>
+</div>
+
+<!-- 熟词生义 -->
+<div class="card" style="animation-delay:.51s">
+<h2>🔍 熟词生义<span class="toggle" onclick="toggleBody('familiar')">收起</span></h2>
+<div class="collapsible-body" id="familiar">
+<table class="voc-table">
+<tr><th>单词</th><th>熟义 → 本文生义</th></tr>
+<tr><td><b>advance</b></td><td>熟义：前进/提前 → 本文：<b>（经济地位）上升/提升</b>（advance economically = 经济跃升）</td></tr>
+<tr><td><b>push</b></td><td>熟义：推/按压 → 本文：<b>大力推进/积极争取</b>（push for decades = 数十年持续努力推进某事）</td></tr>
+<tr><td><b>reproduce</b></td><td>熟义：繁殖/复印 → 本文：<b>再生产/复制（社会不平等）</b>（reproduce an achievement gap = 让成就差距一代代传下去）</td></tr>
+<tr><td><b>close</b></td><td>熟义：关闭/靠近 → 本文：<b>缩小/弥合（差距）</b>（close the gap ≠ shut the gap）</td></tr>
+<tr><td><b>approach</b></td><td>熟义：靠近/方法 → 本文：<b>干预方案/处理方式</b>（an approach which involves... 一种包含……的方法）</td></tr>
+<tr><td><b>struggle</b></td><td>熟义：斗争/挣扎（不及物）→ 本文：<b>费力尝试/艰难应对</b>（struggle to navigate = 吃力地在……中找方向）</td></tr>
+<tr><td><b>navigate</b></td><td>熟义：（航海/驾驶时）导航 → 本文：<b>在复杂系统中找到方向/顺利穿行</b>（navigate the culture = 适应某种文化环境）</td></tr>
+<tr><td><b>game</b></td><td>熟义：游戏/比赛 → 本文：<b>（隐性）规则/机制</b>（rules of the game = 游戏规则/潜规则）</td></tr>
+</table>
+</div>
+</div>
+
+<!-- 重点短语搭配 -->
+<div class="card" style="animation-delay:.54s">
+<h2>🔗 重点短语搭配<span class="toggle" onclick="toggleBody('phrases')">收起</span></h2>
+<div class="collapsible-body" id="phrases">
+<table class="voc-table">
+<tr><th>短语</th><th>释义 & 例句</th></tr>
+<tr><td><b>lag (behind)</b></td><td>落后于<br>例：The company lags behind its competitors in innovation.（这家公司在创新方面落后于竞争对手。）</td></tr>
+<tr><td><b>push for sth.</b></td><td>大力争取/积极推进某事<br>例：The union has been pushing for better working conditions.（工会一直在争取更好的工作条件。）</td></tr>
+<tr><td><b>create a paradox</b></td><td>制造/形成一个悖论<br>例：The policy creates a paradox where helping some hurts others.（这项政策形成了一个帮助一些人却伤害其他人的悖论。）</td></tr>
+<tr><td><b>rather than</b></td><td>而不是（表选择/对比，连接两个并列成分）<br>例：We should focus on prevention rather than cure.（我们应该关注预防而非治疗。）</td></tr>
+<tr><td><b>base on / be based on</b></td><td>以……为基础/建立在……基础上<br>例：The findings were based on data from over 500 participants.（研究结果基于 500 多名参与者的数据。）</td></tr>
+<tr><td><b>involve doing sth.</b></td><td>涉及/包含做某事<br>例：The job involves traveling frequently.（这份工作需要经常出差。）</td></tr>
+<tr><td><b>be defined as</b></td><td>被定义为……<br例：Success is often defined as wealth and status.（成功常被定义为财富和地位。）</td></tr>
+<tr><td><b>be a recipient of</b></td><td>是……的接受者/受领者<br>例：She is a recipient of the Nobel Peace Prize.（她是诺贝尔和平奖得主。）</td></tr>
+<tr><td><b>not A but B</b></td><td>不是A而是B（否定前者肯定后者）<br>例：The issue is not money but time.（问题不是钱而是时间。）</td></tr>
+<tr><td><b>cite ... to show ...</b></td><td>引用……来证明/展示……<br>例：The author cites multiple studies to show the effectiveness of the method.（作者引用多项研究来证明该方法的有效性。）</td></tr>
+<tr><td><b>struggle to do sth.</b></td><td>费力做某事/艰难地尝试做<br>例：Many immigrants struggle to adapt to a new culture.（许多移民艰难地适应新文化。）</td></tr>
+<tr><td><b>take advantage of</b></td><td>充分利用/好好利用<br>例：You should take advantage of every learning opportunity.（你应该充分利用每一个学习机会。）</td></tr>
+<tr><td><b>lack insight into/about</b></td><td>缺乏对……的洞察/认识<br>例：We still lack insight into the root causes of the problem.（我们仍然缺乏对问题根本原因的认识。）</td></tr>
+</table>
+</div>
+</div>
+
+<!-- 背诵句型 -->
+<div class="card" style="animation-delay:.57s">
+<h2>✨ 值得背诵的句型<span class="toggle" onclick="toggleBody('patterns')">收起</span></h2>
+<div class="collapsible-body" id="patterns">
+<div class="p-item"><b>1. This has created "a paradox" in that ... 制造悖论句型（S04）</b><br>原文："This has created 'a paradox' in that recruiting first-generation students, but then watching many of them fail, means that ..."<br>模板：<i>This has created "a paradox" in that [做法A], but then [相反结果B], means that [深层矛盾C].</i><br>用途：揭示表面合理的行为背后隐藏的自相矛盾或负面后果</div>
+<div class="p-item"><b>2. ... continued to reproduce and widen, rather than close ... 再生产与扩大的递进（S04）</b><br>原文："higher education has 'continued to reproduce and widen, rather than close' an achievement gap"<br>模板：<i>[主体] has continued to [动词1] and [动词2], rather than [反向动词3] [宾语].</i><br>用途：强调问题不仅未被解决反而恶化了，三个动词形成递进冲击力</div>
+<div class="p-item"><b>3. may be most lacking not in A but in B 不是缺A而是缺B（S09）</b><br>原文："first-generation students may be most lacking not in potential but in practical knowledge"<br>模板：<i>[对象] may be most lacking not in [表面缺失A] but in [真正缺失B].</i><br>用途：纠正大众误区——问题的本质往往不是人们以为的那个</div>
+<div class="p-item"><b>4. Because ..., many ... lack insight about ... and do not understand ... 因果链式困境（S13）</b><br>原文："Because U.S. colleges seldom acknowledge how ..., many first-generation students lack insight about why they are struggling and do not understand how ..."<br>模板：<i>Because [系统/机构] seldom [承认/面对][事实], many [弱势群体] lack insight about [自身困境] and do not understand how [出路].</i><br>用途：揭示结构性问题如何导致个体层面的双重困惑（不知因 + 不知果）</div>
+<div class="p-item"><b>5. This becomes more of a problem when ... 问题加剧条件（S12）</b><br>原文："And this becomes more of a problem when colleges don't talk about ..."<br>模板：<i>This becomes more of a problem when [条件/情境].</i><br>用途：引入使既有问题更加严重的附加因素，层层递进分析问题成因</div>
+</div>
+</div>
+
+<!-- 题目速查 -->
+<div class="card" style="animation-delay:.6s">
+<h2>📝 题目速查<span class="toggle" onclick="toggleBody('questions')">收起</span></h2>
+<div class="collapsible-body" id="questions">
+
+<div class="er">
+<div class="qhead"><span class="qnum">26</span><span class="qtext">Recruiting more first-generation students has _____.</span></div>
+<div class="opts">
+<span class="opt no">[A] reduced their dropout rates</span>
+<span class="opt no">[B] narrowed the achievement gap</span>
+<span class="opt ok">[C] missed its original purpose ✓</span>
+<span class="opt no">[D] depressed college students</span>
+</div>
+<div class="ua">标准答案：C</div>
+<div class="analysis">
+<p>🔍 <b>定位</b>：P1（S03-S04）。S03 说高校招录第一代学生的初衷是让他们"advance economically if they succeed in higher education"（通过高等教育实现经济跃升）。</p>
+<p>S04 紧接着指出这制造了一个 paradox——招来了但大批失败，结果是"continued to reproduce and widen, rather than close" the achievement gap。</p>
+<p>✅ <b>C 正确推理</b>：高校招录第一代学生的**原始目的**（original purpose）是通过高等教育帮助他们实现阶层跃升、缩小差距。但实际情况却是——招来了但大批失败，差距反而更大了——也就是说这个招录策略**偏离了/未能实现其初衷**。missed its original purpose 准确概括了这个悖论的本质。</p>
+<p>❌ <b>A 错误</b>：reduced their dropout rates（降低了辍学率）——S02 明确说他们的 dropout rates are **higher**（更高），A 与原文方向完全相反。</p>
+<p>❌ <b>B 错误</b>narrowed the achievement gap（缩小了成就差距）——S04 明确说"continued to reproduce and **widen**, rather than **close**" the achievement gap，B 恰好说反了。</p>
+<p>❌ <b>D 错误</b>depressed college students（让大学生抑郁）——原文 depressing 形容的是论文的开篇令人沮丧（depressing beginning），不是说学生被弄抑郁了。D 属于偷换概念。</p>
+</div>
+</div>
+
+<div class="er">
+<div class="qhead"><span class="qnum">27</span><span class="qtext">The authors of the research article are optimistic because _____.</span></div>
+<div class="opts">
+<span class="opt ok">[A] the problem is solvable ✓</span>
+<span class="opt no">[B] their approach is costless</span>
+<span class="opt no">[C] the recruiting rate has increased</span>
+<span class="opt no">[D] their findings appeal to students</span>
+</div>
+<div class="ua">标准答案：A</div>
+<div class="analysis">
+<p>🔍 <b>定位</b>：P2（S05）"But the article is actually quite optimistic, as it outlines a potential solution to this problem..."</p>
+<p>✅ <b>A 正确推理</b>：文章之所以"quite optimistic"，正是因为它**找到了一个可行的解决方案**（outlines a potential solution）——一种只需一小时且几乎零成本的干预方式就能缩小 63% 的成就差距。这意味着问题是**可解决的**（solvable），这就是乐观的根本原因。</p>
+<p>❌ <b>B 错误</b>：their approach is costless（方法是免费的）——原文说的是"next-to-no-cost"（几乎零成本），不是完全没有成本。而且即使免费也不是乐观的根本原因——乐观是因为问题**有解**。</p>
+<p>❌ <b>C 错误</b>：the recruiting rate has increased（招生率提高了）——原文讨论的是招录之后学生失败的悖论，并未提到招生率变化。C 无中生有。</p>
+<p>❌ <b>D 错误</b>：their findings appeal to students（发现对学生有吸引力）——文章是写给学术界和政策制定者的，appeal to students 不是作者乐观的理由。D 无关。</p>
+</div>
+</div>
+
+<div class="er">
+<div class="qhead"><span class="qnum">28</span><span class="qtext">The study suggests that most first-generation students _____.</span></div>
+<div class="opts">
+<span class="opt no">[A] study at private universities</span>
+<span class="opt no">[B] are from single-parent families</span>
+<span class="opt ok">[C] are in need of financial support ✓</span>
+<span class="opt no">[D] have failed their college</span>
+</div>
+<div class="ua">标准答案：C</div>
+<div class="analysis">
+<p>🔍 <b>定位</b>：P3（S08）"Most of the first-generation students (59.1 percent) were recipients of Pell Grants, a federal grant for undergraduates with **financial need**..."</p>
+<p>✅ <b>C 正确推理</b>：Pell Grants 是专门面向**有经济需求的本科生**的联邦助学金（with financial need）。59.1% 的第一代学生都领取了这项助学金——这说明绝大多数第一代大学生确实**需要经济援助**（are in need of financial support）。而对比组（至少一名父母有大学学位的学生）只有 8.6% 领取，数据对比非常鲜明。</p>
+<p>❌ <b>A 错误</b>：study at private universities（在私立大学就读）——这项研究是在一所 unnamed private university 做的，但样本不代表所有第一代学生都在私立大学就读。A 以偏概全。</p>
+<p>❌ <b>B 错误</b>：are from single-parent families（来自单亲家庭）——原文从未提及父母的婚姻状态（single-parent vs two-parent）。第一代的定义是"父母没有大学学位"，与是否单亲无关。B 无中生有。</p>
+<p>❌ <b>D 错误</b>：have failed their college（大学失败了）——原文 S02 说 dropout rates are higher（辍学率更高）、S04 说 many of them fail（许多人失败），但 D 用现在完成时"have failed"暗示全部/普遍失败，过于绝对。而且 C 有明确数据支撑，D 没有。</p>
+</div>
+</div>
+
+<div class="er">
+<div class="qhead"><span class="qnum">29</span><span class="qtext">The authors of the paper believe that first-generation students _____.</span></div>
+<div class="opts">
+<span class="opt no">[A] are actually indifferent to the achievement gap</span>
+<span class="opt no">[B] can have a potential influence on other students</span>
+<span class="opt no">[C] may lack opportunities to apply for research projects</span>
+<span class="opt ok">[D] are inexperienced in handling their issues at college ✓</span>
+</div>
+<div class="ua">标准答案：D</div>
+<div class="analysis">
+<p>🔍 <b>定位</b>：P4（S09）"their thesis—that a relatively modest intervention could have a big impact—was based on the view that first-generation students may be most lacking not in potential but in **practical knowledge about how to deal with the issues** that face most college students."</p>
+<p>以及 P5（S11）"Many first-generation students '**struggle to** navigate the middle-class culture...learn the 'rules of the game,' and take advantage of college resources."</p>
+<p>✅ <b>D 正确推理</b>：inexperienced in handling their issues at college（在处理大学中的问题时缺乏经验）准确概括了两段的核心观点：</p>
+<p>- S09：缺的不是潜力（potential）而是**实用知识**（practical knowledge about how to deal with issues）</p>
+<p>- S11：struggle to navigate / learn rules / take advantage resources —— 三者都指向**缺乏处理大学生活的实践经验/能力**</p>
+<p>"inexperienced" = 没经验的/不熟练的，正好对应 lacking practical knowledge 和 struggle to deal with。</p>
+<p>❌ <b>A 错误</b>：are actually indifferent to（实际上不在乎/漠不关心）——全文都在关心第一代学生的困境并试图解决，A 与文章立场完全相反。</p>
+<p>❌ <b>B 错误</b>：can have a potential influence on other students（可能对其他学生产生潜在影响）——原文说的是干预措施（intervention）对学生产生影响，不是学生对学生的影响。B 偷换主体。</p>
+<p>❌ <b>C 错误</b>：may lack opportunities to apply for research projects（可能缺乏申请研究项目的机会）——原文从未提及 research projects（研究项目）。C 无中生有。</p>
+</div>
+</div>
+
+<div class="er">
+<div class="qhead"><span class="qnum">30</span><span class="qtext">We may infer from the last paragraph that _____.</span></div>
+<div class="opts">
+<span class="opt no">[A] universities often reject the culture of the middle-class</span>
+<span class="opt no">[B] students are usually to blame for their lack of resources</span>
+<span class="opt no">[C] social class greatly helps enrich educational experiences</span>
+<span class="opt ok">[D] colleges are partly responsible for the problem in question ✓</span>
+</div>
+<div class="ua">标准答案：D</div>
+<div class="analysis">
+<p>🔍 <b>定位</b>：P5 最后一段三句话的逻辑链条：</p>
+<p>① S11：第一代学生 struggle to navigate middle-class culture（难以适应中产文化）</p>
+<p>② S12：this becomes more of a problem when **colleges don't talk about** class advantages/disadvantages（当高校不讨论阶层议题时问题更严重）</p>
+<p>③ S13：**Because U.S. colleges seldom acknowledge** how social class affects experience → students lack insight（因为学校很少承认阶层影响→学生缺乏认识）</p>
+<p>✅ <b>D 正确推理</b>：colleges are partly responsible for the problem（高校对这一问题负有一定责任）——最后一段反复将矛头指向高校的不作为：</p>
+<p>- 学校**不讨论**（don't talk about）不同群体的阶层优劣势</p>
+<p>- 学校**很少承认**（seldom acknowledge）社会阶层对教育体验的影响</p>
+<p>- 正是因为学校的这种回避/沉默，才导致学生"不知道自己为何挣扎、也不知道如何改善"。因此高校至少负有**部分责任**（partly responsible）。</p>
+<p>❌ <b>A 错误</b>：universities often reject the culture of the middle-class（高校经常排斥中产阶级文化）——原文说的是第一代学生难以**适应**（navigate）中产文化，不是说高校排斥它。恰恰相反，高校本身就是中产文化的载体。A 方向反了。</p>
+<p>❌ <b>B 错误</b>：students are usually to blame for their lack of resources（学生应为他们缺乏资源负责）——原文将责任指向学校的沉默和不作为（seldom acknowledge / don't talk about），而不是怪学生。B 与原文责任归属相反。</p>
+<p>❌ <b>C 错误</b>：social class greatly helps enrich educational experiences（社会阶层极大地丰富了教育经历）——原文说社会阶层**影响**（affect）教育体验，而且是负面影响（造成不公平），不是"丰富"。C 把负面影响美化成正面效果。</p>
+</div>
+</div>
+
+</div><!-- /questions -->
+</div><!-- /.card -->
+</div><!-- /.bottom -->
+
+</div><!-- /.container -->
+
+<script>
+function toggleBody(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  var toggle=el.parentElement.querySelector('.toggle');
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    if(toggle)toggle.textContent='收起';
+  }else{
+    el.classList.add('hidden');
+    if(toggle)toggle.textContent='展开';
+  }
+}
+</script>
+</body>
+</html>
