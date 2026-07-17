@@ -420,34 +420,56 @@ body {
 .year-card.active { z-index: 15; }
 .year-card:not(.pos-center):hover { filter: brightness(.98); opacity: .8; }
 
-/* 导航箭头 */
+/* 导航箭头 —— 玻璃质感圆角胶囊 */
 .carousel-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px; height: 44px;
+  width: 46px; height: 46px;
   border-radius: 50%;
-  border: 1.5px solid var(--glass-border);
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1.5px solid rgba(255,255,255,.5);
+  background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.6));
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
   color: var(--text-sub);
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   z-index: 20;
-  transition: all var(--transition);
-  box-shadow: var(--shadow-md);
+  transition: all .35s cubic-bezier(.22,1,.36,1);
+  box-shadow:
+    0 4px 18px rgba(80,60,40,.14),
+    0 1px 4px rgba(80,60,40,.08),
+    inset 0 1px 0 rgba(255,255,255,.7);
+  overflow: hidden;
+}
+.carousel-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%, transparent 50%);
+  pointer-events: none;
 }
 .carousel-nav:hover {
-  background: var(--bg-glass-hover);
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(255,255,255,.75));
   color: var(--text);
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow:
+    0 8px 32px rgba(80,60,40,.22),
+    0 2px 10px rgba(80,60,40,.14),
+    inset 0 1px 0 rgba(255,255,255,.8);
+  border-color: rgba(255,255,255,.7);
 }
-.carousel-nav:active { transform: translateY(-50%) scale(.95); }
-.carousel-nav.prev { left: -8px; }
-.carousel-nav.next { right: -8px; }
+.carousel-nav:active {
+  transform: translateY(-50%) scale(.92);
+  transition-duration: .1s;
+  box-shadow: 0 2px 8px rgba(80,60,40,.12);
+}
+.carousel-nav.prev { left: -6px; }
+.carousel-nav.next { right: -6px; }
 
 /* 轮播指示点 */
 .carousel-dots {
@@ -606,7 +628,8 @@ body {
   .bg-orb-1{width:160px;height:160px}.bg-orb-2{width:130px;height:130px}.bg-orb-3{width:100px;height:100px}.bg-orb-4{width:80px;height:80px}
 
   /* 内容区垂直居中 */
-  .content-view.showing { min-height: calc(100vh - 60px); justify-content: flex-start; gap: 0; }
+  /* 内容区垂直居中，整体下移 */
+  .content-view.showing { min-height: calc(100vh - 60px); justify-content: center; gap: 0; padding-top: 20px; padding-bottom: 20px; }
 
   .cover-view { min-height: calc(100vh - 70px); padding: 20px 12px; }
   .book-3d-container { perspective: 800px; }
@@ -817,9 +840,24 @@ body {
   const contentView = document.getElementById('contentView');
   let isOpen = false;
 
+  // 检查是否是从文章页返回（后退导航），自动恢复轮播视图
+  try {
+    const navEntries = performance.getEntriesByType('navigation');
+    const isBackForward = navEntries.length > 0 && navEntries[0].type === 'back_forward';
+    if (isBackForward && sessionStorage.getItem('view') === 'carousel') {
+      isOpen = true;
+      coverView.style.display = 'none';
+      coverView.classList.remove('hiding');
+      contentView.classList.add('showing');
+      document.getElementById('mainFooter').classList.add('visible');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  } catch(e) { /* 浏览器不支持 Performance API 时忽略 */ }
+
   function openBook() {
     if (isOpen) return;
     isOpen = true;
+    sessionStorage.setItem('view', 'carousel'); // 记住已翻开
     coverView.classList.add('hiding');
     setTimeout(() => {
       coverView.style.display = 'none';
@@ -835,6 +873,7 @@ body {
   function closeBook() {
     if (!isOpen) return;
     isOpen = false;
+    sessionStorage.setItem('view', 'cover'); // 记住已关闭
     contentView.classList.remove('showing');
     document.getElementById('mainFooter').classList.remove('visible');
     setTimeout(() => {
@@ -846,7 +885,7 @@ body {
 
   window.openBook = openBook;
   window.closeBook = closeBook;
-  if (location.hash === '#open') openBook();
+  if (location.hash === '#open' && !isOpen) openBook();
 
   /* ====== 🎴 3D 轮播逻辑 ====== */
   const cards = document.querySelectorAll('.year-card');
@@ -1032,9 +1071,9 @@ body {
   apList.addEventListener('click', e => {
     const link = e.target.closest('.ap-item[href]');
     if (link) {
-      // 直接跳转（也可以加翻书过渡）
-      // 这里用简单的淡出效果
+      e.preventDefault(); // 阻止 <a> 默认导航，避免重复历史记录
       closeArticles();
+      sessionStorage.setItem('view', 'carousel'); // 记住当前在轮播视图
       setTimeout(() => { window.location.href = link.href; }, 300);
     }
   });
