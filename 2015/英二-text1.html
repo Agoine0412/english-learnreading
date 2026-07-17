@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2015 考研英语（二）Text 1 — 家比工作更有压力</title>
 <style>
-/* ====== 🌊 青碧宁静主题（Teal & Sage）—— 家/压力篇专属配色 ====== */
+/* ====== 🌊 青碧宁静主题（Teal & Sage）—— 家/压力/心理健康篇 ====== */
 :root {
   --bg: #f0f4f8;
   --card: #ffffff;
   --text: #1a2a3a;
   --text-soft: #4a5568;
   --text-muted: #718096;
-  /* 主色系：青碧 + 鼠尾草绿 + 柔和蓝 */
+  /* 主色系：青碧 + 柔和蓝 + 鼠尾草绿 */
   --accent: #2a9d8f;
   --accent-light: #e8f5f2;
-  --green: #606c38;
-  --green-light: #f4f7ed;
   --blue: #457b9d;
   --blue-light: #eef4f8;
-  --gold: #e76f51;          /* 琥珀金，用于强调 */
+  --green: #606c38;
+  --green-light: #f4f7ed;
+  --gold: #e76f51;
   --gold-light: #fef0ec;
   --panel-bg: #f6fafb;
   --panel-border: #d1e3e8;
@@ -74,12 +74,12 @@ body {
 .sub { color:var(--text-muted); font-size:.92em; margin-top:8px; }
 .badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
 .badge {
-  display:inline-block; padding:3px 11px; border-radius:20px; font-size:.78em; font-weight:600;
-  transition:all var(--transition); cursor:default;
+  display:inline-block; padding:4px 12px; border-radius:20px; font-size:.76em; font-weight:600;
+  letter-spacing:.3px; transition:all var(--transition); cursor:default;
 }
 .badge-teal{background:var(--accent-light);color:var(--accent);}
-.badge-green{background:var(--green-light);color:var(--green);}
 .badge-blue{background:var(--blue-light);color:var(--blue);}
+.badge-green{background:var(--green-light);color:var(--green);}
 .badge-gold{background:var(--gold-light);color:var(--gold);}
 .badge:hover{ transform:translateY(-2px); box-shadow:0 3px 10px rgba(0,0,0,.08); }
 
@@ -97,46 +97,45 @@ body {
 
 /* ====== 句子卡片（上下单栏）===== */
 .sent {
-  background:var(--card); border-radius:var(--radius); padding:22px 24px;
-  box-shadow:var(--shadow); margin-bottom:16px;
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
   transition:box-shadow var(--transition),transform var(--transition);
-  animation:fadeUp .48s ease both;
+  animation:fadeUp .45s ease both; position:relative;
 }
 .sent:hover{ box-shadow:var(--shadow-hover); transform:translateY(-1px); }
 
 .snum {
-  display:inline-block; background:linear-gradient(135deg,var(--accent),var(--blue));
-  color:#fff; font-size:.68em; font-weight:700; padding:2px 9px; border-radius:12px;
-  vertical-align:middle; margin-right:8px; font-family:var(--font-sans);
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--blue));
+  color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle;
+  font-family:var(--font-sans);
 }
 .en {
   font-family:var(--font); font-size:1.04em; color:var(--text); line-height:1.82;
-  word-wrap:break-word; vertical-align:middle;
+  word-wrap:break-word; vertical-align:middle; margin:6px 0 2px;
 }
-mark {
+.en mark {
   background:linear-gradient(180deg,#c7f0e8 40%,#a8ddd0 100%);
-  border-radius:3px; padding:1px 3px; color:inherit;
-  transition:background .2s;
+  color:inherit; border-radius:3px; padding:1px 3px; font-weight:600;
 }
-mark:hover{ background:linear-gradient(180deg,#a8ddd0 40%,#89ccb8 100%); }
-u {
+.en u {
   text-decoration:none; border-bottom:2px dashed var(--gold);
   transition:border-color .2s;
 }
-u:hover{ border-color:#d35a3e; }
+.en u:hover{ border-color:#d35a3e; }
 
 .sent-hr {
-  border:none; height:1px;
-  background:linear-gradient(90deg,var(--border),var(--accent),transparent);
-  margin:14px 0; opacity:.6;
+  border:none; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:.5;
 }
 .tl {
   display:inline-block; font-size:.74em; color:var(--accent); font-weight:700;
   margin-bottom:4px; font-family:var(--font-sans); letter-spacing:.5px;
 }
-.zh { font-size:.94em; color:var(--text-soft); line-height:1.72; margin-bottom:8px; }
+.cn { font-size:.94em; color:var(--text-soft); line-height:1.7; padding-left:6px; }
 
-/* ====== 🔥 逐句语法解析折叠按钮（与卡片按钮同风格，小一号） ====== */
+/* ====== 🔥 逐句语法解析折叠按钮 ====== */
 .syntax-toggle{
   font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
   background:var(--gold-light); color:var(--gold);
@@ -146,37 +145,34 @@ u:hover{ border-color:#d35a3e; }
 }
 .syntax-toggle:hover{background:var(--gold); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(231,111,81,.28);}
 .syntax-toggle:active{transform:translateY(0); box-shadow:none;}
-/* 折叠状态用青碧(主色)区分 */
+/* 折叠状态用青碧区分 */
 .syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
 .syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
 
 .syntax{
   margin-top:8px; padding:10px 14px; border-radius:8px;
-  background:var(--panel-bg); border-left:3px solid var(--accent);
-  font-size:.86em; color:var(--text-soft); line-height:1.65;
+  background:#fefcf8; border-left:3px solid var(--amber, #b8860b);
+  font-size:.86em; color:#6b6048; line-height:1.65;
   overflow:hidden; max-height:2000px;
   transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
 }
 .syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
-.syntax .row{display:flex; gap:8px; margin-bottom:4px; flex-wrap:wrap;}
-.syntax b{color:var(--accent);white-space:nowrap;}
-.syntax .slabel{font-weight:700;color:var(--gold);font-size:1em;margin-bottom:6px;}
+.syntax b{color:var(--gold, #b8860b);white-space:nowrap;}
+.syntax .slabel{font-weight:700;color:var(--rust, #a0522d);font-size:1em;margin-bottom:6px;}
 
 /* ====== 底部汇总区 ====== */
-.bottom{margin-top:24px;}
 .card{
-  background:var(--card); border-radius:var(--radius); padding:24px 26px;
-  box-shadow:var(--shadow); margin-bottom:18px;
-  transition:box-shadow var(--transition);
-  animation:fadeUp .5s ease both;
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease both;
 }
 .card:hover{box-shadow:var(--shadow-hover);}
-
 .card h2{
-  font-size:1.08em; color:var(--text); margin-bottom:12px;
+  font-size:1.08em; color:var(--text); margin-bottom:14px;
   display:flex; align-items:center; justify-content:space-between;
   font-family: var(--font-sans);
 }
+
+/* ====== 🔥 升级版卡片折叠按钮（醒目 + 图标） ====== */
 .card h2 .toggle{
   font-size:.78em !important;
   cursor:pointer; color:#fff !important; font-weight:700 !important;
@@ -195,7 +191,7 @@ u:hover{ border-color:#d35a3e; }
 .card h2 .toggle.collapsed:hover{ background:var(--blue) !important; }
 
 .collapsible-body{ overflow:hidden; transition:max-height .38s ease,opacity .35s ease; }
-.collapsible-body.hidden{max-height:0!important; opacity:0; margin:0; padding:0;}
+.collapsible-body.hidden{max-height:0!important; opacity:0; margin:0; padding:0; }
 
 .item{padding:7px 0;border-bottom:1px dashed var(--border);font-size:.91em;color:var(--text-soft);}
 .item:last-child{border:none;}
@@ -255,7 +251,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* ====== 打印样式 ====== */
+/* ====== 打印/PDF 样式 ====== */
 @media print{
   body{padding:0;background:#fff;}
   .sent,.card,.header{box-shadow:none;break-inside:avoid;}
@@ -286,252 +282,265 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
   </div>
 </div>
 
-<div class="notice">💡 点击各板块标题旁「收起」可折叠内容 · 生词已用 <mark>高亮</mark> 标注 · 长难句带 ⭐ 标记</div>
+<div class="notice">💡 点击各板块标题旁「收起」可折叠内容 · 生词已用 <mark>高亮</mark> 标注 · 每句语法解析可独立展开收起</div>
 
 <!-- ====== Paragraph 1 ====== -->
 <div class="divider"></div>
 
 <div class="sent" style="animation-delay:.06s">
-  <span class="snum">S01</span><span class="en">A new study <u>suggests</u> that contrary to most surveys, people are actually more <mark>stressed</mark> at home than at work.</span>
+  <span class="snum">S01</span><div class="en">A new study <u>suggests</u> that contrary to most surveys, people are actually more <mark>stressed</mark> at home than at work.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">一项新研究表明，与大多数调查相反，人们在家时实际上比在工作中承受更大的压力。</div>
+  <div class="cn">一项新研究表明，与大多数调查相反，人们在家时实际上比在工作中承受更大的压力。</div>
   <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
-  <div class="syntax" id="s1"><div class="slabel">📍 长难句拆解</div><div class="row"><b>主干</b>A new study suggests that ... people are more stressed at home than at work.</div>
-      <div class="row"><b>that 从句</b>suggests 的宾语从句，陈述研究发现的结论</div>
-      <div class="row"><b>contrary to</b>介词短语作状语，「与…相反」</div>
-      <div class="row"><b>most surveys</b>大多数调查/普遍认知（暗示这项研究是反直觉的）</div></div>
+  <div class="syntax" id="s1"><div class="slabel">🔍 长难句拆解</div><div><b>主干</b>A new study suggests that ... people are more stressed at home than at work.</div>
+      <div><b>that 从句</b>suggests 的宾语从句，陈述研究发现的结论</div>
+      <div><b>contrary to</b>介词短语作状语，「与…相反」——暗示这项研究是反直觉的</div>
+      <div><b>most surveys</b>大多数调查/普遍认知（新发现与大众认知相反，制造悬念）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.09s">
-  <span class="snum">S02</span><span class="en"><u>Researchers measured</u> people's <u>cortisol</u>, which is a stress marker, while they were at work and while they were at home and found it higher at what they were supposed to be a place of refuge.</span>
+  <span class="snum">S02</span><div class="en"><u>Researchers measured</u> people's <u>cortisol</u>, which is a stress marker, while they were at work and while they were at home and found it higher at what they were supposed to be a place of refuge.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">研究人员测量了人们的皮质醇（一种压力标记物），分别在他们工作和在家的时候进行测量，发现在这个本应是避风港的地方皮质醇水平反而更高。</div>
+  <div class="cn">研究人员测量了人们的皮质醇（一种压力标记物），分别在他们工作和在家的时候进行测量，发现在这个本应是避风港的地方皮质醇水平反而更高。</div>
   <button class="syntax-toggle" id="btn-s2" onclick="toggleSyntax('s2')">▲ 收起解析</button>
-  <div class="syntax" id="s2"><div class="slabel">📍 长难句拆解</div><div class="row"><b>主句</b>Researchers measured ... and found it higher ...</div>
-      <div class="row"><b>which is a stress marker</b>非限制性定语从句修饰 cortisol，补充说明皮质醇是什么</div>
-      <div class="row"><b>while ... while ...</b>两个并列的时间状语从句，说明测量的两个场景</div>
-      <div class="row"><b>what they were supposed to be a place of refuge</b>名词性从句，found 后宾语补足语中的比较对象；refuge = 避难所/避风港</div>
-      <div class="row"><b>it higher 中的 it</b>指代 cortisol 水平（省略了 was）</div></div>
+  <div class="syntax" id="s2"><div class="slabel">🔍 长难句拆解</div><div><b>主句</b>Researchers measured ... and found it higher ...（两个并列谓语）</div>
+      <div><b>which is a stress marker</b>非限制性定语从句修饰 cortisol，补充说明皮质醇是什么</div>
+      <div><b>while ... while ...</b>两个并列的时间状语从句，说明测量的两个场景（工作 vs 在家）</div>
+      <div><b>what they were supposed to be a place of refuge</b>名词性从句作介词 at 的宾语；refuge = 避难所/避风港（暗含讽刺：家本应是避风港却压力更高）</div>
+      <div><b>it higher 中的 it</b>指代 cortisol（皮质醇）水平（省略了 was）</div></div>
 </div>
 
 <!-- ====== Paragraph 2 ====== -->
 <div class="divider"></div>
 
 <div class="sent" style="animation-delay:.12s">
-  <span class="snum">S03</span><span class="en">"<u>Further contradicting</u> conventional wisdom, we found that women as well as men have lower levels of stress at work than at home," writes one of the researchers, Sarah Damaske.</span>
+  <span class="snum">S03</span><div class="en">"<u>Further contradicting</u> conventional wisdom, we found that women as well as men have lower levels of stress at work than at home," writes one of the researchers, Sarah Damaske.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">「进一步与常规观念相悖的是，我们发现女性和男性一样，在工作时的压力水平都比在家低，」研究员之一萨拉·达马斯克写道。</div>
+  <div class="cn">「进一步与常规观念相悖的是，我们发现女性和男性一样，在工作时的压力水平都比在家低，」研究员之一萨拉·达马斯克写道。</div>
   <button class="syntax-toggle" id="btn-s3" onclick="toggleSyntax('s3')">▲ 收起解析</button>
-  <div class="syntax" id="s3"><div class="slabel">📍 长难句拆解</div><div class="row"><b>Further contradicting conventional wisdom</b>现在分词短语作状语，置于句首表让步/对比；contradict = 与…相矛盾</div>
-      <div class="row"><b>that 从句</b>found 的宾语从句，核心发现</div>
-      <div class="row"><b>women as well as men</b>「不仅男性，女性也是」——强调女性也符合这个模式</div>
-      <div class="row"><b>conventional wisdom</b>固定搭配，「传统观念/普遍看法」（通常指未经证实的共识）</div></div>
+  <div class="syntax" id="s3"><div class="slabel">🔍 长难句拆解</div><div><b>Further contradicting conventional wisdom</b>现在分词短语作状语，置于句首表让步/对比；contradict = 与…相矛盾</div>
+      <div><b>that 从句</b>found 的宾语从句，核心发现</div>
+      <div><b>women as well as men</b>「不仅男性，女性也是」——强调女性也符合这个模式（通常人们只关注男性的工作压力）</div>
+      <div><b>conventional wisdom</b>固定搭配，「传统观念/普遍看法」（通常指未经证实的共识）</div>
+      <div><b>writes Sarah Damaske</b>插入语，交代引言来源（学术写作规范）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.15s">
-  <span class="snum">S04</span><span class="en">In fact women even say they feel better at work, she notes.</span>
+  <span class="snum">S04</span><div class="en">In fact women even say they feel better at work, she notes.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">她指出，事实上女性甚至说她们在工作时感觉更好。</div>
+  <div class="cn">她指出，事实上女性甚至说她们在工作时感觉更好。</div>
   <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s4"><div class="row"><b>In fact</b>递进标记词，「事实上/实际上」</div>
-      <div class="row"><b>even</b>副词加强语气，「甚至」——说明结果比预想的更极端</div></div>
+  <div class="syntax hidden" id="s4"><div><b>In fact</b>递进标记词，「事实上/实际上」——进一步强化 S03 的结论</div>
+      <div><b>even</b>副词加强语气，「甚至」——说明结果比预想的更极端（不仅不压力大，反而感觉更好）</div>
+      <div><b>she notes</b>指代前文的 Sarah Damaske，note = 指出/提及（正式用语）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.18s">
-  <span class="snum">S05</span><span class="en">"It is men, not women, who report being happier at home than at work."</span>
+  <span class="snum">S05</span><div class="en">"It is men, not women, who report being happier at home than at work."</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">「是在家里比工作更快乐的，是男性而非女性。」</div>
+  <div class="cn">「是在家里比工作更快乐的，是男性而非女性。」</div>
   <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s5"><div class="row"><b>It is ... who ...</b>强调句型，强调主语 men, not women</div>
-      <div class="row"><b>report being happier</b>report 后接动名词 being 作宾语</div>
-      <div class="row"><b>at home than at work</b>比较状语， happier 的比较范围</div></div>
+  <div class="syntax hidden" id="s5"><div><b>It is ... who ...</b>强调句型（cleft sentence），强调主语 <b>men, not women</b></div>
+      <div><b>report being happier</b>report 后接动名词 being 作宾语（report doing sth 结构）</div>
+      <div><b>at home than at work</b>比较状语，说明 happier 的比较范围</div>
+      <div><b>逻辑要点</b>此句看似说"男人在家更快乐"，但结合上下文实际含义是：连男人（通常被认为在家更舒服的人）在家都只是"更快乐"而非"更放松"，而女人则完全相反——为后文做铺垫</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.21s">
-  <span class="snum">S06</span><span class="en">Another surprise is that the findings hold true for both those with children and without, but more so for nonparents.</span>
+  <span class="snum">S06</span><div class="en">Another surprise is that the findings hold true for both those with children and without, but more so for nonparents.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">另一个令人意外的是，这些发现对有孩子和没孩子的人都成立，但在无子女者身上体现得更为明显。</div>
+  <div class="cn">另一个令人意外的是，这些发现对有孩子和没孩子的人都成立，但在无子女者身上体现得更为明显。</div>
   <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s6"><div class="row"><b>that 从句</b>is 后的表语从句，解释 Another surprise 的具体内容</div>
-      <div class="row"><b>hold true for</b>固定搭配，「对…成立/适用于」</div>
-      <div class="row"><b>both those with children and without</b>both A and B 结构，without = without children 的省略表达</div>
-      <div class="row"><b>more so</b>so 代指 hold true，即「更成立/更明显」</div></div>
+  <div class="syntax hidden" id="s6"><div><b>that 从句</b>is 后的表语从句，解释 Another surprise 的具体内容</div>
+      <div><b>hold true for</b>固定搭配，「对…成立/适用于」（同义：apply to / be valid for）</div>
+      <div><b>both those with children and without</b>both A and B 结构；without = without children 的省略表达（避免重复）</div>
+      <div><b>more so</b>so 代指 hold true，即「更成立/更明显/效应更强」</div>
+      <div><b>nonparents</b>n. 无子女者/非父母（non- 前缀表否定）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.24s">
-  <span class="snum">S07</span><span class="en">This is why people who work outside the home have better health.</span>
+  <span class="snum">S07</span><div class="en">This is why people who work outside the home have better health.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">这就是为什么在外工作的人健康状况更好的原因。</div>
+  <div class="cn">这就是为什么在外工作的人健康状况更好的原因。</div>
   <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s7"><div class="row"><b>This is why ...</b>表语从句，why 引导原因/因果解释</div>
-      <div class="row"><b>who work outside the home</b>定语从句修饰 people</div>
-      <div class="row"><b>outside the home</b>在家庭之外（即外出工作），与 at home 形成对照</div></div>
+  <div class="syntax hidden" id="s7"><div><b>This is why ...</b>This is why + 从句 = 「这就是为什么…」，表因果总结</div>
+      <div><b>who work outside the home</b>定语从句修饰 people，限定研究对象</div>
+      <div><b>outside the home</b>在家庭之外（即外出工作），与 at home 形成对照</div>
+      <div><b>better health</b>更好的健康状况——暗示工作压力虽被感知但实际上对身体更有利（与皮质醇数据呼应）</div></div>
 </div>
 
 <!-- ====== Paragraph 3 ====== -->
 <div class="divider"></div>
 
 <div class="sent" style="animation-delay:.27s">
-  <span class="snum">S08</span><span class="en">What the study doesn't measure is whether people are still doing work when they're at home, whether it is household work or work brought home from the office.</span>
+  <span class="snum">S08</span><div class="en">What the study doesn't measure is whether people are still doing work when they're at home, whether it is household work or work brought home from the office.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">该研究没有衡量的是：人们在家时是否仍在工作——无论是家务还是从办公室带回来的工作。</div>
+  <div class="cn">该研究没有衡量的是：人们在家时是否仍在工作——无论是家务还是从办公室带回来的工作。</div>
   <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
-  <div class="syntax" id="s8"><div class="slabel">📍 长难句拆解</div><div class="row"><b>What ... doesn't measure</b>主语从句（what 引导名词性从句作主语）</div>
-      <div class="row"><b>whether ... or ...</b>两个 whether 并列，作 is 的表语（即表语从句）</div>
-      <div class="row"><b>brought home from the office</b>过去分词短语作后置定语修饰 work，意为「从办公室带回的家务外的额外工作」</div></div>
+  <div class="syntax" id="s8"><div class="slabel">🔍 长难句拆解</div><div><b>What ... doesn't measure</b>主语从句（what 引导名词性从句作主语）——先指出研究的局限</div>
+      <div><b>whether ... or ...</b>两个 whether 引导的并列从句，作 is 的表语（表语从句），提出两种可能的家务形式</div>
+      <div><b>brought home from the office</b>过去分词短语作后置定语修饰第二个 work，意为「从办公室带回的额外工作」</div>
+      <div><b>逻辑功能</b>本句承上启下：承认研究的局限性 → 自然引出 P3 对"女性为何在家更累"的具体分析</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.3s">
-  <span class="snum">S09</span><span class="en">For many men, the end of the workday is a time to kick back.</span>
+  <span class="snum">S09</span><div class="en">For many men, the end of the workday is a time to kick back.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">对于许多男性来说，下班就是放松休息的时候。</div>
+  <div class="cn">对于许多男性来说，下班就是放松休息的时候。</div>
   <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s9"><div class="row"><b>kick back</b>动词短语，「放松、躺平、歇口气」</div>
-      <div class="row"><b>a time to do sth</b>不定式作后置定语修饰 time</div></div>
+  <div class="syntax hidden" id="s9"><div><b>kick back</b>动词短语（不及物），「放松、躺平、歇口气」</div>
+      <div><b>a time to do sth</b>不定式作后置定语修饰 time</div>
+      <div><b>the end of the workday</b>下班时间——作为时间状语的参照点</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.33s">
-  <span class="snum">S10</span><span class="en">For women who stay home, they never get to leave the office.</div>
+  <span class="snum">S10</span><div class="en">For women who stay home, they never get to leave the office.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">而对于全职在家的女性来说，她们永远无法「离开办公室」。</div>
+  <div class="cn">而对于全职在家的女性来说，她们永远无法「离开办公室」。</div>
   <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s10"><div class="row"><b>who stay home</b>定语从句修饰 women，限定为全职家庭主妇群体</div>
-      <div class="row"><b>never get to leave the office</b>隐喻用法——把家比作「永远下不了班的办公室」，形象生动</div></div>
+  <div class="syntax hidden" id="s10"><div><b>who stay home</b>定语从句修饰 women，限定为全职家庭主妇群体</div>
+      <div><b>never get to leave the office</b>隐喻用法——把「家」比作「永远下不了班的办公室」，形象生动地传达了全职妈妈的困境</div>
+      <div><b>get to do sth</b>有机会做某事（此处 never 否定，表示"从未有机会"）</div>
+      <div><b>对比</b>S09 男性"下班就 relax" vs S10 女性"永远在上班"，形成强烈反差</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.36s">
-  <span class="snum">S11</span><span class="en">And for women who work outside the home, they often are playing catch-up-with-household tasks.</span>
+  <span class="snum">S11</span><div class="en">And for women who work outside the home, they often are playing catch-up-with-household tasks.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">而对于在外工作的女性来说，她们经常要赶着补做家务活。</div>
+  <div class="cn">而对于在外工作的女性来说，她们经常要赶着补做家务活。</div>
   <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s11"><div class="row"><b>playing catch-up with</b>catch-up 本身有「弥补、追赶」的意思，这里 play catch-up with = 赶着补救/补做</div>
-      <div class="row"><b>household tasks</b>家务杂事（household = 家庭的/家用的）</div></div>
+  <div class="syntax hidden" id="s11"><div><b>playing catch-up with</b>catch-up 本意「弥补、追赶」，play catch-up with = 忙着补救/补做/追赶进度</div>
+      <div><b>household tasks</b>家务杂事（household = 家庭的/家用的）</div>
+      <div><b>who work outside the home</b>定语从句修饰 women，限定为在职女性群体（区别于 S10 的全职妈妈）</div>
+      <div><b>And</b>承接 S10，说明两类女性的困境不同但同样沉重：全职妈妈"永远在班上"，职场妈妈"下班还要补家务"</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.39s">
-  <span class="snum">S12</span><span class="en">With the blurring of roles, and the fact that the home front lags well behind the workplace in making adjustments for working women, it's not surprising that women are more stressed at home.</span>
+  <span class="snum">S12</span><div class="en">With the blurring of roles, and the fact that the home front lags well behind the workplace in making adjustments for working women, it's not surprising that women are more stressed at home.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">随着角色界限的模糊，加之家庭领域在适应职业女性的调整上远远落后于职场，难怪女性在家承受更大压力。</div>
+  <div class="cn">随着角色界限的模糊，加之家庭领域在适应职业女性的调整上远远落后于职场，难怪女性在家承受更大压力。</div>
   <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
-  <div class="syntax" id="s12"><div class="slabel">📍 长难句拆解</div><div class="row"><b>With + 名词 + of</b>with 复合结构作原因状语，引出两大背景因素</div>
-      <div class="row"><b>the blurring of roles</b>角色模糊化——传统性别分工（男主外女主内）正在瓦解</div>
-      <div class="row"><b>the home front lags well behind</b>home front = 家庭战线/大后方；lag well behind = 大幅落后于</div>
-      <div class="row"><b>making adjustments for</b>为…做出调整/改变以适应新情况</div>
-      <div class="row"><b>it's not surprising that</b>it 为形式主语，that 引导真正的主语从句——总结全段的因果关系</div></div>
+  <div class="syntax" id="s12"><div class="slabel">🔍 长难句拆解</div><div><b>With + 名词 + of / the fact that</b>with 复合结构作原因状语，引出两大背景因素</div>
+      <div><b>the blurring of roles</b>角色模糊化——传统性别分工（男主外女主内）正在瓦解，新旧角色交织</div>
+      <div><b>the home front lags well behind</b>home front = 家庭战线/大后方（军事隐喻）；lag well behind = 大幅落后于</div>
+      <div><b>making adjustments for</b>为…做出调整/改变以适应新情况</div>
+      <div><b>it's not surprising that</b>it 为形式主语，that 引导真正的主语从句——全段的因果总结句</div></div>
 </div>
 
 <!-- ====== Paragraph 4 ====== -->
 <div class="divider"></div>
 
 <div class="sent" style="animation-delay:.42s">
-  <span class="snum">S13</span><span class="en">But it's not just a gender thing.</span>
+  <span class="snum">S13</span><div class="en">But it's not just a gender thing.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">但这不仅仅是一个性别问题。
+  <div class="cn">但这不仅仅是一个性别问题。</div>
   <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s13">
-    <div class="row"><b>not just a ... thing</b>「不只是……的问题/因素」——not just = not merely（不仅仅），口语化表达，用以引出更深层的共性原因</div>
-    <div class="row"><b>gender thing</b>gender = 性别；thing 此处指「因素/问题」——合起来即「性别因素」</div>
-    <div class="row"><b>过渡功能</b>本句是承上启下的转折过渡：前文（S03–S12）一直在讨论男女在家压力的差异，本句点明"这不只是性别问题"，将话题从"性别差异"拓展到"家庭本身的结构性困境"（后文 S14–S20 展开论证）</div>
-  </div></div>
+  <div class="syntax hidden" id="s13"><div><b>not just a ... thing</b>「不只是……的问题/因素」——not just = not merely（不仅仅），口语化表达</div>
+      <div><b>gender thing</b>gender = 性别；thing 此处指「因素/问题」——合起来即「性别因素」</div>
+      <div><b>过渡功能</b>承上启下的关键转折句：P2-P3 一直在讨论男女差异，本句点明"这不只是性别问题"，将话题从"性别差异"拓展到"家庭本身的结构性困境"（P4-P5 展开）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.45s">
-  <span class="snum">S14</span><span class="en">At work, people pretty much know what they're supposed to be doing: working, making money, doing the tasks they have to do in order to draw an income.</span>
+  <span class="snum">S14</span><div class="en">At work, people pretty much know what they're supposed to be doing: working, making money, doing the tasks they have to do in order to draw an income.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">在工作中，人们很清楚自己应该做什么：干活、赚钱、完成那些为了获得收入必须完成的任务。</div>
+  <div class="cn">在工作中，人们很清楚自己应该做什么：干活、赚钱、完成那些为了获得收入必须完成的任务。</div>
   <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s14"><div class="row"><b>pretty much</b>口语化副词，「基本上/几乎完全」</div>
-      <div class="row"><b>what they're supposed to be doing</b>宾语从句作 know 的宾语；be supposed to do = 应该做</div>
-      <div class="row"><b>冒号后三个 -ing 分词并列</b>working / making money / doing the tasks —— 具体列举「做什么」</div>
-      <div class="row"><b>they have to do in order to draw an income</b>定语从句修饰 tasks；draw an income = 赚取收入（draw 在此语境 = 领取/获得）</div></div>
+  <div class="syntax hidden" id="s14"><div><b>pretty much</b>口语化副词，「基本上/几乎完全」</div>
+      <div><b>what they're supposed to be doing</b>宾语从句作 know 的宾语；be supposed to do = 应该/被期望做</div>
+      <div><b>冒号后三个 -ing 分词并列</b>working / making money / doing the tasks —— 具体列举「工作中做什么」</div>
+      <div><b>they have to do in order to draw an income</b>定语从句修饰 tasks；draw an income = 赚取收入（draw 在此语境 = 领取/获得）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.48s">
-  <span class="snum">S15</span><span class="en">The bargain is very pure: Employee puts in hours of physical or mental labor and employee draws out life-sustaining moola.</span>
+  <span class="snum">S15</span><div class="en">The bargain is very pure: Employee puts in hours of physical or mental labor and employee draws out life-sustaining moola.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">这种交易非常纯粹：员工投入数小时的体力或脑力劳动，换取维持生计的钱。</div>
+  <div class="cn">这种交易非常纯粹：员工投入数小时的体力或脑力劳动，换取维持生计的钱。</div>
   <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s15"><div class="row"><b>The bargain</b>核心名词，指「工作交换关系」——付出劳动换取报酬的契约</div>
-      <div class="row"><b>moola</b>俚语，意思是「钱/钞票」（money 的口语替代词，作者故意用俏皮说法增加幽默感）</div>
-      <div class="row"><b>life-sustaining</b>复合形容词，「维持生计的/养家糊口的」</div>
-      <div class="row"><b>puts in ... draws out</b>put in = 投入；draw out = 取出/获得——形成对称的投入-产出意象</div></div>
+  <div class="syntax hidden" id="s15"><div><b>The bargain</b>核心名词，指「工作交换关系」——付出劳动换取报酬的契约关系</div>
+      <div><b>moola</b>俚语 n.，意思是「钱/钞票」（money 的口语俏皮替代词，作者故意用来增加幽默感）</div>
+      <div><b>life-sustaining</b>复合形容词，「维持生计的/养家糊口的」（life + sustain + -ing）</div>
+      <div><b>puts in ... draws out</b>put in = 投入；draw out = 取出/获得——形成对称的投入-产出意象</div></div>
 </div>
 
 <!-- ====== Paragraph 5 ====== -->
 <div class="divider"></div>
 
 <div class="sent" style="animation-delay:.51s">
-  <span class="snum">S16</span><span class="en">On the home front, however, you have no such clarity. Laid out.</span>
+  <span class="snum">S16</span><div class="en">On the home front, however, you have no such clarity. Laid out.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">然而在大后方（家庭）里，你却没有这样的清晰度。一切都摊在那儿等着你。</div>
+  <div class="cn">然而在大后方（家庭）里，你却没有这样的清晰度。一切都摊在那儿等着你。</div>
   <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s16"><div class="row"><b>On the home front</b>习语，指「在家庭中/在家里」（源自军事术语，把家庭比作战场后方）</div>
-      <div class="row"><b>such clarity</b>指代上文工作中那种「目标明确、规则清晰」的状态</div>
-      <div class="row"><b>Laid out</b>独立短句，过去分词作形容词用，表示「（任务）摆开/铺陈在那里」——暗示家务无穷无尽且没有明确边界</div></div>
+  <div class="syntax hidden" id="s16"><div><b>On the home front</b>习语/固定搭配，指「在家庭中/在家里」（源自军事术语，把家庭比作战场后方/大后方）</div>
+      <div><b>such clarity</b>指代上文 S14 中工作的那种「目标明确、规则清晰、任务具体」的状态</div>
+      <div><b>Laid out</b>独立短句（片段句），过去分词转化来的形容词用法，表示「（任务）摆开/铺陈在那里」——暗示家务无穷无尽且没有明确边界</div>
+      <div><b>however</b>转折副词，将话题从「职场的清晰性」转到「家庭的混乱性」</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.54s">
-  <span class="snum">S17</span><span class="en">There are a lot of tasks to be done, there are inadequate rewards for most of them.</span>
+  <span class="snum">S17</span><div class="en">There are a lot of tasks to be done, there are inadequate rewards for most of them.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">有大量任务要做，而其中绝大多数都缺乏足够的回报。</div>
+  <div class="cn">有大量任务要做，而其中绝大多数都缺乏足够的回报。</div>
   <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s17"><div class="row"><b>to be done</b>不定式被动式作后置定语修饰 tasks</div>
-      <div class="row"><b>inadequate rewards</b>不充分的回报/奖励——对应前文工作的「pure bargain」（明确报酬）</div></div>
+  <div class="syntax hidden" id="s17"><div><b>to be done</b>不定式被动式作后置定语修饰 tasks（= a lot of tasks that are to be done）</div>
+      <div><b>inadequate rewards</b>不充分的回报/奖励（in- 否定 + adequate 充足）；对应前文工作的「pure bargain」（明确报酬）形成反差</div>
+      <div><b>there are ... there are ...</b>并列句，分别指出家庭劳动的两个问题：任务多 + 回报少</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.57s">
-  <span class="snum">S18</span><span class="en">Your home colleagues – your family – have no clear rewards for their labor; they need to be talked into it, or if they're teenagers, threatened with complete removal of all electronic devices.</span>
-  <hr class="sent-hr">
+  <span class="snum">S18</span><div class="en">Your home colleagues – your family – have no clear rewards for their labor; they need to be talked into it, or if they're teenagers, threatened with complete removal of all electronic devices.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">你的「同事」——你的家人——劳动没有任何明确的回报；你得说服他们干，如果他们正处于青春期，还得威胁没收所有电子设备。</div>
+  <div class="cn">你的「同事」——你的家人——劳动没有任何明确的回报；你得说服他们干，如果他们正处于青春期，还得威胁没收所有电子设备。</div>
   <button class="syntax-toggle" id="btn-s18" onclick="toggleSyntax('s18')">▲ 收起解析</button>
-  <div class="syntax" id="s18"><div class="slabel">📍 长难句拆解</div><div class="row"><b>Your home colleagues – your family</b>破折号插入语，把家人比作「同事」形成幽默反差</div>
-      <div class="row"><b>talked into it</b>persuade sb. to do sth. 的口语化表达，「劝说某人去做某事」</div>
-      <div class="row"><b>threatened with complete removal of all electronic devices</b>威胁要彻底没收所有电子设备——真实又搞笑的家庭管理手段</div>
-      <div class="row"><b>if they're teenagers</b>插入的条件状语，进一步限定需要威胁手段的对象</div></div>
+  <div class="syntax" id="s18"><div class="slabel">🔍 长难句拆解</div><div><b>Your home colleagues – your family</b>破折号插入语（同位语），把家人幽默地比作「同事」，制造职场-家庭的反差效果</div>
+      <div><b>have no clear rewards for their labor</b>第一个分句核心：家人的劳动没有明确回报（与工作的"clear bargain"对比）</div>
+      <div><b>talked into it</b>talk sb into doing sth 的被动/省略形式，「劝说某人去做某事」（into 表示"说服进入某种状态"）</div>
+      <div><b>threatened with complete removal of all electronic devices</b>threaten sb with sth 以…威胁某人；removal = 移除/没收——真实又搞笑的家庭管理手段</div>
+      <div><b>if they're teenagers</b>插入的条件状语从句，进一步限定需要威胁手段的对象（青春期孩子特别难管）</div></div>
 </div>
 
 <div class="sent" style="animation-delay:.6s">
-  <span class="snum">S19</span><span class="en">Plus, they're your family. You cannot fire your family. You never really get to go home from home.</span>
+  <span class="snum">S19</span><div class="en">Plus, they're your family. You cannot fire your family. You never really get to go home from home.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">况且，他们是你的家人。你没法解雇你的家人。你也从来没有真正地「从家回家」过。</div>
+  <div class="cn">况且，他们是你的家人。你没法解雇你的家人。你也从来没有真正地「从家回家」过。</div>
   <button class="syntax-toggle collapsed" id="btn-s19" onclick="toggleSyntax('s19')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s19"><div class="row"><b>You cannot fire your family</b>fire = 解雇/开除；将家庭关系类比雇佣关系的荒谬性凸显困境——你不能像对待员工那样处理家人</div>
-      <div class="row"><b>go home from home</b>巧妙的双关/回文式表达——工作结束后可以 go home from work 回家，但你已经在「家」了，无处可退</div></div>
+  <div class="syntax hidden" id="s19"><div><b>You cannot fire your family</b>fire = 解雇/开除；将家庭关系类比雇佣关系的荒谬性凸显困境——你不能像对待员工那样处理家人</div>
+      <div><b>go home from home</b>巧妙的双关/回文式表达——工作结束后可以 go home from work 回家，但你已经在「家」了，无处可退</div>
+      <div><b>三个短句递进</b>they're your family → cannot fire → never go home from home，层层递进揭示家庭关系的不可逃避性</div></div>
 </div>
 
 <!-- ====== Paragraph 6 ====== -->
 <div class="divider"></div>
 
 <div class="sent" style="animation-delay:.63s">
-  <span class="snum">S20</span><span class="en">So it's not surprising that people are more stressed at home. Not only are the tasks apparently infinite, the co-workers are much harder to motivate.</span>
+  <span class="snum">S20</span><div class="en">So it's not surprising that people are more stressed at home. Not only are the tasks apparently infinite, the co-workers are much harder to motivate.</div>
   <hr class="sent-hr">
   <div class="tl">📖 译文</div>
-  <div class="zh">所以人们在家压力更大也就不足为奇了。不仅任务看起来无穷无尽，「同事」也更难调动起来。</div>
+  <div class="cn">所以人们在家压力更大也就不足为奇了。不仅任务看起来无穷无尽，「同事」也更难调动起来。</div>
   <button class="syntax-toggle collapsed" id="btn-s20" onclick="toggleSyntax('s20')">▼ 展开解析</button>
-  <div class="syntax collapsed" id="s20"><div class="row"><b>So it's not surprising that</b>总结全文的核心论点，呼应 S01 和 S12</div>
-      <div class="row"><b>Not only are ..., (but) ...</b>倒装结构的 Not only... (but) also 句型（also 省略）；are 提到主语前构成部分倒装</div>
-      <div class="row"><b>co-workers</b>再次用职场词汇指代家人，与前文 home colleagues 呼应，贯穿全文的幽默手法</div>
-      <div class="row"><b>motivate</b>激励/调动积极性——此处暗指家人比同事难「管」得多</div></div>
+  <div class="syntax hidden" id="s20"><div><b>So it's not surprising that</b>全文总结的核心论点句，呼应 S01（研究发现总述）和 S12（女性压力大原因），形成首尾呼应</div>
+      <div><b>Not only are ..., (but) ...</b>倒装结构的 Not only... (but) also 句型（also 省略）；are 提到主语 the tasks 前构成部分倒装</div>
+      <div><b>apparently infinite</b>看起来没完没了的（apparent = 表面上的/明显的；infinite = 无限的）</div>
+      <div><b>co-workers</b>再次用职场词汇指代家人，与前文 home colleagues（S18）遥相呼应，贯穿全文的幽默手法</div>
+      <div><b>motivate</b>v. 激励/调动积极性——此处暗指家人比同事难「管」得多（motivation n. 动机）</div></div>
 </div>
 
 <!-- ====== 底部汇总区 ====== -->
@@ -541,12 +550,12 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <div class="card" style="animation-delay:.66s">
 <h2>📋 全文脉络<span class="toggle" onclick="toggleBody('flow')">▲ 收起</span></h2>
 <div class="collapsible-body" id="flow">
-<div class="item"><b>P1（S01-S02）</b> 研究发现总述：皮质醇数据证明人在家压力更高</div>
-<div class="item"><b>P2（S03-S07）</b> 性别差异细节：男女都是工作压力更低，但女性尤其如此；无子女群体效应更强</div>
-<div class="item"><b>P3（S08-S12）</b> 原因分析①——角色模糊：女性在家永远在"上班"，全职妈妈和职场妈妈都不轻松</div>
-<div class="item"><b>P4（S13-S15）</b> 工作的清晰性：任务明确、报酬直接、交易纯粹</div>
-<div class="item"><b>P5（S16-S19）</b> 原因分析②——家庭的混乱性：任务无限、回报不明、家人无法"解雇"</div>
-<div class="item"><b>P6（S20）</b> 总结收束：任务无穷 + 同事难管 = 家里压力更大，呼应首段</div>
+<div class="item"><b>P1（S01-S02）</b> 研究发现总述：皮质醇数据证明人在家压力更高（颠覆常识）</div>
+<div class="item"><b>P2（S03-S07）</b> 性别差异细节：男女都是工作压力更低，但无子女群体效应更强</div>
+<div class="item"><b>P3（S08-S12）</b> 原因分析①——角色模糊：全职妈妈"永远在班上"，职场妈妈"下班补家务"</div>
+<div class="item"><b>P4（S13-S15）</b> 过渡+对比：不只是性别问题 → 工作的清晰性（任务明确/报酬纯粹）</div>
+<div class="item"><b>P5（S16-S19）</b> 原因分析②——家庭的混乱性：任务无限/回报不明/家人无法"解雇"</div>
+<div class="item"><b>P6（S20）</b> 总结收束：任务无穷 + 同事难管 = 家里压力更大，完美回扣开头</div>
 </div>
 </div>
 
@@ -560,16 +569,16 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <tr><td>stress</td><td>n./v. 压力；使……紧张/承压。文中 stressed = 承受压力的/倍感压力的。常见搭配：under stress / stressed out</td></tr>
 <tr><td>contradict</td><td>v. 与……矛盾/反驳。contradiction n. 矛盾；contradictory adj. 矛盾的。文中 contradicting conventional wisdom = 与传统观念相悖</td></tr>
 <tr><td>conventional wisdom</td><td>固定搭配 n. 传统观念/普遍看法（通常未经验证）。类似表达：common sense / received wisdom / prevailing view</td></tr>
-<tr><td>refuge</td><td>n. 避难所/庇护所；seek/take refuge 寻求庇护。文中 place of refuge = 避风港，暗含讽刺意味（家本应是避风港却恰恰相反）</td></tr>
+<tr><td>refuge</td><td>n. 避难所/庇护所；seek/take refuge 寻求庇护。文中 place of refuge = 避风港（暗含讽刺：家本应是避风港却恰恰相反）</td></tr>
 <tr><td>nonparent</td><td>n. 无子女的人/非父母。non- 前缀表否定。文中研究发现非父母群体在家 vs 工作压力差距更大</td></tr>
 <tr><td>hold true for</td><td>固定搭配 对……成立/适用于。同义替换：apply to / be valid for</td></tr>
 <tr><td>blurring</td><td>n. 模糊化（blur v. 使模糊）。the blurring of roles = 角色界限模糊——传统性别分工正在瓦解</td></tr>
 <tr><td>home front</td><td>习语 n. 家庭战线/大后方（军事术语转喻）。on the home front = 在家中/在家庭方面</td></tr>
 <tr><td>lag behind</td><td>固定搭配 v. 落后于。well behind = 远远落后。同义：fall behind / trail behind</td></tr>
 <tr><td>adjustment</td><td>n. 调整/调节。make adjustments for = 为……做出调整以适应。v. adjust</td></tr>
-<tr><td>supposed to</b> be doing</td><td>固定结构 「理应做某事/被期望做某事」。should 的委婉/正式替代表达</td></tr>
+<tr><td>supposed to</td><td>固定结构 「理应做某事/被期望做某事」。should 的委婉/正式替代表达</td></tr>
 <tr><td>bargain</td><td>n. 交易/协议/划算的东西。文中 the bargain = 工作（劳动换报酬的交易关系）。strike a bargain 达成协议</td></tr>
-<tr><td>moola</td><td>n. （俚语）钱/钞票。money 的口语俏皮替代词，作者故意用来增加幽默感</td></tr>
+<tr><td>moola</td><td>n. （俚语）钱/钞票。money 的口语俏皮替代词，作者故意用来增加文章幽默感</td></tr>
 <tr><td>life-sustaining</td><td>adj. 维持生计的。life + sustain（维持）+ -ing 复合形容词。近义：livelihood-sustaining</td></tr>
 <tr><td>clarity</td><td>n. 清晰/明确。clear 的名词形式。文中 no such clarity = 没有那种清晰的条理性</td></tr>
 <tr><td>inadequate</td><td>adj. 不充分的/不够好的。in-（否定）+ adequate（充足的）。反义：ample / sufficient</td></tr>
@@ -683,8 +692,8 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 </div>
 <div class="ua">标准答案：D</div>
 <div class="analysis">
-<p>🔍 <b>定位</b>：P3（S12）"With the blurring of roles" 所在段落，结合上下文理解：</p>
-<p>S09 说男人下班就 relax；S10 说全职妈妈 never leave the office；S11 说职场妈妈 catch-up housework。三句话共同描绘的就是<b>角色模糊</b>——女性既要承担传统"家庭主妇"角色又要扮演"职场人"，两种身份交织在一起难以区分。</p>
+<p>🔍 <b>定位</b>：P3（S12）"With the blurring of roles" 所在段落，结合 S09-S11 上下文理解：</p>
+<p>S09 说男人下班就 kick back（放松）；S10 说全职妈妈 never leave the office；S11 说职场妈妈 playing catch-up with household tasks（赶着补做家务）。三句话共同描绘的就是<b>角色模糊</b>——女性既要承担传统"家庭主妇"角色又要扮演"职场人"，两种身份交织在一起难以区分。</p>
 <p>✅ <b>D 正确推理</b>"they are both bread winners and housewives"准确概括了角色模糊的本质——职业女性既是养家糊口的人（bread winners）又是家庭主妇（housewives），双重角色集于一身，这正是"blurring of roles"的核心含义。</p>
 <p>❌ <b>A 错误</b>difficult to leave their office 是 S10 全职妈妈的特定困境（never get to leave），不是 blurring of roles 的通用定义。</p>
 <p>❌ <b>B 错误</b>kicking back（放松）是男性的状态（S09），不是女性的处境，张冠李戴。</p>
@@ -750,7 +759,6 @@ function toggleBody(id){
   }
 }
 
-/* ====== 逐句语法解析折叠 ====== */
 function toggleSyntax(id){
   var el=document.getElementById(id);
   var btn=document.getElementById('btn-'+id);
