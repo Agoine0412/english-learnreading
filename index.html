@@ -5,39 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>英语精读存档</title>
 <style>
-/* ====== 🎨 全局变量 ====== */
+/* ====== 🎨 全局变量 —— 高对比暗色主题 ====== */
 :root {
-  --text: #f0e8d8;
-  --text-soft: #c8b8a0;
-  --muted: #a09078;
-  --muted-light: #807060;
-  --brick: #e86040;
-  --olive: #8cb840;
-  --gold: #e8a830;
-  --teal: #40c8a8;
-  --blue: #60a8d8;
-  --rose: #d87070;
+  /* 文字色阶（暗底亮字，WCAG AA 级对比度） */
+  --text:        #faf6f0;
+  --text-title:  #fffaf2;
+  --text-body:   #ede5da;
+  --text-sub:    #d4cab8;
+  --text-muted:  #b0a494;
 
-  /* 毛玻璃参数 */
-  --glass-bg: rgba(255,245,230,.10);
-  --glass-bg-hover: rgba(255,245,230,.18);
-  --glass-border: rgba(255,230,200,.18);
-  --glass-blur: 20px;
-  --glass-blur-strong: 32px;
+  /* 强调色 */
+  --brick: #e85a38;
+  --olive: #7fb82c;
+  --gold: #e8a020;
+  --teal:  #30b8a0;
+  --blue:  #509ce0;
+  --rose:  #e05858;
 
-  /* 阴影体系 */
-  --shadow-sm: 0 2px 12px rgba(0,0,0,.20);
-  --shadow-md: 0 4px 24px rgba(0,0,0,.30);
-  --shadow-lg: 0 8px 48px rgba(0,0,0,.40);
-  --shadow-hover: 0 16px 56px rgba(0,0,0,.50);
-  --shadow-glow: 0 0 80px rgba(200,155,60,.08);
+  /* 毛玻璃参数（高透+强模糊） */
+  --glass-bg:        rgba(255,248,238,.07);
+  --glass-bg-hover:  rgba(255,248,238,.13);
+  --glass-border:    rgba(255,245,225,.14);
+  --glass-blur:      18px;
+  --glass-blur-hero: 28px;
+
+  /* 内发光（让卡片内容在暗底上清晰可读） */
+  --card-glow: inset 0 1px 0 rgba(255,250,235,.06);
+
+  /* 阴影 */
+  --shadow-sm:   0 2px 12px rgba(0,0,0,.25);
+  --shadow-md:   0 4px 24px rgba(0,0,0,.35);
+  --shadow-lg:   0 8px 48px rgba(0,0,0,.45);
+  --shadow-hover:0 16px 56px rgba(0,0,0,.55);
+  --glow-gold:   0 0 60px rgba(232,160,32,.10);
 
   /* 圆角 & 过渡 */
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 24px;
-  --transition: .28s cubic-bezier(.4,0,.2,1);
-  --transition-fast: .18s ease;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+  --transition-fast: .15s ease;
 
   /* 字体栈 */
   --font-serif: "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", Georgia, serif;
@@ -50,10 +57,24 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
-/* ====== 🌌 动态星空 Canvas ====== */
+/* ====== 🌌 底层深空背景 ====== */
+body {
+  background:
+    radial-gradient(ellipse 120% 80% at 20% 10%, rgba(60,20,10,.35) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 70% at 80% 90%, rgba(15,40,45,.30) 0%, transparent 45%),
+    radial-gradient(ellipse 80% 100% at 50% 50%, rgba(20,15,10,.20) 0%, transparent 60%),
+    linear-gradient(170deg, #0c0908 0%, #12100d 30%, #0e0c09 65%, #0a0806 100%);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  padding: 0 16px 64px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ====== ⭐ 星空 Canvas ====== */
 #starfield {
   position: fixed;
   top: 0; left: 0;
@@ -62,85 +83,102 @@ html {
   pointer-events: none;
 }
 
-/* ====== 🌈 极光渐变覆盖层 ====== */
+/* ====== 🌈 极光层 ====== */
 .aurora {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: -20%; left: -20%;
+  width: 140vw; height: 140vh;
   z-index: 1;
   pointer-events: none;
-  opacity: .30;
+  opacity: .22;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(181,72,47,.40) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 70% 30%, rgba(200,155,60,.35) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 60% at 50% 70%, rgba(107,122,58,.30) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(42,157,143,.20) 0%, transparent 45%);
-  background-size: 200% 200%;
-  animation: auroraDrift 20s ease-in-out infinite alternate;
+    radial-gradient(ellipse 70% 45% at 15% 35%, rgba(232,88,56,.30) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 35% at 75% 25%, rgba(232,160,32,.28) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 55% at 45% 75%, rgba(127,184,44,.22) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 25% at 85% 80%, rgba(48,184,160,.18) 0%, transparent 45%);
+  background-size: 300% 300%;
+  animation: auroraFlow 24s ease-in-out infinite alternate;
   mix-blend-mode: screen;
 }
-@keyframes auroraDrift {
-  0%   { background-position: 0% 0%; opacity: .30; }
-  33%  { background-position: 50% 30%; opacity: .35; }
-  66%  { background-position: 80% 60%; opacity: .28; }
-  100% { background-position: 30% 90%; opacity: .32; }
+@keyframes auroraFlow {
+  0%   { background-position: 0% 0%;     opacity: .20; }
+  25%  { background-position: 40% 20%;    opacity: .26; }
+  50%  { background-position: 80% 50%;    opacity: .18; }
+  75%  { background-position: 30% 80%;    opacity: .24; }
+  100% { background-position: 10% 100%;   opacity: .21; }
 }
 
-/* ====== 🪄 飘浮光球（鼠标响应式） ====== */
+/* ====== 🪄 自动飘浮光球（纯 CSS 动画） ====== */
 .orb {
   position: fixed;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
   will-change: transform;
-  transition: transform 1.2s cubic-bezier(.25,.1,.25,1);
 }
 .orb-1 {
-  width: 360px; height: 360px;
-  background: radial-gradient(circle, rgba(181,72,47,.25), transparent 70%);
-  top: -5%; left: -5%;
-  filter: blur(60px);
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(232,88,56,.28) 0%, transparent 68%);
+  filter: blur(65px);
+  top: -8%; left: -8%;
+  animation: orbDrift1 20s ease-in-out infinite alternate;
 }
 .orb-2 {
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(107,122,58,.22), transparent 70%);
-  bottom: 8%; right: -6%;
-  filter: blur(55px);
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(127,184,44,.24) 0%, transparent 68%);
+  filter: blur(58px);
+  bottom: -5%; right: -6%;
+  animation: orbDrift2 24s ease-in-out infinite alternate;
 }
 .orb-3 {
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(200,155,60,.20), transparent 70%);
-  top: 35%; left: 45%;
-  filter: blur(50px);
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(232,160,32,.22) 0%, transparent 68%);
+  filter: blur(52px);
+  top: 40%; left: 50%;
+  animation: orbDrift3 18s ease-in-out infinite alternate;
 }
-
-body {
-  background: #0f0d0a;
-  color: var(--text);
-  font-family: var(--font-sans);
-  line-height: 1.7;
-  padding: 0 16px 60px;
-  min-height: 100vh;
-  overflow-x: hidden;
+.orb-4 {
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(48,184,160,.18) 0%, transparent 68%);
+  filter: blur(46px);
+  top: 20%; right: 15%;
+  animation: orbDrift4 22s ease-in-out infinite alternate;
+}
+@keyframes orbDrift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(120px, 80px) scale(1.15); }
+}
+@keyframes orbDrift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-100px, -70px) scale(1.12); }
+}
+@keyframes orbDrift3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-60px, 60px) scale(1.08); }
+}
+@keyframes orbDrift4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(50px, -50px) scale(1.10); }
 }
 
 .wrap { max-width: 780px; margin: 0 auto; position: relative; z-index: 3; }
 
-/* ====== ✨ Hero 毛玻璃 ====== */
+/* ====== ✨ Hero 区域 ====== */
 .hero {
   position: relative;
   margin: 44px auto 40px;
   padding: 52px 40px 44px;
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur-strong)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(180%);
+  backdrop-filter: blur(var(--glass-blur-hero)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-hero)) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: var(--shadow-lg), var(--glow-gold);
   overflow: hidden;
   animation: fadeUp .7s ease both;
+  box-shadow: var(--card-glow), var(--shadow-lg);
 }
-/* 顶部五色流动条 */
+/* 顶部流动渐变条 */
 .hero::before {
   content: '';
   position: absolute;
@@ -150,21 +188,18 @@ body {
   background-size: 200% 100%;
   animation: shimmerFlow 8s linear infinite;
 }
-/* 玻璃内部微光 */
+/* 内部微光泽扫过 */
 .hero::after {
   content: '';
   position: absolute;
-  top: -40%; left: -40%;
-  width: 180%; height: 180%;
-  background: radial-gradient(circle at 25% 25%, rgba(255,245,220,.08) 0%, transparent 50%);
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 220deg at 50% 50%, transparent 0%, rgba(255,250,230,.04) 10%, transparent 20%);
   pointer-events: none;
-  animation: glassShine 12s ease-in-out infinite alternate;
+  animation: glossSweep 14s linear infinite;
 }
 @keyframes shimmerFlow { to { background-position: -200% 0; } }
-@keyframes glassShine {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(8%, 6%) rotate(2deg); }
-}
+@keyframes glossSweep { to { transform: rotate(360deg); } }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -173,17 +208,18 @@ body {
 .hero-title-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; position: relative; z-index: 1; }
 .hero-icon {
   font-size: 42px; line-height: 1;
-  filter: drop-shadow(0 0 12px rgba(200,155,60,.35));
+  filter: drop-shadow(0 0 14px rgba(232,160,32,.4));
   flex-shrink: 0;
 }
 .hero h1 {
   font-size: 30px;
   letter-spacing: .5px;
   font-family: var(--font-serif);
-  color: var(--text);
+  color: var(--text-title);
+  text-shadow: 0 1px 2px rgba(0,0,0,.3);
 }
 .hero-subtitle {
-  color: var(--muted);
+  color: var(--text-sub);
   font-size: 14px;
   margin-top: 10px;
   padding-left: 58px;
@@ -199,10 +235,15 @@ body {
   border-radius: 50%;
   background: var(--gold);
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(200,155,60,.5);
+  box-shadow: 0 0 10px rgba(232,160,32,.5);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(232,160,32,.5); }
+  50%      { opacity: .6; box-shadow: 0 0 4px rgba(232,160,32,.3); }
 }
 
-/* ====== 📂 年份分区（毛玻璃） ====== */
+/* ====== 📂 年份分区 ====== */
 .year-section {
   margin-bottom: 36px;
   animation: fadeUp .55s ease both;
@@ -215,46 +256,49 @@ body {
   gap: 12px;
   margin-bottom: 16px;
   padding: 12px 20px;
-  background: rgba(255,245,230,.08);
+  background: rgba(255,248,238,.06);
   backdrop-filter: blur(var(--glass-blur)) saturate(150%);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
-  border: 1px solid rgba(255,230,200,.12);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   border-left: 4px solid var(--year-color, var(--gold));
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), background var(--transition);
+  box-shadow: var(--card-glow), var(--shadow-sm);
+  transition: all var(--transition);
 }
 .year-header:hover {
-  background: rgba(255,245,230,.14);
-  box-shadow: var(--shadow-md);
+  background: rgba(255,248,238,.11);
+  border-color: rgba(255,245,225,.22);
+  box-shadow: var(--card-glow), var(--shadow-md);
+  transform: translateY(-1px);
 }
-/* 右侧装饰光晕 */
+/* 年份头右侧装饰 */
 .year-header::after {
   content: '';
   position: absolute;
-  right: -30px; top: -30px;
-  width: 70px; height: 70px;
+  right: -20px; top: -20px;
+  width: 60px; height: 60px;
   border-radius: 50%;
   background: var(--year-color, var(--gold));
-  opacity: .06;
-  filter: blur(25px);
+  opacity: .07;
+  filter: blur(22px);
 }
 .ytitle {
   font-size: 17px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-title);
   font-family: var(--font-serif);
   flex: 1;
   letter-spacing: .3px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25);
 }
 
 [data-year="2008"] { --year-color: var(--brick); }
 [data-year="2009"] { --year-color: var(--teal); }
 [data-year="2015"] { --year-color: var(--olive); }
 
-/* ====== 📄 文章卡片（毛玻璃） ====== */
+/* ====== 📄 文章卡片 ====== */
 .item-list { display: flex; flex-direction: column; gap: 12px; }
 .item {
   display: block;
@@ -265,9 +309,9 @@ body {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 18px 22px 18px 58px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--card-glow), var(--shadow-sm);
   text-decoration: none;
-  color: var(--text);
+  color: var(--text-body);
   transition:
     transform var(--transition),
     box-shadow var(--transition),
@@ -284,14 +328,14 @@ body {
   background: linear-gradient(180deg, var(--year-color, var(--gold)), transparent 80%);
   border-radius: 4px 0 0 4px;
   opacity: 0;
-  transition: opacity var(--transition);
+  transition: opacity var(--transition-fast);
 }
 /* 序号圆点 */
 .item::after {
   content: attr(data-index);
   position: absolute;
-  left: 18px; top: 20px;
-  width: 26px; height: 26px;
+  left: 18px; top: 19px;
+  width: 27px; height: 27px;
   border-radius: 50%;
   background: var(--year-color, var(--gold));
   color: #fff;
@@ -303,38 +347,45 @@ body {
   font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  opacity: .85;
-  transition: opacity var(--transition), box-shadow var(--transition);
-  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  opacity: .9;
+  transition: all var(--transition);
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
 }
 
 .item:hover {
   transform: translateY(-4px) translateX(3px);
   background: var(--glass-bg-hover);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(255,230,200,.25);
+  box-shadow: var(--card-glow), var(--shadow-hover);
+  border-color: rgba(255,245,225,.25);
+  color: var(--text-title);
 }
 .item:hover::before { opacity: 1; }
-.item:hover::after { opacity: 1; box-shadow: 0 4px 16px rgba(0,0,0,.25); }
+.item:hover::after {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 18px rgba(0,0,0,.3);
+}
 
 .item b {
   display: block;
   font-size: 16px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-title);
   font-family: var(--font-serif);
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 .item span {
   display: block;
-  color: var(--muted);
+  color: var(--text-sub);
   font-size: 13.5px;
-  line-height: 1.5;
+  line-height: 1.55;
   padding-left: 2px;
 }
+.item:hover span { color: var(--text-muted); }
 
-/* 卡片入场交错 */
+/* 入场交错动画 */
 .item {
   animation: cardIn .45s ease both;
   animation-delay: calc((var(--item-delay, 0)) * .07s);
@@ -345,16 +396,17 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ====== 🎐 页脚（毛玻璃） ====== */
+/* ====== 🎐 页脚 ====== */
 .footer {
   margin-top: 52px;
   padding: 28px 24px;
   text-align: center;
-  background: rgba(255,245,230,.06);
+  background: rgba(255,248,238,.05);
   backdrop-filter: blur(14px) saturate(130%);
   -webkit-backdrop-filter: blur(14px) saturate(130%);
-  border: 1px solid rgba(255,230,200,.10);
+  border: 1px solid rgba(255,245,225,.10);
   border-radius: var(--radius-sm);
+  box-shadow: var(--card-glow), var(--shadow-sm);
   animation: fadeUp .5s ease .6s both;
   opacity: 0;
 }
@@ -367,7 +419,7 @@ body {
 }
 .footer-text {
   font-size: 13px;
-  color: var(--muted-light);
+  color: var(--text-muted);
   font-family: var(--font-sans);
 }
 .footer-heart {
@@ -390,7 +442,8 @@ body {
   body { padding: 0 10px 48px; }
   .orb-1 { width: 200px; height: 200px; }
   .orb-2 { width: 160px; height: 160px; }
-  .orb-3 { width: 140px; height: 140px; }
+  .orb-3 { width: 130px; height: 130px; }
+  .orb-4 { width: 100px; height: 100px; }
   .hero { padding: 34px 22px 30px; border-radius: var(--radius); margin-top: 24px; }
   .hero-icon { font-size: 32px; }
   .hero h1 { font-size: 24px; }
@@ -398,7 +451,7 @@ body {
   .year-header { padding: 8px 14px; }
   .ytitle { font-size: 15.5px; }
   .item { padding: 14px 14px 14px 48px; }
-  .item::after { left: 13px; width: 22px; height: 22px; font-size: 11px; top: 17px; }
+  .item::after { left: 13px; width: 24px; height: 24px; font-size: 11px; top: 16px; }
   .item b { font-size: 14.5px; }
   .item span { font-size: 12.5px; }
   .footer { margin-top: 32px; padding: 18px 16px; }
@@ -409,26 +462,28 @@ body {
   .orb, .aurora { animation: none !important; transition: none !important; }
   .item, .year-section, .hero, .footer { animation: none !important; opacity: 1 !important; }
   .hero::before, .hero::after { animation: none !important; }
+  .hero-subtitle::before { animation: none !important; }
   #starfield { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- 🌌 动态星空 Canvas -->
+<!-- ⭐ 星空 Canvas -->
 <canvas id="starfield"></canvas>
 
-<!-- 🌈 极光渐变层 -->
+<!-- 🌈 极光渐变 -->
 <div class="aurora"></div>
 
-<!-- 🪄 飘浮光球（鼠标响应式） -->
+<!-- 🪄 自动飘浮光球（4个独立轨道） -->
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
+<div class="orb orb-4"></div>
 
 <div class="wrap">
 
-  <!-- ========== Hero 区域 ========== -->
+  <!-- ========== Hero ========== -->
   <div class="hero">
     <div class="hero-title-wrap">
       <span class="hero-icon">📚</span>
@@ -504,25 +559,29 @@ body {
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-text">Made with</span>
-      <span class="footer-heart">♥</span>
+      <span class="footer-heart">&#9829;</span>
       <span class="footer-text">for English intensive reading</span>
     </div>
   </footer>
 
 </div>
 
-<!-- ====== 🌌 星空 + 鼠标交互 ====== -->
+<!-- ====== ⭐ 星空 Canvas（无鼠标交互，纯自动循环） ====== -->
 <script>
 (function() {
-  // --- 星空 Canvas ---
   const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
   let W, H;
-  let mouseX = 0, mouseY = 0;
   const stars = [];
   const particles = [];
-  const STAR_COUNT = 180;
-  const PARTICLE_COUNT = 30;
+  const STAR_COUNT = 150;
+  const PARTICLE_COUNT = 25;
+  // 暖色调星星 + 微粒
+  const starColors = [
+    [255,248,230], [255,235,210], [240,228,200],
+    [230,215,190], [255,245,220], [245,235,215]
+  ];
+  const particleColors = ['rgba(232,88,56,.12)','rgba(232,160,32,.11)','rgba(127,184,44,.10)','rgba(48,184,160,.09)'];
 
   function resize() {
     W = canvas.width = window.innerWidth;
@@ -536,11 +595,13 @@ body {
     stars.push({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: Math.random() * 1.5 + .3,
-      alpha: Math.random() * .6 + .2,
-      twinkleSpeed: Math.random() * .02 + .005,
+      r: Math.random() * 1.4 + .25,
+      alpha: Math.random() * .55 + .15,
+      twinkleSpeed: Math.random() * .025 + .006,
       twinklePhase: Math.random() * Math.PI * 2,
-      parallax: Math.random() * .02 + .005
+      driftX: (Math.random() - .5) * .08,
+      driftY: (Math.random() - .5) * .06,
+      ci: Math.floor(Math.random() * starColors.length)
     });
   }
 
@@ -549,70 +610,53 @@ body {
     particles.push({
       x: Math.random() * W,
       y: Math.random() * H,
-      vx: (Math.random() - .5) * .3,
-      vy: (Math.random() - .5) * .2 - .1,
-      r: Math.random() * 1.2 + .4,
-      alpha: Math.random() * .15 + .05,
+      vx: (Math.random() - .5) * .25,
+      vy: (Math.random() - .5) * .18 - .08,
+      r: Math.random() * 1.1 + .35,
+      alpha: Math.random() * .12 + .04,
       color: Math.floor(Math.random() * 4)
     });
   }
-  const particleColors = ['#b5482f','#c89b3c','#6b7a3a','#2a9d8f'];
-
-  // 鼠标追踪
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    // 光球响应
-    const mx = (mouseX / W - .5) * 2;
-    const my = (mouseY / H - .5) * 2;
-    document.querySelectorAll('.orb').forEach((orb, i) => {
-      const factor = (i + 1) * 12;
-      orb.style.transform = `translate(${mx * factor}px, ${my * factor}px)`;
-    });
-  });
 
   let time = 0;
   function draw() {
     ctx.clearRect(0, 0, W, H);
     time += 1;
 
-    // 画星星
+    // 画星星（带缓慢漂移 + 闪烁）
     for (const s of stars) {
+      s.x += s.driftX; s.y += s.driftY;
+      if (s.x < 0) s.x = W; if (s.x > W) s.x = 0;
+      if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
+
       const twinkle = Math.sin(time * s.twinkleSpeed + s.twinklePhase);
-      const a = s.alpha + twinkle * .25;
-      // 鼠标视差偏移
-      const px = (mouseX - W/2) * s.parallax;
-      const py = (mouseY - H/2) * s.parallax;
-      const sx = (s.x + px) % W;
-      const sy = (s.y + py) % H;
+      const a = s.alpha + twinkle * .22;
+      const c = starColors[s.ci];
 
       ctx.beginPath();
-      ctx.arc(sx, sy, Math.max(.1, s.r), 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(240,232,216,${Math.max(0, Math.min(1, a))})`;
+      ctx.arc(s.x, s.y, Math.max(.1, s.r), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${c[0]},${c[1]},${c[2]},${Math.max(0, Math.min(1, a))})`;
       ctx.fill();
 
-      // 大星星加发光
-      if (s.r > 1.2 && a > .45) {
+      // 大星微光晕
+      if (s.r > 1.0 && a > .4) {
         ctx.beginPath();
-        ctx.arc(sx, sy, s.r * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(240,232,216,${Math.max(0, a * .08)})`;
+        ctx.arc(s.x, s.y, s.r * 2.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${c[0]},${c[1]},${c[2]},${Math.max(0, a * .06)})`;
         ctx.fill();
       }
     }
 
-    // 画浮游微粒
+    // 浮游微粒
     for (const p of particles) {
       p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = W;
-      if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H;
-      if (p.y > H) p.y = 0;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, Math.max(.1, p.r), 0, Math.PI * 2);
       ctx.fillStyle = particleColors[p.color];
-      ctx.globalAlpha = p.alpha;
       ctx.fill();
-      ctx.globalAlpha = 1;
     }
 
     requestAnimationFrame(draw);
