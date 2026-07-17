@@ -163,8 +163,8 @@ body {
   background:var(--steel) !important;
 }
 
-.collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
-.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
 
 /* ====== 表格 ====== */
 table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
@@ -250,7 +250,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P1 -->
 <div class="sent">
   <span class="snum">01</span>
-  <div class="en"><mark>It's true</mark> that <mark>high-school coding classes</mark> aren't <mark>essential</mark> for learning <mark>computer science</mark> in college. Students without experience can <mark>catch up</mark> after a few <mark>introductory</mark> courses, said <mark>Tom Cortina</mark>, the assistant dean at <mark>Carnegie Mellon</mark>'s School of Computer Science.</div>
+  <div class="en">It's true that high-school coding classes aren't <mark>essential</mark> for learning computer science in college. Students without experience can <mark>catch up</mark> after a few introductory courses, said Tom Cortina, the assistant dean at Carnegie Mellon's School of Computer Science.</div>
   <hr class="sent-hr">
   <div class="cn">高中编程课对大学学习计算机科学并非必不可少。卡内基梅隆大学计算机学院助理院长 Tom Cortina 说，没有经验的学生上几门入门课后就能跟上。</div>
   <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
@@ -270,7 +270,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P2 -->
 <div class="sent">
   <span class="snum">02</span>
-  <div class="en"><u>However</u>, Cortina said, <mark>early exposure</mark> is <mark>beneficial</mark>.</div>
+  <div class="en"><u>However</u>, Cortina said, early exposure is <mark>beneficial</mark>.</div>
   <hr class="sent-hr">
   <div class="cn">然而 Cortina 说，早期接触是有益的。</div>
   <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
@@ -284,7 +284,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">03</span>
-  <div class="en">When younger kids learn computer science, they learn that <u>it's not just a confusing, endless string of letters and numbers—but a tool to build apps, or create artwork, or test hypotheses</u>. It's not as hard for them to <mark>transform</mark> their <mark>thought processes</mark> as it is for <mark>older students</mark>.</div>
+  <div class="en">When younger kids learn computer science, they learn that <u>it's not just a confusing, endless string of letters and numbers—but a tool to build apps, or create artwork, or test hypotheses</u>. It's not as hard for them to <mark>transform</mark> their <mark>thought processes</mark> as it is for older students.</div>
   <hr class="sent-hr">
   <div class="cn">当更小的孩子学习计算机科学时，他们学到的不只是一串令人困惑、无穷无尽的字母和数字——而是一个构建应用、创作艺术作品或检验假设的工具。对他们来说，转变思维方式并不像年长的学生那么困难。</div>
   <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
@@ -304,7 +304,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">04</span>
-  <div class="en"><mark>Breaking down</mark> problems into <mark>bite-sized chunks</mark> and using code to solve them becomes <mark>normal</mark>.</div>
+  <div class="en"><mark>Breaking down</mark> problems into <mark>bite-sized chunks</mark> and using code to solve them becomes normal.</div>
   <hr class="sent-hr">
   <div class="cn">把问题拆成小块并用代码来解决，变得习以为常。</div>
   <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
@@ -321,7 +321,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">05</span>
-  <div class="en">Giving more children this training could <mark>increase</mark> the number of people <mark>interested in the field</mark> and help <mark>fill the jobs gap</mark>, Cortina said.</div>
+  <div class="en">Giving more children this training could increase the number of people interested in the field and help <mark>fill the jobs gap</mark>, Cortina said.</div>
   <hr class="sent-hr">
   <div class="cn">Cortina 说，让更多孩子接受这种培训可能会增加对该领域感兴趣的人数，并帮助填补就业缺口。</div>
   <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
@@ -339,7 +339,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P3 -->
 <div class="sent">
   <span class="snum">06</span>
-  <div class="en">Students also benefit from <mark>learning something about coding</mark> before they get to college, where <mark>introductory computer-science classes</mark> are <mark>packed to the brim</mark>, which can drive the <mark>less-experienced or-determined</mark> students away.</div>
+  <div class="en">Students also benefit from learning something about coding before they get to college, where <mark>introductory computer-science classes</mark> are <mark>packed to the brim</mark>, which can drive the less-experienced or-determined students away.</div>
   <hr class="sent-hr">
   <div class="cn">学生在进入大学之前学习一些编程知识也有好处，因为大学的入门计算机科学课程往往人满为患，这会把经验不足或意志不坚定的学生劝退。</div>
   <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
@@ -360,7 +360,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P4 -->
 <div class="sent">
   <span class="snum">07</span>
-  <div class="en">The <mark>Flatiron School</mark>, where people pay to learn programming, started as one of the many <mark>coding boot camps</mark> that <mark>have become popular</mark> for adults <mark>looking for a career change</mark>.</div>
+  <div class="en">The <mark>Flatiron School</mark>, where people pay to learn programming, started as one of the many <mark>coding boot camps</mark> that have become popular for adults looking for a career change.</div>
   <hr class="sent-hr">
   <div class="cn">Flatiron School（人们付费学编程的地方）最初只是众多编程训练营中的一个，这些训练营近年来在寻求转行的成年人中变得流行起来。</div>
   <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
@@ -378,7 +378,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">08</span>
-  <div class="en">The high-schoolers get the same <mark>curriculum</mark>, but "<mark>we try to gear lessons toward things they're interested in</mark>," said <mark>Victoria Friedman</mark>, an <mark>instructor</mark>.</div>
+  <div class="en">The high-schoolers get the same curriculum, but "<mark>we try to gear lessons toward things they're interested in</mark>," said Victoria Friedman, an instructor.</div>
   <hr class="sent-hr">
   <div class="cn">高中生们接受同样的课程，但"我们会尽量根据他们的兴趣来调整教学内容，"讲师 Victoria Friedman 说。</div>
   <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
@@ -393,7 +393,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">09</span>
-  <div class="en">For <mark>instance</mark>, one of the <mark>apps</mark> the students are developing <mark>suggests movies based on your mood</mark>.</div>
+  <div class="en">For instance, one of the apps the students are developing suggests movies based on your mood.</div>
   <hr class="sent-hr">
   <div class="cn">例如，学生们正在开发的一款应用可以根据你的心情推荐电影。</div>
   <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
@@ -410,7 +410,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P5 -->
 <div class="sent">
   <span class="snum">10</span>
-  <div class="en">The students in the Flatiron class probably won't <mark>drop out of high school</mark> and build the next Facebook. Programming languages have a <mark>quick turnover</mark>, so the "<mark>Ruby on Rails</mark>" language they learned may not even be <mark>relevant</mark> by the time they enter the job market.</div>
+  <div class="en">The students in the Flatiron class probably won't drop out of high school and build the next Facebook. Programming languages have a <mark>quick turnover</mark>, so the "Ruby on Rails" language they learned may not even be <mark>relevant</mark> by the time they enter the job market.</div>
   <hr class="sent-hr">
   <div class="cn">Flatiron 班里的学生大概不会退学去打造下一个 Facebook。编程语言更新换代很快，所以他们学的"Ruby on Rails"语言等到他们进入就业市场时可能已经不再流行了。</div>
   <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
@@ -431,7 +431,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">11</span>
-  <div class="en">But the skills they learn—<u>how to think logically through a problem and organize the results</u>—apply to <mark>any coding language</mark>, said <mark>Deborah Seehorn</mark>, an <mark>education consultant</mark> for the state of North Carolina.</div>
+  <div class="en">But the skills they learn—<u>how to think logically through a problem and organize the results</u>—<mark>apply to any coding language</mark>, said Deborah Seehorn, an education consultant for the state of North Carolina.</div>
   <hr class="sent-hr">
   <div class="cn">但他们学到的技能——如何逻辑性地分析问题并整理结果——适用于任何编程语言，北卡罗来纳州的教育顾问 Deborah Seehorn 说。</div>
   <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
@@ -468,7 +468,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">13</span>
-  <div class="en">But creating a <mark>future army of coders</mark> is not the <mark>sole purpose</mark> of the classes.</div>
+  <div class="en">But creating a future army of coders is not the <mark>sole purpose</mark> of the classes.</div>
   <hr class="sent-hr">
   <div class="cn">但这些课程的唯一目的并不是培养一支未来的程序员大军。</div>
   <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
