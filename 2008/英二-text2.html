@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2008 考研英语（二）· Text 2 — 学术出版的变革</title>
+<style>
+:root {
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --text: #3a3029;
+  --muted: #7a7067;
+  --brick: #c0392b;
+  --olive: #6b8e23;
+  --gold: #b8860b;
+  --accent: #c0392b;
+  --border: #e8dfd4;
+  --panel-bg: #fcf8f3;
+  --radius: 12px;
+  --shadow: 0 1px 4px rgba(60,40,20,0.08), 0 6px 20px rgba(60,40,20,0.06);
+  --transition: 0.25s ease;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Georgia, "Noto Serif SC", "Source Han Serif CN", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 28px 16px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@keyframes gradFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.header {
+  background: linear-gradient(135deg, var(--brick), var(--olive), var(--gold));
+  background-size: 300% 300%;
+  animation: gradFlow 8s ease infinite;
+  border-radius: var(--radius);
+  padding: 32px 26px 26px;
+  color: #fff;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 50%;
+}
+.header h1 { font-size: 22px; line-height: 1.35; margin-bottom: 10px; font-weight: 700; }
+.header .sub { opacity: 0.88; font-size: 14px; line-height: 1.5; }
+.header .meta { margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; opacity: 0.82; }
+.header .meta span { background: rgba(255,255,255,0.18); padding: 3px 10px; border-radius: 20px; }
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(60,40,20,0.12); }
+
+.sent {
+  animation: fadeUp 0.5s var(--transition) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.snum {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brick), #e74c3c);
+  color: #fff;
+  padding: 2px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.en {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.en mark {
+  background: rgba(184,134,11,0.18);
+  color: #8b6914;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: help;
+  position: relative;
+  border-bottom: 1.5px dashed rgba(184,134,11,0.45);
+}
+.en u {
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  font-style: italic;
+}
+.sent-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4c4b0, transparent);
+  margin: 14px 0;
+}
+.tl-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13.5px;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.zh {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #555048;
+  margin-bottom: 8px;
+}
+
+details {
+  background: var(--panel-bg);
+  border-left: 3.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.78;
+}
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: var(--accent);
+  list-style: none;
+  outline: none;
+  user-select: none;
+}
+summary::before { content: "▸ "; color: var(--gold); }
+details[open] summary::before { content: "▾ "; }
+details p { margin-bottom: 6px; }
+details .long-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), #daa520);
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+details[open] { animation: slideDown 0.25s ease; }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ico {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.ico.brick { background: var(--brick); }
+.ico.green { background: var(--olive); }
+.ico.gold { background: var(--gold); }
+.toggle {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--olive);
+  background: rgba(107,142,35,0.09);
+  padding: 3px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(107,142,35,0.18);
+  user-select: none;
+  transition: var(--transition);
+}
+.toggle:hover { background: rgba(107,142,35,0.17); }
+.collapsible-body { overflow: hidden; transition: max-height 0.3s ease; }
+.collapsible-body.hidden { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 6px 0 0;
+}
+th, td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: rgba(184,134,11,0.08);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+}
+tr:hover td { background: rgba(184,134,11,0.04); }
+
+.p-item {
+  background: var(--panel-bg);
+  border-left: 3.5px solid var(--olive);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.p-item b { color: var(--accent); }
+.puse { margin-top: 6px; color: var(--muted); font-size: 13px; }
+
+.er {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.er:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.q-num {
+  font-weight: 700;
+  color: var(--brick);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.q-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text);
+  line-height: 1.65;
+}
+.opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.opt {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(60,40,20,0.03);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.opt.ok { background: rgba(107,142,35,0.1); border-color: var(--olive); font-weight: 600; color: #4a6b0a; }
+.opt.no { background: rgba(192,57,43,0.05); border-color: rgba(192,57,43,0.2); text-decoration: line-through; color: var(--muted); }
+.ua { font-size: 13px; margin-bottom: 6px; color: var(--olive); font-weight: 600; }
+.analysis {
+  background: var(--panel-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.78;
+  margin-top: 6px;
+}
+.analysis p { margin-bottom: 6px; }
+
+.item-list { list-style: none; padding: 0; }
+.item-list li {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  transition: var(--transition);
+}
+.item-list li:last-child { border-bottom: none; }
+.item-list li:hover { background: rgba(184,134,11,0.04); }
+.item-list li b { color: var(--accent); }
+
+@media print {
+  body { padding: 20px; background: #fff; }
+  .card { break-inside: avoid; page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+  .toggle { display: none; }
+  .collapsible-body.hidden { display: block !important; }
+  details { display: block !important; }
+  details > * { display: block !important; }
+  summary { display: none !important; }
+  .header { background: #555; color: #fff; -webkit-print-color-adjust: exact; }
+}
+@media (max-width: 720px) {
+  body { padding: 16px 8px 60px; }
+  .header { padding: 24px 18px 20px; }
+  .header h1 { font-size: 19px; }
+  .card { padding: 18px 16px; }
+  .opts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>2008 考研英语（二）· Text 2</h1>
+  <div class="sub">学术出版的变革——从传统期刊到开放获取的转型之路</div>
+  <div class="meta">
+    <span>来源：2008 英二 Part A Text 2</span>
+    <span>难度：★★★☆☆</span>
+    <span>题材：科技 / 出版业变革</span>
+  </div>
+</div>
+
+<!-- S01 -->
+<div class="sent" style="animation-delay: 0.02s">
+  <div class="card">
+    <span class="snum">S01</span>
+    <div class="en">
+      It used to be so <mark>straightforward</mark>.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">过去这一切曾经如此简单直接。</div>
+    <details><summary>语法分析</summary><p>📌 简单句，全文开篇定调。</p><p>• <code>It used to be ...</code> = 过去常常是……（表示过去的常态或习惯，暗示现在已不再如此）</p><p>• <b>straightforward</b> = 简单直接的、一目了然的；此处指学术发表的传统流程清晰明确</p></details>
+  </div>
+</div>
+
+<!-- S02 -->
+<div class="sent" style="animation-delay: 0.05s">
+  <div class="card">
+    <span class="snum">S02</span>
+    <div class="en">
+      A team of researchers working together in the laboratory would submit the results of their research to a <u>journal</u>.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">一组在实验室共同工作的研究人员会将他们的研究成果提交给一本期刊。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主语 + 谓语 + 间接宾语 + 直接宾语</p><p>• 主语：<code>A team of researchers (working together in the laboratory)</code></p><p>• 分词短语 <code>working together...</code> 作后置定语修饰 researchers</p><p>• 谓语：<code>would submit... to...</code>（would 表过去习惯性动作）</p><p>• <b>journal</b> = 学术期刊（本文核心词之一）</p></details>
+  </div>
+</div>
+
+<!-- S03 -->
+<div class="sent" style="animation-delay: 0.08s">
+  <div class="card">
+    <span class="snum">S03</span>
+    <div class="en">
+      A journal editor would then remove the authors' names and affiliations from the paper and send it to their peers for review.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">然后期刊编辑会从论文中隐去作者的姓名和所属机构，将其送交同行评审。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：并列谓语 + 目的状语</p><p>• 并列谓语：<code>would remove ... and send it to ...</code></p><p>• <code>affiliations</code> = 隶属关系、所属机构（作者所在大学/研究所等）</p><p>• <code>peers</code> = 同行、同领域学者</p><p>• <code>for review</code> = 进行评审（目的状语）</p><p>• 本句描述的是<strong>匿名同行评审</strong>（blind peer review）流程</p></details>
+  </div>
+</div>
+
+<!-- S04 -->
+<div class="sent" style="animation-delay: 0.11s">
+  <div class="card">
+    <span class="snum">S04</span>
+    <div class="en">
+      Depending on the comments received, the editor would accept the paper for publication or decline it.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">根据收到的评审意见，编辑将决定接受该论文发表还是退稿。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：现在分词短语作条件状语 + 主句（选择结构）</p><p>• <code>Depending on the comments received</code> = 条件/依据状语</p><p>• <code>received</code> = 过去分词作后置定语，修饰 comments</p><p>• 选择结构：<code>accept ... or decline ...</code></p><p>• <b>decline</b> = 婉拒、拒绝（比 refuse 更委婉，学术界常用词）</p></details>
+  </div>
+</div>
+
+<!-- S05 -->
+<div class="sent" style="animation-delay: 0.14s">
+  <div class="card">
+    <span class="snum">S05</span>
+    <div class="en">
+      Copyright rested with the journal publisher, and researchers seeking knowledge of the results would have to <mark>subscribe</mark> to the journal.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">版权归期刊出版商所有，想要了解研究成果的研究人员则必须订阅该期刊。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：并列句（两个分句由 and 连接）</p><p>• 分句 1：<code>Copyright rested with the journal publisher</code>（版权归属出版商）</p><p>• <code>rested with</code> = 归属于、在于（rest 的过去式）</p><p>• 分句 2：<code>researchers seeking knowledge ... would have to subscribe to ...</code></p><p>• 分词 <code>seeking knowledge of the results</code> 修饰 researchers（哪些研究者？→想了解结果的那批）</p><p>• <code>have to subscribe to</code> = 必须订阅（传统付费墙模式的核心机制）</p><p>• 本段（P1）完整描述了<strong>传统学术发表的闭环流程</strong>：投稿→匿名评审→接受/退稿→版权归属出版商→读者付费订阅</p></details>
+  </div>
+</div>
+
+<!-- S06 -->
+<div class="sent" style="animation-delay: 0.17s">
+  <div class="card">
+    <span class="snum">S06</span>
+    <div class="en">
+      No longer. The Internet – and pressure from funding agencies, who are questioning why commercial publishers are making money from government-funded research by restricting access to it – is making free access to scientific results a reality.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">不再是那样了。互联网——以及来自资助机构的压力（它们在质问为何商业出版商通过限制访问来从政府资助的研究中牟利）——正在使科学成果的自由获取成为现实。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 插入语（含非限制性定语从句）</p><p>• 开头 <code>No longer.</code> = 承接上段的"It used to be..."，两字完成转折</p><p>• 主语核心：<code>The Internet ... is making ... a reality</code></p><p>• 插入语（双破折号之间）：对"funding agencies"的补充说明</p><p>• 定语从句：<code>who are questioning why ...</code>（who 指代 funding agencies）</p><p>• 从句嵌套：<code>why commercial publishers are making money from ... by restricting access to it</code>（questioning 的宾语从句中又含 why 引导的原因从句）</p><p>• <b>by restricting access to it</b> = 通过限制对其的访问（方式状语，说明出版商如何牟利）</p></details>
+  </div>
+</div>
+
+<!-- S07 -->
+<div class="sent" style="animation-delay: 0.20s">
+  <div class="card">
+    <span class="snum">S07</span>
+    <div class="en">
+      The Organization for Economic Co-operation and Development (OECD) has just issued a report describing the far-reaching consequences of this.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">经济合作与发展组织（OECD）刚刚发布了一份报告，描述了此事的深远影响。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主谓宾 + 现在分词作后置定语</p><p>• <code>OECD</code> = 经济合作与发展组织（经合组织，国际权威机构）</p><p>• <code>has just issued a report</code> = 刚刚发布了一份报告（现在完成时强调"刚刚"）</p><p>• 分词 <code>describing the far-reaching consequences of this</code> 修饰 report（什么样的报告？描述深远影响的）</p><p>• <b>far-reaching</b> = 影响深远的、意义重大的（复合形容词，far + reach + ing）</p><p>• <code>this</code> = 指代上文所述的"互联网推动免费获取科学成果"这一趋势</p></details>
+  </div>
+</div>
+
+<!-- S08 -->
+<div class="sent" style="animation-delay: 0.23s">
+  <div class="card">
+    <span class="snum">S08</span>
+    <div class="en">
+      The report, by John Houghton of Victoria University in Australia and Graham Vickery, makes heavy reading for publishers who have, so far, made handsome profits.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">这份由澳大利亚维多利亚大学的 John Houghton 和 Graham Vickery 撰写的报告，对于迄今一直赚取丰厚利润的出版商来说，读起来颇为沉重。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 插入语（报告作者）+ 含定语从句的介词短语</p><p>• 主句核心：<code>The report makes heavy reading for publishers</code></p><p>• <code>makes heavy reading for sb.</code> = 对某人来说是沉重/令人不安的阅读（习语化表达）——暗示报告内容对出版商不利</p><p>• 插入语：<code>, by John Houghton ... and Graham Vickery,</code> 补充说明报告作者</p><p>• 定语从句：<code>who have, so far, made handsome profits</code> 修饰 publishers</p><p>• <b>handsome profits</b> = 可观的利润、丰厚的利润（handsome 此处=慷慨的/大量的，褒义转中性）</p><p>• <code>so far</code> = 迄今为止（插入语，强调时间范围）</p></details>
+  </div>
+</div>
+
+<!-- S09 -->
+<div class="sent" style="animation-delay: 0.26s">
+  <div class="card">
+    <span class="snum">S09</span>
+    <div class="en">
+      But it goes further than that. It signals a change in what has, until now, been a key element of scientific <mark>endeavour</mark>.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">但这远不止于此。它标志着迄今为止一直是科学研究关键要素的一个方面发生了变化。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：并列句（第二句含宾语从句 + 嵌套名词性从句）</p><p>• 第一句：<code>But it goes further than that</code>（承上启下：不只是让出版商不安，还有更深层的影响）</p><p>• 第二句：<code>It signals a change in [what has ... been a key element ...]</code></p><p>• 方括号内是介词 in 的宾语从句：<code>what has, until now, been a key element of scientific endeavour</code></p><p>• <code>until now</code> = 迄今为止（插入语）</p><p>• <b>endeavour</b> = 努力、尝试、事业（英式拼写 = endeavor）；scientific endeavour = 科学研究事业/科学探索活动</p><p>• "key element"此处暗指<strong>知识的传播与获取方式</strong>这一科研活动的核心环节</p></details>
+  </div>
+</div>
+
+<!-- S10 -->
+<div class="sent" style="animation-delay: 0.29s">
+  <div class="card">
+    <span class="snum">S10</span>
+    <div class="en">
+      The value of knowledge and the return on the public investment in research depends, in part, upon wide distribution and ready access.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">知识价值以及公共研究投资的回报，部分取决于广泛传播和便捷获取。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主语（并列）+ 谓语 + 插入语 + 介词宾语（并列）</p><p>• 并列主语：<code>The value of knowledge AND the return on the public investment in research</code></p><p>• 谓语：<code>depends ... upon</code>（depend on 的正式写法）</p><p>• <code>in part</code> = 部分地（插入语，修饰 depend，表示"不完全取决于但这是重要因素之一"）</p><p>• 并列宾语：<code>wide distribution AND ready access</code></p><p>• <b>return on investment</b> = 投资回报（常缩写为 ROI）</p><p>• <b>ready access</b> = 便捷获取、随时可得（ready = 容易获得的、即时的）</p><p>• 本句是全文论点的<strong>理论基础</strong>：为什么需要开放获取？因为知识的价值和投资回报取决于传播广度与获取便利性</p></details>
+  </div>
+</div>
+
+<!-- S11 -->
+<div class="sent" style="animation-delay: 0.32s">
+  <div class="card">
+    <span class="snum">S11</span>
+    <div class="en">
+      It is big business. In America, the core scientific publishing market is estimated at between $7 billion and $11 billion.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">这是一门大生意。在美国，核心科学出版市场的估值估计在 70 亿至 110 亿美元之间。</div>
+    <details><summary>语法分析</summary><p>📌 两句并列：</p><p>• <code>It is big business.</code> = 极短有力的过渡句（it = 上文讨论的知识传播/学术出版行业）</p><p>• 第二句用具体数字支撑"大生意"的说法：<code>is estimated at between $7bn and $11bn</code></p><p>• <code>be estimated at</code> = 估计达……（被动语态，常见于统计数据引用）</p><p>• 数字巨大 → 反衬出后面"免费获取"对现有商业模式的冲击力</p></details>
+  </div>
+</div>
+
+<!-- S12 -->
+<div class="sent" style="animation-delay: 0.35s">
+  <div class="card">
+    <span class="snum">S12</span>
+    <div class="en">
+      The International Association of Scientific, Technical and Medical Publishers says that there are more than 2,000 publishers worldwide specializing in these subjects.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">国际科学技术医学出版商协会称，全球有超过 2000 家专门从事这些领域的出版商。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 宾语从句</p><p>• <code>The International Association of Scientific, Technical and Medical Publishers</code> = 国际科学技术医学出版商协会（简称 STM，行业组织）</p><p>• 宾语从句：<code>that there are more than 2,000 publishers worldwide specializing in these subjects</code></p><p>• 分词 <code>specializing in these subjects</code> 修饰 publishers</p><p>• 用"2000+ 出版商"进一步佐证前一句"big business"</p></details>
+  </div>
+</div>
+
+<!-- S13 -->
+<div class="sent" style="animation-delay: 0.38s">
+  <div class="card">
+    <span class="snum">S13</span>
+    <div class="en">
+      They publish more than 1.2 million articles each year in some 16,000 journals.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">他们每年在大约 16000 种期刊上发表超过 120 万篇文章。</div>
+    <details><summary>语法分析</summary><p>📌 简单句，继续用数据堆叠强化"产业规模"印象：</p><p>• <code>more than 1.2 million articles</code> = 年发文量</p><p>• <code>some 16,000 journals</code> ≈ 大约 16000 种期刊（some = about/approximately）</p><p>• 三组数据（70-110 亿美元市场 / 2000+ 出版商 / 120万+ 文章 / 16000+ 期刊）构成 P3 的"规模论证"，为下文的"变革"做铺垫</p></details>
+  </div>
+</div>
+
+<!-- S14 -->
+<div class="sent" style="animation-delay: 0.41s">
+  <div class="card">
+    <span class="snum">S14</span>
+    <div class="en">
+      This is now changing. According to the OECD report, some 75% of scholarly journals are now online.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">这种情况现在正在改变。根据 OECD 报告，约 75% 的学术期刊已经上网。</div>
+    <details><summary>语法分析</summary><p>📌 过渡段落开头——从"旧格局有多大"转向"新趋势有多猛"：</p><p>• <code>This is now changing.</code> = 再次呼应 S01 的"It used to be so straightforward"（首尾呼应结构）</p><p>• <code>some 75%</code> ≈ 大约 75%（some 表示近似值）</p><p>• <code>scholarly journals</code> = 学术期刊（scholarly = 学术性的、学者的）</p></details>
+  </div>
+</div>
+
+<!-- S15 -->
+<div class="sent" style="animation-delay: 0.44s">
+  <div class="card">
+    <span class="snum">S15</span>
+    <div class="en">
+      Entirely new business models are emerging; three main ones were identified by the report's authors.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">全新的商业模式正在涌现；报告作者识别出了三种主要的模式。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：并列句（分号连接），引出下文三种新模式的总起句</p><p>• 分句 1：<code>Entirely new business models are emerging</code>（全新商业模式正在浮现/兴起）</p><p>• 分句 2：<code>three main ones were identified by the report's authors</code>（ones = business models）</p><p>• <b>emerge</b> = 出现、浮现、兴起（不及物动词，常用于描述新趋势/新事物）</p><p>• 本句是 P4 的<strong>主题句</strong>，下面 S16-S19 将逐一介绍三种模式</p></details>
+  </div>
+</div>
+
+<!-- S16 -->
+<div class="sent" style="animation-delay: 0.47s">
+  <div class="card">
+    <span class="snum">S16</span>
+    <div class="en">
+      There is the so-called big deal, where institutional subscribers pay for access to a collection of online journal titles through site-<mark>licensing</mark> agreements.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">第一种是所谓的"大宗交易"（big deal），机构订阅者通过网站许可协议付费获取一批在线期刊的使用权。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：There be 句型 + where 引导的非限制性定语从句</p><p>• <code>the so-called big deal</code> = 所谓的"大宗交易"（出版业术语：图书馆/机构一次性打包购买大量期刊电子版）</p><p>• where 从句解释 big deal 的运作机制：</p><p>　– <code>institutional subscribers</code> = 机构订阅者（如大学图书馆、研究所）</p><p>　– <code>pay for access to a collection of online journal titles</code> = 付费获取一批在线期刊的访问权</p><p>　– <code>through site-licensing agreements</code> = 通过网站许可协议（IP 地址范围内所有用户可访问）</p><p>• <b>site-licensing</b> = 站点许可（按 IP 授权而非按用户数授权）</p></details>
+  </div>
+</div>
+
+<!-- S17 -->
+<div class="sent" style="animation-delay: 0.50s">
+  <div class="card">
+    <span class="snum">S17</span>
+    <div class="en">
+      There is open-access publishing, typically supported by asking the author (or his employer) to pay for the paper to be published.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">第二种是开放获取出版（open-access publishing），通常通过要求作者（或其雇主）支付论文发表费用来支持。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：There be 句型 + 分词短语作方式状语 + 不定式复合结构</p><p>• <code>open-access publishing</code> = 开放获取出版（OA 出版，论文免费向公众开放，作者付发表费）</p><p>• 分词短语 <code>typically supported by ...</code> 说明资金来源</p><p>• <code>asking the author (or his employer) to pay for the paper to be published</code> = ask sb. to do sth. 结构</p><p>• 其中 <code>for the paper to be published</code> = 不定式的被动式作 pay 的目的/对象（为论文被发表而付款）</p><p>• ⚠️ 这是第 29 题的考点句！谁付钱？作者（或雇主）→ 对应选项 A</p></details>
+  </div>
+</div>
+
+<!-- S18 -->
+<div class="sent" style="animation-delay: 0.53s">
+  <div class="card">
+    <span class="snum">S18</span>
+    <div class="en">
+      Finally, there are open-access archives, where organizations such as universities or international laboratories support <u>institutional repositories</u>.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">最后一种是开放获取存档（archives），由大学或国际实验室等组织支持机构仓储库。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：There be 句型 + where 引导的非限制性定语从句</p><p>• <code>open-access archives</code> = 开放获取存档库（机构自建的免费学术论文存储系统）</p><p>• where 从句解释其运作：组织（大学/实验室）出资维护 <code>institutional repositories</code>（机构仓储库）</p><p>• <b>repository</b> = 仓储库、存储库（计算机术语，指存放数据的集中管理系统）</p><p>• 第三种模式的特点：完全免费、由机构自建自管、不依赖商业出版商</p></details>
+  </div>
+</div>
+
+<!-- S19 -->
+<div class="sent" style="animation-delay: 0.56s">
+  <div class="card">
+    <span class="snum">S19</span>
+    <div class="en">
+      Other models exist that are hybrids of the three, such as delayed open-access, where models allow only subscribers to read a paper for the first six months, before making it freely available to everyone who wishes to see it.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">其他混合模式也存在，例如延迟开放获取（delayed open-access），这种模式下只有订阅者能在最初六个月内阅读某篇论文，之后才向所有想看的人免费开放。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 分割式定语从句 + such as 举例 + where 从句 + 时间状语从句</p><p>• 主句：<code>Other models exist</code></p><p>• <strong>分割式定语从句</strong>：<code>that are hybrids of the three</code> 被 other models 和 exist 分隔（正常位置应在 models 后面）——这是为了平衡句子结构，避免头重脚轻</p><p>• <code>hybrids of the three</code> = 以上三种模式的混合体</p><p>• 举例：<code>such as delayed open-access</code></p><p>• where 从句解释 delayed OA 的规则：</p><p>　– <code>only subscribers to read a paper for the first six months</code> = 前 6 个月仅限订阅者</p><p>　– <code>before making it freely available to everyone who wishes to see it</code> = 之后免费开放</p><p>• <code>making it freely available</code> = 使其免费可用（make + 宾语 + 宾补）</p></details>
+  </div>
+</div>
+
+<!-- S20 -->
+<div class="sent" style="animation-delay: 0.59s">
+  <div class="card">
+    <span class="snum">S20</span>
+    <div class="en">
+      All this could change the traditional form of the peer-review process, at least for the publication of papers.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">这一切可能会改变同行评审过程的传统形式——至少就论文出版而言是这样。</div>
+    <details><summary>语法分析</summary><p>📌 全文结尾句，收束全文：</p><p>• <code>All this</code> = 指代上述所有新模式（big deal / OA publishing / OA archives / hybrids）</p><p>• <code>could change</code> = 可能会改变（could 表推测/可能性，非绝对肯定）</p><p>• <code>at least for the publication of papers</code> = 至少在论文发表这个层面（限定范围，留有余地）</p><p>• <b>peer-review process</b> = 同行评审流程（学术质量控制的核心机制）</p><p>• 结尾暗示：互联网不仅改变了"谁付费"的问题，还可能从根本上改变"怎么审"的流程——影响极为深远</p></details>
+  </div>
+</div>
+
+<!-- ===== 底部汇总区 ===== -->
+
+<div class="card">
+  <h2><span class="ico brick"></span>全文脉络<span class="toggle" data-target="outline">收起</span></h2>
+  <div class="collapsible-body" id="outline">
+  <ul class="item-list">
+    <li><b>① 传统模式回顾（P1）</b>：学术发表曾很简单——投稿→匿名同行评审→接受/退稿→版权归出版商→读者付费订阅。一个完整的封闭商业闭环。</li>
+    <li><b>② 变革驱动力（P2）</b>：互联网 + 资助机构施压（质疑商业出版商利用政府资助研究牟利）→ 免费获取成为现实。OECD 报告指出影响深远，出版商利润面临威胁。</li>
+    <li><b>③ 理论基础与产业规模（P3）</b>：知识价值取决于广泛传播和便捷获取；美国科学出版市场 70-110 亿美元，全球 2000+ 出版商、16000+ 种期刊、年发文 120 万+篇——"大生意"正面临颠覆。</li>
+    <li><b>④ 新兴商业模式（P4）</b>：约 75% 学术期刊已上线。三大新模式：① 大宗交易（机构批量购买站点许可）② 开放获取出版（作者付费发表，读者免费阅读）③ 开放获取存档（机构自建免费仓储）。另有混合模式（如延迟开放获取）。</li>
+    <li><b>⑤ 未来展望（末句）</b>：这些变革可能改变同行评审的传统形式——影响不仅限于"谁付费"，更触及学术质量控制的根本流程。</li>
+  </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico gold"></span>重点词汇表<span class="toggle" data-target="vocab">收起</span></h2>
+  <div class="collapsible-body" id="vocab">
+  <table>
+    <tr><th>单词/短语</th><th>音标 & 词义</th><th>例句/搭配</th></tr>
+    <tr><td><b>straightforward</b></td><td>/ˌstreɪtˈfɔːrwərd/ adj. 简单直接的；坦率的</td><td>used to be straightforward 曾经如此简单</td></tr>
+    <tr><td><b>journal</b></td><td>/ˈdʒɜːrnl/ n. 学术期刊；日记</td><td>submit results to a journal 投稿给期刊</td></tr>
+    <tr><td><b>affiliation</b></td><td>/əˌfɪliˈeɪʃn/ n. 隶属关系；所属机构</td><td>authors' names and affiliations 作者姓名及单位</td></tr>
+    <tr><td><b>peer review</b></td><td>/pɪər rɪˈvjuː/ n. 同行评审</td><td>send it to peers for review 送交同行评审</td></tr>
+    <tr><td><b>decline</b></td><td>/dɪˈklaɪn/ v. 婉拒；谢绝；下降</td><td>accept or decline a paper 接受或退稿</td></tr>
+    <tr><td><b>subscribe (to)</b></td><td>/səbˈskraɪb/ v. 订阅；订购</td><td>subscribe to the journal 订阅期刊</td></tr>
+    <tr><td><b>restrict</b></td><td>/rɪˈstrɪkt/ v. 限制；约束</td><td>restricting access to it 限制对其访问</td></tr>
+    <tr><td><b>far-reaching</b></td><td>/ˌfɑːrˈriːtʃɪŋ/ adj. 影响深远的</td><td>far-reaching consequences 深远影响</td></tr>
+    <tr><td><b>handsome</b></td><td>/ˈhænsəm/ adj. 可观的；（利润）丰厚的</td><td>handsome profits 可观的利润</td></tr>
+    <tr><td><b>endeavour</b></td><td>/ɪnˈdevər/ n. 努力；事业（英式拼写）</td><td>scientific endeavour 科学研究事业</td></tr>
+    <tr><td><b>distribution</b></td><td>/ˌdɪstrɪˈbjuːʃn/ n. 分布；传播；分发</td><td>wide distribution 广泛传播</td></tr>
+    <tr><td><b>emerge</b></td><td>/ɪˈmɜːrdʒ/ v. 出现；浮现；兴起</td><td>new business models are emerging 新商业模式涌现</td></tr>
+    <tr><td><b>license/licence</b></td><td>/ˈlaɪsns/ n./v. 许可；发许可证</td><td>site-licensing agreements 站点许可协议</td></tr>
+    <tr><td><b>archive</b></td><td>/ˈɑːrkaɪv/ n. 存档；档案库</td><td>open-access archives 开放获取存档库</td></tr>
+    <tr><td><b>repository</b></td><td>/rɪˈpɑːzətɔːri/ n. 仓储库；存储库</td><td>institutional repositories 机构仓储库</td></tr>
+    <tr><td><b>hybrid</b></td><td>/ˈhaɪbrɪd/ n./adj. 混合体；混合的</td><td>hybrids of the three 三种模式的混合</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico green"></span>熟词生义<span class="toggle" data-target="familiar">收起</span></h2>
+  <div class="collapsible-body" id="familiar">
+  <table>
+    <tr><th>词汇</th><th>常见义</th><th>本文生义</th></tr>
+    <tr><td><b>journal</b></td><td>n. 日记；日志</td><td>n. 学术期刊（学术语境下的专有含义）</td></tr>
+    <tr><td><b>handsome</b></td><td>adj. 英俊的（形容人外貌）</td><td>adj. （数量）可观的、丰厚的（形容利润/报酬）</td></tr>
+    <tr><td><b>deal</b></td><td>n. 交易；协议</td><td>n. （出版业的）"大宗交易"/批量采购方案（big deal 为固定搭配）</td></tr>
+    <tr><td><b>model</b></td><td>n. 模型（数学/物理模型）</td><td>n. 商业模式、运营模式（business model 的简称）</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico gold"></span>重点短语搭配<span class="toggle" data-target="phrases">收起</span></h2>
+  <div class="collapsible-body" id="phrases">
+  <table>
+    <tr><th>短语</th><th>释义</th></tr>
+    <tr><td><b>submit ... to ...</b></td><td>把……提交给……</td></tr>
+    <tr><td><b>remove ... from ...</b></td><td>从……移除/去掉……</td></tr>
+    <tr><td><b>depending on</b></td><td>取决于；视……而定</td></tr>
+    <tr><td><b>accept/decline ... for publication</b></td><td>接受/退稿（用于发表）</td></tr>
+    <tr><td><b>rest with</b></td><td>归属于；在于（rest 的过去式 rested）</td></tr>
+    <tr><td><b>subscribe to</b></td><td>订阅；订购</td></tr>
+    <tr><td><b>no longer</b></td><td>不再</td></tr>
+    <tr><td><b>restrict access to</b></td><td>限制对……的访问/获取</td></tr>
+    <tr><td><b>make money from</b></td><td>从……赚钱/牟利</td></tr>
+    <tr><td><b>make sth. a reality</b></td><td>使某事成为现实</td></tr>
+    <tr><td><b>issue a report</b></td><td>发布一份报告</td></tr>
+    <tr><td><b>make heavy reading</b></td><td>读起来令人沉重/不安</td></tr>
+    <tr><td><b>so far</b></td><td>迄今为止；到目前为止</td></tr>
+    <tr><td><b>go further than</b></td><td>不止于此；更进一步</td></tr>
+    <tr><td><b>signal a change</b></td><td>标志着一个变化</td></tr>
+    <tr><td><b>in part</b></td><td>部分地；在一定程度上</td></tr>
+    <tr><td><b>depend on/upon</b></td><td>取决于；依赖</td></tr>
+    <tr><td><b>return on investment</b></td><td>投资回报（ROI）</td></tr>
+    <tr><td><b>specialize in</b></td><td>专门从事；专注于</td></tr>
+    <tr><td><b>big deal</b></td><td>大宗交易（出版业术语：机构批量采购期刊）</td></tr>
+    <tr><td><b>site-licensing agreement</b></td><td>站点许可协议（按 IP 授权访问）</td></tr>
+    <tr><td><b>open-access publishing</b></td><td>开放获取出版（OA 出版，作者付费读者免费）</td></tr>
+    <tr><td><b>open-access archive</b></td><td>开放获取存档（机构免费仓储）</td></tr>
+    <tr><td><b>institutional repository</b></td><td>机构仓储库</td></tr>
+    <tr><td><b>delayed open-access</b></td><td>延迟开放获取（先收费后免费）</td></tr>
+    <tr><td><b>peer-review process</b></td><td>同行评审流程</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico green"></span>值得背诵的 3 个句型<span class="toggle" data-target="patterns">收起</span></h2>
+  <div class="collapsible-body" id="patterns">
+  <div class="p-item">
+    <b>句型 1：It used to be ... No longer.</b>
+    <div class="puse">过去曾是如此……不再是了。（用于对比新旧状态，简洁有力的转折结构）</div>
+    <div style="font-style:italic; color: var(--muted); margin-top: 4px;">
+      "It used to be so straightforward. No longer."
+    </div>
+  </div>
+  <div class="p-item">
+    <b>句型 2：The value of X depends, in part, upon Y and Z.（分词/介词短语并列作宾语）</b>
+    <div class="puse">X 的价值部分取决于 Y 和 Z。（正式学术表达，适合写作中使用）</div>
+    <div style="font-style: italic; color: var(--muted); margin-top: 4px;">
+      "The value of knowledge and the return on the public investment in research depends, in part, upon wide distribution and ready access."
+    </div>
+  </div>
+  <div class="p-item">
+    <b>句型 3：Other models exist that are hybrids of ..., such as ..., where ...（分割式定语从句 + 举例 + 解释性从句）</b>
+    <div class="puse">其他混合模型也存在，例如……其中……（先总述存在性，再用具体例子展开说明）</div>
+    <div style="font-style: italic; color: var(--muted); margin-top: 4px;">
+      "Other models exist that are hybrids of the three, such as delayed open-access, where models allow only subscribers to read a paper..."
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico brick"></span>题目答案速查<span class="toggle" data-target="qa">收起</span></h2>
+  <div class="collapsible-body" id="qa">
+
+  <div class="er">
+    <div class="q-num">26. In the first paragraph, the author discusses _____.</div>
+    <div class="q-text">在第一段中，作者讨论了_____。</div>
+    <div class="opts">
+      <span class="opt no">[A] the background information of journal editing.</span>
+      <span class="opt no">[B] the publication routine of laboratory reports.</span>
+      <span class="opt no">[C] the relations of authors with journal publishers.</span>
+      <span class="opt ok">[D] the traditional process of journal publication. ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P1 整段（S01-S05）——"submit → remove names → peer review → accept/decline → copyright with publisher → subscribe"</p>
+      <p>✅ <b>D 正确推理</b>：P1 完整描述了传统学术发表的每一步流程：研究人员投稿 → 编辑匿名处理 → 同行评审 → 录用/退稿 → 版权归属出版商 → 读者付费订阅。这正是"traditional process of journal publication"（期刊出版的传统流程）。D 准确概括了全段内容。</p>
+      <p>❌ <b>A 错误</b>："background information of journal editing"（期刊编辑的背景信息）太窄。P1 不仅讲编辑的工作，还讲了作者、评审者、出版商、读者的整个链条。</p>
+      <p>❌ <b>B 错误</b>："laboratory reports"（实验报告）≠ 原文说的"research results submitted to a journal"。原文是学术论文/研究成果的发表流程，不是实验室内部报告的常规发布。</p>
+      <p>❌ <b>C 错误</b>：P1 确实提到了作者和出版商的关系（copyright），但那只是五步中的一步，不能代表整段内容。"relations of authors with journal publishers"以偏概全。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">27. Which of the following is true of the OECD report?</div>
+    <div class="q-text">关于 OECD 报告，下列哪项正确？</div>
+    <div class="opts">
+      <span class="opt no">[A] It criticizes government-funded research.</span>
+      <span class="opt no">[B] It introduces an effective means of publication.</span>
+      <span class="opt ok">[C] It upsets profit-making journal publishers. ✓</span>
+      <span class="opt no">[D] It benefits scientific research considerably.</span>
+    </div>
+    <div class="ua">标准答案：C</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P2 ——"makes heavy reading for publishers who have, so far, made handsome profits"；"signals a change in what has ... been a key element of scientific endeavour"</p>
+      <p>✅ <b>C 正确推理</b>：S08 明确说报告对出版商来说"makes heavy reading"（读起来沉重/令人不安），因为这些出版商"made handsome profits"（赚了丰厚利润）——报告揭示的趋势（免费获取、新模式）直接冲击其盈利模式。C 的"upsets profit-making journal publishers"（令营利性期刊出版商不安/不满）精准对应此意。</p>
+      <p>❌ <b>A 错误</b>：报告批评的不是"government-funded research"（政府资助的研究）本身，而是批评"commercial publishers making money from government-funded research by restricting access"——矛头指向的是<strong>商业出版商</strong>，不是政府资助的研究。A 偷换了批评对象。</p>
+      <p>❌ <b>B 错误</b>：报告本身并未"introduces effective means of publication"（介绍有效的出版手段）。报告主要描述现状、分析后果、指出变革信号；三种新模式是在 P4 由作者归纳的，不是报告"介绍的"。</p>
+      <p>❌ <b>D 错误</b>"benefits scientific research considerably"（极大有益于科研）虽然方向不错，但过于笼统且缺乏直接文本支撑。报告中确实提到知识价值取决于广泛传播，但这不等于报告本身"使科研受益"——报告的作用是<strong>揭示和分析</strong>变革，而非直接带来益处。相比之下 C 有明确的文本证据（"heavy reading for publishers"）。</p>
+    </div>
+  </div>
+
+  <dom class="er">
+    <div class="q-num">28. According to the text, online publication is significant in that _____.</div>
+    <div class="q-text">根据文章，在线出版的重要之处在于_____。</div>
+    <div class="opts">
+      <span class="opt ok">[A] it provides an easier access to scientific results. ✓</span>
+      <span class="opt no">[B] it brings huge profits to scientific researchers.</span>
+      <span class="opt no">[C] it emphasizes the crucial role of scientific knowledge.</span>
+      <span class="opt no">[D] it facilitates public investment in scientific research.</span>
+    </div>
+    <div class="ua">标准答案：A</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P2 核心句——"making free access to scientific results a reality"；P3——"depends ... upon wide distribution and ready access"；P4——"75% of scholarly journals are now online"</p>
+      <p>✅ <b>A 正确推理</b>：全文反复强调在线出版的核心意义就是<strong>让科研成果更容易获取</strong>：P2 说"free access to scientific results a reality"、P3 说"value ... depends on ... ready access"、P4 说 75% 期刊已上线。A 的"provides an easier access to scientific results"正是对这些信息的精准概括——"easier/easy access" = ready/free access 的同义替换。</p>
+      <p>❌ <b>B 错误</b>：在线出版并没有给"scientific researchers"（科研人员本人）带来"huge profits"（巨额利润）。相反，在 OA 模式中研究人员甚至要自己付发表费（S17）。真正赚大钱的是出版商（S11-S13 的数据），而在线出版恰恰在削弱这种垄断。</p>
+      <p>❌ <b>C 错误</b>：P3 确实提到了"knowledge"的价值，但那是作为论证"为什么需要广泛传播"的理论前提，不是说在线出版"强调（emphasizes）"知识的关键作用。C 混淆了"前提条件"和"核心功能"。</p>
+      <p>❌ <b>D 错误</b>：原文说的是公共投资的<strong>回报</strong>（return）依赖于广泛传播，而不是在线出版"促进/便利了（facilitates）"公共投资本身。D 把逻辑搞反了——不是因为在线出版才有人投资，而是投资后的成果需要在线传播才能实现价值。</p>
+    </div>
+  </dom>
+
+  <div class="er">
+    <div class="q-num">29. With the open-access publishing model, the author of a paper is required to _____.</div>
+    <div class="q-text">在开放获取出版模式下，论文作者被要求_____。</div>
+    <div class="opts">
+      <span class="opt ok">[A] cover the cost of its publication. ✓</span>
+      <span class="opt no">[B] subscribe to the journal publishing it.</span>
+      <span class="opt no">[C] allow other online journals to use it freely.</span>
+      <span class="opt no">[D] complete the peer-review before submission.</span>
+    </div>
+    <div class="ua">标准答案：A</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P4 S17 ——"open-access publishing, typically supported by asking the author (or his employer) to pay for the paper to be published"</p>
+      <p>✅ <b>A 正确推理</b>：S17 明确指出 OA 出版的资金来源是"asking the author (or his employer) to pay for the paper to be published"——要求作者（或雇主）支付论文发表费用。A 的"cover the cost of its publication"（承担其发表成本）完美对应"pay for the paper to be published"。</p>
+      <p>❌ <b>B 错误</b>：OA 模式的特点恰恰是<strong>读者不需要订阅</strong>（free access）。要求作者付费的目的就是让所有人都能免费阅读。B 与 OA 模式的核心理念完全矛盾。</p>
+      <p>❌ <b>C 错误</b>：OA 模式意味着论文可以免费被<strong>任何人</strong>阅读，但不等于允许"other online journals"（其他在线期刊）自由使用/转载。这涉及版权问题——OA ≠ 放弃版权，只是放弃阅读权限费。</p>
+      <p>❌ <b>D 错误</b>：同行评审（peer-review）在任何出版模式下都需要在提交<strong>之后</strong>（或提交过程中）进行，不是"before submission"（提交之前）。D 在程序逻辑上就不成立。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">30. Which of the following best summarizes the text?</div>
+    <div class="q-text">下列哪项最能概括本文？</div>
+    <div class="opts">
+      <span class="opt no">[A] The Internet is posing a threat to publishers.</span>
+      <span class="opt ok">[B] A new mode of publication is emerging. ✓</span>
+      <span class="opt no">[C] Authors welcome the new channel for publication.</span>
+      <span class="opt no">[D] Publication is rendered easier by online service.</span>
+    </div>
+    <div class="ua">标准答案：B</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：全文主线——P1（传统流程）→ P2（互联网+资助压力驱动变革）→ P3（产业规模+理论依据）→ P4（三种新模式涌现+混合模式）→ 末尾（同行评审也可能改变）</p>
+      <p>✅ <b>B 正确推理</b>：全文从"过去很简单"到"正在改变"再到"全新商业模式涌现"，核心议题就是<strong>一种新的出版模式正在兴起</strong>。B 的"A new mode of publication is emerging"准确概括了全文的发展脉络和中心思想——既涵盖了变革的事实（emerging），也点出了对象（new mode of publication）。</p>
+      <p>❌ <b>A 错误</b>：互联网对出版商确实造成压力，但"posing a threat"（构成威胁）只覆盖了 P2 的部分内容。文章后半部分（P3-P4）的重点是新模式的具体内容和未来展望，不仅仅是"威胁"。A 以偏概全且偏消极。</p>
+      <p>❌ <b>C 错误</b>：文中从未提及"Authors welcome"（作者欢迎）这一态度。实际上在 OA 模式中作者还要自付发表费（S17），未必"欢迎"。C 缺乏文本依据且过度推断作者态度。</p>
+      <p>❌ <b>D 错误</b>："Publication is rendered easier by online service"（在线服务使出版变得更容易）只触及表面现象。文章讨论的不只是"更容易"——而是整个商业模式的根本重构（谁来付费、版权归谁、评审流程怎么变）。D 太浅层，没有抓住文章的深层主题。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var targetId = this.getAttribute('data-target');
+    var body = document.getElementById(targetId);
+    if (!body) return;
+    if (body.classList.contains('hidden')) {
+      body.classList.remove('hidden');
+      this.textContent = '收起';
+    } else {
+      body.classList.add('hidden');
+      this.textContent = '展开';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
