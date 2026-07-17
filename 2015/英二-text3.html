@@ -102,11 +102,28 @@ body {
 .cn{
   color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
 }
+/* ====== 🔥 逐句语法解析折叠按钮（与卡片按钮同风格，小一号） ====== */
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(160,82,45,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+/* 折叠状态用炭灰区分 */
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+
 .syntax{
   margin-top:8px; padding:10px 14px; border-radius:8px;
   background:#fefcf8; border-left:3px solid var(--amber);
   font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
 }
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
 
 /* ====== 底部汇总卡片 ====== */
 .card{
@@ -212,7 +229,8 @@ tr:hover td{background:var(--panel-bg);}
 /* ====== PDF 导出：初始全部展开 ====== */
 @media print{
   .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
-  .badge,.divider,.toggle,.sent-hr{display:none;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
   body{padding:0;background:#fff;}
   .sent,.card,.header{box-shadow:none;break-inside:avoid;}
 }
@@ -229,7 +247,7 @@ tr:hover td{background:var(--panel-bg);}
     <span class="badge">难度 ★★★☆</span>
     <span class="badge amber">词汇量 365</span>
     <span class="badge rust">主题 · 职场文化</span>
-    <span class="badge steel">长难句 4</span>
+    <span class="badge steel">长难句 5</span>
   </div>
 </div>
 
@@ -241,14 +259,17 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en"><mark>Even in traditional offices</mark>, "<u>the lingua franca of corporate America has gotten much more emotional and much more right-brained than it was 20 years ago</u>," said Harvard Business School professor Nancy Koehn.</div>
   <hr class="sent-hr">
   <div class="cn">哈佛商学院教授 Nancy Koehn 说，即使在传统办公室里，"美国企业的通用语也比20年前变得更有情感色彩、更具右脑思维特征了。"</div>
-  <div class="syntax">
+  <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
+  <div class="syntax" id="s1">
     <b>🔍 长难句拆解</b><br>
-    <b>主句</b>："...said Harvard Business School professor Nancy Koehn"<br>
-    → said 的宾语是直接引号内的完整句子<br>
+    <b>主句（主谓倒装）</b>：正常语序为 <i>Nancy Koehn said</i>，宾语是直接引号内的完整句子，said 被提到主语前构成 "...said Harvard Business School professor Nancy Koehn"<br>
     <b>引号核心结构</b>：<br>
-    &nbsp;&nbsp;主语 = the lingua franca（通用语/混合语，借自拉丁语，指"通用交流语言"）<br>
+    &nbsp;&nbsp;状语 = Even in traditional offices（即使在传统办公室里）<br>
+    &nbsp;&nbsp;主语 = the lingua franca of corporate America（美国企业的通用语）<br>
     &nbsp;&nbsp;谓语 = has gotten（变得）<br>
-    &nbsp;&nbsp;表语 = ① more emotional（更有情感）② more right-brained（更右脑化=更直觉/感性而非理性分析）
+    &nbsp;&nbsp;并列表语 = ① much more emotional（更有情感）② much more right-brained（更右脑化=更直觉/感性，而非理性分析）<br>
+    &nbsp;&nbsp;比较状语 = than it was 20 years ago（比20年前）<br>
+    <b>💡 句式亮点</b>：has gotten + 双重比较级升级（more... and more...），强调企业语言近20年的"情感化"转向；lingua franca 原指"混合通用语"，此处比喻跨群体通用的商业话语。
   </div>
 </div>
 
@@ -257,6 +278,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">She started <mark>spinning off examples</mark>. "If you and I parachuted back to Fortune 500 companies in 1990, we would see much less frequent use of terms like journey, mission, passion."</div>
   <hr class="sent-hr">
   <div class="cn">她开始举例子。"如果你我穿越回1990年的财富500强企业，我们会看到 journey（旅程）、mission（使命）、passion（热情）这些词的使用频率低得多。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>① 前句</b>：She started spinning off examples → start doing（开始做某事）；<b>spin off</b> 本义"衍生/甩出"，此处意为"逐一列举（例子）"。<br>
+    <b>② 引号内条件句</b>：If you and I <b>parachuted</b> back to... 1990, we <b>would see</b>... → <b>虚拟语气（与过去事实相反）</b>：if + 过去式(parachuted) → 主句 would + 动词原形(see)。parachute back 比喻"突然穿越回"。<br>
+    <b>③ 比较级</b>：much less frequent use of terms（这些词的使用频率低得多）——less frequent 是 little frequent 的比较级。
+  </div>
 </div>
 
 <div class="sent">
@@ -264,6 +292,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">There were goals, there were strategies, use of terms like energy; we didn't talk about <mark>passion</mark>."</div>
   <hr class="sent-hr">
   <div class="cn">那时有目标、有策略，也会用到 energy（精力）这类词；但我们不谈论 passion（热情）。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>① There be 并列</b>：There were goals, there were strategies（有目标、有策略）—两个 there be 句型并列列举过去企业常用词。<br>
+    <b>② 名词短语省略</b>：use of terms like energy（使用 energy 这类词）—此处省略了 there was，与前句并列，避免重复。<br>
+    <b>③ 分号对比</b>：分号(;) 连接两个对比意群——前半说"过去用 goals/strategies/energy"，后半用 we didn't talk about passion 形成反差，突出 passion 是新时代才流行的词。
+  </div>
 </div>
 
 <!-- P2 -->
@@ -272,6 +307,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">Koehn pointed out that this new era of corporate vocabulary is very "<mark>team</mark>"-oriented—and not by coincidence.</div>
   <hr class="sent-hr">
   <div class="cn">Koehn 指出，这个新时代的企业词汇非常以"团队"为导向——这并非巧合。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>① 主谓宾 + that 宾语从句</b>：Koehn pointed out（柯恩指出）that this new era of corporate vocabulary is very 'team'-oriented（这个新时代的企业词汇非常以"团队"为导向）。point out that... 是"指出……"的固定搭配。<br>
+    <b>② 复合形容词</b>：team-oriented = 名词 + 过去分词构成的复合形容词，意为"以团队为导向的"；类似结构还有 female-dominated, goal-oriented。<br>
+    <b>③ 破折号补充</b>：—and not by coincidence（并非巧合）—破折号后省略了 it is，完整为 and it is not by coincidence，强调"团队导向"不是偶然现象，引出下文对体育文化的解释。
+  </div>
 </div>
 
 <div class="sent">
@@ -279,11 +321,14 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">"<u>Let's not forget sports—in male-dominated corporate America, it's still a big deal</u>."</div>
   <hr class="sent-hr">
   <div class="cn">"别忘了体育——在男性主导的美国企业界，它依然举足轻重。"</div>
-  <div class="syntax">
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5">
     <b>🔍 长难句拆解</b><br>
-    <b>Let's not forget sports</b> = 让我们别忘记体育运动<br>
-    <b>破折号后为补充说明</b>：in male-dominated corporate America（在男性主导的企业美国中），it（指体育文化）'s still a big deal（依然很重要/影响力巨大）<br>
-    → 暗示企业"团队导向"词汇深受体育文化影响
+    <b>前半句（祈使句否定）</b>：Let's not forget sports = 让我们别忘了体育运动（Let's = Let us 的缩写，后接动词原形）。<br>
+    <b>破折号补充说明</b>：—in male-dominated corporate America（在男性主导的美国企业界中），it's still a big deal（它依然很重要/影响力巨大）。<br>
+    &nbsp;&nbsp;• <b>male-dominated</b>：male（男性）+ dominated（主导的）复合形容词，修饰 corporate America。<br>
+    &nbsp;&nbsp;• <b>it</b> 指代前文的 sports（体育文化）；<b>a big deal</b> 口语习语 = 重要的事/举足轻重。<br>
+    <b>💡 逻辑衔接</b>：这句话直接解释了 S04 的 "not by coincidence"——企业词汇的"团队导向"根源正是美国商界根深蒂固的体育文化（coach/team/win）。
   </div>
 </div>
 
@@ -292,6 +337,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">"It's not explicitly conscious; it's the idea that I'm a coach, and you're my team, and we're in this together."</div>
   <hr class="sent-hr">
   <div class="cn">"这不是刻意的意识选择；而是这种观念：我是教练，你是我的队员，我们在一起奋斗。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6">
+    <b>🔍 语法解析</b><br>
+    <b>① 分号并列对比</b>：It's not explicitly conscious（这不是刻意的）; it's the idea that...（而是这样一种观念……）—分号连接两个对立意群，否定"刻意"、肯定"潜移默化"。<br>
+    <b>② that 同位语从句</b>：the idea <b>that</b> I'm a coach, and you're my team, and we're in this together — that 引导同位语从句，解释 idea 的具体内容；从句内含三个并列分句（and 连接）。<br>
+    <b>③ 习语</b>：in this together = 在一起/同舟共济，呼应 sports 文化中的 team 精神。
+  </div>
 </div>
 
 <div class="sent">
@@ -299,6 +351,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">There are lots and lots of CEOs in very different companies, but most think of themselves as coaches and this is their team and they want to win.</div>
   <hr class="sent-hr">
   <div class="cn">有很多来自完全不同公司的CEO，但大多数人都把自己视为教练，这是他们的团队，他们想要赢。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>① There be 句型</b>：There are lots and lots of CEOs in very different companies（在截然不同的公司里有许多许多CEO）—lots and lots of 口语化强调"非常多"。<br>
+    <b>② but 转折 + 并列</b>：but most think of themselves as coaches（但大多数人把自己看作教练）and this is their team（这是他们的团队）and they want to win（他们想要赢）—but 后接三个 and 并列分句，层层递进描绘 CEO 的"教练心态"。<br>
+    <b>③ 短语</b>：think of A as B = 把 A 视为 B（as 作介词，后接名词 coaches）。
+  </div>
 </div>
 
 <!-- P3 -->
@@ -307,13 +366,15 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en"><u>These terms are also intended to infuse work with meaning</u>—and, as Khurana, another professor, points out, increase <mark>allegiance</mark> to the firm.</div>
   <hr class="sent-hr">
   <div class="cn">这些术语还旨在给工作注入意义——正如另一位教授 Khurana 所指出的，增强对公司的忠诚度。</div>
-  <div class="syntax">
+  <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8">
     <b>🔍 长难句拆解</b><br>
-    <b>主句主语</b> = These terms（这些术语）<br>
-    <b>谓语1</b> = are intended to（旨在/被设计来）<br>
-    <b>宾语1</b> = infuse work with meaning（给工作注入意义）<br>
-    <b>破折号引出第二个目的</b>：increase allegiance to the firm（增强对公司忠诚度）<br>
-    → <b>插入语</b> "as Khurana, another professor, points out" 是对后半部分的引用来源说明
+    <b>主语</b> = These terms（这些术语）<br>
+    <b>谓语1</b> = are also intended to（也旨在/被设计来）<br>
+    <b>宾语1</b> = infuse work with meaning（给工作注入意义）—<b>infuse A with B</b> = 给 A 注入 B。<br>
+    <b>破折号引出第二个并列目的</b>：—(are intended) to increase allegiance to the firm（增强对公司的忠诚度）—省略了 shared 动词 are intended to，与前半句并列。<br>
+    <b>💡 插入语</b>：as Khurana, another professor, points out（正如另一位教授 Khurana 所指出的）是 as 引导的方式状语从句，点明后半句观点来源，被破折号隔开插在目的动词前。<br>
+    <b>重点词</b>：allegiance /əˈliːdʒəns/ n. 忠诚 = 选项 D 的 loyalty。
   </div>
 </div>
 
@@ -322,13 +383,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">"<u>You have the importation of terminology that historically used to be associated with non-profit organizations and religious organizations: terms like vision, values, passion, and purpose</u>," said Khurana.</div>
   <hr class="sent-hr">
   <div class="cn">"你引入了历史上通常与非营利组织和宗教组织相关的术语：比如 vision（愿景）、values（价值观）、passion（热情）、purpose（目标/宗旨），"Khurana 说。</div>
-  <div class="syntax">
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9">
     <b>🔍 长难句拆解</b><br>
-    <b>You have</b> = 你这里有 / 这里存在（引出下文的描述性说法）<br>
-    <b>核心名词短语</b> = the importation of terminology（术语的引入/借用）<br>
-    <b>that 从句修饰 terminology</b>：historically used to be associated with non-profit organizations and religious organizations<br>
-    （历史上常与非营利和宗教组织联系在一起）<br>
-    <b>冒号后举例</b>：terms like vision, values, passion, and purpose
+    <b>主谓</b>：You have（你这里有/存在）the importation of terminology（术语的引入/借用）—importation 此处指企业"借用"了其他领域的词汇。<br>
+    <b>that 定语从句</b>：that historically used to be associated with non-profit organizations and religious organizations（历史上常与非营利组织和宗教组织联系在一起的）—修饰 terminology；<b>be associated with</b> = 与……相关联。<br>
+    <b>冒号同位举例</b>：: terms like vision, values, passion, and purpose（如愿景、价值观、热情、目标）—冒号后列举具体术语，与 terminology 同位，说明借用的是哪类词。<br>
+    <b>句尾倒装</b>：," said Khurana — 直接引语后的 said Khurana 是主谓倒装，正常语序为 Khurana said。
   </div>
 </div>
 
@@ -338,6 +399,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">This new focus on personal fulfillment can help keep employees motivated amid increasingly loud debates over <mark>work-life balance</mark>.</div>
   <hr class="sent-hr">
   <div class="cn">这种对个人成就感的新关注，有助于在关于工作与生活平衡的日益激烈的辩论中保持员工积极性。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10">
+    <b>🔍 语法解析</b><br>
+    <b>① 主语</b>：This new focus on personal fulfillment（这种对个人成就感的新关注）—focus on 后接名词短语。<br>
+    <b>② 谓语 + 宾语补语</b>：can help keep employees motivated（有助于保持员工积极性）—<b>help (to) do</b> 后接动词原形 keep；<b>keep + 宾语 + 形容词</b> 构成宾语补语结构（motivated = 有积极性的，过去分词作形容词）。<br>
+    <b>③ amid 介词短语作状语</b>：amid increasingly loud debates over work-life balance（在关于工作与生活平衡、日益激烈的辩论中）—amid = 在……之中；increasingly loud 修饰 debates；over 引出辩论的话题。
+  </div>
 </div>
 
 <div class="sent">
@@ -345,6 +413,15 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">The "mommy wars" of the 1990's are still going on today, prompting arguments about why women still can't have it all and books like Sheryl Sandberg's <i>Lean In</i>, whose title has become a <mark>buzzword</mark> in its own right.</div>
   <hr class="sent-hr">
   <div class="cn">90年代的"妈妈战争"至今仍在持续，引发了关于为什么女性仍然无法兼顾一切的争论，以及像 Sheryl Sandberg《Lean In》（向前一步）这样的书——其书名本身已成为一个流行词。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11">
+    <b>🔍 语法解析</b><br>
+    <b>① 主句</b>：The "mommy wars" of the 1990's are still going on today（90年代的"妈妈战争"至今仍在持续）。<br>
+    <b>② 现在分词作伴随/结果状语</b>：, prompting arguments... and books...（引发了……争论以及……书）—prompting 是现在分词，逻辑主语是主句，表示"持续"带来的结果；其宾语是 arguments 和 books 两个并列名词短语。<br>
+    &nbsp;&nbsp;• arguments 后接 <b>why 宾语从句</b>：why women still can't have it all（为什么女性仍无法兼顾一切）。<br>
+    &nbsp;&nbsp;• books 后接 <b>whose 定语从句</b>：whose title has become a buzzword in its own right（其书名本身已成为流行词）—whose 指代 Lean In，in one's own right = 凭自身资格/本身。<br>
+    <b>💡 结构链</b>：主句(战争持续) → prompting(引发) → ①arguments(why...) ②books(whose...)，长状语串起"社会现象→争议→代表作"的因果。
+  </div>
 </div>
 
 <div class="sent">
@@ -352,6 +429,13 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">Terms like unplug, offline, life-hack, bandwidth, and capacity are all about setting boundaries between the office and the home.</div>
   <hr class="sent-hr">
   <div class="cn">unplug（断开连接）、offline（离线）、life-hack（生活黑客技巧）、bandwidth（带宽/精力上限）、capacity（容量/能力）这类词都是在设定办公室与家庭之间的界限。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>① 主语（列举名词短语）</b>：Terms like unplug, offline, life-hack, bandwidth, and capacity（unplug 等这类词）—like 后接多个并列名词，列举 work-life balance 辩论中诞生的新词。<br>
+    <b>② 系表结构</b>：are all about setting boundaries between the office and the home（都是关于在办公室与家庭之间设定界限）—<b>be about doing</b> = 关于/旨在做某事；<b>set boundaries between A and B</b> = 在 A 和 B 之间设定界限。<br>
+    <b>💡 语义衔接</b>：这些词（断开连接/离线/生活窍门/精力带宽/容量）本质都是帮人区分"工作"与"生活"两个领域，呼应上文 work-life balance 主题。
+  </div>
 </div>
 
 <div class="sent">
@@ -359,6 +443,16 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">But if your work is your "passion," you'll be more likely to devote yourself to it, even if that means going home for dinner and then working long after the kids are in bed.</div>
   <hr class="sent-hr">
   <div class="cn">但如果你的工作就是你的"热情所在"，你就更可能全身心投入——哪怕这意味着回家吃晚饭后再工作到孩子们睡着之后很久。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13">
+    <b>🔍 语法解析</b><br>
+    <b>① if 条件句</b>：But if your work is your "passion"（但如果你的工作就是你的"热情"）—if 引导条件状语从句。<br>
+    <b>② 主句</b>：you'll be more likely to devote yourself to it（你就更可能全身心投入它）—<b>be likely to do</b> = 更可能做某事；<b>devote oneself to</b> = 致力于/全身心投入（to 是介词，后接代词 it）。<br>
+    <b>③ even if 让步状语从句</b>：even if that means going home for dinner and then working long after the kids are in bed（哪怕那意味着回家吃晚饭、然后在孩子上床后工作到很晚）—<br>
+    &nbsp;&nbsp;• even if = 即使/哪怕，表让步；<br>
+    &nbsp;&nbsp;• <b>mean doing</b> = 意味着做某事（means 后接 going... and working... 两个并列动名词）；<br>
+    &nbsp;&nbsp;• after the kids are in bed 是 after 引导的时间状语从句。
+  </div>
 </div>
 
 <!-- P5 -->
@@ -367,6 +461,17 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">But this seems to be the irony of office speak: Everyone makes fun of it, but managers love it, companies depend on it, and regular people willingly absorb it.</div>
   <hr class="sent-hr">
   <div class="cn">但这似乎正是办公室话术的讽刺之处：人人都嘲笑它，但管理者喜欢它、公司依赖它、普通人也自愿吸收它。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14">
+    <b>🔍 语法解析</b><br>
+    <b>① 主句</b>：But this seems to be the irony of office speak（但这似乎是办公室话术的讽刺之处）—<b>seem to be</b> = 似乎是；the irony of... = ……的讽刺。<br>
+    <b>② 冒号后四并列分句</b>：冒号(:)引出对 irony 的具体解释，四个分句形成强烈对比——<br>
+    &nbsp;&nbsp;• Everyone makes fun of it（人人嘲笑它）<br>
+    &nbsp;&nbsp;• but managers love it（但管理者喜欢它）—but 表转折<br>
+    &nbsp;&nbsp;• companies depend on it（公司依赖它）—省略连词 and<br>
+    &nbsp;&nbsp;• and regular people willingly absorb it（普通人自愿吸收它）<br>
+    <b>💡 核心对比</b>：前半句"人人嘲笑"（口头否定） vs 后半三句"喜欢/依赖/吸收"（行为接受），正是全文最核心的 paradox（悖论），也是 Q35 答案 D 的直接依据。
+  </div>
 </div>
 
 <div class="sent">
@@ -374,15 +479,15 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">As a linguist once said, "<u>You can get people to think it's nonsense at the same time that you buy into it.</u>"</div>
   <hr class="sent-hr">
   <div class="cn">正如一位语言学家曾经说过的，"你可以让人们一边认为它是废话，一边又买它的账。"</div>
-  <div class="syntax">
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15">
     <b>🔍 长难句拆解</b><br>
-    <b>主句</b>：You can get people to think...（你可以让人们认为……）<br>
-    <b>think 的宾语从句</b>：(that) it's nonsense at the same time that you buy into it<br>
-    &nbsp;&nbsp;→ it's nonsense（它是废话）<br>
-    &nbsp;&nbsp;→ at the same time（与此同时）<br>
-    &nbsp;&nbsp;→ (that) you buy into it（你又接受了它/买它的账）<br>
-    → <b>buy into sth</b> = 相信、接受某种观点/做法（字面"买入股份"→ 引申为"信服"）<br>
-    → <b>矛盾统一</b>：嘴上说"这是废话"，行为上却在用它
+    <b>句首状语</b>：As a linguist once said（正如一位语言学家曾说的）—as 引导定语从句/方式状语，指代后面引号内容。<br>
+    <b>主句</b>：You can get people to think it's nonsense（你可以让人们认为它是废话）—<b>get sb to do</b> = 让某人做某事；think 后接省略 that 的宾语从句。<br>
+    <b>宾语从句内部</b>：it's nonsense at the same time that you buy into it —<br>
+    &nbsp;&nbsp;• it's nonsense（它是废话）<br>
+    &nbsp;&nbsp;• <b>at the same time that</b> you buy into it（与此同时你又接受了它）—at the same time that 是固定搭配，表"与此同时/然而"，引导转折性并列，强调表面矛盾的两个动作同时发生。<br>
+    <b>💡 重点词</b>：<b>buy into sth</b> = 相信、接受某种观点/做法（字面"买入股份"→ 引申为"信服、买账"）。这句话精准概括了 office speak 的悖论——嘴上否定、行为接受。
   </div>
 </div>
 
@@ -391,6 +496,14 @@ tr:hover td{background:var(--panel-bg);}
   <div class="en">In a workplace that's fundamentally indifferent to your life and its meaning, office speak can help you figure out how you relate to your work—and how your work defines who you are.</div>
   <hr class="sent-hr">
   <div class="cn">在一个对你的人生及其意义根本漠不关心的职场环境中，办公室话术可以帮助你搞清楚自己与工作的关系——以及你的工作如何定义了你这个人。</div>
+  <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s16">
+    <b>🔍 语法解析</b><br>
+    <b>① 介词短语作状语（含定语从句）</b>：In a workplace that's fundamentally indifferent to your life and its meaning（在一个对你的人生及其意义根本漠不关心的职场环境中）—workplace 后接 <b>that 定语从句</b>：that's indifferent to...（that 指代 workplace 作主语）；<b>be indifferent to</b> = 对……漠不关心。<br>
+    <b>② 主句</b>：office speak can help you figure out how you relate to your work（办公室话术能帮你弄清你如何与工作相关联）—<b>help sb (to) do</b>；<b>figure out</b> = 弄清楚；后接 <b>how 宾语从句</b>；<b>relate to</b> = 与……相关/有联系。<br>
+    <b>③ 破折号并列 how 从句</b>：—and how your work defines who you are（以及你的工作如何定义了你是谁）—破折号引出与前面 how 从句并列的第二宾语从句；内层嵌套 <b>who 宾语从句</b>：who you are（你是谁）。<br>
+    <b>💡 主旨句</b>：这句话是全文收束——office speak 的价值不在于"真假"，而在于帮人在冷漠职场中建立身份认同（define who you are）。
+  </div>
 </div>
 
 
@@ -617,6 +730,21 @@ function toggleBody(id){
     // 改为 ▼ 展开，加 collapsed 样式
     toggle.innerHTML='\u25BC \u5C55\u5F00';
     toggle.classList.add('collapsed');
+  }
+}
+
+/* ====== 逐句语法解析折叠 ====== */
+function toggleSyntax(id){
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');el.style.maxHeight='2000px';
+    btn.innerHTML='\u25B2 \u6536\u8D77\u89E3\u6790';
+    btn.classList.remove('collapsed');
+  }else{
+    el.classList.add('hidden');el.style.maxHeight='0';
+    btn.innerHTML='\u25BC \u5C55\u5F00\u89E3\u6790';
+    btn.classList.add('collapsed');
   }
 }
 </script>
