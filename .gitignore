@@ -1,0 +1,23 @@
+# GitHub Pages 发布站 - .gitignore
+# 备份文件（编辑器/脚本自动生成，绝不提交）
+*.bak*
+*.bak
+*.swp
+*.tmp
+
+# 临时脚本（_ 开头的验证/修复脚本）
+_*.py
+_*.sh
+_*.js
+_*.png
+_*.jpg
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/编辑器配置
+.vscode/
+.idea/
+*.sublime-*
