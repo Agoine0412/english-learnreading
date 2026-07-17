@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015 考研英语（二）Text 4 — 就业市场：被忽视的兼职真相</title>
+<style>
+/* ====== 📊 青碧铜色（Teal & Copper）—— 劳动经济与医保政策篇专属配色 ====== */
+:root {
+  --bg: #f4f6f5;
+  --card: #ffffff;
+  --text: #2a2e2c;
+  --text-soft: #555d59;
+  --text-muted: #8a9490;
+  /* 主色系：青碧 + 铜金 + 赭红 */
+  --accent: #1e6b6b;          /* 青碧，数据/经济 */
+  --accent-light: #e4efef;
+  --copper: #b87a3c;           /* 铜金色，政策/核心 */
+  --copper-light: #faf3ea;
+  --terracotta: #a85232;       /* 赭红，问题/警示 */
+  --terracotta-light: #faf0eb;
+  --slate: #4a5c68;            /* 石板灰，冷静分析 */
+  --slate-light: #edf1f4;
+  --panel-bg: #fafcfb;
+  --panel-border: #dddcd8;
+  --border: #e2e6e4;
+  --shadow: 0 2px 10px rgba(30,107,107,0.06);
+  --shadow-hover: 0 6px 22px rgba(30,107,107,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+
+/* ====== Header ====== */
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--copper),var(--terracotta));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--copper);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.copper{background:var(--copper-light);color:#8B6028;}
+.badge.terracotta{background:var(--terracotta-light);color:var(--terracotta);}
+.badge.slate{background:var(--slate-light);color:var(--slate);}
+
+/* ====== 文章内容区 ====== */
+.article{margin-top:22px;}
+
+/* ====== 逐句卡片（上下单栏）===== */
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(184,122,60,.18) 0%,rgba(184,122,60,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--copper);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(168,82,50,.15) 0%,rgba(168,82,50,.05) 100%);
+  border-left:3px solid var(--terracotta); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--copper),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+
+/* ====== 🔥 逐句语法解析折叠按钮 ====== */
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--terracotta-light); color:var(--terracotta);
+  border:1px solid var(--terracotta); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--terracotta); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(168,82,50,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fbfaf7; border-left:3px solid var(--copper);
+  font-size:.86em; color:#5c5648; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+/* ====== 底部汇总卡片 ====== */
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+
+/* ====== 🔥 升级版折叠按钮 ====== */
+.card h2 .toggle{
+  font-size:.78em !important;
+  cursor:pointer;
+  color:#fff !important;
+  font-weight:700 !important;
+  background:var(--accent) !important;
+  padding:5px 14px !important;
+  border-radius:20px !important;
+  user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-left:auto;
+  letter-spacing:.5px;
+  border-left:3px solid var(--copper) !important;
+  box-shadow:0 2px 6px rgba(30,107,107,.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--copper) !important;
+  transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(184,122,60,.35) !important;
+}
+.card h2 .toggle:active{
+  transform:translateY(0) !important;
+  box-shadow:0 1px 3px rgba(30,107,107,.25) !important;
+}
+.card h2 .toggle.collapsed{
+  background:var(--terracotta) !important;
+  border-left-color:var(--copper) !important;
+}
+.card h2 .toggle.collapsed:hover{
+  background:var(--slate) !important;
+}
+
+.collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
+
+/* ====== 表格 ====== */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--copper);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+/* ====== 句型展示 ====== */
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--copper);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--copper-light);color:#8B6028;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+/* ====== 题目区 ====== */
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--copper);background:var(--copper-light);font-weight:700;color:#8B6028;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;
+  padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+/* ====== 动画 ====== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+/* ====== 响应式 ====== */
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+
+/* ====== PDF 导出：初始全部展开 ====== */
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ====== Header ====== -->
+<div class="header">
+  <h1>就业市场：被忽视的兼职真相<small>2015 考研英语（二）· Text 4</small></h1>
+  <p class="sub">从28.8万新增岗位到奥巴马医改——就业数据背后隐藏的"自愿兼职"之谜</p>
+  <div class="badges">
+    <span class="badge">难度 ★★★☆</span>
+    <span class="badge copper">词汇量 338</span>
+    <span class="badge terracotta">主题 · 劳动经济</span>
+    <span class="badge slate">长难句 6</span>
+  </div>
+</div>
+
+<div class="article">
+
+<!-- P1 -->
+<div class="sent">
+  <span class="snum">01</span>
+  <div class="en"><mark>Many people talked of</mark> the 288,000 new jobs the Labor Department reported for June, along with the drop in the unemployment rate to 6.1 percent, as good news.</div>
+  <hr class="sent-hr">
+  <div class="cn">许多人都在谈论劳工部报告的6月份28.8万新增岗位以及失业率降至6.1%，认为这是好消息。</div>
+  <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
+  <div class="syntax" id="s1">
+    <b>🔍 长难句拆解</b><br>
+    <b>主语</b> = Many people（许多人）<br>
+    <b>谓语</b> = talked of... as good news（把……当作好消息来谈论）—<b>talk of A as B</b> = 把A称作/视为B。<br>
+    <b>宾语（超长名词短语）</b>：<br>
+    &nbsp;&nbsp;• 核心名词 = the 288,000 new jobs（28.8万新工作岗位）<br>
+    &nbsp;&nbsp;• 定语从句（省略that）= (that) the Labor Department reported for June（劳工部报告的6月份数据）<br>
+    &nbsp;&nbsp;• 伴随状语 = along with the drop in the unemployment rate to 6.1 percent（以及失业率下降到6.1%）<br>
+    <b>💡 句式亮点</b>："along with..." 并列补充第二个积极指标（失业率下降），与"new jobs"共同构成"好消息"的证据。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">02</span>
+  <div class="en">And they were right.</div>
+  <hr class="sent-hr">
+  <div class="cn">他们的看法没错。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>① 简单主系表结构</b>：And they were right — And 承接上文；they 指代 Many people；right 是形容词作表语，表示"对的/正确的"。极简短句起<strong>承上启下</strong>作用——先承认表面数据的积极面，为下文 However 转折做铺垫。<br>
+    <b>② 写作技巧</b>：先肯定再转折（"他们说得对，但是……"），是考研阅读常见的论证套路。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">03</span>
+  <div class="en">For now it appears the economy is creating jobs at a <mark>decent pace</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">目前看来，经济正在以不错的速度创造就业岗位。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>① For now 作时间状语</b> = 目前/就现在而言，限定结论的时效性（暗示后续可能变化）。<br>
+    <b>② it appears (that)</b> = 看起来/似乎，that 省略，后接宾语从句 the economy is creating jobs at a decent pace（经济正以相当不错的速度在创造就业机会）。it appears 表示作者谨慎态度——数据看起来好，但未必全貌如此。<br>
+    <b>③ decent pace</b> = 体面的速度/还不错的节奏；decent 原意"得体的、像样的"，此处形容经济增速"尚可"。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">04</span>
+  <div class="en">We still have a long way to go to get back to full employment, but at least we are now finally moving forward at a faster pace.</div>
+  <hr class="sent-hr">
+  <div class="cn">我们距离恢复充分就业还有很长的路要走，但至少我们终于开始以更快的速度前进了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>① but 并列转折句</b>：前半（消极）We still have a long way to... vs 后半（积极）at least we are now finally... — 先抑后扬。<br>
+    <b>② have a long way to go to do sth</b> = 要做某事还有很长的路要走/还需努力。<br>
+    <b>③ full employment</b> = 充分就业（经济学术语，指愿意工作的人都有工作的状态）。<br>
+    <b>④ at least</b> = 至少；finally / faster pace 强调进步加速。<br>
+    <b>⑤ moving forward at a faster pace</b> = 以更快速度向前推进 — forward 方向副词修饰 move。
+  </div>
+</div>
+
+<!-- P2 -->
+<div class="divider"></div>
+<div class="sent">
+  <span class="snum">05</span>
+  <div class="en">However, there is another important part of the jobs picture that was largely overlooked.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而，就业图景中还有一个重要部分在很大程度上被忽视了。</div>
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5">
+    <b>🔍 长难句拆解</b><br>
+    <b>There be 句型</b>：there is ... part（有……一部分）<br>
+    <b>主语</b>：another important part of the jobs picture（就业图景的另一个重要部分）—jobs picture = 就业形势/就业全景图<br>
+    <b>定语从句</b>：that was largely overlooked（很大程度上被忽视的）—that 修饰 part；<b>overlook</b> = 忽视/忽略（及物动词，被动语态）<br>
+    <b>💡 逻辑枢纽</b>：However 标志全文<strong>重大转折点</strong>——前面四句讲"就业数据看起来不错"，从此句开始揭示"被忽视的问题"。这是 Q36 的定位句！
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">06</span>
+  <div class="en">There was a big jump in the number of people who report <u>voluntarily working part-time</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">报告自愿从事兼职工作的人数出现了大幅增长。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6">
+    <b>🔍 语法解析</b><br>
+    <b>① There be 句型</b>：There was a big jump in...（……出现了大幅增长/跳跃）<br>
+    <b>② 介词短语限定范围</b>：in the number of people who...（在……的人群数量方面）<br>
+    <b>③ who 定语从句</b>：who report voluntarily working part-time（那些报告自愿做兼职的人）—who 修饰 people；report 后接动名词 working 作宾语；voluntarily 副词修饰 working。<br>
+    <b>重点词</b>：<b>voluntary</b> /ˈvɒləntri/ adj. 自愿的 ↔ involuntary（非自愿的）；<b>part-time</b> n./adj. 兼职（的）↔ full-time 全职。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">07</span>
+  <div class="en">This figure is now 830,000 (4.4 percent) above its year ago level.</div>
+  <hr class="sent-hr">
+  <div class="cn">这个数字如今比一年前水平高出83万人（增幅4.4%）。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>① 主系表结构</b>：This figure is now 830,000 ... above its year ago level — This figure 回指 S06 的"自愿兼职人数的大幅增长"<br>
+    <b>② above</b> = 高于/超出……（介词）；year ago level = 一年前的水平/基数<br>
+    <b>③ 数据解读</b>：830,000人 / 4.4% ——两个数字互相印证（83万占整体劳动力的4.4%），强调增幅显著。
+  </div>
+</div>
+
+<!-- P3 -->
+<div class="sent">
+  <span class="snum">08</span>
+  <div class="en">Before explaining the connection to the <mark>Obamacare</mark>, it is worth making an important distinction.</div>
+  <hr class="sent-hr">
+  <div class="cn">在解释其与奥巴马医改的联系之前，有必要先做一个重要区分。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8">
+    <b>🔍 语法解析</b><br>
+    <b>① Before doing 作时间状语</b>：Before explaining the connection to the Obamacare = 在解释与奥巴马医改的关联之前<br>
+    <b>② it is worth doing sth</b> = 值得做某事（worth 后接动名词 making）<br>
+    <b>③ make a distinction</b> = 做/做出区分/区别<br>
+    <b>④ Obamacare</b> = Obama + Care 的合成词，指《患者保护与平价医疗法案》（Affordable Care Act），俗称"奥巴马医改"<br>
+    <b>💡 结构功能</b>：典型的过渡句——预告下文将讨论"自愿兼职与医改的关系"，但先铺垫一个概念辨析。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">09</span>
+  <div class="en">Many people who work part-time jobs actually want full-time jobs.</div>
+  <hr class="sent-hr">
+  <div class="cn">许多做兼职工作的人实际上想要全职工作。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9">
+    <b>🔍 语法解析</b><br>
+    <b>① who 定语从句</b>：who work part-time jobs（做兼职工作的人）—who 修饰 Many people<br>
+    <b>② actually</b> = 实际上/事实上（副词，加强语气，暗示"与直觉相反"）<br>
+    <b>③ 核心对比</b>：part-time jobs（兼职）vs full-time jobs（全职）—本文的核心概念对子
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">They take part-time work because this is all they can get.</div>
+  <hr class="sent-hr">
+  <div class="cn">他们接受兼职工作是因为这是他们能得到的全部。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10">
+    <b>🔍 语法解析</b><br>
+    <b>① because 引导原因状语从句</b>：because this is all they can get（因为他们只能得到这些/别无选择）<br>
+    <b>② 表语从句（省略that）</b>：this is all (that) they can get — all 是先行词，they can get 是省略 that 的定语从句修饰 all。all (that) they can get = 他们所能得到的一切<br>
+    <b>💡 含义</b>：这句话揭示的是 <b>非自愿兼职（involuntary part-time）</b>的本质——不是不想全职，而是找不到全职。"this is all they can get" 是非常口语化但有力的表达。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">An increase in involuntary part-time work is evidence of weakness in the labor market and it means that many people will be having a very hard time <mark>making ends meet</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">非自愿兼职的增加是劳动力市场疲软的证据，这意味着许多人将难以维持生计。</div>
+  <button class="syntax-toggle" id="btn-s11" onclick="toggleSyntax('s11')">▲ 收起解析</button>
+  <div class="syntax" id="s11">
+    <b>🔍 长难句拆解</b><br>
+    <b>并列主语 + 双谓语</b>：An increase... is evidence... and it means... —and 连接两个分句：<br>
+    &nbsp;&nbsp;<b>分句一</b>：An increase in involuntary part-time work is evidence of weakness in the labor market<br>
+    &nbsp;&nbsp;• An increase in... = ……的增加（介词短语作主语）<br>
+    &nbsp;&nbsp;• involuntary part-time work = 非自愿兼职工作<br>
+    &nbsp;&nbsp;• is evidence of weakness = 是……疲软的证据（evidence 后接 of 短语说明证据指向什么）<br>
+    &nbsp;&nbsp;<b>分句二</b>：it means that many people will be having a very hard time making ends meet<br>
+    &nbsp;&nbsp;• it = 前半句提到的现象<br>
+    &nbsp;&nbsp;• means that + 从句 = 意味着……<br>
+    &nbsp;&nbsp;• have a hard time (in) doing sth = 做某事很吃力/困难<br>
+    &nbsp;&nbsp;• <b>make ends meet</b> = 勉强维持生计/收支相抵（固定习语）<br>
+    <b>💡 逻辑链条</b>：非自愿兼职↑ → 劳动力市场弱 → 人们生计艰难（Q37 的核心依据）
+  </div>
+</div>
+
+<!-- P4 -->
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">There was an increase in involuntary part-time in June, but the general direction has been down.</div>
+  <hr class="sent-hr">
+  <div class="cn">6月份非自愿兼职有所增加，但总体趋势是在下降。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>① but 转折</b>：There was an increase... but the general direction has been down — 单月增加 vs 整体趋势下降，体现数据的复杂性。<br>
+    <b>② general direction has been down</b> = 总体方向一直在下行/呈下降趋势（has been 表示持续到现在）<br>
+    <b>③ down</b> = 向下的/减少的（形容词，作表语）
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en"><u>Involuntary part-time employment</u> is still far higher than before the recession, but it is down by 640,000 (7.9 percent) from its year ago level.</div>
+  <hr class="sent-hr">
+  <div class="cn">非自愿兼职就业仍远高于衰退前的水平，但比一年前减少了64万人（降幅7.9%）。</div>
+  <button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13">
+    <b>🔍 长难句拆解</b><br>
+    <b>but 连接的两个对比分句</b>：<br>
+    &nbsp;&nbsp;<b>分句一（坏消息）</b>：Involuntary part-time employment is still far higher than before the recession<br>
+    &nbsp;&nbsp;• Involuntary part-time employment = 非自愿兼职就业（完整术语）<br>
+    &nbsp;&nbsp;• far higher than = 远高于（far 修饰比较级 higher）<br>
+    &nbsp;&nbsp;• before the recession = 经济衰退之前（recession = 经济衰退）<br>
+    &nbsp;&nbsp;<b>分句二（好消息）</b>：it is down by 640,000 (7.9 percent) from its year ago level<br>
+    &nbsp;&nbsp;• it = Involuntary part-time employment<br>
+    &nbsp;&nbsp;• down by 640,000 = 减少了64万（by 表示幅度）<br>
+    &nbsp;&nbsp;• from its year ago level = 与一年前的水平相比<br>
+    <b>💡 数据逻辑</b>：仍高于衰退前 → 问题未解决；但比去年降了64万 → 在改善。Q38 的答案依据在此句。
+  </div>
+</div>
+
+<!-- P5 -->
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">We know the difference between voluntary and involuntary part-time employment because people tell us.</div>
+  <hr class="sent-hr">
+  <div class="cn">我们能区分自愿和非自愿兼职就业，因为人们会告诉我们。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14">
+    <b>🔍 语法解析</b><br>
+    <b>① because 引导原因状语从句</b>：because people tell us（因为人们告诉了我们）—tell us 指调查受访者如实回答问卷。<br>
+    <b>② the difference between A and B</b> = A 和 B 之间的区别<br>
+    <b>💡 过渡功能</b>：此句引出下文对"如何区分"的具体解释（劳工部调查方法）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">The survey used by the Labor Department asks people if they worked less than 35 hours in the reference week.</div>
+  <hr class="sent-hr">
+  <div class="cn">劳工部使用的调查会询问人们在参考周内是否工作了不到35小时。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15">
+    <b>🔍 语法解析</b><br>
+    <b>① 过去分词作后置定语</b>：(The survey) used by the Labor Department = 劳工部使用的（调查）—used by... 修饰 survey<br>
+    <b>② if 宾语从句</b>：asks people if they worked less than 35 hours... —if 引导的间接问句，asks 的直接宾语<br>
+    <b>③ in the reference week</b> = 在参考周内（统计学术语，指调查所覆盖的那一周）<br>
+    <b>④ less than</b> = 少于（比较级结构）
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">If the answer is "yes", they are classified as working part-time.</div>
+  <hr class="sent-hr">
+  <div class="cn">如果回答"是"，他们就被归类为兼职工作者。</div>
+  <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s16">
+    <b>🔍 语法解析</b><br>
+    <b>① If 条件句</b>：If the answer is "yes"（如果回答是"是的"）—真实条件句<br>
+    <b>② 被动语态</b>：they are classified as working part-time（他们被归类为兼职工作者）—<b>classify A as B</b> = 把A归类为B
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">The survey then asks whether they worked less than 35 hours in that week because they wanted to work less than full time or because they had no choice.</div>
+  <hr class="sent-hr">
+  <div class="cn">接着调查询问他们在那周工作时间不足35小时，是因为想要少于全职的工作时长，还是因为没有选择。</div>
+  <button class="syntax-toggle" id="btn-s17" onclick="toggleSyntax('s17')">▲ 收起解析</button>
+  <div class="syntax" id="s17">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句谓语 + whether 宾语从句</b>：The survey then asks whether...（然后调查询问是否……）<br>
+    <b>whether 从句内部</b>：they worked less than 35 hours in that week because A or because B<br>
+    &nbsp;&nbsp;• 核心事实 = they worked less than 35 hours in that week（那周工作了不到35小时）<br>
+    &nbsp;&nbsp;• 原因① = because they wanted to work less than full time（因为想少干点）→ 对应 **voluntary（自愿）**<br>
+    &nbsp;&nbsp;• 原因② = because they had no choice（因为没有选择）→ 对应 **involuntary（非自愿）**<br>
+    &nbsp;&nbsp;• or 连接两个原因，构成<strong>排他性二选一</strong><br>
+    <b>💡 关键区分机制</b>：这就是"自愿"与"非自愿"的操作定义——同一行为（&lt;35h），不同动机 → 不同分类。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">18</span>
+  <div class="en">They are only classified as <mark>voluntary</mark> part-time workers if they tell the survey taker they chose to work less than 35 hours a week.</div>
+  <hr class="sent-hr">
+  <div class="cn">只有当受访者告诉调查员是他们自己选择每周工作不到35小时时，才会被归为自愿兼职者。</div>
+  <button class="syntax-toggle collapsed" id="btn-s18" onclick="toggleSyntax('s18')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s18">
+    <b>🔍 语法解析</b><br>
+    <b>① only if 条件句</b>：only if... = 只有当……才……（比 if 更强的条件限制）<br>
+    <b>② 被动语态</b>：are classified as... = 被归类为……<br>
+    <b>③ 嵌套宾语从句链</b>：tell [the survey taker] [they chose to work less than 35 hours a week]<br>
+    &nbsp;&nbsp;• tell sb (that) ... = 告诉某人……（that 省略）<br>
+    &nbsp;&nbsp;• they chose to do sth = 他们选择了做某事（choose to do = 选择去做）<br>
+    <b>💡 与S17呼应</b>：S17 说"两种原因"，S18 明确"只有选第一种才叫 voluntary"——强化分类标准。
+  </div>
+</div>
+
+<!-- P6 -->
+<div class="sent">
+  <span class="snum">19</span>
+  <div class="en">The issue of voluntary part-time relates to Obamacare because one of the main purposes was to allow people to get insurance outside of employment.</div>
+  <hr class="sent-hr">
+  <div class="cn">自愿兼职问题与奥巴马医改有关联，因为其主要目的之一就是让人们能够不通过就业渠道获得保险。</div>
+  <button class="syntax-toggle collapsed" id="btn-s19" onclick="toggleSyntax('s19')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s19">
+    <b>🔍 语法解析</b><br>
+    <b>① 主语</b>：The issue of voluntary part-time = 自愿兼职这个问题<br>
+    <b>② relate to</b> = 与……有关/相关联<br>
+    <b>③ because 原因状语从句</b>：because one of the main purposes was to allow people to get insurance outside of employment<br>
+    &nbsp;&nbsp;• one of the main purposes = 主要目的之一<br>
+    &nbsp;&nbsp;• was to allow... = 是为了允许……（不定式 to allow 作表语，说明 purpose 的具体内容）<br>
+    &nbsp;&nbsp;• get insurance outside of employment = 在就业之外获得保险（outside of = 在……之外）<br>
+    <b>💡 核心论点</b>：这句话建立全文最重要的因果链条——<strong>Obamacare 切断了"就业→保险"的绑定关系</strong>→ 影响人们的就业选择。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">20</span>
+  <div class="en">For many people, especially those with serious health conditions or family members with serious health conditions, before Obamacare the only way to get insurance was through a job that provided health insurance.</div>
+  <hr class="sent-hr">
+  <div class="cn">对于许多人来说——尤其是那些本人或家人患有严重健康问题的人——在奥巴马医改之前，获得保险的唯一途径是通过一份提供医疗保险的工作。</div>
+  <button class="syntax-toggle" id="btn-s20" onclick="toggleSyntax('s20')">▲ 收起解析</button>
+  <div class="syntax" id="s20">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句框架</b>：For many people, ... the only way to get insurance was through a job...<br>
+    <b>插入语（逗号隔离）</b>：especially those with serious health conditions or family members with serious health conditions<br>
+    &nbsp;&nbsp;• especially = 尤其是<br>
+    &nbsp;&nbsp;• those = 那些（人），后接两个 with 介词短语并行：<br>
+    &nbsp;&nbsp;&nbsp;- those with serious health conditions = 本人有严重健康问题的（人）<br>
+    &nbsp;&nbsp;&nbsp;- (those) family members with serious health conditions = 家人有严重健康问题的（人）（those 省略，family members 共享 with）<br>
+    <b>时间状语</b>：before Obamacare = 在奥巴马医改之前<br>
+    <b>主句核心</b>：the only way to get insurance was through a job that provided health insurance<br>
+    &nbsp;&nbsp;• the only way to do sth = 做某事的唯一途径<br>
+    &nbsp;&nbsp;• through a job = 通过一份工作<br>
+    &nbsp;&nbsp;• that provided health insurance = 提供医疗保险的（that 定语从句修饰 job）<br>
+    <b>💡 论证力度</b>：用"唯一途径（only way）"+ 具体人群（重症患者）强化 Obamcare 之前的困境——<strong>为了保险被迫找全职工作</strong>，即使身体条件不允许或只需要兼职。
+  </div>
+</div>
+
+<!-- P7 -->
+<div class="sent">
+  <span class="snum">21</span>
+  <div class="en">However, Obamacare has allowed more than 12 million people to either get insurance through Medicaid or the exchanges.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而，奥巴马医改已经使超过1200万人能够通过医疗补助计划或保险交易市场获得保险。</div>
+  <button class="syntax-toggle collapsed" id="btn-s21" onclick="toggleSyntax('s21')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s21">
+    <b>🔍 语法解析</b><br>
+    <b>① however 转折</b>：However, Obamacare has allowed... — 但医改已经让……（转折前文"以前只能靠工作"）<br>
+    <b>② allow sb to do sth</b> = 使某人能够做某事<br>
+    <b>③ either... or...</b>：either get insurance through Medicaid or the exchanges = 要么通过医疗补助计划(Medicaid)，要么通过保险交易市场(the exchanges)获得保险<br>
+    <b>重点词</b>：<b>Medicaid</b> /ˈmedɪkeɪd/ n. 医疗补助计划（美国面向低收入者的公共医保项目）；<b>exchanges</b> 此处 = 医保交易所/交易市场（Obamacare 建立的在线保险购买平台）
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">22</span>
+  <div class="en">These are people who may previously have felt the need to get a full-time job that provided insurance in order to cover themselves and their families.</div>
+  <hr class="sent-hr">
+  <div class="cn">这些人此前可能觉得有必要找一份提供保险的全职工作，以便为自己和家人提供保障。</div>
+  <button class="syntax-toggle collapsed" id="btn-s22" onclick="toggleSyntax('s22')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s22">
+    <b>🔍 语法解析</b><br>
+    <b>① These 指代</b>：These = more than 12 million people（上句的1200多万人）<br>
+    <b>② who 定语从句</b>：who may previously have felt the need to get a full-time job...（他们此前可能觉得需要找一份全职工作……）—may previously have felt = 可能此前一直觉得（may + 完成时态表示对过去情况的推测）<br>
+    <b>③ feel the need to do sth</b> = 觉得有必要/需要做某事<br>
+    <b>④ 不定式的目的嵌套</b>：get a full-time job [that provided insurance] in order to cover themselves and their families<br>
+    &nbsp;&nbsp;• that provided insurance = 提供保险的（定语从句修饰 job）<br>
+    &nbsp;&nbsp;• in order to cover = 以便保障/覆盖（cover 此处 = 支付……的费用/提供保障）<br>
+    &nbsp;&nbsp;• themselves and their families = 自己和家人<br>
+    <b>💡 逻辑关键</b>：previously（以前）vs now（现在有了Obamacare可以不走这条路的对比隐含其中。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">23</span>
+  <div class="en">With Obamacare there is no longer a link between <mark>employment</mark> and <mark>insurance</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">随着奥巴马医改的实施，就业与保险之间不再存在关联。</div>
+  <button class="syntax-toggle collapsed" id="btn-s23" onclick="toggleSyntax('s23')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s23">
+    <b>🔍 语法解析</b><br>
+    <b>① With + 名词</b>：With Obamacare = 随着/有了奥巴马医改（with 表伴随情况/条件）<br>
+    <b>② no longer</b> = 不再<br>
+    <b>③ a link between A and B</b> = A和B之间的联系/关联<br>
+    <b>💡 全文结论句</b>：这句话是整篇文章的<strong>落脚点</strong>——Obamacare 打破了传统的"就业=保险"捆绑模式，这解释了为什么自愿兼职人数大增（S06-S07）：人们不再为了保险而被迫找全职工作了。Q39和Q40的核心依据均源于此句及其上下文。
+  </div>
+</div>
+
+</div><!-- end .article -->
+
+<!-- ====== 底部汇总区 ====== -->
+
+<!-- 全文脉络 -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" data-target="outline" onclick="toggleBody('outline')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="outline">
+    <ul class="item-list" style="font-family:'Noto Serif SC','Source Han Serif CN','Songti SC','SimSun',serif;line-height:1.85;">
+      <li><b>① 现象提出（P1，S01-S04）</b>：6月就业数据看似亮眼（28.8万新岗位+失业率降至6.1%），经济在以不错速度复苏，但距充分就业仍有距离。</li>
+      <li><b>② 转折引入（P2，S05-S07）</b>：However——就业图景中有一个被严重忽视的部分：<b>自愿兼职人数激增83万（+4.4%）</b>。</li>
+      <li><b>③ 概念辨析（P3，S08-S11）</b>：先区分两类兼职——许多人做兼职<b>并非出于自愿</b>（actually want full-time），而是"只能得到这些"（非自愿兼职=劳动力市场疲软的证据=生计艰难）。</li>
+      <li><b>④ 数据呈现（P4，S12-S13）</b>：6月非自愿兼职微增，但<b>整体趋势下降</b>（同比-64万/-7.9%）；不过仍远高于衰退前水平。</li>
+      <li><b>⑤ 分类方法论（P5，S14-S18）</b>：解释如何通过劳工部调查区分"自愿"vs"非自愿"——&lt;35小时/周的相同行为，因动机不同（主动选择vs没得选）而归入不同类别。</li>
+      <li><b>⑥ 因果关联（P6，S19-S20）</b>：自愿兼职激增与Obamacare相关——医改前，重症患者为了获得保险<b>只能找带医保的全职工作</b>（唯一途径）。</li>
+      <li><b>⑦ 结论收尾（P7，S21-S23）</b>：Obamacare已使1200多万人通过Medicaid/交易市场获得保险——这些人不再需要为保险被迫全职→<b>就业与保险的绑定已被切断</b>（全文核心论点）。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 重点词汇 -->
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle" data-target="vocab" onclick="toggleBody('vocab')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="vocab">
+    <table style="font-family:'Noto Serif SC','Source Han Serif CN','Songti SC','SimSun',serif;">
+      <tr><th>单词/短语</th><th>音标与释义</th></tr>
+      <tr><td><b>voluntary</b></td><td>/ˈvɒləntri/ adj. 自愿的，自发的；n. 志愿者<br>→ 反义词 <b>involuntary</b> /ɪnˈvɒləntəri/ adj. 非自愿的，无意识的</td></tr>
+      <tr><td><b>part-time / full-time</b></td><td>/ˈpɑːt taɪm/ adj.&n. 兼职（的）/ˈfʊl taɪm/ adj.&n. 全职（的）</td></tr>
+      <tr><td><b>overlook</b></td><td>/ˌəʊvəˈlʊk/ v. 忽视，忽略；俯瞰，眺望<br>→ over（越过）+ look（看）→ 从上面看过去 → 没注意到</td></tr>
+      <tr><td><b>decent</b></td><td>/ˈdiːsnt/ adj. 像样的，体面的；正派的<br>→ a decent pace 相当不错的速度</td></tr>
+      <tr><td><b>full employment</b></td><td>n. 充分就业（经济学术语，指所有愿意且能够工作的人都有工作）</td></tr>
+      <tr><td><b>Obamacare</b></td><td>/ˈəʊbəməkeə(r)/ n. 奥巴马医改（Affordable Care Act 的俗称）<br>→ Obama + Care 合成词</td></tr>
+      <tr><td><b>evidence</b></td><td>/ˈevɪdəns/ n. 证据，迹象；证明<br>→ be evidence of 是……的证据</td></tr>
+      <tr><td><b>make ends meet</b></td><td>习语 勉强维持生计，收支平衡<br>→ 字面义：让收入端和支出端碰得上</td></tr>
+      <tr><td><b>recession</b></td><td>/rɪˈseʃn/ n. 经济衰退，（经济的）萎缩期<br>→ economic recession 经济衰退</td></tr>
+      <tr><td><b>classify</b></td><td>/ˈklæsɪfaɪ/ v. 分类，归类；划分<br>→ classify A as B 把A归为B类</td></tr>
+      <tr><td><b>reference week</b></td><td>n. 参考周（统计调查中指定的那一周）</td></tr>
+      <tr><td><b>relate to</b></td><td>v. 与……有关；涉及<br>→ The issue relates to... 这个问题涉及/关系到……</td></tr>
+      <tr><td><b>Medicaid</b></td><td>/ˈmedɪkeɪd/ n. （美国）医疗补助计划（面向低收入者的政府医保项目）<br>→ Medicare（老年医保）+ aid（援助）组合记忆</td></tr>
+      <tr><td><b>exchange</b></td><td>/ɪksˈtʃeɪndʒ/ n. 交换，交流；此处 = 保险交易市场（Obamacare 建立的平台）</td></tr>
+      <tr><td><b>employment</b></td><td>/ɪmˈplɔɪmənt/ n. 就业，雇用；使用<br>→ unemploy（使失业）的反义概念</td></tr>
+      <tr><td><b>insurance</b></td><td>/ɪnˈʃʊərəns/ n. 保险；保险费<br>→ health insurance 医疗保险</td></tr>
+      <tr><td><b>cover</b></td><td>/ˈkʌvə(r)/ v. 覆盖，包括；足以支付；报道；n. 封面<br>→ cover oneself and one's family 为自己和家人提供保障</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 熟词生义 -->
+<div class="card">
+  <h2>💡 熟词生义 <span class="toggle" data-target="familiar" onclick="toggleBody('familiar')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="familiar">
+    <table style="font-family:'Noto Serif SC','Source Han Serif CN','Songti SC','SimSun',serif;">
+      <tr><th>单词</th><th>熟义</th><th>本文生义</th></tr>
+      <tr><td><b>decent</td><td>正派的，体面的（人）</td><td>"像样的、还不错的"（速度/质量）— a decent pace 还不错的速度</td></tr>
+      <tr><td><b>tell</td></td><td>告诉</td><td>"（调查中）反映、表明"— people tell us 人们向我们反映的情况</td></tr>
+      <tr><td><b>cover</td></td><td>覆盖；封面</td><td>"足以支付、负担得起"— cover themselves and families 为自己和家人提供经济保障</td></tr>
+      <tr><td><b>jump</b></td><td>跳；跳跃</td><td>"激增、大幅上升"（名词）— a big jump 大幅增长</td></tr>
+      <tr><td><b>purpose</b></td><td>目的</td><td>"作用、用途"— one of the main purposes 主要目的之一</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 重点短语搭配 -->
+<div class="card">
+  <h2>🔗 重点短语搭配 <span class="toggle" data-target="phrases" onclick="toggleBody('phrases')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="phrases">
+    <table style="font-family:'Noto Serif SC','Source Han Serif CN','Songti SC','SimSun',serif;">
+      <tr><th>短语</th><th>释义</th><th>例句</th></tr>
+      <tr><td><b>talk of A as B</b></td><td>把A称为/视为B</td><td>Many people talked of the news as good news.</td></tr>
+      <tr><td><b>have a long way to go</b></td><td>还有很长的路要走</td><td>We have a long way to go to full employment.</td></tr>
+      <tr><td><b>at a decent/fast pace</b></td><td>以不错的/快速的速度</td><td>The economy is creating jobs at a decent pace.</td></tr>
+      <tr><td><b>be evidence of</b></td><td>是……的证据</td><td>An increase is evidence of weakness in the market.</td></tr>
+      <tr><td><b>have a hard time doing</b></td><td>做某事很困难</td><td>People will be having a hard time making ends meet.</td></tr>
+      <tr><td><b>classify A as B</b></td><td>把A归类为B</td><td>They are classified as working part-time.</td></tr>
+      <tr><td><b>relate to</b></td><td>与……相关</td><td>This issue relates to Obamacare.</td></tr>
+      <tr><td><b>allow sb to do sth</b></td><td>使某人能够做某事</td><td>Obamacare has allowed millions to get insurance.</td></tr>
+      <tr><td><b>feel the need to do</b></td><td>觉得有必要/需要做</td><td>They may have felt the need to get a full-time job.</td></tr>
+      <tr><td><b>a link between A and B</b></td><td>A与B之间的联系</td><td>No longer a link between employment and insurance.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 背诵句型 -->
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle" data-target="patterns" onclick="toggleBody('patterns')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="patterns">
+    <div class="pat">
+      <div class="pat-en">However, there is another important part of ... that was largely overlooked.</div>
+      <div class="pat-cn">然而，……中还有一个重要部分在很大程度上被忽视了。</div>
+      <span class="pat-tag">转折引入 + 被忽视的维度（万能过渡句型）</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">For many people, especially those with ..., before ... the only way to ... was ...</div>
+      <div class="pat-cn">对于许多人来说——尤其是那些……的人——在……之前，……的唯一途径是……</div>
+      <span class="pat-tag">especially 插入限定范围 + only way 强调唯一性</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">With ... there is no longer a link between A and B.</div>
+      <div class="pat-cn">随着……的实施/发展，A和B之间不再存在关联。</div>
+      <span class="pat-tag">With 表背景 + no longer 否定 + link between... 概念断裂</span>
+    </div>
+  </div>
+</div>
+
+<!-- 题目速查 -->
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle" data-target="qa" onclick="toggleBody('qa')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="qa">
+    <p style="font-family:'Noto Serif SC','Source Han Serif CN','Songti SC','SimSun',serif;text-align:center;padding:6px 0;font-size:.92em;color:var(--terracotta);font-weight:600;">36-B｜37-C｜38-B｜39-B｜40-A｜BCBBA</p>
+
+    <!-- Q36 -->
+    <div class="er">
+      <div class="qhead">
+        <span class="qnum">36</span>
+        <span class="qtext">Which part of the jobs picture was neglected?</span>
+      </div>
+      <div class="opts">
+        <span class="opt no">[A] The prospect of a thriving job market.</span>
+        <span class="opt ok">[B] The increase of voluntary part-time jobs.</span>
+        <span class="opt no">[C] The possibility of full employment.</span>
+        <span class="opt no">[D] The acceleration of job creation.</span>
+      </div>
+      <div class="analysis">
+        <p>🔍 <b>定位</b>：P2 S05 "However, there is another important part of the jobs picture that was <b>largely overlooked</b>." + S06 "There was a big jump in the number of people who report <b>voluntarily working part-time</b>."</p>
+        <p>✅ <b>正确答案推理（B）</b>：S05 明确指出有一个"重要部分被大大忽视（largely overlooked）"，紧接着 S06 揭示这个被忽视的部分就是"自愿兼职人数大幅增长（big jump... voluntarily working part-time）"。neglected ≈ overlooked，答案锁定 B。</p>
+        <p>❌ <b>A 选项（繁荣就业市场前景）</b>：这正是文章开头 P1 所讨论的"好消息"部分（28.8万新岗位+失业率降），是被大家<strong>广泛讨论</strong>的，不是被"忽视"的部分。</p>
+        <p>❌ <b>C 选项（充分就业的可能性）</b>：S04 提到 "full employment"，说的是"离充分就业还很远"，属于已知困难，不是被忽视的新发现。</p>
+        <p>❌ <b>D 选项（就业创造的加速）</b>：S03-S04 讨论的正是就业创造的加速（moving forward at a faster pace），同样不是被忽视的内容。</p>
+      </div>
+    </div>
+
+    <!-- Q37 -->
+    <div class="er">
+      <div class="qhead">
+        <span class="qnum">37</span>
+        <span class="qtext">Many people work part-time because they _______.</span>
+      </div>
+      <div class="opts">
+        <span class="opt no">[A] prefer part-time jobs to full-time jobs</span>
+        <span class="opt no">[B] feel that is enough to make ends meet</span>
+        <span class="opt ok">[C] cannot get their hands on full-time jobs</span>
+        <span class="opt no">[D] haven't seen the weakness of the market</span>
+      </div>
+      <div class="analysis">
+        <p>🔍 <b>定位</b>：P3 S09-S10 — "Many people who work part-time jobs actually want full-time jobs. They take part-time work because <b>this is all they can get</b>."</p>
+        <p>✅ <b>正确答案推理（C）</b>：S09 明确说兼职的人"actually want full-time jobs"（其实想要全职），S10 解释原因"this is all they can get"（这是他们能得到的全部/别无选择）。cannot get their hands on full-time jobs = 无法获得全职工作 = "this is all they can get"的同义替换。</p>
+        <p>❌ <b>A 选项（更喜欢兼职而非全职）</b>：正好与原文相反！S09 用 actually 强调"他们其实是想要全职的"——A 描述的是"自愿兼职"的特征，而 S09-S10 讨论的恰恰是非自愿兼职者。</p>
+        <p>❌ <b>B 选项（觉得足够维持生计）</b>：与 S11 矛盾——S11 说非自愿兼职意味着"many people will be having a very hard time making ends meet"（很多人将很难维持生计），而不是"足够"。</p>
+        <p>❌ <b>D 选项（还没看到市场的弱点）</b>：S11 明确指出 "An increase in involuntary part-time work is evidence of weakness in the labor market"——兼职者正是在经历市场弱点（找不到全职），而非"没看到"。</p>
+      </div>
+    </div>
+
+    <!-- Q38 -->
+    <div class="er">
+      <div class="qhead">
+        <span class="qnum">38</span>
+        <span class="qtext">Involuntary part-time employment in the US _______.</span>
+      </div>
+      <div class="opts">
+        <span class="opt no">[A] is harder to acquire than one year ago</span>
+        <span class="opt ok">[B] shows a general tendency of decline</span>
+        <span class="opt no">[C] satisfies the real need of the jobless</span>
+        <span class="opt no">[D] is lower than before the recession</span>
+      </div>
+      <div class="analysis">
+        <p>🔍 <b>定位</b>：P4 S12-S13 — "There was an increase in involuntary part-time in June, but <b>the general direction has been down</b>. Involuntary part-time employment is still far higher than before the recession, but it is <b>down by 640,000 (7.9 percent) from its year ago level</b>."</p>
+        <p>✅ <b>正确答案推理（B）</b>：S12 明确说 "the general direction has been down"（总体趋势是向下的/下降的），S13 补充数据支撑：同比减少64万（-7.9%）。shows a general tendency of decline = 总体呈下降趋势，完美对应。</p>
+        <p>❌ <b>A 选项（比一年前更难获得）</b>：acquire（获取/获得）用词不当——非自愿兼职不是人们"想要获取的东西"，而是被迫接受的状况。而且原文说它在"下降"（down），不是变得更难。</p>
+        <p>❌ <b>C 选项（满足失业者的真实需求）</b>：S11 明确指出非自愿兼职 = "having a very hard time making ends meet"（生计艰难），显然不"满足需求"。只有自愿（找到理想兼职）才可能接近"满足需求"。</p>
+        <p>❌ <b>D 选项（低于衰退前水平）</b>：原文 S13 说 "<b>still far higher than before the recession</b>"（仍然远高于衰退前水平）—still far higher ≠ lower，D 与原文直接矛盾。</p>
+      </div>
+    </div>
+
+    <!-- Q39 -->
+    <div class="er">
+      <div class="qhead">
+        <span class="qnum">39</span>
+        <span class="qtext">It can be learned that with Obamacare, _______.</span>
+      </div>
+      <div class="opts">
+        <span class="opt no">[A] it is no longer easy for part-timers to get insurance</span>
+        <span class="opt ok">[B] employment is no longer a precondition to get insurance</span>
+        <span class="opt no">[C] it is still challenging to get insurance for family members</span>
+        <span class="opt no">[D] full-time employment is still essential for insurance</span>
+      </div>
+      <div class="analysis">
+        <p>🔍 <b>定位</b>：P6 S19 + P7 S21-S23 — S19: "...one of the main purposes was to allow people to get insurance <b>outside of employment</b>."; S23: "<b>With Obamacare there is no longer a link between employment and insurance.</b>"</p>
+        <p>✅ <b>正确答案推理（B）</b>：S23 直接给出结论——"With Obamacare there is no longer a link between employment and insurance."（有了奥巴马医改，就业与保险之间不再有联系）。employment is no longer a precondition to get insurance = 不再以就业为先决条件就能获得保险，完全等价于原文。</p>
+        <p>❌ <b>A 选项（兼职者获取保险不再容易）</b>：与原文相反！S21 说 Obamacare "has allowed more than 12 million people to either get insurance through Medicaid or the exchanges"——让1200多万人获得了保险，说明变得<strong>更容易</strong>而非更难。</p>
+        <p>❌ <b>C 选项（为家人获取保险仍然具有挑战性）</b>：S20 提到的 "family members with serious health conditions" 是医改<strong>前</strong>的困境（before Obamacare the only way...），S21-S23 说明医改后这个问题已经被解决——可以通过 Medicaid/exchanges 覆盖家人。</p>
+        <p>❌ <b>D 选项（全职就业仍然是获得保险必不可少的）</b>：与全文核心论点（S23）直接矛盾！整篇文章的主旨就是：Obamacare 切断了"必须全职才能有保险"的旧规则。</p>
+      </div>
+    </div>
+
+    <!-- Q40 -->
+    <div class="er">
+      <div class="qhead">
+        <span class="qnum">40</span>
+        <span class="qtext">The text mainly discusses _______.</span>
+      </div>
+      <div class="opts">
+        <span class="opt ok">[A] employment in the US</span>
+        <span class="opt no">[B] part-timer classification</span>
+        <span class="opt no">[C] insurance through Medicaid</span>
+        <span class="opt no">[D] Obamacare's trouble</span>
+      </div>
+      <div class="analysis">
+        <p>🔍 <b>定位</b>：全文主旨题，需综合各段落主题。<br>P1-P2: 就业数据 → 被忽视的兼职问题<br>P3-P4: 两类兼职的区别与非自愿兼职的数据分析<br>P5: 兼职分类的调查方法<br>P6-P7: 自愿兼职与Obamacare的关系 → 就业与保险脱钩</p>
+        <p>✅ <b>正确答案推理（A）</b>：全文从"28.8万新增岗位"切入（就业数据），引出"被忽视的兼职问题"（就业的一个侧面），深入分析"自愿vs非自愿兼职"（就业形态的分类），最终落脚到"Obamacare如何影响人们的就业选择"（就业与保险的关系）。贯穿始终的核心话题是美国的**就业（employment）**——包括就业数据、就业质量（兼职vs全职）、就业与福利的绑定关系等。B/C/D 都只是文章涉及的局部细节，不能概括全文。</p>
+        <p>❌ <b>B 选项（兼职者的分类）</b>：P5 详细讲了分类方法，但这只是文章的<strong>中间环节</strong>（用来解释数据来源），并非全文主旨。文章不是为了教你怎么区分两类兼职，而是用这个分类来说明就业市场的问题。</p>
+        <p>❌ <b>C 选项（通过Medicaid获得保险）</b>：仅在 S21 一句话提到 Medicaid，是Obamacare提供的渠道之一，属于细节中的细节。</p>
+        <p>❌ <b>D 选项（奥巴马医改的麻烦/困境）</b>：文中没有任何地方把 Obamacare 描述为"有麻烦的（trouble）"。相反，S21-S23 把它描述为正面改变（allowed 12M+ people to get insurance, cut the link）。D 项带有负面评价色彩，与原文态度不符。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .container -->
+
+<script>
+function toggleBody(id) {
+  const body = document.getElementById(id);
+  const toggle = document.querySelector('[data-target="'+id+'"]');
+  if (!body || !toggle) return;
+  const isHidden = body.classList.contains('hidden');
+  if (isHidden) {
+    body.classList.remove('hidden');
+    toggle.classList.remove('collapsed');
+    toggle.textContent = '▲ 收起';
+  } else {
+    body.classList.add('hidden');
+    toggle.classList.add('collapsed');
+    toggle.textContent = '▼ 展开';
+  }
+}
+
+function toggleSyntax(id) {
+  const el = document.getElementById(id);
+  const btn = document.getElementById('btn-'+id);
+  if (!el || !btn) return;
+  const isHidden = el.classList.contains('hidden');
+  if (isHidden) {
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent = '▲ 收起解析';
+  } else {
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent = '▼ 展开解析';
+  }
+}
+</script>
+</body>
+</html>
