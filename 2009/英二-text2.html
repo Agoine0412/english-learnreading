@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2009 英二 Text 2 精读 · DNA Testing</title>
+<style>
+:root {
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --text: #2d2a24;
+  --text-soft: #6b6559;
+  --text-muted: #9c9486;
+  --accent: #c0392b;
+  --accent-light: #fdf2f0;
+  --green: #558b5c;
+  --green-light: #eef5ec;
+  --gold: #b8860b;
+  --gold-light: #fcf6e8;
+  --panel-bg: #fcf8f3;
+  --panel-border: #e8ddd0;
+  --border: #e5ddd2;
+  --shadow: 0 2px 8px rgba(45,42,36,0.08);
+  --shadow-hover: 0 4px 16px rgba(45,42,36,0.14);
+  --radius: 10px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 32px 16px 80px;
+}
+.container { max-width: 800px; margin: 0 auto; }
+
+/* ===== Header ===== */
+.header {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 36px 32px 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeUp 0.6s var(--transition) both;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--gold), var(--green));
+  background-size: 200% 100%;
+  animation: shimmer 4s ease infinite;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.header h1 {
+  font-family: var(--font);
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.header .sub {
+  color: var(--text-soft);
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid rgba(192,57,43,0.2);
+  transition: var(--transition);
+  cursor: default;
+}
+.badge:nth-child(2) { background: var(--green-light); color: var(--green); border-color: rgba(85,139,92,0.2); }
+.badge:nth-child(3) { background: var(--gold-light); color: var(--gold); border-color: rgba(184,134,11,0.2); }
+.badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(45,42,36,0.12); }
+
+/* ===== Notice ===== */
+.notice {
+  background: var(--gold-light);
+  border-left: 3px solid var(--gold);
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s 0.1s var(--transition) both;
+}
+.notice b { color: var(--text); }
+
+/* ===== Divider ===== */
+.divider {
+  height: 2px;
+  background: var(--border);
+  margin: 28px 0 16px;
+  position: relative;
+  animation: fadeUp 0.6s 0.2s var(--transition) both;
+}
+.divider::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+.divider:hover::before { width: 80px; }
+
+/* ===== Sentence (上下单栏) ===== */
+.sent {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s var(--transition) both;
+  transition: var(--transition);
+}
+.sent:hover { box-shadow: var(--shadow-hover); }
+.snum {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.en {
+  display: block;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.en mark {
+  background: linear-gradient(180deg, #fce4c8 0%, #f8d5b0 100%);
+  color: var(--text);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.en mark:hover { background: linear-gradient(180deg, #f8d5b0 0%, #f4c08a 100%); }
+.en u {
+  text-decoration: none;
+  border-bottom: 2px dotted var(--accent);
+  padding-bottom: 1px;
+}
+
+/* ===== 句内分隔线 ===== */
+.sent-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+  margin: 14px 0 12px;
+}
+
+/* ===== 译文区 ===== */
+.tl {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.zh {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* ===== Collapsible panel ===== */
+details {
+  margin-top: 6px;
+}
+details summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-soft);
+  padding: 6px 0;
+  list-style: none;
+  user-select: none;
+  transition: var(--transition);
+  position: relative;
+  padding-left: 18px;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  transition: transform 0.3s var(--transition);
+}
+details[open] summary::before { transform: rotate(90deg); }
+details summary:hover { color: var(--accent); }
+details.complex summary::after {
+  content: "长难句";
+  margin-left: 8px;
+  font-size: 11px;
+  color: var(--gold);
+  background: var(--gold-light);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 6px;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.row:last-child { margin-bottom: 0; }
+.label {
+  flex-shrink: 0;
+  color: #8b6914;
+  font-weight: bold;
+  min-width: 50px;
+}
+.val { color: var(--text); }
+.val b { color: var(--accent); font-weight: bold; }
+.val i { color: var(--green); font-style: normal; font-weight: 500; }
+.val u { text-decoration: none; border-bottom: 1px solid var(--text-muted); }
+
+/* ===== Bottom summary cards ===== */
+.bottom { margin-top: 36px; }
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.6s var(--transition) both;
+  transition: var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-hover); }
+.card h2 {
+  font-family: var(--font);
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card h2 .ico {
+  display: inline-block;
+  width: 6px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 3px;
+}
+.card h2 .ico.green { background: var(--green); }
+.card h2 .ico.gold { background: var(--gold); }
+.card h2 .toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-soft);
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-sans);
+  font-weight: normal;
+  transition: var(--transition);
+}
+.card h2 .toggle::before {
+  content: "▾";
+  display: inline-block;
+  margin-right: 4px;
+  transition: transform 0.3s var(--transition);
+}
+.card h2 .toggle.collapsed::before { transform: rotate(-90deg); }
+.card h2 .toggle:hover { color: var(--accent); }
+.collapsible-body {
+  max-height: 5000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.4s var(--transition), opacity 0.35s var(--transition);
+}
+.collapsible-body.hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* ===== List items ===== */
+.item {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.item:last-child { border-bottom: none; }
+.item b { color: var(--accent); }
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+th {
+  background: var(--accent-light);
+  color: var(--accent);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent);
+}
+td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+tbody tr { transition: var(--transition); }
+tbody tr:hover { background: var(--bg); }
+td b { color: var(--accent); }
+td i { color: var(--green); font-style: normal; font-weight: 500; }
+
+/* ===== Pattern cards ===== */
+.p-item {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+.p-item:hover { transform: translateX(3px); }
+.p-item .ptype {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--green);
+  background: #fff;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.p-item .ppat {
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.p-item .pdesc { font-size: 13.5px; color: var(--text-soft); margin-bottom: 4px; }
+.p-item .puse { font-size: 12px; color: var(--green); }
+
+/* ===== Question review ===== */
+.er {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--border);
+  transition: var(--transition);
+}
+.er:hover { transform: translateX(2px); border-left-color: var(--accent); box-shadow: 0 2px 8px rgba(45,42,36,0.06); }
+.qhead { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; }
+.qnum {
+  font-family: var(--font);
+  font-weight: bold;
+  color: var(--accent);
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.er:hover .qnum { transform: scale(1.1); }
+.qtext { font-size: 14.5px; color: var(--text); }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; font-size: 13.5px; }
+.opt {
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.opt.ok { background: var(--green-light); color: var(--green); border-color: var(--green); font-weight: bold; }
+.opt.no { background: #fbeae8; color: #c0392b; border-color: #c0392b; }
+.ua { font-size: 12.5px; color: var(--gold); margin-bottom: 8px; font-weight: bold; }
+.analysis { font-size: 13.5px; line-height: 1.7; color: var(--text-soft); }
+.analysis p { margin-bottom: 4px; }
+.analysis p b { color: var(--text); }
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.sent:nth-of-type(1)  { animation-delay: 0.15s; }
+.sent:nth-of-type(2)  { animation-delay: 0.20s; }
+.sent:nth-of-type(3)  { animation-delay: 0.25s; }
+.sent:nth-of-type(4)  { animation-delay: 0.30s; }
+.sent:nth-of-type(5)  { animation-delay: 0.35s; }
+.sent:nth-of-type(6)  { animation-delay: 0.40s; }
+.sent:nth-of-type(7)  { animation-delay: 0.45s; }
+.sent:nth-of-type(8)  { animation-delay: 0.50s; }
+.sent:nth-of-type(9)  { animation-delay: 0.55s; }
+.sent:nth-of-type(10) { animation-delay: 0.60s; }
+.sent:nth-of-type(11) { animation-delay: 0.65s; }
+.sent:nth-of-type(12) { animation-delay: 0.70s; }
+.sent:nth-of-type(13) { animation-delay: 0.75s; }
+.sent:nth-of-type(14) { animation-delay: 0.80s; }
+.sent:nth-of-type(15) { animation-delay: 0.85s; }
+.sent:nth-of-type(16) { animation-delay: 0.90s; }
+.sent:nth-of-type(17) { animation-delay: 0.95s; }
+
+/* ===== Mobile ===== */
+@media (max-width: 720px) {
+  .opts { grid-template-columns: 1fr; }
+  body { padding: 16px 8px 60px; }
+  .header { padding: 24px 18px 20px; }
+  .header h1 { font-size: 22px; }
+  .card { padding: 18px 16px; }
+  .sent { padding: 18px 16px; }
+}
+
+/* ===== Print ===== */
+@media print {
+  body { background: white; padding: 0; }
+  .header, .sent, .card { box-shadow: none; padding: 12px 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== HEADER ========== -->
+  <div class="header">
+    <h1>2009 年考研英语（二）Text 2 精读</h1>
+    <div class="sub">DNA Testing · 亲子鉴定与基因测试的商业化争议</div>
+    <div class="badges">
+      <span class="badge">考研英语（二）</span>
+      <span class="badge">六级~考研级</span>
+      <span class="badge">Text 2 / 共 4 篇</span>
+      <span class="badge">17 句 + 5 道题</span>
+    </div>
+  </div>
+
+  <!-- ========== NOTICE ========== -->
+  <div class="notice">
+    📊 <b>难度推断</b>：六级~考研级（依据：考研词表外词汇占比约 18%，非文章来源限制）
+  </div>
+
+  <!-- ========== SENTENCES ========== -->
+
+  <div class="divider"></div>
+
+  <!-- S01 -->
+  <div class="sent">
+    <span class="snum">S01</span>
+    <span class="en">It is a wise father that knows his own child, but today a man can boost his <mark>paternal</mark> (fatherly) wisdom—or at least confirm that he's the kid's dad.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">再聪明的父亲也未必认得自己的孩子，但如今一个男人可以提升自己身为父亲的智慧——或者至少能确认自己是不是孩子的爹。</div>
+    <details class="complex" open>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">a man can <b>boost</b> his paternal wisdom — or at least <b>confirm</b> that he's the kid's dad</span></div>
+        <div class="row"><span class="label">从句</span><span class="val"><b>It is a wise father that knows his own child</b> — 谚语式让步（反讽用法）：再聪明的父亲也未必认得自己的孩子</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val"><b>or at least confirm that he's the kid's dad</b> — 与前半句"boost"并列，由 <b>or</b> 连接，补充最低保证</span></div>
+        <div class="row"><span class="label">语法标签</span><span class="val">谚语式让步句（It is...that...）、破折号插入语、or 并列、that 宾语从句</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>paternal</b> adj. 父亲的 / <b>boost</b> v. 提升 / <b>confirm</b> v. 确认</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S02 -->
+  <div class="sent">
+    <span class="snum">S02</span>
+    <span class="en">All he needs to do is <u>shell out</u> $30 for a paternity testing kit (PTK) at his local drugstore—and another $120 to get the results.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">他只需到本地药店花 30 美元买一套亲子鉴定试剂盒（PTK），再花 120 美元拿到结果就行。</div>
+    <details class="complex" open>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">All (that) he needs to do is <b>shell out</b> $30 for a PTK at his local drugstore — and (shell out) another $120 to get the results</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">定语从句（all that 省略）、and 省略结构（避免重复 shell out）、破折号连接并列</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>shell out</b> v. 支付 / <b>paternity</b> n. 父亲身份 / <b>kit</b> n. 试剂盒 / <b>drugstore</b> n. 药店</span></div>
+        <div class="row"><span class="label">熟词生义</span><span class="val"><b>shell</b> 通常义"贝壳/炮弹"，生义 v. 支付（shell out = 掏钱）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S03 -->
+  <div class="sent">
+    <span class="snum">S03</span>
+    <span class="en">More than 60,000 people have purchased the PTKs since they first <u>become available</u> without prescriptions last year, according to Doug Fogg, chief operating officer of Identigene, which makes the over-the-counter kits.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">据 Identigene（生产这套非处方试剂盒的厂家）首席运营官 Doug Fogg 称，自去年该试剂盒首次无需处方即可购买以来，已有逾 6 万人购买。</div>
+    <details class="complex" open>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">More than 60,000 people have <b>purchased</b> the PTKs since they first became available without prescriptions last year</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">since 时间状语从句、<b>according to</b> 插入语、<b>which</b> 非限定性定语从句（修饰 Identigene）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>purchase</b> v. 购买（正式） / <b>available</b> adj. 可获得的 / <b>prescription</b> n. 处方 / <b>chief operating officer</b> 首席运营官（COO）/ <b>over-the-counter</b> adj. 非处方的（OTC）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S04 -->
+  <div class="sent">
+    <span class="snum">S04</span>
+    <span class="en">More than two dozen companies sell DNA tests directly to the public, ranging in price from a few hundred dollars to more than $2,500.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">有 20 多家公司直接向公众销售 DNA 检测服务，价格从几百美元到 2500 多美元不等。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">More than two dozen companies <b>sell</b> DNA tests directly to the public</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val">现在分词 <b>ranging in price from... to...</b> 作伴随状语，说明价格范围</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>a dozen</b> n. 一打、12 个 / <b>range</b> v. 在…范围内变动 / <b>directly</b> adv. 直接地</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S05 -->
+  <div class="sent">
+    <span class="snum">S05</span>
+    <span class="en">Among the most popular: paternity and <u>kinship</u> testing, which adopted children can use to find their <u>biological</u> relatives and families can use to <u>track down</u> kids put up for adoption.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">最受欢迎的检测包括：亲子鉴定与亲缘鉴定——前者供被收养的孩子寻找亲生亲属，后者供家庭追踪送养的孩子。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">paternity and kinship testing</span></div>
+        <div class="row"><span class="label">which...</span><span class="val">adopted children can use [it] to find their biological relatives<br>and families can use [it] to track down kids (that are) put up for adoption</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">which 非限定性定语从句、并列目的状语（<b>can use to... and can use to...</b>）、<b>put up</b> 被动式</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>kinship</b> n. 血缘关系 / <b>biological</b> adj. 亲生的 / <b>relative</b> n. 亲属 / <b>track down</b> 追查到 / <b>put up for adoption</b> 送养</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S06 -->
+  <div class="sent">
+    <span class="snum">S06</span>
+    <span class="en">DNA testing is also the latest <mark>rage</mark> among passionate genealogists—and supports businesses that offer to search for a family's geographic roots.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">DNA 检测在狂热的家谱爱好者中也是当下最流行的活动——同时也支撑了一些提供家族地理溯源服务的公司。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">DNA testing is the latest rage among passionate genealogists — and <b>supports</b> businesses that offer to search for a family's geographic roots</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">and 并列谓语、that 定语从句（修饰 businesses）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>rage</b> n. 风行 / <b>passionate</b> adj. 狂热的 / <b>genealogist</b> n. 谱系学家 / <b>geographic</b> adj. 地理的 / <b>roots</b> n. 祖籍</span></div>
+        <div class="row"><span class="label">熟词生义</span><span class="val"><b>rage</b> 通常义"愤怒"，生义 n. 风行、时尚（the latest rage）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S07 -->
+  <div class="sent">
+    <span class="snum">S07</span>
+    <span class="en">Most tests require collecting cells by <u>swabbing</u> saliva in the mouth and sending it to the company for testing.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">大多数检测要求用棉签擦拭口腔内壁采集唾液细胞，然后将其送至公司进行检测。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">Most tests require <b>collecting</b> cells by A and <b>sending</b> it to the company for testing</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">require + 动名词（collecting / sending）、by + doing 方式状语、and 并列动名词</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>swab</b> v. 擦拭取样 / <b>saliva</b> n. 唾液</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S08 -->
+  <div class="sent">
+    <span class="snum">S08</span>
+    <span class="en">All tests require a potential <u>candidate</u> with whom to compare DNA.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">所有检测都需要一个潜在的比对对象，以便与其进行 DNA 比对。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">All tests require a potential candidate</span></div>
+        <div class="row"><span class="label">后置定语</span><span class="val"><b>with whom to compare DNA</b> = to compare DNA with whom（"介词 + 关系代词 + 不定式"复合结构）</span></div>
+        <div class="row"><span class="label">语法点睛</span><span class="val">whom 指代 candidate，提前到 with 之后</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>candidate</b> n. 候选对象、样本</span></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- S09 -->
+  <div class="sent">
+    <span class="snum">S09</span>
+    <span class="en">But some observers are <u>skeptical</u>.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">但一些观察家持怀疑态度。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">some observers are skeptical</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">but 转折、形容词作表语</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>skeptical</b> adj. 持怀疑态度的（= sceptical）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S10 -->
+  <div class="sent">
+    <span class="snum">S10</span>
+    <span class="en">"There's a kind of <u>false precision</u> being <mark>hawked</mark> by people claiming they are doing ancestry testing," says Troy Duster, a New York University sociologist.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">"那些声称在做祖源检测的人正在兜售一种虚假的精确性，"纽约大学社会学家 Troy Duster 说。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">"<b>There's</b> a kind of false precision being hawked by people claiming they are doing ancestry testing," says Troy Duster</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">倒装句（There be）、被动语态（being hawked）、现在分词 claiming 作后置定语、says 倒装（直接引语在前）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>false precision</b> n. 虚假的精确性 / <b>hawk</b> v. 兜售 / <b>ancestry</b> n. 祖籍 / <b>sociologist</b> n. 社会学家</span></div>
+        <div class="row"><span class="label">熟词生义</span><span class="val"><b>hawk</b> 通常义"n. 鹰"，生义 v. 兜售、叫卖</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S11 -->
+  <div class="sent">
+    <span class="snum">S11</span>
+    <span class="en">He notes that each individual has many ancestors—numbering in the hundreds just a few centuries back.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">他指出，每个人都有许多祖先——仅追溯到几百年前，祖先数量就达数百人。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">He notes that each individual has many ancestors</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">that 宾语从句、破折号 + 现在分词 <b>numbering in the hundreds</b> 作伴随状语</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>individual</b> n. 个人 / <b>ancestor</b> n. 祖先 / <b>number</b> v. 数量达</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S12 -->
+  <div class="sent">
+    <span class="snum">S12</span>
+    <span class="en">Yet most ancestry testing only considers a single <u>lineage</u>, either the Y chromosome inherited through men in a father's line or <u>mitochondrial</u> DNA, which is passed down only from mothers.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">然而大多数祖源检测只考察单一血统，要么是父系传承的 Y 染色体，要么是仅从母亲传下来的线粒体 DNA。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">most ancestry testing only considers a single lineage, either A or B</span></div>
+        <div class="row"><span class="label">A</span><span class="val">the Y chromosome (which is) <b>inherited</b> through men in a father's line → 过去分词作后置定语</span></div>
+        <div class="row"><span class="label">B</span><span class="val">mitochondrial DNA, <b>which</b> is passed down only from mothers → 非限定性定语从句</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">either...or... 并列、过去分词 inherited、which 非限定性定语从句</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>lineage</b> n. 血统 / <b>chromosome</b> n. 染色体 / <b>inherit</b> v. 继承 / <b>mitochondrial</b> adj. 线粒体的 / <b>pass down</b> 传下来</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S13 -->
+  <div class="sent">
+    <span class="snum">S13</span>
+    <span class="en">This DNA can reveal genetic information about only one or two ancestors, even though, for example, just three generations back people also have six other great-grandparents or, four generations back, 14 other great-great-grandparents.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">这种 DNA 只能揭示一两位祖先的基因信息，例如：仅往上追溯三代，人们就有另外 6 位曾祖父母；再往上追溯四代，就还有 14 位高祖父母。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">This DNA can reveal genetic information about only one or two ancestors</span></div>
+        <div class="row"><span class="label">从句</span><span class="val"><b>even though</b>, for example, just three generations back people also have six other great-grandparents or, four generations back, 14 other great-great-grandparents — 让步状语从句</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">even though 让步、for example 插入语、or 并列、<b>back</b> adv. 以前（熟词生义）</span></div>
+        <div class="row"><span class="label">数学彩蛋</span><span class="val">N 代祖先数 = 2^(N+1) − 2：三代 = 14（其中"另外的"曾祖父母 = 8 − 2 = 6）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>generation</b> n. 一代、世代 / <b>great-grandparent</b> n. 曾祖父母</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S14 -->
+  <div class="sent">
+    <span class="snum">S14</span>
+    <span class="en">Critics also argue that commercial genetic testing is only as good as the reference collections to which a sample is compared.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">批评者还指出，商业基因检测的好坏取决于样本对比所参照的数据库。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">Critics also argue that...</span></div>
+        <div class="row"><span class="label">宾从</span><span class="val">commercial genetic testing is only <b>as good as</b> the reference collections to which a sample is compared</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">that 宾语从句、<b>as...as...</b> 比较结构、to which 介词提前的定语从句</span></div>
+        <div class="row"><span class="label">句型积累</span><span class="val"><b>X is only as good as Y</b> = X 的好坏取决于 Y。例：A teacher is only as good as the students she teaches.</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>critic</b> n. 批评者 / <b>commercial</b> adj. 商业的 / <b>genetic</b> adj. 基因的 / <b>reference</b> n. 参考 / <b>collection</b> n. 收集、样本库</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S15 -->
+  <div class="sent">
+    <span class="snum">S15</span>
+    <span class="en">Databases used by some companies don't rely on data collected systematically but rather <u>lump together</u> information from different research projects.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">一些公司使用的数据库不依赖于系统化采集的数据，而是把不同研究项目的信息混在一起。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">Databases (which are) used by some companies don't rely on data (which are) collected systematically but rather <b>lump together</b> information from different research projects</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">过去分词 used / collected 作后置定语、<b>not...but rather...</b> 转折、from 不同来源</span></div>
+        <div class="row"><span class="label">短语</span><span class="val"><b>lump together</b> = 不加区分地混在一起（隐含贬义）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>systematically</b> adv. 系统地 / <b>research project</b> n. 研究项目</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S16 -->
+  <div class="sent">
+    <span class="snum">S16</span>
+    <span class="en">This means that a DNA database may have a lot of data from some regions and not others, so a person's test results may differ depending on the company that processes the results.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">这意味着一个 DNA 数据库可能有某个地区的大量数据，而其他地区的数据则很少，因此同一个人在不同公司做检测，结果可能不同。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">This means that A, so B</span></div>
+        <div class="row"><span class="label">A</span><span class="val">a DNA database may have a lot of data from some regions <b>and not others</b>（部分否定）</span></div>
+        <div class="row"><span class="label">B</span><span class="val">a person's test results may <b>differ</b> depending on the company that processes the results</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">that 宾语从句、so 结果状语从句、<b>depending on</b> 现在分词作状语、that 定语从句</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>database</b> n. 数据库 / <b>differ</b> v. 不同</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S17 -->
+  <div class="sent">
+    <span class="snum">S17</span>
+    <span class="en">In addition, the computer programs (that) a company uses to estimate relationships may be <u>patented</u> and not subject to <u>peer review</u> or outside evaluation.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">此外，公司用来估算亲缘关系的计算机程序可能申请了专利，从而不接受同行评审或外部评估。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">the computer programs (that) a company uses to estimate relationships may be <b>patented</b> and (may be) not <b>subject to</b> peer review or outside evaluation</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">定语从句（that 省略）、and 省略结构（避免重复 may be）、not subject to... 形容词短语</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>in addition</b> 此外 / <b>estimate</b> v. 估计 / <b>patent</b> v. 申请专利 / <b>peer review</b> 同行评审 / <b>evaluation</b> n. 评估 / <b>be subject to</b> 受…支配、接受…</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== BOTTOM SUMMARY ========== -->
+  <div class="bottom">
+
+    <div class="card">
+      <h2><span class="ico"></span>全文脉络<span class="toggle" data-target="summary">收起</span></h2>
+      <div class="collapsible-body" id="summary">
+        <div class="item"><b>① 引入话题</b>（S01-02）：聪明的父亲未必认得自己的孩子，但现在有 PTK 可以确认。</div>
+        <div class="item"><b>② 市场背景</b>（S03-04）：6 万人购买、20+ 家公司销售，价格从几百到 2500+ 美元。</div>
+        <div class="item"><b>③ 主要用途</b>（S05-06）：亲子鉴定 / 亲缘鉴定 / 家族地理溯源。</div>
+        <div class="item"><b>④ 检测流程</b>（S07-08）：擦拭口腔 + 比对 DNA。</div>
+        <div class="item"><b>⑤ 质疑与缺陷</b>（S09-13）：观察家指出 DNA 只能揭示 1-2 位祖先，无法反映数百位祖先的完整信息。</div>
+        <div class="item"><b>⑥ 更多批评</b>（S14-17）：数据库不系统化、程序不公开受评审，结果因公司而异。</div>
+        <div class="item" style="margin-top: 12px; background: var(--gold-light); padding: 10px 14px; border-radius: 6px;"><b>作者态度</b>：态度中立偏负——既呈现 DNA 检测的流行与便利，也着重揭示其局限与商业问题；结尾 S17 暗示对行业缺乏监管的担忧。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico green"></span>重点词汇表<span class="toggle" data-target="vocab">收起</span></h2>
+      <div class="collapsible-body" id="vocab">
+        <table>
+          <thead><tr><th style="width:18%">单词</th><th style="width:10%">词性</th><th style="width:30%">释义</th><th>文中例句</th></tr></thead>
+          <tbody>
+            <tr><td><b>paternal</b></td><td>adj.</td><td>父亲的；父亲般的</td><td>boost his paternal wisdom</td></tr>
+            <tr><td><b>shell out</b></td><td>v. phr.</td><td>支付（钱）</td><td>shell out $30 for a PTK</td></tr>
+            <tr><td><b>paternity</b></td><td>n.</td><td>父亲身份；父系</td><td>paternity testing kit</td></tr>
+            <tr><td><b>drugstore</b></td><td>n.</td><td>药店</td><td>his local drugstore</td></tr>
+            <tr><td><b>purchase</b></td><td>v./n.</td><td>购买（正式用词）</td><td>have purchased the PTKs</td></tr>
+            <tr><td><b>prescription</b></td><td>n.</td><td>处方；药方</td><td>without prescriptions</td></tr>
+            <tr><td><b>over-the-counter</b></td><td>adj.</td><td>非处方的</td><td>over-the-counter kits</td></tr>
+            <tr><td><b>range</b></td><td>v./n.</td><td>范围；在…之间变动</td><td>ranging in price from... to...</td></tr>
+            <tr><td><b>kinship</b></td><td>n.</td><td>血缘关系</td><td>kinship testing</td></tr>
+            <tr><td><b>biological</b></td><td>adj.</td><td>亲生的；生物的</td><td>biological relatives</td></tr>
+            <tr><td><b>track down</b></td><td>v. phr.</td><td>追查到；追踪到</td><td>track down kids</td></tr>
+            <tr><td><b>rage</b></td><td>n.</td><td>风行；时尚</td><td>the latest rage</td></tr>
+            <tr><td><b>passionate</b></td><td>adj.</td><td>狂热的</td><td>passionate genealogists</td></tr>
+            <tr><td><b>genealogist</b></td><td>n.</td><td>谱系学家</td><td>passionate genealogists</td></tr>
+            <tr><td><b>geographic</b></td><td>adj.</td><td>地理的</td><td>geographic roots</td></tr>
+            <tr><td><b>swab</b></td><td>v.</td><td>擦拭取样</td><td>swabbing saliva</td></tr>
+            <tr><td><b>saliva</b></td><td>n.</td><td>唾液</td><td>swabbing saliva</td></tr>
+            <tr><td><b>skeptical</b></td><td>adj.</td><td>持怀疑态度的</td><td>some observers are skeptical</td></tr>
+            <tr><td><b>hawk</b></td><td>v.</td><td>兜售；叫卖</td><td>being hawked by people</td></tr>
+            <tr><td><b>ancestry</b></td><td>n.</td><td>祖籍；祖先</td><td>ancestry testing</td></tr>
+            <tr><td><b>sociologist</b></td><td>n.</td><td>社会学家</td><td>a New York University sociologist</td></tr>
+            <tr><td><b>ancestor</b></td><td>n.</td><td>祖先</td><td>only one or two ancestors</td></tr>
+            <tr><td><b>lineage</b></td><td>n.</td><td>血统；世系</td><td>a single lineage</td></tr>
+            <tr><td><b>chromosome</b></td><td>n.</td><td>染色体</td><td>the Y chromosome</td></tr>
+            <tr><td><b>inherit</b></td><td>v.</td><td>继承</td><td>inherited through men</td></tr>
+            <tr><td><b>mitochondrial</b></td><td>adj.</td><td>线粒体的</td><td>mitochondrial DNA</td></tr>
+            <tr><td><b>generation</b></td><td>n.</td><td>一代；世代</td><td>three generations back</td></tr>
+            <tr><td><b>critic</b></td><td>n.</td><td>批评者</td><td>Critics also argue</td></tr>
+            <tr><td><b>commercial</b></td><td>adj.</td><td>商业的</td><td>commercial genetic testing</td></tr>
+            <tr><td><b>database</b></td><td>n.</td><td>数据库</td><td>a DNA database</td></tr>
+            <tr><td><b>systematically</b></td><td>adv.</td><td>系统地</td><td>collected systematically</td></tr>
+            <tr><td><b>lump together</b></td><td>v. phr.</td><td>把…混在一起</td><td>lump together information</td></tr>
+            <tr><td><b>process</b></td><td>v.</td><td>处理；加工</td><td>the company that processes the results</td></tr>
+            <tr><td><b>estimate</b></td><td>v.</td><td>估计；估算</td><td>estimate relationships</td></tr>
+            <tr><td><b>patent</b></td><td>v./adj.</td><td>申请专利；专利的</td><td>may be patented</td></tr>
+            <tr><td><b>peer review</b></td><td>n.</td><td>同行评审</td><td>not subject to peer review</td></tr>
+            <tr><td><b>evaluation</b></td><td>n.</td><td>评估</td><td>outside evaluation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico gold"></span>熟词生义特辑<span class="toggle" data-target="tricky">收起</span></h2>
+      <div class="collapsible-body" id="tricky">
+        <table>
+          <thead><tr><th style="width:18%">单词</th><th style="width:35%">通常义</th><th>文中义</th></tr></thead>
+          <tbody>
+            <tr><td><b>shell</b></td><td>n. 贝壳；炮弹</td><td><b>v.</b> 支付（shell out）</td></tr>
+            <tr><td><b>rage</b></td><td>n. 愤怒</td><td><b>n.</b> 风行、时尚（the latest rage）</td></tr>
+            <tr><td><b>hawk</b></td><td>n. 鹰</td><td><b>v.</b> 兜售、叫卖</td></tr>
+            <tr><td><b>line</b></td><td>n. 线、线路</td><td><b>n.</b> 血统、世系（a father's line）</td></tr>
+            <tr><td><b>back</b></td><td>n./v. 背部；后退</td><td><b>adv.</b> 以前、过去（three generations back）</td></tr>
+            <tr><td><b>candidate</b></td><td>n. 候选人</td><td><b>n.</b> 候选对象、样本</td></tr>
+            <tr><td><b>process</b></td><td>n. 过程</td><td><b>v.</b> 处理、加工（process the results）</td></tr>
+            <tr><td><b>patent</b></td><td>n. 专利证书</td><td><b>v.</b> 申请专利（patent the program）</td></tr>
+            <tr><td><b>root</b></td><td>n. 根</td><td><b>n.</b> 祖籍、起源（family's geographic roots）</td></tr>
+            <tr><td><b>kid</b></td><td>n. 小孩</td><td><b>n.</b> 小孩（口语 = child）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico green"></span>重点短语搭配<span class="toggle" data-target="phrases">收起</span></h2>
+      <div class="collapsible-body" id="phrases">
+        <table>
+          <thead><tr><th style="width:40%">短语</th><th>释义</th></tr></thead>
+          <tbody>
+            <tr><td><b>shell out (money) for sth</b></td><td>在某物上掏钱</td></tr>
+            <tr><td><b>boost one's wisdom</b></td><td>提升某人的智慧</td></tr>
+            <tr><td><b>confirm that...</b></td><td>确认…</td></tr>
+            <tr><td><b>be available without prescriptions</b></td><td>不用处方即可买到</td></tr>
+            <tr><td><b>chief operating officer</b></td><td>首席运营官</td></tr>
+            <tr><td><b>over-the-counter kits</b></td><td>非处方试剂盒</td></tr>
+            <tr><td><b>range in price from... to...</b></td><td>价格范围从…到…</td></tr>
+            <tr><td><b>paternity and kinship testing</b></td><td>亲子鉴定与亲缘鉴定</td></tr>
+            <tr><td><b>track down</b></td><td>追查到</td></tr>
+            <tr><td><b>put up for adoption</b></td><td>送养</td></tr>
+            <tr><td><b>the latest rage</b></td><td>最新流行</td></tr>
+            <tr><td><b>swab saliva in the mouth</b></td><td>擦拭口腔内壁取唾液</td></tr>
+            <tr><td><b>a potential candidate</b></td><td>潜在的比对对象</td></tr>
+            <tr><td><b>with whom to compare DNA</b></td><td>与之比对 DNA 的对象</td></tr>
+            <tr><td><b>be skeptical about</b></td><td>对…持怀疑态度</td></tr>
+            <tr><td><b>false precision</b></td><td>虚假的精确性</td></tr>
+            <tr><td><b>hawk (sth) by people</b></td><td>人们兜售</td></tr>
+            <tr><td><b>number in the hundreds</b></td><td>数量达数百</td></tr>
+            <tr><td><b>Y chromosome</b></td><td>Y 染色体</td></tr>
+            <tr><td><b>mitochondrial DNA</b></td><td>线粒体 DNA</td></tr>
+            <tr><td><b>a single lineage</b></td><td>单一血统</td></tr>
+            <tr><td><b>be passed down from mothers</b></td><td>由母亲传下来</td></tr>
+            <tr><td><b>generations back</b></td><td>几代之前</td></tr>
+            <tr><td><b>great-grandparents</b></td><td>曾祖父母</td></tr>
+            <tr><td><b>great-great-grandparents</b></td><td>高祖父母</td></tr>
+            <tr><td><b>reference collections</b></td><td>参考样本库</td></tr>
+            <tr><td><b>lump together</b></td><td>混在一起</td></tr>
+            <tr><td><b>research projects</b></td><td>研究项目</td></tr>
+            <tr><td><b>differ depending on</b></td><td>取决于</td></tr>
+            <tr><td><b>computer programs</b></td><td>计算机程序</td></tr>
+            <tr><td><b>estimate relationships</b></td><td>估算亲缘关系</td></tr>
+            <tr><td><b>be patented</b></td><td>被申请专利</td></tr>
+            <tr><td><b>peer review</b></td><td>同行评审</td></tr>
+            <tr><td><b>outside evaluation</b></td><td>外部评估</td></tr>
+            <tr><td><b>be subject to</b></td><td>受…支配；接受…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico green"></span>值得背诵的 3 个句型<span class="toggle" data-target="patterns">收起</span></h2>
+      <div class="collapsible-body" id="patterns">
+        <div class="p-item">
+        <div class="ptype">句型 1</div>
+        <div class="ppat">It is a wise father that knows his own child.</div>
+        <div class="pdesc">再聪明的父亲也未必认得自己的孩子。</div>
+        <div class="puse">It is a + adj. + noun + that...（谚语式让步句，反讽用法）</div>
+      </div>
+      <div class="p-item">
+        <div class="ptype">句型 2</div>
+        <div class="ppat">shell out $30 for a paternity testing kit at his local drugstore</div>
+        <div class="pdesc">在本地药店花 30 美元买一套亲子鉴定试剂盒。</div>
+        <div class="puse">shell out (money) for sth（在某处）掏出（钱）买某物，比 pay 更口语</div>
+      </div>
+      <div class="p-item">
+        <div class="ptype">句型 3</div>
+        <div class="ppat">commercial genetic testing is only as good as the reference collections to which a sample is compared</div>
+        <div class="pdesc">商业基因检测的好坏取决于样本对比所参照的数据库。</div>
+        <div class="puse">... is only as good as ...（X 的好坏取决于 Y）</div>
+      </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico"></span>题目答案速查<span class="toggle" data-target="qa">收起</span></h2>
+      <div class="collapsible-body" id="qa">
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">26.</span>
+            <span class="qtext">In Paragraphs 1 and 2, the text shows PTK's ___.</span>
+          </div>
+          <div class="opts">
+            <span class="opt ok">[A] easy availability ✓</span>
+            <span class="opt no">[B] flexibility in pricing</span>
+            <span class="opt no">[C] successful promotion</span>
+            <span class="opt no">[D] popularity with households</span>
+          </div>
+          <div class="ua">你的答案：A ✓ 正确</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P1 "shell out $30 for a paternity testing kit at his local drugstore" + P2 "available without prescriptions"、"More than two dozen companies sell DNA tests directly to the public"</p>
+            <p>✅ <b>正确答案推理</b>：P1 显示 PTK 在普通药店就能买到（仅 30 美元），P2 进一步说明无需处方即可购买、有 20 多家公司直接销售——所有证据都指向"容易获得"（easy availability）。</p>
+            <p>❌ <b>B 选项</b>：P2 提到 "ranging in price from a few hundred dollars to more than $2,500"，但这只说明 DNA 检测整个市场的价格区间，并非同一家 PTK 产品的价格弹性——P1 明确 PTK 固定 30 美元 + 120 美元出结果。</p>
+            <p>❌ <b>C 选项</b>："successful promotion"（成功促销）文中有销售数据但未涉及任何"促销手段"（如打折、广告），属于无中生有。</p>
+            <p>❌ <b>D 选项</b>："popularity with households"（家庭普及度）文中未提及家庭层面的采用率数据，60,000+ 的购买者 ≠ 家庭普及度。</p>
+            <p>📌 <b>用户答案点评</b>：选 A 正确 ✓ 判断准确。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">27.</span>
+            <span class="qtext">PTK is used to ___.</span>
+          </div>
+          <div class="opts">
+            <span class="opt no">[A] locate one's birth place</span>
+            <span class="opt no">[B] promote genetic research</span>
+            <span class="opt ok">[C] identify parent-child kinship ✓</span>
+            <span class="opt no">[D] choose children for adoption</span>
+          </div>
+          <div class="ua">你的答案：C ✓ 正确</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P3 "Among the most popular: paternity and kinship testing"</p>
+            <p>✅ <b>正确答案推理</b>：P3 直接点出 PTK 最主要用途是"paternity and kinship testing"（亲子和亲缘鉴定），即"识别父母与子女的血缘关系"。S02 中的 "confirm that he's the kid's dad" 也是直接证据。</p>
+            <p>❌ <b>A 选项</b>：地理溯源（geographic roots）是另一项服务（genealogy），并非 PTK 本身的用途，且与"出生地"是不同概念。</p>
+            <p>❌ <b>B 选项</b>：PTK 是商业产品（commercial），文中未涉基因研究推动。</p>
+            <p>❌ <b>D 选项</b>：收养是 P3 提到的应用场景之一，但 PTK 用来追踪已被收养的孩子找亲生父母，而非"挑选"被收养的孩子。</p>
+            <p>📌 <b>用户答案点评</b>：选 C 正确 ✓ 一眼锁定。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">28.</span>
+            <span class="qtext">Skeptical observers believe that ancestry testing fails to ___.</span>
+          </div>
+          <div class="opts">
+            <span class="opt no">[A] trace distant ancestors</span>
+            <span class="opt no">[B] rebuild reliable bloodlines</span>
+            <span class="opt no">[C] fully use genetic information</span>
+            <span class="opt ok">[D] achieve the claimed accuracy ✓</span>
+          </div>
+          <div class="ua">你的答案：D ✓ 正确</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P5 "Some critics argue that commercial genetic testing is 'needlessly obscure'... and the tests themselves are not as accurate as they claim... Others... point to the 'false precision'..." + P6 "Databases used by some companies don't rely on data collected systematically..."</p>
+            <p>✅ <b>正确答案推理</b>：题干主语是 "skeptical observers"（怀疑的观察者 = 原文的 critics / skeptics），他们认为商业基因检测 <b>无法达到其声称的精确度</b>（fail to achieve the claimed accuracy）。原文 P5 直接点名 "false precision"（虚假的精确性）、测试 "not as accurate as they claim"（没它们声称的那么准），以及 P6 数据库不系统化导致结果因公司而异——都指向"声称的精度不可靠"，D 精准对应。</p>
+            <p>❌ <b>A 选项</b>：trace distant ancestors——文章反而说线粒体 DNA / Y 染色体能追溯母系单一血统到 generations back（曾祖、高祖），即检测 <b>确实能</b> trace 一些 distant ancestors；怀疑者批评的是"精度/准确度"，不是"完全不能追溯"，故 A 不是 skeptics 的核心论点。</p>
+            <p>❌ <b>B 选项</b>：rebuild reliable bloodlines——原文未提 "rebuild" 或 "reliable"，属无中生有。</p>
+            <p>❌ <b>C 选项</b>：fully use genetic information——虽有"只揭示 1-2 位祖先信息"的覆盖窄问题，但题干问的是 skeptics 认为检测 "fails to ___"，原文直接点名的是 "claimed accuracy / false precision"（精度层面），C 偏"范围层面"，不如 D 精准贴合 skeptics 原话。</p>
+            <p>📌 <b>用户答案点评</b>：✓ <b>选 D 正确</b>。之前我误判成 A 是错的——感谢你用标准答案纠正，28 题确为 D。原判断把"覆盖窄"误当成 skeptics 的主论点，实际文章 critics 直击的是"声称的精确度达不到"。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">29.</span>
+            <span class="qtext">In the last paragraph, a problem commercial genetic testing faces is ___.</span>
+          </div>
+          <div class="opts">
+            <span class="opt ok">[A] disorganized data collection ✓</span>
+            <span class="opt no">[B] overlapping database building</span>
+            <span class="opt no">[C] excessive sample comparison</span>
+            <span class="opt no">[D] lack of patent evaluation</span>
+          </div>
+          <div class="ua">你的答案：A ✓ 正确</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P6 "Databases used by some companies don't rely on data collected systematically but rather lump together information from different research projects. This means that a DNA database may have a lot of data from some regions and not others..."</p>
+            <p>✅ <b>正确答案推理</b>：P6 前半部分直接陈述问题——数据库不依靠"systematically"（系统化）采集的数据，而是把不同研究项目"lump together"（混在一起）——这正是"disorganized data collection"（无序的数据采集）。</p>
+            <p>❌ <b>B 选项</b>：原文说"lump together"（混合），不是"重叠"（overlapping）——混合≠重叠，是不同概念。</p>
+            <p>❌ <b>C 选项</b>：原文未涉及"过度"，反而是数据不足（"a lot of data from some regions and not others"）。</p>
+            <p>❌ <b>D 选项</b>：P6 后半部分提到"may be patented and not subject to peer review or outside evaluation"，但这是另一个问题（程序不公开受评审），并非"缺乏专利评估"——而且原文恰恰说"被专利了"（patented），不是"没有专利"。</p>
+            <p>📌 <b>用户答案点评</b>：选 A 正确 ✓ 准确捕捉到 "lump together"+"not systematically" 的核心矛盾。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">30.</span>
+            <span class="qtext">An appropriate title for the text is most likely to be ___.</span>
+          </div>
+          <div class="opts">
+            <span class="opt no">[A] Fors and Againsts of DNA Testing</span>
+            <span class="opt ok">[B] DNA Testing and Its Problems ✓</span>
+            <span class="opt no">[C] DNA Testing Outside the Lab</span>
+            <span class="opt no">[D] Lies Behind DNA Testing</span>
+          </div>
+          <div class="ua">你的答案：B ✓ 正确</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：全文 P1-P4 介绍 DNA 检测，P5-P6（占全文 2/7 但承担批判性结论）揭示其局限。</p>
+            <p>✅ <b>正确答案推理</b>：文章前半（P1-4）介绍 DNA 检测的普及和用途，后半（P5-6）揭露两大问题——① 只能揭示 1-2 位祖先，无法覆盖数百位祖先；② 数据库不系统、程序不公开受评审，结果因公司而异。结尾 S17 的 "may be patented and not subject to peer review or outside evaluation" 是压轴批判，整体重在揭示问题。</p>
+            <p>❌ <b>A 选项</b>：虽然文章有正反，但"反对"分量更重、更具体（两段都在批评），不是平衡叙述——A 过于中性，不够精准。</p>
+            <p>❌ <b>C 选项</b>：P1 提到在药店买试剂盒，但这只是文章引入话题的方式，并非主题；文章主线是讨论检测的问题，不是讲"非实验室检测"这一概念。</p>
+            <p>❌ <b>D 选项</b>："Lies"（谎言）语气过重、过激，原文用词是 "skeptical"、"false precision"、"problem"（中性偏负），并非直指"谎言"。</p>
+            <p>📌 <b>用户答案点评</b>：选 B 正确 ✓ 抓住了文章"介绍 + 批判问题"的双层结构。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleBody(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('hidden');
+  var btn = document.querySelector('[data-target="' + id + '"]');
+  if (btn) {
+    if (el.classList.contains('hidden')) {
+      btn.classList.add('collapsed');
+      btn.textContent = '展开';
+    } else {
+      btn.classList.remove('collapsed');
+      btn.textContent = '收起';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleBody(btn.getAttribute('data-target'));
+    });
+  });
+});
+</script>
+</body>
+</html>
