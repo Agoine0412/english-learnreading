@@ -12,16 +12,15 @@
   --text: #2c2420;
   --text-soft: #6b5a50;
   --text-muted: #9c8a7a;
-  /* 主色系：深酒红 + 古铜棕 + 金色 */
-  --accent: #7b2028;
+  --accent: #7b2028;          /* 深酒红 */
   --accent-light: #f8edea;
-  --amber: #8b7355;
-  --amber-light: #f2ede6;
-  --rust: #b8860b;
-  --rust-light: #fcf6e8;
-  --steel: #5a4a3a;
+  --amber: #b8860b;           /* 古铜金 */
+  --amber-light: #fcf6e8;
+  --rust: #8b7355;            /* 古铜棕 */
+  --rust-light: #f2ede6;
+  --steel: #5a4a3a;           /* 深褐 */
   --steel-light: #f0ece8;
-  --panel-bg: #f8f4ee;
+  --panel-bg: #faf8f5;
   --panel-border: #e8ddd0;
   --border: #e0d5c8;
   --shadow: 0 2px 10px rgba(44,36,32,0.06);
@@ -48,160 +47,211 @@ body {
   box-shadow:var(--shadow); position:relative; overflow:hidden;
   animation: fadeUp .5s ease both;
 }
-.header::before {
-  content:""; position:absolute; top:0; left:0; right:0; height:5px;
-  background:linear-gradient(90deg,#7b2028 0%,#b8860b 50%,#5a4a3a 100%);
-  background-size:200% 100%;
-  animation: shimmer 4s ease infinite;
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
 }
-@keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-.header h1 { font-size:1.5em; font-weight:700; color:var(--text); font-family:var(--font); }
-.header h1 small { font-size:0.6em; font-weight:400; color:var(--text-muted); margin-left:10px; font-family:var(--font-sans); }
-.header .sub { margin-top:6px; color:var(--text-soft); font-size:0.88em; border-left:3px solid var(--rust); padding-left:12px; }
-.badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
-.badge {
-  display:inline-flex; align-items:center; gap:4px;
-  padding:4px 12px; border-radius:20px; font-size:0.72em; font-weight:600;
-  background:var(--amber-light); color:var(--amber);
-  border:1px solid rgba(139,115,85,0.2); user-select:none;
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
 }
-.badge.level { background:var(--rust-light); color:var(--rust); border-color:rgba(184,134,11,0.2); }
-.badge.mode { background:var(--accent-light); color:var(--accent); border-color:rgba(123,32,40,0.2); }
+.badge.amber{background:var(--amber-light);color:#8b6914;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:#5a4a3a;}
 
-@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+/* ====== 文章内容区 ====== */
+.article{margin-top:22px;}
 
-/* ====== Section divider ====== */
-.section {
-  margin: 32px 0 16px; font-size:0.82em; font-weight:700; color:var(--text-soft);
-  display:flex; align-items:center; gap:10px;
+/* ====== 逐句卡片（上下单栏）===== */
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
 }
-.section::before { content:""; width:20px; height:2px; background:var(--accent); border-radius:1px; }
-
-/* ====== Sentence Card ====== */
-.sent {
-  background:var(--card); border-radius:var(--radius); padding:26px 28px;
-  margin-bottom:18px; box-shadow:var(--shadow);
-  transition:box-shadow var(--transition), transform var(--transition);
-  animation: fadeUp .4s ease both;
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
 }
-.sent:hover { box-shadow:var(--shadow-hover); transform:translateY(-1px); }
-.snum { font-size:0.68em; font-weight:700; color:var(--text-muted); letter-spacing:1px; margin-bottom:8px; }
-.en { font-size:0.95em; line-height:1.75; font-family:var(--font); }
-.en mark {
-  background:linear-gradient(120deg,#fce4c8 0%,#f8d5b0 100%);
-  padding:1px 5px; border-radius:3px; color:var(--text); font-weight:600;
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
 }
-.en u { text-decoration:none; border-bottom:2px dotted var(--accent); padding-bottom:1px; }
-hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(90deg,var(--border),transparent); }
-.cn { font-size:0.9em; color:var(--text-soft); margin-bottom:10px; font-family:var(--font); }
-
-/* ====== Syntax Toggle ====== */
-.syntax-toggle {
-  background:var(--accent-light); border:1px solid transparent; border-radius:6px;
-  font-size:0.74em; color:var(--accent); font-weight:600; cursor:pointer;
-  padding:4px 12px; transition:all var(--transition);
-  font-family:var(--font-sans);
+.en mark{
+  background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
 }
-.syntax-toggle:hover { background:var(--card); border-color:var(--accent); }
-.syntax-toggle.collapsed { background:var(--steel-light); color:var(--steel); }
-.syntax-toggle.collapsed:hover { border-color:var(--steel); }
-
-.syntax {
-  padding:14px 16px; margin-top:10px; border-radius:8px;
-  background:var(--panel-bg); border:1px solid var(--panel-border);
-  font-size:0.84em; line-height:1.75; color:var(--text); animation:fadeUp .2s ease both;
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(139,115,85,.15) 0%,rgba(139,115,85,.05) 100%);
+  border-left:3px solid var(--rust); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
 }
-.syntax.hidden { display:none; }
-.syntax b { color:var(--accent); }
-.syntax .row { margin-bottom:6px; }
-
-/* ====== Bottom Cards ====== */
-.bottom { display:grid; gap:16px; margin-top:8px; }
-.card {
-  background:var(--card); border-radius:var(--radius); padding:22px 24px;
-  box-shadow:var(--shadow); transition:box-shadow var(--transition), transform var(--transition);
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--amber),transparent);
+  opacity:.5;
 }
-.card:hover { box-shadow:var(--shadow-hover); transform:translateY(-2px); }
-.card h2 { font-size:0.92em; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; color:var(--text); font-family:var(--font); }
-.toggle {
-  font-size:0.7em; color:var(--text-muted); cursor:pointer; margin-left:auto;
-  padding:2px 8px; border-radius:4px; transition:all var(--transition);
-  font-family:var(--font-sans); font-weight:400;
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
 }
-.toggle:hover { color:var(--accent); background:var(--accent-light); }
-.collapsible-body { overflow:hidden; transition:max-height .35s ease, opacity .25s ease; max-height:2000px; opacity:1; }
-.collapsible-body.hidden { max-height:0; opacity:0; overflow:hidden; }
 
-/* ====== Summary items ====== */
-.item { padding:6px 0; border-bottom:1px solid #e8e0d8; font-size:0.86em; display:flex; gap:10px; font-family:var(--font); }
-.item:hover { padding-left:4px; } .item:last-child { border-bottom:none; }
-.num { color:var(--accent); font-weight:700; flex-shrink:0; }
+/* ====== 逐句语法解析折叠按钮 ====== */
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(139,115,85,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
 
-/* ====== Tables ====== */
-.vt, .pt { width:100%; border-collapse:collapse; font-size:0.84em; }
-.vt th, .pt th { text-align:left; padding:7px 10px; font-weight:700; font-size:0.85em; background:#f0e8e0; color:var(--text-soft); border-bottom:2px solid var(--border); font-family:var(--font); }
-.vt td, .pt td { padding:7px 10px; border-bottom:1px solid #e8e0d8; vertical-align:top; }
-.vt tr:last-child td, .pt tr:last-child td { border-bottom:none; }
-.vt tr:hover td, .pt tr:hover td { background:#faf8f5; }
-.w { font-weight:700; color:var(--accent); font-family:var(--font); }
-.p { color:var(--text-muted); font-size:0.9em; }
-.d { color:var(--text); font-family:var(--font); }
-.ph { font-weight:700; color:var(--amber); font-family:var(--font); font-style:italic; }
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--amber);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
 
-/* ====== Patterns ====== */
-.p-item { padding:10px 14px; margin-bottom:8px; border-radius:6px; background:var(--amber-light); border-left:3px solid var(--amber); transition:transform var(--transition); }
-.p-item:hover { transform:translateX(3px); } .p-item:last-child { margin-bottom:0; }
-.p-en { font-style:italic; font-size:0.88em; line-height:1.6; font-family:var(--font); }
-.p-zh { font-size:0.82em; color:var(--text-soft); margin-top:3px; font-family:var(--font); }
-.p-why { font-size:0.74em; color:var(--amber); margin-top:3px; }
+/* ====== 底部汇总卡片 ====== */
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 
-/* ====== Exam ====== */
-.er { padding:12px 14px; margin-bottom:10px; border-radius:6px; border:1px solid var(--border); background:#faf8f5; transition:all var(--transition); }
-.er:hover { background:var(--card); box-shadow:var(--shadow); transform:translateX(2px); }
-.qhead { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; }
-.qnum { background:var(--accent); color:#fff; font-weight:700; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.78em; flex-shrink:0; }
-.qtext { font-size:0.86em; line-height:1.5; font-family:var(--font); }
-.opts { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:8px; }
-@media(max-width:500px){.opts{grid-template-columns:1fr}}
-.opt { padding:5px 10px; border-radius:4px; font-size:0.84em; border:1px solid var(--border); background:var(--card); font-family:var(--font); }
-.opt.ok { background:#eef4ea; border-color:#8b7355; color:#5a4a3a; font-weight:700; }
-.opt.no { color:var(--text); }
-.ua { font-size:0.76em; color:var(--rust); margin-bottom:6px; font-family:var(--font); }
-.analysis { font-size:0.82em; color:var(--text-soft); line-height:1.7; }
-.analysis p { margin-bottom:4px; font-family:var(--font); }
-.analysis b { color:var(--text); }
+/* ====== 折叠按钮 ====== */
+.card h2 .toggle{
+  font-size:.78em !important;
+  cursor:pointer;
+  color:#fff !important;
+  font-weight:700 !important;
+  background:var(--accent) !important;
+  padding:5px 14px !important;
+  border-radius:20px !important;
+  user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-left:auto;
+  letter-spacing:.5px;
+  border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(123,32,40,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important;
+  transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(184,134,11,0.35) !important;
+}
+.card h2 .toggle:active{
+  transform:translateY(0) !important;
+  box-shadow:0 1px 3px rgba(123,32,40,0.25) !important;
+}
+.card h2 .toggle.collapsed{
+  background:var(--rust) !important;
+  border-left-color:var(--amber) !important;
+}
+.card h2 .toggle.collapsed:hover{
+  background:var(--steel) !important;
+}
 
-.footer { text-align:center; margin-top:28px; padding:14px; font-size:0.72em; color:var(--text-muted); border-top:1px solid var(--border); }
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
 
-/* ====== Print ====== */
-@page { margin:1.5cm 1.2cm; size:A4; }
-@media print {
-  body { padding:0; background:white; }
-  * { animation:none!important; box-shadow:none!important; transform:none!important; }
-  .syntax.hidden, .collapsible-body.hidden { display:block!important; max-height:none!important; opacity:1!important; overflow:visible!important; }
-  .toggle { display:none; }
+/* ====== 表格 ====== */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+/* ====== 句型展示 ====== */
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#8b6914;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+/* ====== 题目区 ====== */
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#8b6914;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;
+  padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+/* ====== 动画 ====== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+/* ====== 响应式 ====== */
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+
+/* ====== PDF 导出：初始全部展开 ====== */
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
 }
 </style>
 </head>
 <body>
 <div class="container">
 
+<!-- ====== Header ====== -->
 <div class="header">
-  <h1>艺术市场的衰退 <small>2010 英二 · Text 1</small></h1>
-  <div class="sub">The longest bull run in a century of art-market history ended on a dramatic note</div>
+  <h1>艺术市场的衰退<small>2010 考研英语（二）· Text 1</small></h1>
+  <p class="sub">The longest bull run in a century of art-market history ended on a dramatic note</p>
   <div class="badges">
-    <span class="badge level">难度 考研级</span>
-    <span class="badge">词汇·语法·结构</span>
-    <span class="badge mode">逐句解析</span>
-    <span class="badge">19 句 · 5 题</span>
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 艺术市场</span>
+    <span class="badge steel">长难句 7</span>
   </div>
 </div>
 
 <!-- ===== P1 ===== -->
-<div class="section">Paragraph 1 — 艺术市场百年最长牛市以戏剧性方式终结</div>
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 艺术市场百年最长牛市以戏剧性方式终结</div>
 
 <div class="sent">
-  <span class="snum">01</span>
+  <span class="snum">1</span>
   <div class="en">The longest <mark>bull run</mark> in a century of art-market history ended on a dramatic note with a sale of 56 works by Damien Hirst, <em>Beautiful Inside My Head Forever</em>, at Sotheby's in London on September 15th, 2008.</div>
   <hr class="sent-hr">
   <div class="cn">2008 年 9 月 15 日，伦敦苏富比拍卖行以达明安·赫斯特 56 件作品的拍卖《我脑海中永恒的美》戏剧性地结束了艺术市场史上持续百年的最长牛市。</div>
@@ -215,41 +265,40 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
     &nbsp;&nbsp;方式状语 = on a dramatic note（以戏剧性的方式；note = 格调/方式，熟词生义）<br>
     &nbsp;&nbsp;伴随状语 = with a sale of 56 works by Damien Hirst（以一场赫斯特作品的拍卖）<br>
     <b>同位语</b>：<em>Beautiful Inside My Head Forever</em> → 解释前面 a sale 的名称<br>
-    <b>地点/时间状语</b>：at Sotheby's in London on September 15th, 2008（三个并列的地点+时间）<br>
-    <b>💡 句式亮点</b>：本句虽长但本质是简单句（一个谓语 ended）。理解长简单句的关键是：先找到谓语，再逐层剥离周围的修饰成分。多个介词短语依次叠加，从"如何结束"→"以什么结束"→"在哪里/何时"，层层递进。
+    <b>地点/时间状语</b>：at Sotheby's in London on September 15th, 2008<br>
+    <b>💡 句式亮点</b>：本句虽长但本质是简单句（一个谓语 ended）。理解长简单句的关键是：先找到谓语，再逐层剥离周围的修饰成分。
   </div>
 </div>
 
 <div class="sent">
-  <span class="snum">02</span>
+  <span class="snum">2</span>
   <div class="en">All but two pieces sold, fetching more than £70m, a record for a sale by a single artist.</div>
   <hr class="sent-hr">
   <div class="cn">除两件外全部售出，成交额超过 7000 万英镑，创下了单名艺术家的拍卖纪录。</div>
   <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
   <div class="syntax hidden" id="s2">
     <b>🔍 语法解析</b><br>
-    <b>① 主干</b>：All but two pieces（主语）+ sold（谓语）。<br>
-    &nbsp;&nbsp;All but two = 除了两件以外的全部。but 在此为介词 = except（除了），是考研常见的熟词生义。<br>
-    <b>② 结果状语</b>：fetching more than £70m → 现在分词短语作结果状语，说明 sold 带来的结果："卖掉了，从而获得了 7000 万"。<br>
-    <b>③ 同位语</b>：a record for a sale by a single artist → 名词短语补充说明 £70m，解释这个金额的意义。<br>
-    <b>💡 词义注意</b>：fetch 在这里是"售得（多少钱）"，不要理解为"去拿"。这是考研阅读中常见的熟词生义。
+    <b>① 主干</b>：All but two pieces（主语）+ sold（谓语）。All but two = 除了两件以外的全部。but = except（除了）。<br>
+    <b>② 结果状语</b>：fetching more than £70m → 现在分词短语作结果状语，说明 sold 的结果。<br>
+    <b>③ 同位语</b>：a record for a sale by a single artist → 补充说明 £70m 的意义。<br>
+    <b>💡 词义</b>：fetch = 售得（熟词生义，不是"去拿"），考研常见。
   </div>
 </div>
 
 <div class="sent">
-  <span class="snum">03</span>
+  <span class="snum">3</span>
   <div class="en">It was a last victory.</div>
   <hr class="sent-hr">
   <div class="cn">这是最后的胜利。</div>
   <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
   <div class="syntax hidden" id="s3">
     <b>🔍 语法解析</b><br>
-    <b>主干</b>：It + was + a last victory（主系表）。看似简单的短句，但 last 承载了强烈的暗示——"此后不再有胜利"（下一句就是雷曼兄弟破产）。考研阅读中，这种短句往往是段落转折的关键信号。
+    <b>主干</b>：It + was + a last victory（主系表）。短句但承载强烈暗示——"此后不再有胜利"（下一句雷曼破产）。考研阅读中短句常是段落转折的关键信号。
   </div>
 </div>
 
 <div class="sent">
-  <span class="snum">04</span>
+  <span class="snum">4</span>
   <div class="en">As the auctioneer called out bids, in New York one of the oldest banks on Wall Street, Lehman Brothers, filed for <u>bankruptcy</u>.</div>
   <hr class="sent-hr">
   <div class="cn">就在拍卖师喊出报价的同时，在纽约，华尔街历史最悠久的银行之一——雷曼兄弟——申请了破产。</div>
@@ -258,96 +307,87 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
     <b>🔍 长难句拆解</b><br>
     <b>主句结构</b>：<br>
     &nbsp;&nbsp;主语 = one of the oldest banks on Wall Street（华尔街最古老的银行之一）<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;后置定语 = on Wall Street 修饰 banks<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;同位语 = Lehman Brothers 解释前面指的是哪家银行<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;同位语 = Lehman Brothers（具体说明是哪家银行）<br>
     &nbsp;&nbsp;谓语 + 宾语 = filed for bankruptcy（申请破产）<br>
-    <b>从句</b>：As the auctioneer called out bids → 时间状语从句（as = 正当…时），与主句动作同时发生<br>
-    <b>地点状语</b>：in New York<br>
-    <b>💡 句式亮点</b>：作者巧妙地将两个同时发生的事件并列（赫斯特拍卖成功 vs 雷曼破产），暗示艺术市场牛市终结与金融危机的因果关系。这种"一面…一面…"的对比写法在考研阅读中很常见。
+    <b>从句</b>：As the auctioneer called out bids → 时间状语从句（as = 正当…时）<br>
+    <b>💡 句式亮点</b>：两个事件同时发生（赫斯特拍卖 vs 雷曼破产），暗示牛市终结与金融危机的因果关系。
   </div>
 </div>
 
 <!-- ===== P2 ===== -->
-<div class="section">Paragraph 2 — 艺术市场早已失去增长动力</div>
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 艺术市场早已失去增长动力</div>
 
 <div class="sent">
-  <span class="snum">05</span>
+  <span class="snum">5</span>
   <div class="en">The world art market had already been losing <u>momentum</u> for a while after rising bewilderingly since 2003.</div>
   <hr class="sent-hr">
   <div class="cn">全球艺术市场自 2003 年起令人眩目地飙升了一阵后，早已开始失去增长动力。</div>
   <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
   <div class="syntax hidden" id="s5">
     <b>🔍 语法解析</b><br>
-    <b>① 时态</b>：had been losing → 过去完成进行时，表示"在过去的某个时间点之前，一直在失去动力"，强调动作持续到过去某一时刻。<br>
-    <b>② 时间顺序</b>：after rising since 2003（2003 年起飙升）→ for a while（一段时间）→ had been losing（一直在失去），三层时间关系叠加。<br>
-    <b>③ 词义</b>：momentum = 动力/势头；bewilderingly = 令人眩目地（bewilder 使迷惑 + -ing + -ly）。
+    <b>① 时态</b>：had been losing → 过去完成进行时，表示"在过去的某个时间点前一直在失去动力"。<br>
+    <b>② 时间顺序</b>：after rising since 2003 → for a while → had been losing。<br>
+    <b>③ 词义</b>：momentum = 动力；bewilderingly = 令人眩目地。
   </div>
 </div>
 
 <div class="sent">
-  <span class="snum">06</span>
+  <span class="snum">6</span>
   <div class="en">At its peak in 2007 it was worth some $65 billion, reckons Clare McAndrew, founder of Arts Economics, a research firm—double the figure five years earlier.</div>
   <hr class="sent-hr">
-  <div class="cn">研究公司 Arts Economics 的创始人 Clare McAndrew 估计，在 2007 年的高峰期，它（艺术市场）价值约 650 亿美元——是五年前的两倍。</div>
+  <div class="cn">研究公司 Arts Economics 创始人 Clare McAndrew 估计，2007 年高峰期艺术市场价值约 650 亿美元——是五年前的两倍。</div>
   <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
   <div class="syntax" id="s6">
     <b>🔍 长难句拆解</b><br>
-    <b>主句结构</b>：<br>
-    &nbsp;&nbsp;it（指代 art market）= was worth some $65 billion（主+系+表）<br>
-    &nbsp;&nbsp;时间状语 = At its peak in 2007<br>
-    <b>插入语</b>：reckons Clare McAndrew → 引述结构，相当于"Clare McAndrew reckons that..."，插入句中使其更流畅。<br>
-    <b>双重同位语</b>：<br>
-    &nbsp;&nbsp;① founder of Arts Economics → 说明 Clare McAndrew 的身份<br>
-    &nbsp;&nbsp;② a research firm → 说明 Arts Economics 是什么<br>
-    <b>破折号后补充</b>：double the figure five years earlier → 名词短语补充说明 $65 billion，相当于"这个数字是五年前的两倍"<br>
-    <b>💡 句式亮点</b>：考研阅读常见的"引述插入结构"——人名+身份同位语+引述内容。阅读时先跳过插入语找主干：it was worth...。
+    <b>主句</b>：it was worth some $65 billion（主+系+表）<br>
+    <b>插入语</b>：reckons Clare McAndrew → 引述结构，相当于 Clare McAndrew reckons that...<br>
+    <b>双重同位语</b>：① founder of Arts Economics ② a research firm<br>
+    <b>破折号后</b>：double the figure five years earlier → 补充说明 $65 billion<br>
+    <b>💡</b>：考研常见"引述插入结构"，阅读时先跳过插入语找主干。
   </div>
 </div>
 
 <div class="sent">
-  <span class="snum">07</span>
+  <span class="snum">7</span>
   <div class="en">Since then it may have come down to $50 billion.</div>
   <hr class="sent-hr">
   <div class="cn">自那以后，它可能已降至 500 亿美元。</div>
   <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
   <div class="syntax hidden" id="s7">
     <b>🔍 语法解析</b><br>
-    <b>① 情态动词 + 完成时</b>：may have come down 表示对过去情况的推测（"可能已经下降了"），语气比 "came down" 委婉。<br>
-    <b>② Since then</b>：承接上文的 2007 年高峰，说明从高峰到现在的变化。
+    <b>① 情态动词+完成时</b>：may have come down 表推测（可能已下降）。<br>
+    <b>② Since then</b>：承接上文的 2007 年高峰。
   </div>
 </div>
 
 <div class="sent">
-  <span class="snum">08</span>
+  <span class="snum">8</span>
   <div class="en">But the market generates interest far beyond its size because it brings together great wealth, enormous egos, greed, passion and controversy in a way matched by few other industries.</div>
   <hr class="sent-hr">
-  <div class="cn">但该市场引发的关注远远超出了其规模，因为它以一种很少有其他行业能匹敌的方式将巨额财富、巨大的自我、贪婪、激情和争议集于一身。</div>
+  <div class="cn">但该市场引发的关注远超规模，因为它将巨额财富、自负、贪婪、激情和争议集于一身，少有其他行业能匹敌。</div>
   <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
   <div class="syntax" id="s8">
     <b>🔍 长难句拆解</b><br>
     <b>主句</b>：the market generates interest（主+谓+宾）<br>
-    &nbsp;&nbsp;修饰 = far beyond its size（远远超出其规模）→ 程度状语<br>
-    <b>原因状语从句</b>：because it brings together great wealth, enormous egos, greed, passion and controversy（因为它汇聚了巨额财富、自负、贪婪、激情和争议）<br>
-    &nbsp;&nbsp;方式状语 = in a way matched by few other industries（以很少有其他行业能匹敌的方式）<br>
-    <b>语法点</b>：matched by few other industries 是<b>过去分词短语作后置定语</b>，修饰 way。相当于"a way that is matched by few other industries"。<br>
-    <b>💡 词义</b>：interest ≠ 兴趣，此处 = 关注/关注度。generate interest far beyond its size = "引发的关注远超其体量"。
+    <b>原因状语从句</b>：because it brings together great wealth, enormous egos, greed, passion and controversy<br>
+    <b>方式状语</b>：in a way matched by few other industries → matched by... 是过去分词短语作后置定语修饰 way<br>
+    <b>💡 词义</b>：interest ≠ 兴趣，此处 = 关注/关注度。
   </div>
 </div>
 
 <!-- ===== P3 ===== -->
-<div class="section">Paragraph 3 — 赫斯特拍卖后，艺术市场急剧萎缩</div>
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 赫斯特拍卖后，艺术市场急剧萎缩</div>
 
 <div class="sent">
-  <span class="snum">09</span>
+  <span class="snum">9</span>
   <div class="en">In the weeks and months that followed Mr. Hirst's sale, spending of any sort became deeply unfashionable.</div>
   <hr class="sent-hr">
   <div class="cn">在赫斯特拍卖之后的数周和数月里，任何形式的支出都变得非常不流行了。</div>
   <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
   <div class="syntax hidden" id="s9">
     <b>🔍 语法解析</b><br>
-    <b>① 定语从句</b>：that followed Mr. Hirst's sale → 修饰 the weeks and months，说明"赫斯特拍卖之后的数周和数月"。<br>
-    <b>② 主干</b>：spending ... became deeply unfashionable（主+系+表）。unfashionable = 不流行的/不受欢迎的。<br>
-    <b>③ 翻译思路</b>：spending of any sort 直译是"任何种类的支出"，中文自然表达为"任何形式的支出"或"花钱这件事"。
+    <b>定语从句</b>：that followed Mr. Hirst's sale → 修饰 the weeks and months。<br>
+    <b>主干</b>：spending ... became deeply unfashionable（主+系+表）。unfashionable = 不流行的。
   </div>
 </div>
 
@@ -359,8 +399,8 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
   <div class="syntax hidden" id="s10">
     <b>🔍 语法解析</b><br>
-    <b>承接关系</b>：that 指代上一句"spending became unfashionable"，this meant... = "这意味着……"<br>
-    <b>宾语从句</b>：（that）collectors stayed away from galleries and salerooms → 省略了 that 的宾语从句，作 meant 的宾语。
+    <b>承接</b>：that 指代上句"spending became unfashionable"。<br>
+    <b>宾语从句</b>：（that）collectors stayed away from galleries and salerooms。
   </div>
 </div>
 
@@ -368,15 +408,12 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <span class="snum">11</span>
   <div class="en">Sales of contemporary art fell by two-thirds, and in the most overheated sector, they were down by nearly 90% in the year to November 2008.</div>
   <hr class="sent-hr">
-  <div class="cn">当代艺术品的销售额下降了三分之二，而在最过热的领域，截至 2008 年 11 月的一年中，降幅近 90%。</div>
+  <div class="cn">当代艺术品销售额下降三分之二，在最过热领域截至 2008 年 11 月的一年中降幅近 90%。</div>
   <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
   <div class="syntax hidden" id="s11">
     <b>🔍 语法解析</b><br>
-    <b>并列句</b>：and 连接两个并列分句，形成递进——从"整体降 2/3"到"过热领域降 90%"，程度加深。<br>
-    <b>数据表达</b>：<br>
-    &nbsp;&nbsp;fell by two-thirds = 下降了三分之二（不是降到三分之二）<br>
-    &nbsp;&nbsp;down by nearly 90% = 降了近 90%<br>
-    &nbsp;&nbsp;in the year to November 2008 = 截至 2008 年 11 月的一年中（注意这个时间范围的表达方式）
+    <b>并列句</b>：and 连接两个分句，从"整体降 2/3"到"过热领域降 90%"，递进。<br>
+    <b>数据表达</b>：fell by two-thirds = 下降了三分之二；down by nearly 90% = 降了近 90%。
   </div>
 </div>
 
@@ -384,31 +421,30 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <span class="snum">12</span>
   <div class="en">Within weeks the world's two biggest auction houses, Sotheby's and Christie's, had to pay out nearly $200m in <u>guarantees</u> to clients who had placed works for sale with them.</div>
   <hr class="sent-hr">
-  <div class="cn">数周之内，全球两大拍卖行苏富比和佳士得不得不向委托其拍卖作品的客户支付近 2 亿美元的保证金。</div>
+  <div class="cn">数周内，两大拍卖行苏富比和佳士得不得不向委托客户支付近 2 亿美元保证金。</div>
   <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
   <div class="syntax hidden" id="s12">
     <b>🔍 语法解析</b><br>
-    <b>① 主干</b>：the world's two biggest auction houses（主语）+ had to pay out（谓语）+ nearly $200m（宾语）+ in guarantees（方式/内容）<br>
-    <b>② 同位语</b>：Sotheby's and Christie's → 解释说明 auction houses 是哪两家<br>
-    <b>③ 定语从句</b>：who had placed works for sale with them → 修饰 clients，说明"委托它们出售作品的客户"<br>
-    <b>④ 词义</b>：guarantee = 保证金（拍卖行向客户承诺的最低成交价保障）。had to pay out = 被迫支付（暗示拍卖行亏了）。
+    <b>主干</b>：the two biggest auction houses + had to pay out nearly $200m in guarantees<br>
+    <b>同位语</b>：Sotheby's and Christie's<br>
+    <b>定语从句</b>：who had placed works for sale with them → 修饰 clients<br>
+    <b>词义</b>：guarantee = 保证金（拍卖行承诺的最低成交价保障）。
   </div>
 </div>
 
 <!-- ===== P4 ===== -->
-<div class="section">Paragraph 4 — 当前衰退是自 1989 年以来最严重的</div>
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 当前衰退是自 1989 年以来最严重的</div>
 
 <div class="sent">
   <span class="snum">13</span>
   <div class="en">The current downturn in the art market is the worst since the Japanese stopped buying Impressionists at the end of 1989.</div>
   <hr class="sent-hr">
-  <div class="cn">当前艺术市场的低迷是自 1989 年底日本人停止购买印象派作品以来最严重的。</div>
+  <div class="cn">当前艺术市场低迷是自 1989 年底日本人停止购买印象派作品以来最严重的。</div>
   <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
   <div class="syntax hidden" id="s13">
     <b>🔍 语法解析</b><br>
-    <b>主干</b>：The current downturn ... is the worst（主+系+表）+ since ...（时间状语从句）<br>
-    <b>since 从句</b>：the Japanese stopped buying Impressionists at the end of 1989 → 提供一个参照点：1989 年日本人停止购买印象派作品，那次衰退是此前最严重的。现在比那次还糟。<br>
-    <b>💡 背景知识</b>：1980 年代末日本泡沫经济时期，日本企业大量收购印象派名画（如梵高的《向日葵》），泡沫破裂后戛然而止，引发艺术市场暴跌。作者用这个历史事件来类比当前。
+    <b>主干</b>：The current downturn ... is the worst + since ...（时间状语从句）<br>
+    <b>💡 背景</b>：1980 年代末日本泡沫经济时期大量收购印象派名画，泡沫破裂后戛然而止。作者用此历史事件类比当前。
   </div>
 </div>
 
@@ -416,15 +452,13 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <span class="snum">14</span>
   <div class="en">This time experts reckon that prices are about 40% down on their peak on average, though some have been far more <u>fluctuant</u>.</div>
   <hr class="sent-hr">
-  <div class="cn">专家估计，此次价格平均比峰值下跌了约 40%，尽管有些作品的价格波动要大得多。</div>
+  <div class="cn">此次专家估计价格平均比峰值下跌约 40%，尽管有些波动要大得多。</div>
   <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
   <div class="syntax hidden" id="s14">
     <b>🔍 语法解析</b><br>
-    <b>① 宾语从句</b>：experts reckon that ...（专家估计…）。reckon = 估计/认为（比 think 更正式）。<br>
-    <b>② 从句内</b>：prices are about 40% down on their peak on average（价格平均比峰值下降了约 40%）。<br>
-    &nbsp;&nbsp;down on sth = 比…下降<br>
-    &nbsp;&nbsp;on average = 平均来说<br>
-    <b>③ 让步状语从句</b>：though some have been far more fluctuant（尽管有些波动更大）。fluctuant = 波动的（fluctuate + -ant）。
+    <b>宾语从句</b>：experts reckon that ...（reckon = 估计/认为）<br>
+    <b>让步状语从句</b>：though some have been far more fluctuant。<br>
+    <b>词义</b>：fluctuant = 波动的（fluctuate + -ant）；down on = 比…下降。
   </div>
 </div>
 
@@ -432,33 +466,31 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <span class="snum">15</span>
   <div class="en">But Edward Dolman, Christie's chief executive, says: "I'm pretty confident we're at the bottom."</div>
   <hr class="sent-hr">
-  <div class="cn">但佳士得首席执行官 Edward Dolman 说："我很有信心我们已经见底了。"</div>
+  <div class="cn">但佳士得 CEO Edward Dolman 说："我很有信心我们已经见底了。"</div>
   <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
   <div class="syntax hidden" id="s15">
     <b>🔍 语法解析</b><br>
-    <b>① 同位语</b>：Christie's chief executive → 解释 Edward Dolman 的身份。<br>
-    <b>② 直接引语</b>：says: "..." → 直接引述原话，增加可信度。<br>
-    <b>③ 引语内</b>：I'm pretty confident（我很确信）+ （that）we're at the bottom（我们已经见底了）。省去了 that 的宾语从句。<br>
-    <b>💡 修辞作用</b>：在连串的坏消息（下降 2/3、跌 90%、亏 2 亿）之后，用一个乐观的声音收尾——"we're at the bottom"（见底了/不会再跌了）。这是典型的"先抑后扬"。
+    <b>同位语</b>：Christie's chief executive → 解释身份。<br>
+    <b>直接引语</b>：says: "..." → 增加可信度。<br>
+    <b>💡</b>：坏消息连篇后用乐观声音收尾——"we're at the bottom"（见底了）。典型的"先抑后扬"。
   </div>
 </div>
 
 <!-- ===== P5 ===== -->
-<div class="section">Paragraph 5 — 此次衰退的不同之处：仍有买家，缺的是好作品</div>
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 仍缺好作品而非买家</div>
 
 <div class="sent">
   <span class="snum">16</span>
   <div class="en">What makes this slump different from the last, he says, is that there are still buyers in the market.</div>
   <hr class="sent-hr">
-  <div class="cn">他说，此次衰退与上一次的不同之处在于，市场上仍有买家。</div>
+  <div class="cn">他说，此次衰退与上次不同之处在于，市场上仍有买家。</div>
   <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
   <div class="syntax" id="s16">
     <b>🔍 长难句拆解</b><br>
-    <b>主语从句</b>：What makes this slump different from the last → "使得此次衰退与上次不同的东西"（what = the thing that）<br>
+    <b>主语从句</b>：What makes this slump different from the last（what = the thing that）<br>
     <b>系动词</b>：is<br>
-    <b>表语从句</b>：that there are still buyers in the market → 具体说明"不同之处"是什么<br>
-    <b>插入语</b>：he says 夹在中间，交代信息来源<br>
-    <b>💡 句式亮点</b>：主语从句（What ...）+ 表语从句（that ...）嵌套结构，是考研阅读/写作高频句型。相当于："The thing that makes this slump different from the last is that ..."
+    <b>表语从句</b>：that there are still buyers in the market<br>
+    <b>💡 句法</b>：主语从句+表语从句嵌套。相当于：The thing that makes this slump different is that...
   </div>
 </div>
 
@@ -466,18 +498,14 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <span class="snum">17</span>
   <div class="en">Almost everyone who was interviewed for this special report said that the biggest problem at the moment is not a lack of demand but a lack of good work to sell.</div>
   <hr class="sent-hr">
-  <div class="cn">几乎所有接受本特别报道采访的人都说，目前最大的问题不是缺乏需求，而是缺乏好的作品可卖。</div>
+  <div class="cn">几乎所有受访者都说，目前最大问题不是缺乏需求，而是缺乏好的作品可卖。</div>
   <button class="syntax-toggle" id="btn-s17" onclick="toggleSyntax('s17')">▲ 收起解析</button>
   <div class="syntax" id="s17">
     <b>🔍 长难句拆解</b><br>
-    <b>主语</b>：Almost everyone（几乎所有人）<br>
-    &nbsp;&nbsp;定语从句 = who was interviewed for this special report → 修饰 everyone<br>
-    <b>谓语 + 宾语从句</b>：said that ...（说……）<br>
-    <b>宾语从句内</b>：<br>
-    &nbsp;&nbsp;主语 = the biggest problem at the moment<br>
-    &nbsp;&nbsp;系动词 = is<br>
-    &nbsp;&nbsp;表语 = not a lack of demand <b>but</b> a lack of good work to sell<br>
-    <b>💡 句式亮点</b>：<b>not ... but ...</b>（不是……而是……）是考研高频结构。注意 not A but B 强调的是 B（缺乏好作品），否定的是 A（缺乏需求）。翻译时中文常用"不是…而是…"处理。
+    <b>主语</b>：Almost everyone + 定语从句 who was interviewed for this special report<br>
+    <b>谓语</b>：said that ...（宾语从句）<br>
+    <b>从句内</b>：not a lack of demand <b>but</b> a lack of good work to sell<br>
+    <b>💡 句式</b>：not ... but ...（不是…而是…）考研高频。强调后者（缺好作品），否定前者（缺需求）。
   </div>
 </div>
 
@@ -489,9 +517,9 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <button class="syntax-toggle collapsed" id="btn-s18" onclick="toggleSyntax('s18')">▼ 展开解析</button>
   <div class="syntax hidden" id="s18">
     <b>🔍 语法解析</b><br>
-    <b>① 同位语</b>：破折号中间的 death, debt and divorce 是 three Ds 的同位语，具体说明是哪三个 D。<br>
-    <b>② 修辞</b>：三个 D 的排比（death, debt, divorce 三个词首字母都是 D），简洁好记。<br>
-    <b>③ 词义</b>：deliver ... to = 输送到/送到。不管市场好坏，人们总因为死亡、债务和离婚而被迫出售艺术品——说明供给永远不会断。
+    <b>同位语</b>：破折号中的 death, debt and divorce 解释 three Ds。<br>
+    <b>修辞</b>：三个 D 首字母都是 D，简洁好记。<br>
+    <b>词义</b>：deliver ... to = 输送到。无论市场好坏，死亡/债务/离婚总会迫使人们出售艺术品。
   </div>
 </div>
 
@@ -499,50 +527,49 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <span class="snum">19</span>
   <div class="en">But anyone who does not have to sell is keeping away, waiting for confidence to return.</div>
   <hr class="sent-hr">
-  <div class="cn">但那些不必出售的人都在观望，等待信心恢复。</div>
+  <div class="cn">但不必出售的人都在观望，等待信心恢复。</div>
   <button class="syntax-toggle collapsed" id="btn-s19" onclick="toggleSyntax('s19')">▼ 展开解析</button>
   <div class="syntax hidden" id="s19">
     <b>🔍 语法解析</b><br>
-    <b>① 定语从句</b>：who does not have to sell（不必出售的人）→ 修饰 anyone。<br>
-    <b>② 主干</b>：anyone ... is keeping away（都在观望/远离）。keep away = 远离/不参与。<br>
-    <b>③ 伴随状语</b>：waiting for confidence to return → 现在分词短语作伴随状语，说明"在观望的同时，等待信心恢复"。<br>
-    <b>💡 对比</b>：上一句说"three Ds 还在输送作品"，这句说"但非卖家在观望"——说明当前市场供给减少不是因为没东西可卖，而是因为持有者不愿意卖（价格太低）。这解释了前面"缺的是好作品，不是缺买家"的逻辑。
+    <b>定语从句</b>：who does not have to sell → 修饰 anyone。<br>
+    <b>主干</b>：anyone ... is keeping away（观望）<br>
+    <b>伴随状语</b>：waiting for confidence to return → 现在分词作状语。<br>
+    <b>💡</b>：说明供给减少不是因为没东西可卖，而是持有者不愿低价出售。
   </div>
 </div>
 
 
 <!-- ===== Bottom ===== -->
-<div class="bottom">
-
 <div class="card">
   <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
   <div class="collapsible-body" id="summary">
-    <div class="item"><span class="num">①</span>P1: 标志性事件——赫斯特拍卖创纪录后，雷曼兄弟申请破产，艺术市场百年牛市终结。</div>
-    <div class="item"><span class="num">②</span>P2: 背景——市场自 2003 年飙升后已失去动力，高峰 6500 亿 → 降至 5000 亿，但关注度远超规模。</div>
-    <div class="item"><span class="num">③</span>P3: 后果——收藏家远离，当代艺术销售锐减 2/3 至 90%，两大拍卖行被迫支付近 2 亿美元保证金。</div>
-    <div class="item"><span class="num">④</span>P4: 当前——1989 年以来最严重衰退，价格平均跌 40%，但佳士得 CEO 认为已见底。</div>
-    <div class="item"><span class="num">⑤</span>P5: 不同——仍有买家但缺好作品；死亡/债务/离婚仍输送作品，但非卖家选择观望。</div>
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 赫斯特拍卖创纪录→雷曼破产→牛市终结<br>
+        <span class="num">②</span> P2: 市场自 2003 年飙升后已失去动力，高峰 6500 亿→降至 5000 亿<br>
+        <span class="num">③</span> P3: 收藏家远离，当代艺术降 2/3 至 90%，拍卖行亏 2 亿<br>
+        <span class="num">④</span> P4: 1989 年以来最严重衰退，价格跌 40%，但 CEO 认为已见底<br>
+        <span class="num">⑤</span> P5: 有买家但缺好作品；three Ds 持续输送，非卖家观望
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="card">
   <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
   <div class="collapsible-body hidden" id="vocab">
-    <table class="vt">
+    <table>
       <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
       <tbody>
-        <tr><td class="w">bull run</td><td class="p">n.</td><td class="d">牛市</td><td>反: bear market 熊市</td></tr>
-        <tr><td class="w">auctioneer</td><td class="p">n.</td><td class="d">拍卖师</td><td>auction + -eer</td></tr>
-        <tr><td class="w">bankruptcy</td><td class="p">n.</td><td class="d">破产</td><td>file for ~ 申请破产</td></tr>
-        <tr><td class="w">momentum</td><td class="p">n.</td><td class="d">动力/势头</td><td>lose ~ 失去动力</td></tr>
-        <tr><td class="w">bewilderingly</td><td class="p">adv.</td><td class="d">令人眩目地</td><td>bewilder + -ing + -ly</td></tr>
-        <tr><td class="w">controversy</td><td class="p">n.</td><td class="d">争议</td><td>CET6 考研词</td></tr>
-        <tr><td class="w">contemporary</td><td class="p">adj.</td><td class="d">当代的</td><td>~ art 当代艺术</td></tr>
-        <tr><td class="w">overheated</td><td class="p">adj.</td><td class="d">过热的</td><td>over- + heat + -ed</td></tr>
-        <tr><td class="w">guarantee</td><td class="p">n.</td><td class="d">保证金/担保</td><td>pay out ~s</td></tr>
-        <tr><td class="w">downturn</td><td class="p">n.</td><td class="d">衰退</td><td>反: upturn</td></tr>
-        <tr><td class="w">slump</td><td class="p">n.</td><td class="d">暴跌/不景气</td><td>同: downturn</td></tr>
-        <tr><td class="w">fluctuant</td><td class="p">adj.</td><td class="d">波动的</td><td>fluctuate + -ant</td></tr>
+        <tr><td><b>bull run</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>牛市</td><td>反: bear market</td></tr>
+        <tr><td><b>auctioneer</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>拍卖师</td><td>auction + -eer</td></tr>
+        <tr><td><b>bankruptcy</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>破产</td><td>file for ~</td></tr>
+        <tr><td><b>momentum</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>动力</td><td>lose ~</td></tr>
+        <tr><td><b>contemporary</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>当代的</td><td>~ art</td></tr>
+        <tr><td><b>guarantee</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>保证金</td><td>pay out ~s</td></tr>
+        <tr><td><b>downturn</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>衰退</td><td>反: upturn</td></tr>
+        <tr><td><b>slump</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>暴跌</td><td>同: downturn</td></tr>
+        <tr><td><b>fluctuant</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>波动的</td><td>fluctuate + -ant</td></tr>
       </tbody>
     </table>
   </div>
@@ -551,32 +578,12 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
 <div class="card">
   <h2>💡 熟词生义 <span class="toggle collapsed" onclick="toggleBody('poly')">▼ 展开</span></h2>
   <div class="collapsible-body hidden" id="poly">
-    <table class="vt">
+    <table>
       <thead><tr><th>词汇</th><th>熟义</th><th>本文义</th><th>例句</th></tr></thead>
       <tbody>
-        <tr><td class="w">fetch</td><td>去拿</td><td class="d">售得（多少钱）</td><td>fetching more than £70m</td></tr>
-        <tr><td class="w">note</td><td>笔记/音符</td><td class="d">格调/方式</td><td>on a dramatic note</td></tr>
-        <tr><td class="w">figure</td><td>数字</td><td class="d">数字/金额</td><td>double the figure</td></tr>
-        <tr><td class="w">interest</td><td>兴趣</td><td class="d">关注/关注度</td><td>generate interest far beyond its size</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="card">
-  <h2>🔗 重点短语搭配 <span class="toggle collapsed" onclick="toggleBody('phrase')">▼ 展开</span></h2>
-  <div class="collapsible-body hidden" id="phrase">
-    <table class="pt">
-      <thead><tr><th>短语</th><th>释义</th></tr></thead>
-      <tbody>
-        <tr><td class="ph">bull run</td><td class="d">牛市</td></tr>
-        <tr><td class="ph">file for bankruptcy</td><td class="d">申请破产</td></tr>
-        <tr><td class="ph">on a ... note</td><td class="d">以…的方式（写作高频）</td></tr>
-        <tr><td class="ph">all but</td><td class="d">除…之外全部</td></tr>
-        <tr><td class="ph">stay away from</td><td class="d">远离/不参与</td></tr>
-        <tr><td class="ph">pay out</td><td class="d">支付（大额）</td></tr>
-        <tr><td class="ph">keep away</td><td class="d">远离/避而不出</td></tr>
-        <tr><td class="ph">lack of demand</td><td class="d">需求不足</td></tr>
+        <tr><td><b>fetch</b></td><td style="color:var(--text-muted);font-size:.9em;">去拿</td><td>售得</td><td>fetching £70m</td></tr>
+        <tr><td><b>note</b></td><td style="color:var(--text-muted);font-size:.9em;">笔记</td><td>格调/方式</td><td>on a dramatic note</td></tr>
+        <tr><td><b>interest</b></td><td style="color:var(--text-muted);font-size:.9em;">兴趣</td><td>关注度</td><td>generate interest</td></tr>
       </tbody>
     </table>
   </div>
@@ -585,20 +592,20 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
 <div class="card">
   <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
   <div class="collapsible-body hidden" id="patterns">
-    <div class="p-item">
-      <div class="p-en">What makes this slump different from the last is that there are still buyers in the market.</div>
-      <div class="p-zh">此次衰退与上一次的不同之处在于，市场上仍有买家。</div>
-      <div class="p-why">What 主语从句 + is + that 表语从句，考研写作对比分析可用</div>
+    <div class="pat">
+      <div class="pat-en">What makes this slump different from the last is that there are still buyers in the market.</div>
+      <div class="pat-cn">此次衰退与上次不同之处在于市场上仍有买家。</div>
+      <span class="pat-tag">What 主语从句+表语从句</span>
     </div>
-    <div class="p-item">
-      <div class="p-en">The biggest problem at the moment is not a lack of demand but a lack of good work to sell.</div>
-      <div class="p-zh">目前最大的问题不是缺乏需求，而是缺乏好的作品可卖。</div>
-      <div class="p-why">not ... but ... 强调结构，适合考研写作"不是…而是…"</div>
+    <div class="pat">
+      <div class="pat-en">The biggest problem is not a lack of demand but a lack of good work to sell.</div>
+      <div class="pat-cn">最大问题不是缺乏需求而是缺乏好作品。</div>
+      <span class="pat-tag">not ... but ... 强调结构</span>
     </div>
-    <div class="p-item">
-      <div class="p-en">It brings together great wealth, enormous egos, greed, passion and controversy in a way matched by few other industries.</div>
-      <div class="p-zh">它以很少有其他行业能匹敌的方式将财富、自负、贪婪、激情和争议集于一身。</div>
-      <div class="p-why">过去分词短语后置定语（matched by...）+ 多名词并列</div>
+    <div class="pat">
+      <div class="pat-en">It brings together great wealth, enormous egos, greed, passion and controversy in a way matched by few other industries.</div>
+      <div class="pat-cn">它的方式少有其他行业能匹敌。</div>
+      <span class="pat-tag">过去分词短语后置定语</span>
     </div>
   </div>
 </div>
@@ -607,122 +614,109 @@ hr.sent-hr { border:none; height:1px; margin:10px 0; background:linear-gradient(
   <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
   <div class="collapsible-body hidden" id="exam">
 
-    <div class="er">
-      <div class="qhead"><span class="qnum">21</span><span class="qtext">In the first paragraph, Damien Hirst's sale was referred to as "a last victory" because ______.</span></div>
-      <div class="opts">
-        <span class="opt no">A. the art market had witnessed a succession of victories</span>
-        <span class="opt no">B. the auctioneer finally got the two pieces at the highest bids</span>
-        <span class="opt no">C. <em>Beautiful Inside My Head Forever</em> won over all masterpieces</span>
-        <span class="opt ok">D. it was successfully made just before the world financial crisis ✓</span>
-      </div>
-      <div class="ua">参考答案：D</div>
-      <div class="analysis">
-        <p><b>🔍 定位：</b>P1 S03-S04 — "It was a <b>last victory</b>. As the auctioneer called out bids, ... Lehman Brothers filed for bankruptcy."</p>
-        <p><b>✅ 推理：</b>作者先说这是"最后的胜利"，紧接着就说就在拍卖进行时雷曼兄弟申请破产（金融危机爆发）→ 这次成功拍卖正好发生在金融危机之前 → "最后"的含义是此后市场崩溃。</p>
-        <p><b>❌ 选项分析：</b><br>
-        A. witnessed a succession of victories（见证了一系列胜利）— 文中无据。<br>
-        B. the auctioneer finally got the two pieces（拍卖师拿到了那两件拍品）— S02 说 all but two pieces sold（除两件外全卖了），这两件是没卖出去的。<br>
-        C. won over all masterpieces（胜过了所有杰作）— 夸大其词。<br>
-        D. was made just before the world financial crisis（在金融危机前夕成功做成）— ✅ 对应 S04 雷曼破产的时间点。</p>
-      </div>
+  <div class="q-block">
+    <div class="q-title">21. Damien Hirst's sale was referred to as "a last victory" because ______.</div>
+    <div class="opts">
+      <span class="opt no">A. witnessed a succession of victories</span>
+      <span class="opt no">B. the auctioneer got the two pieces</span>
+      <span class="opt no">C. won over all masterpieces</span>
+      <span class="opt ok">D. made just before the financial crisis ✓</span>
     </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>🔍 定位：</b>P1 S03-S04 — "a last victory. ... Lehman Brothers filed for bankruptcy" → 拍卖成功后雷曼破产，暗示金融危机到来。</p>
+      <p><b>❌ A</b> 文中无据 <b>B</b> two pieces 是没卖出去的 <b>C</b> 夸大其词 <b>D</b> ✅</p>
+    </div>
+  </div>
 
-    <div class="er">
-      <div class="qhead"><span class="qnum">22</span><span class="qtext">By saying "spending of any sort became deeply unfashionable" (Line 1~2, Para. 3), the author suggests that ______.</span></div>
-      <div class="opts">
-        <span class="opt ok">A. collectors were no longer actively involved in art-market auctions ✓</span>
-        <span class="opt no">B. people stopped every kind of spending and stayed away from galleries</span>
-        <span class="opt no">C. art collection as a fashion had lost its appeal to a great extent</span>
-        <span class="opt no">D. works of art in general had gone out of fashion so they were not worth buying</span>
-      </div>
-      <div class="ua">参考答案：A</div>
-      <div class="analysis">
-        <p><b>🔍 定位：</b>P3 S09-S10 — 第二句 directly 解释了第一句："In the art world that meant <b>collectors stayed away from galleries and salerooms</b>"。</p>
-        <p><b>❌ 选项分析：</b><br>
-        A. collectors were no longer actively involved — ✅ 对应 stayed away from galleries and salerooms。<br>
-        B. people stopped every kind of spending — ❌ 程度过强！文中是说变得不流行（unfashionable），不是完全停止（stopped）。<br>
-        C. art collection as a fashion had lost its appeal — unfashionable 虽字面是"不时尚"，但文中不是指艺术收藏过时，而是指花钱购买艺术品这个行为不受欢迎了。<br>
-        D. not worth buying（不值得买）— 文中未说，过度引申。</p>
-      </div>
+  <div class="q-block">
+    <div class="q-title">22. "spending of any sort became deeply unfashionable" suggests ______.</div>
+    <div class="opts">
+      <span class="opt ok">A. collectors no longer actively involved ✓</span>
+      <span class="opt no">B. people stopped every kind of spending</span>
+      <span class="opt no">C. art collection had lost its appeal</span>
+      <span class="opt no">D. works of art were not worth buying</span>
     </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>🔍 定位：</b>P3 S09-S10 — "collectors stayed away from galleries and salerooms" 直接解释了 unfashionable。</p>
+      <p><b>❌ B</b> stopped 程度过强 <b>C</b> 不是艺术收藏过时 <b>D</b> 文中未说</p>
+    </div>
+  </div>
 
-    <div class="er">
-      <div class="qhead"><span class="qnum">23</span><span class="qtext">Which of the following statements is NOT true?</span></div>
-      <div class="opts">
-        <span class="opt no">A. Sales of contemporary art fell dramatically from 2007 to 2008.</span>
-        <span class="opt ok">B. The art market surpassed many other industries in momentum. ✓</span>
-        <span class="opt no">C. The art market generally went downward in various ways.</span>
-        <span class="opt no">D. Some art dealers were awaiting better chances to come.</span>
-      </div>
-      <div class="ua">参考答案：B（NOT true）</div>
-      <div class="analysis">
-        <p><b>🔍 逐项定位：</b>A→P3 S11 (fell by two-thirds ✅)；B→P2 S08 原文说 <b>interest</b>（关注度）远超规模，不是 <b>momentum</b>（增长动力），偷换概念 ❌；C→全文多处 ❌；D→P5 S19 (keeping away, waiting for confidence) ✅。</p>
-        <p><b>❌ B 为什么是 NOT true：</b>原文说艺术市场引发的<b>关注度</b>很少有其他行业能匹敌（interest far beyond its size），而不是说它在<b>增长动力</b>上超越了其他行业。偷换概念（interest → momentum）是考研阅读干扰项的常见手法。</p>
-      </div>
+  <div class="q-block">
+    <div class="q-title">23. Which of the following is NOT true?</div>
+    <div class="opts">
+      <span class="opt no">A. Sales of contemporary art fell dramatically</span>
+      <span class="opt ok">B. Surpassed other industries in momentum ✓</span>
+      <span class="opt no">C. Market went downward in various ways</span>
+      <span class="opt no">D. Some dealers were awaiting better chances</span>
     </div>
+    <div class="ua">参考答案：B（NOT true）</div>
+    <div class="analysis">
+      <p><b>🔍</b> A→P3 S11 ✅ C→全文多处 ✅ D→P5 S19 ✅</p>
+      <p><b>❌ B：</b>原文说 interest（关注度）远超规模，不是 momentum（增长动力）。偷换概念是考研常见干扰手法。</p>
+    </div>
+  </div>
 
-    <div class="er">
-      <div class="qhead"><span class="qnum">24</span><span class="qtext">The three Ds mentioned in the last paragraph are ______.</span></div>
-      <div class="opts">
-        <span class="opt no">A. auction houses' favorites</span>
-        <span class="opt no">B. contemporary trends</span>
-        <span class="opt ok">C. factors promoting artwork circulation ✓</span>
-        <span class="opt no">D. styles representing Impressionists</span>
-      </div>
-      <div class="ua">参考答案：C</div>
-      <div class="analysis">
-        <p><b>🔍 定位：</b>P5 S18 — "The three Ds—death, debt and divorce—still <b>deliver works of art to the market</b>"。</p>
-        <p><b>✅ 推理：</b>three Ds 的作用是 deliver works of art to the market（将艺术品输送到市场）→ <b>促进艺术品流通的因素</b>（factors promoting artwork circulation）。A/B/D 均无依据。</p>
-      </div>
+  <div class="q-block">
+    <div class="q-title">24. The three Ds are ______.</div>
+    <div class="opts">
+      <span class="opt no">A. auction houses' favorites</span>
+      <span class="opt no">B. contemporary trends</span>
+      <span class="opt ok">C. factors promoting artwork circulation ✓</span>
+      <span class="opt no">D. styles representing Impressionists</span>
     </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>🔍 定位：</b>P5 S18 — "deliver works of art to the market"（输送到市场）→ 促进流通的因素。</p>
+    </div>
+  </div>
 
-    <div class="er">
-      <div class="qhead"><span class="qnum">25</span><span class="qtext">The most appropriate title for this text could be ______.</span></div>
-      <div class="opts">
-        <span class="opt no">A. Fluctuation of Art Prices</span>
-        <span class="opt no">B. Up-to-date Art Auctions</span>
-        <span class="opt ok">C. Art Market in Decline ✓</span>
-        <span class="opt no">D. Shifted Interest in Arts</span>
-      </div>
-      <div class="ua">参考答案：C</div>
-      <div class="analysis">
-        <p><b>🔍 全文主旨：</b>开篇 bull run ended → 中间 sales fell by two-thirds / downturn / slump → 结尾 buyers waiting → 全文都在讲艺术市场的<b>衰退</b>（decline）。<br>
-        A 价格波动只是细节非主旨；B 只覆盖第一段；D 未提兴趣转移。✅ C. Art Market in Decline 最贴切。</p>
-      </div>
+  <div class="q-block">
+    <div class="q-title">25. The most appropriate title is ______.</div>
+    <div class="opts">
+      <span class="opt no">A. Fluctuation of Art Prices</span>
+      <span class="opt no">B. Up-to-date Art Auctions</span>
+      <span class="opt ok">C. Art Market in Decline ✓</span>
+      <span class="opt no">D. Shifted Interest in Arts</span>
     </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>🔍</b> 全文核心：bull run ended → downturn / slump → decline。A 价格波动是细节；B 只覆盖第一段；D 未提。</p>
+    </div>
+  </div>
 
   </div>
 </div>
 
-</div>
-
-<div class="footer">Echo · 精读笔记 · 2010 英语（二）Text 1 · 19 句 · 5 题 · 答案 DABCC</div>
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2010 英语（二）Text 1 · 19 句 · 5 题 · 答案 DABCC</div>
 
 </div>
 
 <script>
 function toggleSyntax(id) {
-  var el = document.getElementById(id);
-  var btn = document.getElementById('btn-'+id);
-  if (!el || !btn) return;
-  if (el.classList.contains('hidden')) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
     el.classList.remove('hidden');
     btn.classList.remove('collapsed');
-    btn.textContent = '▲ 收起解析';
-  } else {
+    btn.textContent='▲ 收起解析';
+  }else{
     el.classList.add('hidden');
     btn.classList.add('collapsed');
-    btn.textContent = '▼ 展开解析';
+    btn.textContent='▼ 展开解析';
   }
 }
 function toggleBody(id) {
-  var body = document.getElementById(id);
-  var toggle = body.previousElementSibling.querySelector('.toggle') || body.parentElement.querySelector('.toggle');
-  if (!body) return;
-  var isHidden = body.classList.contains('hidden');
-  body.classList.toggle('hidden', !isHidden);
-  toggle.textContent = isHidden ? '▲ 收起' : '▼ 展开';
-  toggle.classList.toggle('collapsed', !isHidden);
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
 }
 </script>
 </body>
