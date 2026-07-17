@@ -97,18 +97,31 @@ u:hover{border-color:#a68518;}
 .sent-hr{border:none;height:1px;background:linear-gradient(90deg,var(--border),var(--accent),transparent);margin:14px 0;opacity:.6;}
 .tl{display:inline-block;font-size:.74em;color:var(--accent);font-weight:700;margin-bottom:4px;}
 .zh{font-size:.94em;color:var(--text-soft);line-height:1.72;margin-bottom:8px;}
-details.complex[open] summary::after{content:' ⭐长难句';color:var(--gold);font-size:.78em;margin-left:4px;}
-summary{cursor:pointer;list-style:none;font-size:.85em;color:var(--indigo);font-weight:600;outline:none;padding:4px 0;transition:color var(--transition);}
-summary::-webkit-details-marker{display:none;}
-summary::before{content:'▸ ';margin-right:3px;display:inline-block;transition:transform .25s;}
-details[open] summary::before{transform:rotate(90deg);}
-summary:hover{color:var(--accent);}
-.panel{
-  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
-  padding:14px 16px;margin-top:8px;font-size:.86em;line-height:1.7;
+/* ====== 🔥 逐句语法解析折叠按钮（与卡片按钮同风格，小一号） ====== */
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--coral-light); color:var(--coral);
+  border:1px solid var(--coral); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
 }
-.panel .row{display:flex;gap:8px;margin-bottom:4px;flex-wrap:wrap;}
-.panel b{color:var(--accent);white-space:nowrap;}
+.syntax-toggle:hover{background:var(--coral); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(224,122,95,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+/* 折叠状态用深紫(主色)区分 */
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:var(--panel-bg); border-left:3px solid var(--accent);
+  font-size:.86em; color:var(--text-soft); line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+.syntax .row{display:flex; gap:8px; margin-bottom:4px; flex-wrap:wrap;}
+.syntax b{color:var(--accent);white-space:nowrap;}
+.syntax .slabel{font-weight:700;color:var(--gold);font-size:1em;margin-bottom:6px;}
 
 /* ====== 底部汇总区 ====== */
 .bottom{margin-top:24px;}
@@ -119,7 +132,22 @@ summary:hover{color:var(--accent);}
 }
 .card:hover{box-shadow:var(--shadow-hover);}
 .card h2{font-size:1.08em;color:var(--text);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
-.card h2 .toggle{font-size:.72px;cursor:pointer;color:var(--accent);font-weight:600;background:var(--accent-light);padding:3px 10px;border-radius:12px;user-select:none;transition:all var(--transition);}
+.card h2 .toggle{
+  font-size:.78em !important;
+  cursor:pointer; color:#fff !important; font-weight:700 !important;
+  background:var(--accent) !important;
+  padding:5px 14px !important;
+  border-radius:20px !important;
+  user-select:none; transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-left:auto; letter-spacing:.5px;
+  border-left:3px solid var(--gold) !important;
+  box-shadow:0 2px 6px rgba(107,91,149,0.2) !important;
+}
+.card h2 .toggle:hover{ background:var(--gold) !important; transform:translateY(-1px); box-shadow:0 4px 10px rgba(201,162,39,0.35) !important; }
+.card h2 .toggle:active{ transform:translateY(0) !important; box-shadow:0 1px 3px rgba(107,91,149,0.25) !important; }
+.card h2 .toggle.collapsed{ background:var(--coral) !important; border-left-color:var(--gold) !important; }
+.card h2 .toggle.collapsed:hover{ background:var(--indigo) !important; }
 .card h2 .toggle:hover{background:var(--accent);color:#fff;}
 .collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
 .collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
@@ -164,7 +192,8 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
   body{padding:0;background:#fff;}
   .sent,.card,.header{box-shadow:none;break-inside:avoid;}
   .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
-  .badge,.divider,.toggle,.sent-hr{display:none;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
 }
 @media(max-width:720px){.opts{grid-template-columns:1fr;}body{padding:12px 10px 60px;}.header{padding:24px 18px 20px;}.sent{padding:16px 16px;}}
 </style>
@@ -193,12 +222,11 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">多年来的研究发现，第一代大学生——即父母均无大学学位的学生——在多项教育成就指标上落后于其他学生。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>主句结构</b>studies have found that ... lag ...</div>
+<button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s1"><div class="row"><b>主句结构</b>studies have found that ... lag ...</div>
     <div class="row"><b>that 从句</b>found 的宾语从句，陈述研究发现的核心结论</div>
     <div class="row"><b>破折号部分</b>同位语，解释 first-generation college students 的定义——those who do not have a parent with a college degree</div>
     <div class="row"><b>lag v.</b>落后、滞后（及物动词，此处 lag other students = 落后于其他同学）</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.09s">
@@ -206,11 +234,10 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">他们的成绩更差，辍学率也更高。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>grades n.</b>成绩、分数（grade point average 的简称）</div>
+<button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s2"><div class="row"><b>grades n.</b>成绩、分数（grade point average 的简称）</div>
     <div class="row"><b>dropout rate n.</b>辍学率（dropout = 辍学者）</div>
     <div class="row"><b>平行结构</b>A are ... and B are ... —— 两项并列对比</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.12s">
@@ -218,11 +245,10 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">但由于这些学生一旦在高等教育中取得成功，就最有可能实现经济跃升，因此几十年来各高校一直在努力招收更多这类学生。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>since 引导原因状语从句</b>说明高校积极招生的动机——经济回报驱动</div>
+<button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s3"><div class="row"><b>since 引导原因状语从句</b>说明高校积极招生的动机——经济回报驱动</div>
     <div class="row"><b>advance economically</b>在经济层面向上发展/提升社会经济地位</div>
     <div class="row"><b>push for decades to do sth.</b>几十年一直致力于/推动做某事；push = 积极推进/大力争取</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.15s">
@@ -230,15 +256,14 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">这就制造了一个"悖论"：大量招录第一代学生却又看着他们大批失败，意味着高等教育实际上"延续并扩大了而非缩小"基于社会阶层的成就差距——《心理科学》期刊即将发表的一篇论文开篇令人沮丧地指出。</div>
-<details class="complex"><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>This has created "a paradox"</b>主句——指出当前局面构成悖论</div>
+<button class="syntax-toggle" id="btn-s4" onclick="toggleSyntax('s4')">▲ 收起解析</button>
+  <div class="syntax" id="s4"><div class="slabel">📍 长难句拆解</div><div class="row"><b>This has created "a paradox"</b>主句——指出当前局面构成悖论</div>
     <div class="row"><b>in that = because</b>引导原因状语从句，解释为什么说是"paradox"</div>
     <div class="row"><b>recruiting ..., but then watching ...</b>两个并列动名词短语作 in that 从句的主语成分，形成强烈对比</div>
     <div class="row"><b>means that ...</b>动名词短语的谓语，引出悖论的实质</div>
     <div class="row"><b>continued to reproduce and widen, rather than close</b>核心论点——延续并扩大而非缩小（reproduce = 再生产/复制原有模式）</div>
     <div class="row"><b>based on social class</b>过去分词作后置定语修饰 achievement gap——基于社会阶层的成就差距</div>
     <div class="row"><b>forthcoming adj.</b>即将发表的（论文/书籍等）</div></div>
-</details>
 </div>
 
 <!-- ====== P2 ====== -->
@@ -249,13 +274,12 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">但这篇文章实际上相当乐观，因为它勾勒出了解决这一问题的潜在方案：一种只需一小时且几乎零成本的干预方式可以缩小两类学生之间 63% 的成就差距（以成绩等因素衡量）。</div>
-<details class="complex"><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>as it outlines ...</b>as 引导的原因状语从句，解释为什么说文章"乐观"</div>
+<button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5"><div class="slabel">📍 长难句拆解</div><div class="row"><b>as it outlines ...</b>as 引导的原因状语从句，解释为什么说文章"乐观"</div>
     <div class="row"><b>suggesting that ...</b>现在分词作伴随状语，进一步展开方案细节</div>
     <div class="row"><b>which involves a one-hour, next-to-no-cost program</b>非限制性定语从句修饰 approach——强调方案的可行性（时间极短+成本极低）</div>
     <div class="row"><b>next-to-no-cost</b>复合形容词 = almost free / virtually no cost，"几乎零成本"</div>
     <div class="row"><b>63 percent of the achievement gap</b>量化效果——缩小 63% 差距，数据极具说服力</div></div>
-</details>
 </div>
 
 <!-- ====== P3 ====== -->
@@ -266,11 +290,10 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">该论文作者来自不同大学，其研究结果基于一项涉及 147 名完成项目的学生的研究，在一所未具名的私立大学进行。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>involving 147 students</b>现在分词短语作后置定语修饰 study</div>
+<button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s6"><div class="row"><b>involving 147 students</b>现在分词短语作后置定语修饰 study</div>
     <div class="row"><b>(who completed the project)</b>非限制性定语从句补充说明 147 名学生的情况</div>
     <div class="row"><b>unnamed adj.</b>未透露名称的/匿名的——出于隐私保护不公开校名</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.24s">
@@ -278,10 +301,9 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">第一代的定义是父母中没有一人拥有四年制大学学位。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>was defined as ...</b>被动语态，「被定义为……」</div>
+<button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s7"><div class="row"><b>was defined as ...</b>被动语态，「被定义为……」</div>
     <div class="row"><b>a four-year college degree</b>四年制本科学位（美国高等教育的标准学制）</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.27s">
@@ -289,12 +311,11 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">大多数第一代学生（59.1%）是佩尔助学金的受领者——这是一项面向有经济需求的本科生的联邦助学金——而这一比例在至少有一名父母拥有四年制学位的学生中仅占 8.6%。</div>
-<details class="complex"><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>Pell Grants</b>佩尔助学金——美国最大的联邦大学生资助项目，以参议员 Claiborne Pell 命名，专供低收入家庭学生</div>
+<button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8"><div class="slabel">📍 长难句拆解</div><div class="row"><b>Pell Grants</b>佩尔助学金——美国最大的联邦大学生资助项目，以参议员 Claiborne Pell 命名，专供低收入家庭学生</div>
     <div class="row"><b>recipients n.</b>接受者/受领者（recipient 单数）</div>
     <div class="row"><b>federal grant for undergraduates with financial need</b>Pell Grants 的同位语解释——面向经济困难本科生的联邦资助</div>
     <div class="row"><b>while ... only for 8.6%</b>while 引导的对比状语从句——59.1% vs 8.6%，悬殊的数据对比凸显经济差异</div></div>
-</details>
 </div>
 
 <!-- ====== P4 ====== -->
@@ -305,14 +326,13 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">他们的核心论点——即相对温和的干预措施也能产生巨大影响——基于这样一种观点：第一代大学生最欠缺的可能不是潜力，而是应对大多数大学生所面临的实际问题的实用知识。</div>
-<details class="complex"><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>thesis n.</b>论点/命题（学术论文的核心主张），注意不是"论文"本身而是其中的核心观点</div>
+<button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><div class="slabel">📍 长难句拆解</div><div class="row"><b>thesis n.</b>论点/命题（学术论文的核心主张），注意不是"论文"本身而是其中的核心观点</div>
     <div class="row"><b>破折号之间</b>that 从句是 thesis 的同位语，具体阐述论点内容</div>
     <div class="row"><b>modest intervention</b>温和的/适度的干预措施（modest = 不大的/谦逊的）</div>
     <div class="row"><b>based on the view that ...</b>that 引导同位语从句解释 view 的内容</div>
     <div class="row"><b>not A but B 结构</b>not in potential but in practical knowledge —— 不是缺潜力而是缺实用知识，这是全文的关键判断</div>
     <div class="row"><b>issues that face most college students</b>定语从句修饰 issues——大多数学生都会面对的问题</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.33s">
@@ -320,11 +340,10 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">他们引用多位学者的既往研究来证明：正是这种（实用知识的）差距必须被缩小才能最终弥合成就差距。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>cite v.</b>引用/援引（学术写作常用动词）</div>
+<button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s10"><div class="row"><b>cite v.</b>引用/援引（学术写作常用动词）</div>
     <div class="row"><b>the gap that must be narrowed</b>定语从句——指前文提到的 practical knowledge gap</div>
     <div class="row"><b>close the achievement gap</b>消除/弥合成就差距（close 在此处 = 缩小至零）</div></div>
-</details>
 </div>
 
 <!-- ====== P5 ====== -->
@@ -336,13 +355,12 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <div class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">他们写道，许多第一代大学生"难以适应高等教育的'中层阶级文化'、不懂'游戏规则'、也不会利用大学资源"。</div>
-<details class="complex"><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>struggle to do sth.</b>费力做某事/挣扎着去做……（struggle = 挣扎、吃力）</div>
+<button class="syntax-toggle" id="btn-s11" onclick="toggleSyntax('s11')">▲ 收起解析</button>
+  <div class="syntax" id="s11"><div class="slabel">📍 长难句拆解</div><div class="row"><b>struggle to do sth.</b>费力做某事/挣扎着去做……（struggle = 挣扎、吃力）</div>
     <div class="row"><b>navigate v.</b>导航/穿越 → 此处比喻义：在……环境中找到方向、顺利前行</div>
     <div class="row"><b>middle-class culture</b>中层阶级文化——暗示美国高等教育体系本质上是为中产及以上家庭设计的</div>
     <div class="row"><b>rules of the game</b>游戏规则/潜规则——此处指大学运作的隐性规范（如何选课、找导师、申请资助等）</div>
     <div class="row"><b>take advantage of</b>充分利用/好好利用（固定搭配）</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.39s">
@@ -350,11 +368,10 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">而当高校不去讨论不同学生群体的阶层优势和劣势时，这个问题就变得更加严重。</div>
-<details><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>this becomes more of a problem when ...</b>when 引导时间/条件状语从句</div>
+<button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax collapsed" id="s12"><div class="row"><b>this becomes more of a problem when ...</b>when 引导时间/条件状语从句</div>
     <div class="row"><b>class advantages and disadvantages</b>基于社会阶层的优势与劣势（class = 社会阶层）</div>
     <div class="row"><b>don't talk about = avoid discussing / remain silent about</b>回避讨论/对此保持沉默</div></div>
-</details>
 </div>
 
 <div class="sent" style="animation-delay:.42s">
@@ -362,13 +379,12 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 <hr class="sent-hr">
 <div class="tl">📖 译文</div>
 <div class="zh">「因为美国高校极少承认社会阶层会如何影响学生的受教育体验，许多第一代大学生不清楚自己为何苦苦挣扎，也不理解像他们这样的学生该如何改善。」</div>
-<details class="complex"><summary>语法分析</summary>
-<div class="panel"><div class="row"><b>Because ... , many ... lack ... and do not understand ...</b>因果复合句——因为（学校沉默）所以（学生困惑）</div>
+<button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13"><div class="slabel">📍 长难句拆解</div><div class="row"><b>Because ... , many ... lack ... and do not understand ...</b>因果复合句——因为（学校沉默）所以（学生困惑）</div>
     <div class="row"><b>seldom acknowledge</b>很少承认/几乎不承认（seldom = rarely）</div>
     <div class="row"><b>how social class can affect ...</b>宾语从句作 acknowledge 的宾语</div>
     <div class="row"><b>lack insight about / into</b>缺乏对……的洞察/认识（insight = 洞察力/深刻理解）</div>
     <div class="row"><b>'like them'</b>加引号表示特殊含义——指同样背景的第一代学生群体</div></div>
-</details>
 </div>
 
 <!-- ====== 底部汇总区 ====== -->
@@ -376,7 +392,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 
 <!-- 全文脉络 -->
 <div class="card" style="animation-delay:.45s">
-<h2>📋 全文脉络<span class="toggle" onclick="toggleBody('flow')">收起</span></h2>
+<h2>📋 全文脉络<span class="toggle" onclick="toggleBody('flow')">▲ 收起</span></h2>
 <div class="collapsible-body" id="flow">
 <div class="item"><b>P1（S01-S04）</b> 问题提出：第一代大学生成绩差、辍学率高；高校大力招录却反而扩大了阶层成就差距（paradox 悖论）</div>
 <div class="item"><b>P2（S05）</b> 方案提出：文章其实很乐观——一小时几乎零成本的干预能缩小 63% 成绩差距</div>
@@ -388,7 +404,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 
 <!-- 重点词汇 -->
 <div class="card" style="animation-delay:.48s">
-<h2>📚 重点词汇<span class="toggle" onclick="toggleBody('vocab')">收起</span></h2>
+<h2>📚 重点词汇<span class="toggle" onclick="toggleBody('vocab')">▲ 收起</span></h2>
 <div class="collapsible-body" id="vocab">
 <table class="voc-table">
 <tr><th>单词/短语</th><th>释义与拓展</th></tr>
@@ -437,7 +453,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 
 <!-- 熟词生义 -->
 <div class="card" style="animation-delay:.51s">
-<h2>🔍 熟词生义<span class="toggle" onclick="toggleBody('familiar')">收起</span></h2>
+<h2>🔍 熟词生义<span class="toggle" onclick="toggleBody('familiar')">▲ 收起</span></h2>
 <div class="collapsible-body" id="familiar">
 <table class="voc-table">
 <tr><th>单词</th><th>熟义 → 本文生义</th></tr>
@@ -455,7 +471,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 
 <!-- 重点短语搭配 -->
 <div class="card" style="animation-delay:.54s">
-<h2>🔗 重点短语搭配<span class="toggle" onclick="toggleBody('phrases')">收起</span></h2>
+<h2>🔗 重点短语搭配<span class="toggle" onclick="toggleBody('phrases')">▲ 收起</span></h2>
 <div class="collapsible-body" id="phrases">
 <table class="voc-table">
 <tr><th>短语</th><th>释义 & 例句</th></tr>
@@ -478,7 +494,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 
 <!-- 背诵句型 -->
 <div class="card" style="animation-delay:.57s">
-<h2>✨ 值得背诵的句型<span class="toggle" onclick="toggleBody('patterns')">收起</span></h2>
+<h2>✨ 值得背诵的句型<span class="toggle" onclick="toggleBody('patterns')">▲ 收起</span></h2>
 <div class="collapsible-body" id="patterns">
 <div class="p-item"><b>1. This has created "a paradox" in that ... 制造悖论句型（S04）</b><br>原文："This has created 'a paradox' in that recruiting first-generation students, but then watching many of them fail, means that ..."<br>模板：<i>This has created "a paradox" in that [做法A], but then [相反结果B], means that [深层矛盾C].</i><br>用途：揭示表面合理的行为背后隐藏的自相矛盾或负面后果</div>
 <div class="p-item"><b>2. ... continued to reproduce and widen, rather than close ... 再生产与扩大的递进（S04）</b><br>原文："higher education has 'continued to reproduce and widen, rather than close' an achievement gap"<br>模板：<i>[主体] has continued to [动词1] and [动词2], rather than [反向动词3] [宾语].</i><br>用途：强调问题不仅未被解决反而恶化了，三个动词形成递进冲击力</div>
@@ -490,7 +506,7 @@ table.voc-table td:nth-child(2){color:var(--text-soft);line-height:1.65;}
 
 <!-- 题目速查 -->
 <div class="card" style="animation-delay:.6s">
-<h2>📝 题目速查<span class="toggle" onclick="toggleBody('questions')">收起</span></h2>
+<h2>📝 题目速查<span class="toggle" onclick="toggleBody('questions')">▲ 收起</span></h2>
 <div class="collapsible-body" id="questions">
 
 <div class="er">
@@ -606,11 +622,26 @@ function toggleBody(id){
   if(!el)return;
   var toggle=el.parentElement.querySelector('.toggle');
   if(el.classList.contains('hidden')){
-    el.classList.remove('hidden');
-    if(toggle)toggle.textContent='收起';
+    el.classList.remove('hidden');el.style.maxHeight='2000px';
+    if(toggle){toggle.innerHTML='\u25B2 \u6536\u8D77';toggle.classList.remove('collapsed');}
   }else{
-    el.classList.add('hidden');
-    if(toggle)toggle.textContent='展开';
+    el.classList.add('hidden');el.style.maxHeight='0';
+    if(toggle){toggle.innerHTML='\u25BC \u5C55\u5F00';toggle.classList.add('collapsed');}
+  }
+}
+
+/* ====== 逐句语法解析折叠 ====== */
+function toggleSyntax(id){
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');el.style.maxHeight='2000px';
+    btn.innerHTML='\u25B2 \u6536\u8D77\u89E3\u6790';
+    btn.classList.remove('collapsed');
+  }else{
+    el.classList.add('hidden');el.style.maxHeight='0';
+    btn.innerHTML='\u25BC \u5C55\u5F00\u89E3\u6790';
+    btn.classList.add('collapsed');
   }
 }
 </script>
