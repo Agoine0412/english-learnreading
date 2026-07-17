@@ -925,6 +925,9 @@ body {
       { href: '2009/英二-text2.html', title: 'Text 2', desc: '亲子鉴定与 DNA 检测的商业乱象与局限', num: 2 },
       { href: '2009/英二-text3.html', title: 'Text 3', desc: '教育与经济增长的真相——正规教育并非穷国发展的首要前提', num: 3 }
     ],
+    '2010': [
+      { href: '2010/英二-text1.html', title: 'Text 1', desc: '艺术市场的衰退——赫斯特拍卖与金融危机', num: 1 }
+    ],
     '2015': [
       { href: '2015/英二-text1.html', title: 'Text 1', desc: '家比工作更有压力——皮质醇研究揭示的颠覆性真相', num: 1 },
       { href: '2015/英二-text2.html', title: 'Text 2', desc: '第一代大学生的困境与出路——一小时干预缩小63%成就差距', num: 2 },
@@ -938,15 +941,15 @@ body {
 
   // ===== 缓存破坏：强制移动端/浏览器重新请求最新文章页，绕过 HTML 缓存 =====
   (function () {
-    const ART_CACHE_VER = '20260718';
+    const ART_CACHE_VER = '20260719';
     Object.values(articlesData).forEach(list => list.forEach(a => {
       if (a.href && !a.href.includes('?v=')) a.href += '?v=' + ART_CACHE_VER;
     }));
   })();
 
   // 年份对应的强调色
-  const yearAccent = { '2008': '#d4623e', '2009': '#389e92', '2015': '#7a9420', '2016': '#2c3e7a' };
-  const yearIcon = { '2008': '📕', '2009': '📘', '2015': '📗', '2016': '📙' };
+  const yearAccent = { '2008': '#d4623e', '2009': '#389e92', '2010': '#b54830', '2015': '#7a9420', '2016': '#2c3e7a' };
+  const yearIcon = { '2008': '📕', '2009': '📘', '2010': '📕', '2015': '📗', '2016': '📙' };
 
   const POSITIONS = ['pos-center', 'pos-right', 'pos-far-right', 'pos-far-left', 'pos-left'];
   // pos-far-left 是索引 -2 的位置，pos-left 是索引 -1
