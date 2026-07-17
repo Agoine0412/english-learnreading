@@ -6,15 +6,15 @@
 <title>2010 英二 Text 1 · 精读笔记</title>
 <style>
   :root {
-    --bg: #f5f0eb; --card: #ffffff; --text: #2d2a24;
-    --text-soft: #6b6559; --text-muted: #9c9486;
-    --accent: #c0392b; --accent-light: #fdf2f0;
-    --green: #558b5c; --green-light: #eef5ec;
+    --bg: #f5f0e1; --card: #faf7f2; --text: #2c2420;
+    --text-soft: #6b5a50; --text-muted: #9c8a7a;
+    --accent: #7b2028; --accent-light: #f8edea;
+    --green: #8b7355; --green-light: #f2ede6;
     --gold: #b8860b; --gold-light: #fcf6e8;
-    --panel-bg: #fcf8f3; --panel-border: #e8ddd0;
-    --border: #e5ddd2;
-    --shadow: 0 2px 8px rgba(45,42,36,0.08);
-    --shadow-hover: 0 4px 16px rgba(45,42,36,0.14);
+    --panel-bg: #f8f4ee; --panel-border: #e8ddd0;
+    --border: #e0d5c8;
+    --shadow: 0 2px 8px rgba(44,36,32,0.08);
+    --shadow-hover: 0 4px 16px rgba(44,36,32,0.14);
     --radius: 10px; --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
     --font-en: Georgia, "Noto Serif SC", "PingFang SC", serif;
     --font-cn: "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
@@ -32,16 +32,16 @@
 
   .header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 26px; margin-bottom: 20px; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: box-shadow var(--transition); }
   .header:hover { box-shadow: var(--shadow-hover); }
-  .header::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--gold), var(--green)); background-size: 200% 100%; animation: shimmer 4s ease infinite; }
+  .header::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #7b2028, var(--gold), #4a3b2c); background-size: 200% 100%; animation: shimmer 4s ease infinite; }
   @keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
   .header h1 { font-size: 1.4em; font-weight: 700; font-family: var(--font-cn); }
   .header h1 small { font-size: 0.65em; font-weight: 400; color: var(--text-muted); margin-left: 8px; font-family: var(--font-sans); }
   .sub { margin-top: 6px; color: var(--text-soft); font-size: 0.9em; }
   .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 6px; font-size: 0.72em; font-weight: 600; background: var(--green-light); color: var(--green); border: 1px solid rgba(85,139,92,0.2); transition: all var(--transition); }
-  .badge:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(85,139,92,0.2); }
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 6px; font-size: 0.72em; font-weight: 600; background: var(--green-light); color: var(--green); border: 1px solid rgba(139,115,85,0.2); transition: all var(--transition); }
+  .badge:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(139,115,85,0.2); }
   .badge.level { background: var(--gold-light); color: var(--gold); border-color: rgba(184,134,11,0.2); }
-  .badge.mode { background: var(--accent-light); color: var(--accent); border-color: rgba(192,57,43,0.2); }
+  .badge.mode { background: var(--accent-light); color: var(--accent); border-color: rgba(123,32,40,0.2); }
 
   .notice { background: var(--gold-light); border-left: 3px solid var(--gold); padding: 10px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 20px; font-size: 0.84em; color: var(--text-soft); line-height: 1.6; transition: border-left-width var(--transition); }
   .notice:hover { border-left-width: 5px; }
@@ -58,7 +58,7 @@
   .en mark { background: linear-gradient(120deg, #fce4c8 0%, #f8d5b0 100%); padding: 1px 5px; border-radius: 3px; color: var(--text); font-weight: 600; }
   .en u { text-decoration: none; border-bottom: 2px dotted var(--accent); padding-bottom: 1px; }
   hr.sent-hr { border: none; height: 1px; margin: 10px 0; background: linear-gradient(90deg, var(--border), transparent); }
-  .tl { font-size: 0.7em; font-weight: 700; color: var(--green); letter-spacing: 1px; margin-bottom: 3px; }
+  .tl { font-size: 0.7em; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 3px; }
   .zh { font-size: 0.9em; color: var(--text-soft); margin-bottom: 8px; font-family: var(--font-cn); }
 
   .syntax-toggle { display: inline-flex; align-items: center; gap: 4px; font-size: 0.74em; color: var(--text-muted); font-weight: 600; cursor: pointer; user-select: none; padding: 3px 0; transition: color var(--transition); }
