@@ -5,39 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>英语精读存档</title>
 <style>
-/* ====== 🎨 全局变量 & 字体系统 ====== */
+/* ====== 🎨 全局变量 ====== */
 :root {
-  /* 色彩 */
-  --bg: #ede8e1;
-  --text: #3a322b;
-  --text-soft: #5c4f42;
-  --muted: #8e8070;
-  --muted-light: #b5a99a;
-  --brick: #b5482f;
-  --olive: #6b7a3a;
-  --gold: #c89b3c;
-  --teal: #2a9d8f;
-  --blue: #457b9d;
-  --rose: #c26a6a;
+  --text: #f0e8d8;
+  --text-soft: #c8b8a0;
+  --muted: #a09078;
+  --muted-light: #807060;
+  --brick: #e86040;
+  --olive: #8cb840;
+  --gold: #e8a830;
+  --teal: #40c8a8;
+  --blue: #60a8d8;
+  --rose: #d87070;
 
   /* 毛玻璃参数 */
-  --glass-bg: rgba(255,253,249,.42);
-  --glass-bg-hover: rgba(255,253,249,.62);
-  --glass-border: rgba(255,255,255,.40);
+  --glass-bg: rgba(255,245,230,.10);
+  --glass-bg-hover: rgba(255,245,230,.18);
+  --glass-border: rgba(255,230,200,.18);
   --glass-blur: 20px;
-  --glass-blur-strong: 30px;
+  --glass-blur-strong: 32px;
 
   /* 阴影体系 */
-  --shadow-sm: 0 2px 8px rgba(120,90,60,.06);
-  --shadow-md: 0 4px 20px rgba(120,90,60,.10);
-  --shadow-lg: 0 8px 40px rgba(120,90,60,.14);
-  --shadow-hover: 0 14px 44px rgba(120,90,60,.20);
-  --shadow-glow: 0 0 60px rgba(200,155,60,.12);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.20);
+  --shadow-md: 0 4px 24px rgba(0,0,0,.30);
+  --shadow-lg: 0 8px 48px rgba(0,0,0,.40);
+  --shadow-hover: 0 16px 56px rgba(0,0,0,.50);
+  --shadow-glow: 0 0 80px rgba(200,155,60,.08);
 
   /* 圆角 & 过渡 */
   --radius-sm: 10px;
   --radius: 16px;
-  --radius-lg: 22px;
+  --radius-lg: 24px;
   --transition: .28s cubic-bezier(.4,0,.2,1);
   --transition-fast: .18s ease;
 
@@ -46,11 +44,8 @@
   --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
 }
 
-/* ====== 🔤 全局字体渲染优化 ====== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0; padding: 0;
-}
+/* ====== 🔤 全局字体渲染 ====== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -58,10 +53,69 @@ html {
   font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
-/* ====== 🌈 动态背景 + 飘浮光球 ====== */
+/* ====== 🌌 动态星空 Canvas ====== */
+#starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ====== 🌈 极光渐变覆盖层 ====== */
+.aurora {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .30;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(181,72,47,.40) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 70% 30%, rgba(200,155,60,.35) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 50% 70%, rgba(107,122,58,.30) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(42,157,143,.20) 0%, transparent 45%);
+  background-size: 200% 200%;
+  animation: auroraDrift 20s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+}
+@keyframes auroraDrift {
+  0%   { background-position: 0% 0%; opacity: .30; }
+  33%  { background-position: 50% 30%; opacity: .35; }
+  66%  { background-position: 80% 60%; opacity: .28; }
+  100% { background-position: 30% 90%; opacity: .32; }
+}
+
+/* ====== 🪄 飘浮光球（鼠标响应式） ====== */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(.25,.1,.25,1);
+}
+.orb-1 {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(181,72,47,.25), transparent 70%);
+  top: -5%; left: -5%;
+  filter: blur(60px);
+}
+.orb-2 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(107,122,58,.22), transparent 70%);
+  bottom: 8%; right: -6%;
+  filter: blur(55px);
+}
+.orb-3 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(200,155,60,.20), transparent 70%);
+  top: 35%; left: 45%;
+  filter: blur(50px);
+}
+
 body {
-  background: var(--bg);
-  background-image: linear-gradient(135deg, #f5f0eb 0%, #ede8e1 40%, #e8e0d5 70%, #f0ead8 100%);
+  background: #0f0d0a;
   color: var(--text);
   font-family: var(--font-sans);
   line-height: 1.7;
@@ -70,70 +124,13 @@ body {
   overflow-x: hidden;
 }
 
-/* 飘浮光球 —— 4 个不同色/大小/轨迹的模糊圆 */
-.orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: .45;
-  z-index: 0;
-  pointer-events: none;
-  will-change: transform;
-}
-.orb-1 {
-  width: 460px; height: 460px;
-  background: radial-gradient(circle, rgba(181,72,47,.55), transparent 70%);
-  top: -10%; left: -12%;
-  animation: orbFloat1 18s ease-in-out infinite alternate;
-}
-.orb-2 {
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, rgba(107,122,58,.50), transparent 70%);
-  bottom: 3%; right: -10%;
-  animation: orbFloat2 22s ease-in-out infinite alternate;
-}
-.orb-3 {
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(200,155,60,.45), transparent 70%);
-  top: 38%; left: 48%;
-  animation: orbFloat3 16s ease-in-out infinite alternate;
-}
-.orb-4 {
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(42,157,143,.40), transparent 70%);
-  top: 12%; right: 15%;
-  animation: orbFloat4 20s ease-in-out infinite alternate;
-}
+.wrap { max-width: 780px; margin: 0 auto; position: relative; z-index: 3; }
 
-@keyframes orbFloat1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(80px, 60px) scale(1.08); }
-  100% { transform: translate(-40px, 120px) scale(.95); }
-}
-@keyframes orbFloat2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-70px, -50px) scale(1.12); }
-  100% { transform: translate(60px, -90px) scale(.92); }
-}
-@keyframes orbFloat3 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-100px, 40px) scale(1.05); }
-  100% { transform: translate(60px, -70px) scale(.97); }
-}
-@keyframes orbFloat4 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(50px, -60px) scale(1.10); }
-  100% { transform: translate(-80px, 40px) scale(.93); }
-}
-
-.wrap { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
-
-/* ====== ✨ Hero 头部区域（毛玻璃） ====== */
+/* ====== ✨ Hero 毛玻璃 ====== */
 .hero {
   position: relative;
-  margin: 40px auto 36px;
-  padding: 48px 36px 40px;
-  /* 毛玻璃核心 */
+  margin: 44px auto 40px;
+  padding: 52px 40px 44px;
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur-strong)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(180%);
@@ -141,56 +138,46 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg), var(--shadow-glow);
   overflow: hidden;
-  animation: fadeUp .6s ease both;
+  animation: fadeUp .7s ease both;
 }
 /* 顶部五色流动条 */
 .hero::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 5px;
-  background: linear-gradient(
-    90deg,
-    var(--brick) 0%, var(--gold) 25%,
-    var(--olive) 50%, var(--teal) 75%, var(--blue) 100%
-  );
+  height: 4px;
+  background: linear-gradient(90deg, var(--brick), var(--gold), var(--olive), var(--teal), var(--blue));
   background-size: 200% 100%;
   animation: shimmerFlow 8s linear infinite;
 }
-/* 玻璃内部微光（仿 uiverse.io 光晕） */
+/* 玻璃内部微光 */
 .hero::after {
   content: '';
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255,255,255,.18) 0%,
-    transparent 50%
-  );
+  top: -40%; left: -40%;
+  width: 180%; height: 180%;
+  background: radial-gradient(circle at 25% 25%, rgba(255,245,220,.08) 0%, transparent 50%);
   pointer-events: none;
-  animation: glassShine 10s ease-in-out infinite alternate;
-}
-@keyframes glassShine {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(10%, 8%); }
-  100% { transform: translate(-5%, -3%); }
+  animation: glassShine 12s ease-in-out infinite alternate;
 }
 @keyframes shimmerFlow { to { background-position: -200% 0; } }
+@keyframes glassShine {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(8%, 6%) rotate(2deg); }
+}
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero 标题区 */
-.hero-title-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; position: relative; z-index: 1; }
+.hero-title-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; position: relative; z-index: 1; }
 .hero-icon {
-  font-size: 38px; line-height: 1;
-  filter: drop-shadow(0 2px 6px rgba(200,155,60,.25));
+  font-size: 42px; line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(200,155,60,.35));
   flex-shrink: 0;
 }
 .hero h1 {
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing: .5px;
   font-family: var(--font-serif);
   color: var(--text);
@@ -199,8 +186,7 @@ body {
   color: var(--muted);
   font-size: 14px;
   margin-top: 10px;
-  margin-bottom: 0;
-  padding-left: 52px;
+  padding-left: 58px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -213,12 +199,12 @@ body {
   border-radius: 50%;
   background: var(--gold);
   flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(200,155,60,.4);
+  box-shadow: 0 0 10px rgba(200,155,60,.5);
 }
 
-/* ====== 📂 年份分区（毛玻璃标题条） ====== */
+/* ====== 📂 年份分区（毛玻璃） ====== */
 .year-section {
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   animation: fadeUp .55s ease both;
   animation-delay: calc(var(--delay, 0) * .08s);
   opacity: 0;
@@ -227,34 +213,33 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
-  padding: 11px 20px;
-  /* 毛玻璃 */
-  background: rgba(255,253,249,.32);
-  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-  border: 1px solid rgba(255,255,255,.25);
+  margin-bottom: 16px;
+  padding: 12px 20px;
+  background: rgba(255,245,230,.08);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  border: 1px solid rgba(255,230,200,.12);
   border-radius: var(--radius-sm);
   border-left: 4px solid var(--year-color, var(--gold));
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition);
+  transition: box-shadow var(--transition), background var(--transition);
 }
 .year-header:hover {
+  background: rgba(255,245,230,.14);
   box-shadow: var(--shadow-md);
 }
 /* 右侧装饰光晕 */
 .year-header::after {
   content: '';
   position: absolute;
-  right: -20px;
-  top: -20px;
-  width: 60px; height: 60px;
+  right: -30px; top: -30px;
+  width: 70px; height: 70px;
   border-radius: 50%;
   background: var(--year-color, var(--gold));
   opacity: .06;
-  filter: blur(20px);
+  filter: blur(25px);
 }
 .ytitle {
   font-size: 17px;
@@ -265,23 +250,21 @@ body {
   letter-spacing: .3px;
 }
 
-/* 年份配色 */
 [data-year="2008"] { --year-color: var(--brick); }
 [data-year="2009"] { --year-color: var(--teal); }
 [data-year="2015"] { --year-color: var(--olive); }
 
 /* ====== 📄 文章卡片（毛玻璃） ====== */
-.item-list { display: flex; flex-direction: column; gap: 10px; }
+.item-list { display: flex; flex-direction: column; gap: 12px; }
 .item {
   display: block;
   position: relative;
-  /* 毛玻璃核心 */
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur)) saturate(160%);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 16px 20px 16px 56px;
+  padding: 18px 22px 18px 58px;
   box-shadow: var(--shadow-sm);
   text-decoration: none;
   color: var(--text);
@@ -303,13 +286,12 @@ body {
   opacity: 0;
   transition: opacity var(--transition);
 }
-/* 左上角序号圆点 */
+/* 序号圆点 */
 .item::after {
   content: attr(data-index);
   position: absolute;
-  left: 18px;
-  top: 19px;
-  width: 24px; height: 24px;
+  left: 18px; top: 20px;
+  width: 26px; height: 26px;
   border-radius: 50%;
   background: var(--year-color, var(--gold));
   color: #fff;
@@ -322,57 +304,56 @@ body {
   font-variant-numeric: tabular-nums;
   line-height: 1;
   opacity: .85;
-  transition: opacity var(--transition);
-  box-shadow: 0 2px 8px rgba(0,0,0,.10);
+  transition: opacity var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
 }
 
 .item:hover {
-  transform: translateY(-3px) translateX(2px);
+  transform: translateY(-4px) translateX(3px);
   background: var(--glass-bg-hover);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(255,255,255,.45);
+  border-color: rgba(255,230,200,.25);
 }
 .item:hover::before { opacity: 1; }
-.item:hover::after { opacity: 1; }
+.item:hover::after { opacity: 1; box-shadow: 0 4px 16px rgba(0,0,0,.25); }
 
 .item b {
   display: block;
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text);
   font-family: var(--font-serif);
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   line-height: 1.4;
 }
 .item span {
   display: block;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.5;
   padding-left: 2px;
 }
 
-/* 卡片入场动画交错 */
+/* 卡片入场交错 */
 .item {
-  animation: cardIn .4s ease both;
+  animation: cardIn .45s ease both;
   animation-delay: calc((var(--item-delay, 0)) * .07s);
   opacity: 0;
 }
 @keyframes cardIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ====== 🎐 页脚（毛玻璃） ====== */
 .footer {
-  margin-top: 48px;
-  padding: 28px 20px;
+  margin-top: 52px;
+  padding: 28px 24px;
   text-align: center;
-  /* 毛玻璃 */
-  background: rgba(255,253,249,.25);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  border: 1px solid rgba(255,255,255,.20);
+  background: rgba(255,245,230,.06);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  border: 1px solid rgba(255,230,200,.10);
   border-radius: var(--radius-sm);
   animation: fadeUp .5s ease .6s both;
   opacity: 0;
@@ -404,17 +385,15 @@ body {
   60%      { transform: scale(1); }
 }
 
-/* ====== 📱 响应式适配 ====== */
+/* ====== 📱 响应式 ====== */
 @media (max-width: 520px) {
   body { padding: 0 10px 48px; }
-  .orb { opacity: .20; filter: blur(60px); }
-  .orb-1 { width: 260px; height: 260px; }
-  .orb-2 { width: 200px; height: 200px; }
-  .orb-3 { width: 160px; height: 160px; }
-  .orb-4 { width: 120px; height: 120px; }
-  .hero { padding: 32px 22px 28px; border-radius: var(--radius); margin-top: 24px; }
-  .hero-icon { font-size: 30px; }
-  .hero h1 { font-size: 23px; }
+  .orb-1 { width: 200px; height: 200px; }
+  .orb-2 { width: 160px; height: 160px; }
+  .orb-3 { width: 140px; height: 140px; }
+  .hero { padding: 34px 22px 30px; border-radius: var(--radius); margin-top: 24px; }
+  .hero-icon { font-size: 32px; }
+  .hero h1 { font-size: 24px; }
   .hero-subtitle { padding-left: 0; font-size: 13px; }
   .year-header { padding: 8px 14px; }
   .ytitle { font-size: 15.5px; }
@@ -422,24 +401,30 @@ body {
   .item::after { left: 13px; width: 22px; height: 22px; font-size: 11px; top: 17px; }
   .item b { font-size: 14.5px; }
   .item span { font-size: 12.5px; }
-  .footer { margin-top: 32px; padding: 20px 16px; }
+  .footer { margin-top: 32px; padding: 18px 16px; }
 }
 
-/* ====== 🎭 prefers-reduced-motion（无障碍） ====== */
+/* ====== 🎭 无障碍 ====== */
 @media (prefers-reduced-motion: reduce) {
-  .orb, .hero::after { animation: none !important; }
+  .orb, .aurora { animation: none !important; transition: none !important; }
   .item, .year-section, .hero, .footer { animation: none !important; opacity: 1 !important; }
-  .hero::before { animation: none !important; }
+  .hero::before, .hero::after { animation: none !important; }
+  #starfield { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- 🌈 动态光球 -->
+<!-- 🌌 动态星空 Canvas -->
+<canvas id="starfield"></canvas>
+
+<!-- 🌈 极光渐变层 -->
+<div class="aurora"></div>
+
+<!-- 🪄 飘浮光球（鼠标响应式） -->
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
-<div class="orb orb-4"></div>
 
 <div class="wrap">
 
@@ -524,29 +509,121 @@ body {
     </div>
   </footer>
 
-  <!-- 新增文章时，复制一个 .year-section 区块即可 -->
-  <!--
-  <div class="year-section" data-year="YYYY" style="--delay:N">
-    <div class="year-header">
-      <span class="ytitle">🗓️ YYYY 年</span>
-    </div>
-    <div class="item-list">
-      <a class="item" href="YYYY/xxx.html" data-index="1" style="--item-delay:M">
-        <b>标题</b>
-        <span>副标题/说明</span>
-      </a>
-    </div>
-  </div>
-  -->
-
 </div>
 
-<!-- 入场动画触发 -->
+<!-- ====== 🌌 星空 + 鼠标交互 ====== -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const animated = document.querySelectorAll('.year-section, .item, .footer');
-    animated.forEach(el => el.style.opacity = '');
+(function() {
+  // --- 星空 Canvas ---
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  let mouseX = 0, mouseY = 0;
+  const stars = [];
+  const particles = [];
+  const STAR_COUNT = 180;
+  const PARTICLE_COUNT = 30;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // 初始化星星
+  for (let i = 0; i < STAR_COUNT; i++) {
+    stars.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.5 + .3,
+      alpha: Math.random() * .6 + .2,
+      twinkleSpeed: Math.random() * .02 + .005,
+      twinklePhase: Math.random() * Math.PI * 2,
+      parallax: Math.random() * .02 + .005
+    });
+  }
+
+  // 初始化浮游微粒
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - .5) * .3,
+      vy: (Math.random() - .5) * .2 - .1,
+      r: Math.random() * 1.2 + .4,
+      alpha: Math.random() * .15 + .05,
+      color: Math.floor(Math.random() * 4)
+    });
+  }
+  const particleColors = ['#b5482f','#c89b3c','#6b7a3a','#2a9d8f'];
+
+  // 鼠标追踪
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    // 光球响应
+    const mx = (mouseX / W - .5) * 2;
+    const my = (mouseY / H - .5) * 2;
+    document.querySelectorAll('.orb').forEach((orb, i) => {
+      const factor = (i + 1) * 12;
+      orb.style.transform = `translate(${mx * factor}px, ${my * factor}px)`;
+    });
   });
+
+  let time = 0;
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    time += 1;
+
+    // 画星星
+    for (const s of stars) {
+      const twinkle = Math.sin(time * s.twinkleSpeed + s.twinklePhase);
+      const a = s.alpha + twinkle * .25;
+      // 鼠标视差偏移
+      const px = (mouseX - W/2) * s.parallax;
+      const py = (mouseY - H/2) * s.parallax;
+      const sx = (s.x + px) % W;
+      const sy = (s.y + py) % H;
+
+      ctx.beginPath();
+      ctx.arc(sx, sy, Math.max(.1, s.r), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(240,232,216,${Math.max(0, Math.min(1, a))})`;
+      ctx.fill();
+
+      // 大星星加发光
+      if (s.r > 1.2 && a > .45) {
+        ctx.beginPath();
+        ctx.arc(sx, sy, s.r * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(240,232,216,${Math.max(0, a * .08)})`;
+        ctx.fill();
+      }
+    }
+
+    // 画浮游微粒
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, Math.max(.1, p.r), 0, Math.PI * 2);
+      ctx.fillStyle = particleColors[p.color];
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // --- 入场动画触发 ---
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.year-section, .item, .footer').forEach(el => el.style.opacity = '');
+  });
+})();
 </script>
 </body>
 </html>
