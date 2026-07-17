@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2008 考研英语（二）· Text 1 — 女性与压力</title>
+<style>
+:root {
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --text: #3a3029;
+  --muted: #7a7067;
+  --brick: #c0392b;
+  --olive: #6b8e23;
+  --gold: #b8860b;
+  --accent: #c0392b;
+  --border: #e8dfd4;
+  --panel-bg: #fcf8f3;
+  --radius: 12px;
+  --shadow: 0 1px 4px rgba(60,40,20,0.08), 0 6px 20px rgba(60,40,20,0.06);
+  --transition: 0.25s ease;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Georgia, "Noto Serif SC", "Source Han Serif CN", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 28px 16px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@keyframes gradFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.header {
+  background: linear-gradient(135deg, var(--brick), var(--olive), var(--gold));
+  background-size: 300% 300%;
+  animation: gradFlow 8s ease infinite;
+  border-radius: var(--radius);
+  padding: 32px 26px 26px;
+  color: #fff;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 50%;
+}
+.header h1 { font-size: 22px; line-height: 1.35; margin-bottom: 10px; font-weight: 700; }
+.header .sub { opacity: 0.88; font-size: 14px; line-height: 1.5; }
+.header .meta { margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; opacity: 0.82; }
+.header .meta span { background: rgba(255,255,255,0.18); padding: 3px 10px; border-radius: 20px; }
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(60,40,20,0.12); }
+
+.sent {
+  animation: fadeUp 0.5s var(--transition) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.snum {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brick), #e74c3c);
+  color: #fff;
+  padding: 2px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.en {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.en mark {
+  background: rgba(184,134,11,0.18);
+  color: #8b6914;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: help;
+  position: relative;
+  border-bottom: 1.5px dashed rgba(184,134,11,0.45);
+}
+.en u {
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  font-style: italic;
+}
+.sent-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4c4b0, transparent);
+  margin: 14px 0;
+}
+.tl-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13.5px;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.zh {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #555048;
+  margin-bottom: 8px;
+}
+
+details {
+  background: var(--panel-bg);
+  border-left: 3.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.78;
+}
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: var(--accent);
+  list-style: none;
+  outline: none;
+  user-select: none;
+}
+summary::before { content: "▸ "; color: var(--gold); }
+details[open] summary::before { content: "▾ "; }
+details p { margin-bottom: 6px; }
+details .long-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), #daa520);
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+details[open] { animation: slideDown 0.25s ease; }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ico {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.ico.brick { background: var(--brick); }
+.ico.green { background: var(--olive); }
+.ico.gold { background: var(--gold); }
+.toggle {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--olive);
+  background: rgba(107,142,35,0.09);
+  padding: 3px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(107,142,35,0.18);
+  user-select: none;
+  transition: var(--transition);
+}
+.toggle:hover { background: rgba(107,142,35,0.17); }
+.collapsible-body { overflow: hidden; transition: max-height 0.3s ease; }
+.collapsible-body.hidden { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 6px 0 0;
+}
+th, td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: rgba(184,134,11,0.08);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+}
+tr:hover td { background: rgba(184,134,11,0.04); }
+
+.p-item {
+  background: var(--panel-bg);
+  border-left: 3.5px solid var(--olive);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.p-item b { color: var(--accent); }
+.puse { margin-top: 6px; color: var(--muted); font-size: 13px; }
+
+.er {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.er:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.q-num {
+  font-weight: 700;
+  color: var(--brick);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.q-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text);
+  line-height: 1.65;
+}
+.opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.opt {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(60,40,20,0.03);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.opt.ok { background: rgba(107,142,35,0.1); border-color: var(--olive); font-weight: 600; color: #4a6b0a; }
+.opt.no { background: rgba(192,57,43,0.05); border-color: rgba(192,57,43,0.2); text-decoration: line-through; color: var(--muted); }
+.ua { font-size: 13px; margin-bottom: 6px; color: var(--olive); font-weight: 600; }
+.analysis {
+  background: var(--panel-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.78;
+  margin-top: 6px;
+}
+.analysis p { margin-bottom: 6px; }
+
+.item-list { list-style: none; padding: 0; }
+.item-list li {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  transition: var(--transition);
+}
+.item-list li:last-child { border-bottom: none; }
+.item-list li:hover { background: rgba(184,134,11,0.04); }
+.item-list li b { color: var(--accent); }
+
+@media print {
+  body { padding: 20px; background: #fff; }
+  .card { break-inside: avoid; page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+  .toggle { display: none; }
+  .collapsible-body.hidden { display: block !important; }
+  details { display: block !important; }
+  details > * { display: block !important; }
+  summary { display: none !important; }
+  .header { background: #555; color: #fff; -webkit-print-color-adjust: exact; }
+}
+@media (max-width: 720px) {
+  body { padding: 16px 8px 60px; }
+  .header { padding: 24px 18px 20px; }
+  .header h1 { font-size: 19px; }
+  .card { padding: 18px 16px; }
+  .opts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>2008 考研英语（二）· Text 1</h1>
+  <div class="sub">女性与压力——性别差异下的压力反应与应对</div>
+  <div class="meta">
+    <span>来源：2008 英二 Part A Text 1</span>
+    <span>难度：★★★☆☆</span>
+    <span>题材：社会心理 / 性别差异</span>
+  </div>
+</div>
+
+<!-- S01 -->
+<div class="sent" style="animation-delay: 0.02s">
+  <div class="card">
+    <span class="snum">S01</span>
+    <div class="en">
+      While still <mark>catching up to</mark> men in some spheres of modern life, women appear to be way ahead in at least one undesirable category.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">尽管女性在现代生活的某些领域仍在追赶男性，但在至少一个不受欢迎的类别中，她们似乎遥遥领先。</div>
+    <details open><summary>语法分析</summary><p>📌 <b>句型结构</b>：让步状语从句 + 主句</p><p>• <code>While still catching up to men...</code> = 让步状语从句（省略主语和 be 动词，完整为 "While (they are) still catching up..."）</p><p>• 主句：<code>women appear to be way ahead in at least one undesirable category</code></p><p>• <b>way ahead</b> = 远远领先；<b>undesirable category</b> = 不受欢迎的类别（此处指压力相关疾病的高发率）</p></details>
+  </div>
+</div>
+
+<!-- S02 -->
+<div class="sent" style="animation-delay: 0.05s">
+  <div class="card">
+    <span class="snum">S02</span>
+    <div class="en">
+      "Women are particularly <mark>susceptible</mark> to developing depression and anxiety disorders in response to stress compared to men," according to Dr. Yehuda, chief psychiatrist at New York's Veteran's Administration Hospital.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">纽约退伍军人管理局医院首席精神科医生 Yehuda 博士表示："与男性相比，女性在面对压力时特别容易患上抑郁症和焦虑症。"</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：引用句 + 同位语 + 介词短语作后置定语</p><p>• 核心句：<code>"Women are ... susceptible to developing ... disorders"</code></p><p>• <code>in response to stress</code> = 条件状语，说明"面对压力时"</p><p>• <code>compared to men</code> = 比较状语，修饰整句话的结论</p><p>• <code>according to Dr. Yehuda</code> = 引用来源</p><p>• <code>chief psychiatrist at New York's Veteran's Administration Hospital</code> = Dr. Yehuda 的同位语（头衔+机构）</p><p>• <b>susceptible to</b> = 易受…影响的、易患…的（重点搭配）</p></details>
+  </div>
+</div>
+
+<!-- S03 -->
+<div class="sent" style="animation-delay: 0.08s">
+  <div class="card">
+    <span class="snum">S03</span>
+    <div class="en">
+      Studies of both animals and humans have shown that sex hormones somehow <u>affect the stress response, causing females under stress to produce more of the trigger chemicals than do males under the same conditions.</u>
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">对动物和人类的研究表明，性激素在某种程度上会影响压力反应，导致处于压力之下的雌性比相同条件下的雄性产生更多的触发化学物质。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 宾语从句 + 结果状语 + 比较结构</p><p>• 主句：<code>Studies ... have shown that ...</code></p><p>• 宾语从句：<code>sex hormones somehow affect the stress response</code></p><p>• 结果状语：<code>causing females ... to produce more of the trigger chemicals than do males ...</code></p><p>• ⚠️ <code>than do males</code> = 倒装！正常语序是 "than males do"，助动词 do 提前是为了强调比较对象并避免重复 produce</p><p>• <b>trigger chemicals</b> = 触发化学物质（指压力下产生的应激激素等）</p></details>
+  </div>
+</div>
+
+<!-- S04 -->
+<div class="sent" style="animation-delay: 0.11s">
+  <div class="card">
+    <span class="snum">S04</span>
+    <div class="en">
+      In several of the studies, when stressed-out female rats had their ovaries (the female reproductive organs) removed, their chemical responses became equal to those of the males.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">在几项研究中，当承受压力的雌性大鼠被切除卵巢（雌性生殖器官）后，它们的化学反应变得与雄性相当。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：时间状语从句 + 主句</p><p>• <code>when stressed-out female rats had their ovaries ... removed</code> = 时间从句（have sth. done 结构："使某物被…"）</p><p>• <code>(the female reproductive organs)</code> = 插入语，对 ovary 的解释</p><p>• 主句：<code>their chemical responses became equal to those of the males</code></p><p>• <b>those</b> = 指代前文的 chemical responses（避免重复）</p><p>• 本句作为实验证据支撑 S03 的论点——性激素影响压力反应</p></details>
+  </div>
+</div>
+
+<!-- S05 -->
+<div class="sent" style="animation-delay: 0.14s">
+  <div class="card">
+    <span class="snum">S05</span>
+    <div class="en">
+      Adding to a woman's increased dose of stress chemicals, are her increased "<mark>opportunities</mark>" for stress.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">除了女性体内更多的应激化学物质之外，她们面临的压力"机会"也更多。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：完全倒装句！</p><p>• 正常语序：<code>Her increased "opportunities" for stress are adding to a woman's increased dose of stress chemicals.</code></p><p>• 表语（<code>Adding to ...</code>）前置到句首，系动词 are 紧跟其后，主语（<code>her increased "opportunities" for stress</code>）后置</p><p>• 倒装目的：① 承接上文（化学物质）② 强调本段新论点（压力来源增多）③ 避免头重脚轻</p><p>• 引号中的 <b>"opportunities"</b> 是反语用法——"机会"实指"遭遇压力的可能性"，并非好事</p></details>
+  </div>
+</div>
+
+<!-- S06 -->
+<div class="sent" style="animation-delay: 0.17s">
+  <div class="card">
+    <span class="snum">S06</span>
+    <div class="en">
+      "It's not necessarily that women don't cope as well. It's just that they have so much more to cope with," says Dr. Yehuda.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">Yehuda 博士说："这不一定是女性应对能力差的问题，而是她们要应对的事情实在太多了。"</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：并列强调句（It's not... It's just...）</p><p>• <code>cope with</code> = 应对、处理（核心搭配）</p><p>• 第一个 <code>It's not necessarily that...</code> = 否定一种可能解释（女性应对能力不行）</p><p>• 第二个 <code>It's just that...</code> = 给出真正原因（事情太多）</p><p>• 这组并列句是全文的核心论点之一——女性的压力问题不是能力问题而是负担问题</p></details>
+  </div>
+</div>
+
+<!-- S07 -->
+<div class="sent" style="animation-delay: 0.20s">
+  <div class="card">
+    <span class="snum">S07</span>
+    <div class="en">
+      "Their capacity for tolerating stress may even be greater than men's," she observes, "it's just that they're dealing with so many more things that they become worn out from it more visibly and sooner."
+    </div>
+    <hr class="sent-hr">
+    <div class="tel-label">🌐 译文</div>
+    <div class="zh">她观察到："她们忍受压力的能力甚至可能比男性更强，只是她们要处理的事情多得多了，所以更明显地、也更早地被耗尽了精力。"</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：引语含让步转折 + 因果关系从句</p><p>• 让步：<code>Their capacity ... may even be greater than men's</code>（承认女性抗压能力强）</p><p>• 转折：<code>it's just that ...</code>（但问题是…）</p><p>• 结果状语从句：<code>so many more things that they become ...</code>（如此多的事→以至于…）</p><p>• <code>so ... that ...</code> = 如此…以至于…（结果状语从句标志结构）</p><p>• <b>worn out</b> = 精疲力竭、消耗殆尽（wear out 的过去分词作形容词）</p><p>• <b>more visibly and sooner</b> = 更明显地且更早地（两个副词比较级并列）</p></details>
+  </div>
+</div>
+
+<!-- S08 -->
+<div class="sent" style="animation-delay: 0.23s">
+  <div class="card">
+    <span class="snum">S08</span>
+    <div class="en">
+      Dr. Yehuda notes another difference between the sexes. "I think that the kinds of things that women are exposed to tend to be in more of a <mark>chronic</mark> or repeated nature."
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">Yehuda 博士指出了两性之间的另一个差异。"我认为女性所接触的事情往往更具慢性或反复的性质。"</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 宾语从句（嵌套定语从句）</p><p>• <code>I think that [the kinds of things (that women are exposed to)] tend to be ...</code></p><p>• 外层宾语从句：I think that ... tend to be ...</p><p>• 内层定语从句：<code>that women are exposed to</code> 修饰 things</p><p>• <code>be exposed to</code> = 接触于、暴露于、面临（重点搭配）</p><p>• <b>chronic</b> = 慢性的、长期的（医学术语，如 chronic disease 慢性病）</p></details>
+  </div>
+</div>
+
+<!-- S09 -->
+<div class="sent" style="animation-delay: 0.26s">
+  <div class="card">
+    <span class="snum">S09</span>
+    <div class="en">
+      Men go to war and are exposed to combat stress. Men are exposed to more acts of random physical violence.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">男性上战场，面临战斗压力。男性更多地暴露在随机的肢体暴力行为之下。</div>
+    <details><summary>语法分析</summary><p>📌 两句并列，描述男性面对的压力类型：</p><p>• <code>combat stress</code> = 战斗压力、战争压力</p><p>• <code>random physical violence</code> = 随机的身体暴力</p><p>• 这两句是为下文做对比铺垫——男性的压力是"一次性、爆发式"的，而女性的不同（见 S10）</p></details>
+  </div>
+</div>
+
+<!-- S10 -->
+<div class="sent" style="animation-delay: 0.29s">
+  <div class="card">
+    <span class="snum">S10</span>
+    <div class="en">
+      The kinds of <u>interpersonal violence</u> that women are exposed to tend to be in domestic situations, by, unfortunately, parents or other family members, and they tend not to be one-shot deals.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">女性所遭受的人际暴力通常发生在家庭环境中——不幸的是，来自父母或其他家庭成员——而且往往不是一次性的。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 定语从句 + 插入语 + 并列谓语</p><p>• 主语：<code>The kinds of interpersonal violence</code></p><p>• 定语从句：<code>that women are exposed to</code> 修饰 violence</p><p>• 谓语 1：<code>tend to be in domestic situations</code></p><p>• 插入语：<code>, by, unfortunately, parents or other family members,</code>（补充说明施暴者身份，by 在此表"由/来自"）</p><p>• 谓语 2：<code>and they tend not to be one-shot deals</code></p><p>• <b>interpersonal violence</b> = 人际暴力</p><p>• <b>one-shot deals</b> = 一锤子买卖、一次性的事情（口语化表达）</p></details>
+  </div>
+</div>
+
+<!-- S11 -->
+<div class="sent" style="animation-delay: 0.32s">
+  <div class="card">
+    <span class="snum">S11</span>
+    <div class="en">
+      The wear-and-tear that comes from these longer relationships can be quite devastating.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">这些长期关系带来的损耗可能是毁灭性的。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主语（含定语从句）+ 系动词 + 表语</p><p>• <code>The wear-and-tear</code> = 主语（磨损、消耗、损耗；复合名词）</p><p>• 定语从句：<code>that comes from these longer relationships</code> 修饰 wear-and-tear</p><p>• <b>wear-and-tear</b> = 磨损、损耗、折磨（源自机械术语，喻指长期的身心消耗）</p><p>• <b>devastating</b> = 毁灭性的、破坏力极大的</p></details>
+  </div>
+</div>
+
+<!-- S12 -->
+<div class="sent" style="animation-delay: 0.35s">
+  <div class="card">
+    <span class="snum">S12</span>
+    <div class="en">
+      <mark>Adeline Alvarez</mark> married at 18 and gave birth to a son, but was determined to finish college.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">阿德琳·阿尔瓦雷斯 18 岁结婚并生了一个儿子，但她决心完成大学学业。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：并列句（but 连接转折）</p><p>• 前半句：<code>married at 18 and gave birth to a son</code>（两个并列谓语）</p><p>• 后半句：<code>but was determined to finish college</code>（省略主语 she）</p><p>• <code>be determined to do sth.</code> = 决心做某事（重点搭配）</p><p>• 从本句开始引入真实案例（Alvarez），以个体故事佐证前面的理论观点</p></details>
+  </div>
+</div>
+
+<!-- S13 -->
+<div class="sent" style="animation-delay: 0.38s">
+  <div class="card">
+    <span class="snum">S13</span>
+    <div class="en">
+      "I struggled a lot to get the college degree. I was living in so much frustration that that was my escape, to go to school, and get ahead and do better."
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">"我为了拿到学位非常挣扎。我当时生活在巨大的挫折之中，所以上学就是我逃避现实的方式，让我能出人头地、过上更好的生活。"</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：引语含结果状语从句 + 不定式作同位语</p><p>• <code>so much frustration that that was my escape</code> = <code>so ... that ...</code> 结果状语</p><p>• ⚠️ 注意两个 that：第一个是 so...that 结构的一部分；第二个是指示代词（"那件事就是我的出路"）</p><p>• <code>to go to school, and get ahead and do better</code> = 不定式短语作 escape 的同位语，解释"escape"具体是什么</p><p>• <b>get ahead</b> = 出人头地、获得成功、向前发展</p></details>
+  </div>
+</div>
+
+<!-- S14 -->
+<div class="sent" style="animation-delay: 0.41s">
+  <div class="card">
+    <span class="snum">S14</span>
+    <div class="en">
+      Later, her marriage ended and she became a single mother.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">后来，她的婚姻结束了，她成了一位单身母亲。</div>
+    <details><summary>语法分析</summary><p>📌 简单句，三个并列事件推动叙事发展：</p><p>• 时间状语：<code>Later</code></p><p>• 事件 1：<code>her marriage ended</code>（婚姻破裂）</p><p>• 事件 2：<code>she became a single mother</code>（成为单亲妈妈）</p><p>• 句子虽短，但信息密度大——暗示了压力源的叠加（学业→婚姻→单亲）</p></details>
+  </div>
+</div>
+
+<!-- S15 -->
+<div class="sent" style="animation-delay: 0.44s">
+  <div class="card">
+    <span class="snum">S15</span>
+    <div class="en">
+      "It's the hardest thing to take care of a teenager, have a job, pay the rent, pay the car payment, and pay the debt. I lived <u>from paycheck to paycheck</u>."
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">"照顾一个青少年、有工作、付房租、付车贷、还债务——这是最艰难的事。我过着月光族般的生活。"</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：引语（形式主语 it + 不定式真主语 + 列举 + 习语）</p><p>• <code>It's the hardest thing (to take care of ..., have ..., pay ..., pay ..., and pay ...)</code></p><p>• it = 形式主语；不定式 to take care of ... and pay ... = 真正的主语（列举了五项责任）</p><p>• <b>from paycheck to paycheck</b> = 月光族（习语：工资刚到手就花完，没有积蓄）</p><p>• 这个句子是第 24 题的考点句！</p></details>
+  </div>
+</div>
+
+<!-- S16 -->
+<div class="sent" style="animation-delay: 0.47s">
+  <div class="card">
+    <span class="snum">S16</span>
+    <div class="en">
+      Not everyone experiences the kinds of severe <mark>chronic</mark> stresses Alvarez describes.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">并非每个人都会经历阿尔瓦雷斯所描述的那种严重的慢性压力。</div>
+    <details><summary>语法分析</summary><p>📌 过渡句——从个案回到普遍现象。</p><p>• <code>Not everyone</code> = 部分否定（不是所有人=有些人会经历）</p><p>• <code>Alvarez describes</code> = 定语从句（省略 that/which），修饰 stresses</p><p>• 本句承上启下：上面是个极端案例，下面说大多数女性的普遍情况</p></details>
+  </div>
+</div>
+
+<!-- S17 -->
+<div class="sent" style="animation-delay: 0.50s">
+  <div class="card">
+    <span class="snum">S17</span>
+    <div class="en">
+      But most women today are coping with a lot of obligations, with few breaks, and feeling the strain.
+    </div>
+    <hr class="sent-hr">
+    <div class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">但如今大多数女性都在应对大量的义务，几乎没有喘息的机会，感受着这种紧绷的压力。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 三个并列成分</p><p>• 主句：<code>most women today are coping with ... , with ... , and feeling ...</code></p><p>• 成分 1：<code>coping with a lot of obligations</code>（应对大量义务）</p><p>• 成分 2：<code>with few breaks</code>（几乎没有休息/喘息）</p><p>• 成分 3：<code>feeling the strain</code>（感受压力/紧张）</p><p>• <b>coping with</b> = 应对、设法处理（重点搭配）</p><p>• <b>strain</b> = 紧绷状态、压力、过劳</p></details>
+  </div>
+</div>
+
+<!-- S18 -->
+<div class="sent" style="animation-delay: 0.53s">
+  <div class="card">
+    <span class="snum">S18</span>
+    <div class="en">
+      Alvarez's experience demonstrates the importance of finding ways to diffuse stress before it threatens your health and your ability to function.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">阿尔瓦雷斯的经历说明了在压力威胁你的健康和工作能力之前找到缓解之道的重要性。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主谓宾 + 不定式短语（含时间状语从句）</p><p>• 主语：<code>Alvarez's experience</code></p><p>• 谓语：<code>demonstrates</code></p><p>• 宾语：<code>the importance of finding ways to diffuse stress</code></p><p>• 时间状语从句：<code>before it threatens your health and your ability to function</code></p><p>• <b>diffuse</b> = 缓解、化解、使扩散减轻（本文核心词之一）</p><p>• <b>function</b> = 此处作动词 = 正常运作、发挥功能</p><p>• 全文结尾升华：从个人案例上升到普遍启示</p></details>
+  </div>
+</div>
+
+<!-- ===== 底部汇总区 ===== -->
+
+<div class="card">
+  <h2><span class="ico brick"></span>全文脉络<span class="toggle" data-target="outline">收起</span></h2>
+  <div class="collapsible-body" id="outline">
+  <ul class="item-list">
+    <li><b>① 现象提出（P1–P2）</b>：女性在压力相关疾病（抑郁/焦虑）方面发病率更高；性激素影响压力反应，雌性产生更多触发化学物质</li>
+    <li><b>② 实验佐证（P2末）</b>：切除卵巢的雌鼠化学反应降至雄性水平——证明性激素的关键作用</li>
+    <li><b>③ 核心论点一（P3）</b>：女性压力大不是因为"应对能力差"，而是因为"要应对的事情多得多"；她们抗压能力可能反而更强</li>
+    <li><b>④ 核心论点二（P4）</b>：男女面对的压力性质不同——男性多为战斗暴力（一次性）；女性多为家庭人际暴力（慢性、持续性、毁灭性）</li>
+    <li><b>⑤ 个案佐证（P5–P5末）</b>：Adeline Alvarez 的故事——早婚早育→坚持求学→离婚单亲→月光族生活——展示慢性压力的真实图景</li>
+    <li><b>⑥ 总结升华（P6）</b>：大多数女性都在承担大量义务；必须在压力损害健康之前学会缓解</li>
+  </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico gold"></span>重点词汇表<span class="toggle" data-target="vocab">收起</span></h2>
+  <div class="collapsible-body" id="vocab">
+  <table>
+    <tr><th>单词/短语</th><th>音标 & 词义</th><th>例句/搭配</th></tr>
+    <tr><td><b>susceptible</b></td><td>/səˈseptəbl/ adj. 易受影响的；敏感的</td><td>be susceptible to 对…易感/易患</td></tr>
+    <tr><td><b>depression</b></td><td>/dɪˈpreʃn/ n. 抑郁；沮丧；萧条</td><td>clinical depression 临床抑郁症</td></tr>
+    <tr><td><b>anxiety disorder</b></td><td>/æŋˈzaɪəti dɪˈɔːrdər/ n. 焦虑症</td><td>develop anxiety disorders 患上焦虑症</td></tr>
+    <tr><td><b>hormone</b></td><td>/ˈhɔːrməʊn/ n. 激素；荷尔蒙</td><td>sex hormones 性激素</td></tr>
+    <tr><td><b>ovary</b></td><td>/ˈoʊvəri/ n. 卵巢；（复）ovaries</td><td>have one's ovaries removed 切除卵巢</td></tr>
+    <tr><td><b>chronic</b></td><td>/ˈkrɑːnɪk/ adj. 慢性的；长期的</td><td>chronic stress/disease 慢性压力/病</td></tr>
+    <tr><td><b>domestic</b></td><td>/dəˈmestɪk/ adj. 家庭的；国内的</td><td>domestic violence/situation 家暴/家庭环境</td></tr>
+    <tr><td><b>wear-and-tear</b></td><td>/weər ən tɪr/ n. 磨损；损耗；折磨</td><td>the wear-and-tear of daily life 日常生活的消耗</td></tr>
+    <tr><td><b>devastating</b></td><td>/ˈdevəsteɪtɪŋ/ adj. 毁灭性的；极具破坏力的</td><td>a devastating effect 毁灭性影响</td></tr>
+    <tr><td><b>interpersonal</b></td><td>/ˌɪntərˈpɜːrsənl/ adj. 人际的；人与人之间的</td><td>interpersonal violence/relationship 人际暴力/关系</td></tr>
+    <tr><td><b>determined</b></td><td>/dɪˈtɜːrmɪnd/ adj. 下定决心的</td><td>be determined to do 决心做某事</td></tr>
+    <tr><td><b>frustration</b></td><td>/frʌˈstreɪʃn/ n. 挫折；挫败；沮丧</td><td>live in frustration 生活在挫败中</td></tr>
+    <tr><td><b>obligation</b></td><td>/ˌɑːblɪˈgeɪʃn/ n. 义务；责任；职责</td><td>coping with a lot of obligations 应对大量义务</td></tr>
+    <tr><td><b>strain</b></td><td>/streɪn/ n. 压力；紧张；拉紧 v. 使紧绷</td><td>feeling the strain 感受到压力</td></tr>
+    <tr><td><b>diffuse</b></td><td>/dɪˈfjuːz/ v. 缓解；化解；使扩散</td><td>diffuse stress 缓解压力</td></tr>
+    <tr><td><b>cope (with)</b></td><td>/koʊp/ v. 应对；处理；设法对付</td><td>cope with stress 应对压力</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico green"></span>熟词生义<span class="toggle" data-target="familiar">收起</span></h2>
+  <div class="collapsible-body" id="familiar">
+  <table>
+    <tr><th>词汇</th><th>常见义</th><th>本文生义</th></tr>
+    <tr><td><b>opportunity</b></td><td>n. 机会；机遇（褒义）</td><td>反语用法："遭遇…的可能"（S05 中指压力的"机会"）</td></tr>
+    <tr><td><b>deal</b></td><td>n. 交易；协议</td><td>n. 情况；局面（one-shot deals = 一次性行为/事情）</td></tr>
+    <tr><td><b>function</b></td><td>n. 功能；函数</td><td>v. 正常运转；发挥功能（your ability to function = 你的正常工作/生活能力）</td></tr>
+    <tr><td><b>escape</b></td><td>v./n. 逃脱；逃跑</td><td>n. （心理上的）逃避方式；解脱途径（my escape = 我的精神寄托/出路）</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico gold"></span>重点短语搭配<span class="toggle" data-target="phrases">收起</span></h2>
+  <div class="collapsible-body" id="phrases">
+  <table>
+    <tr><th>短语</th><th>释义</th></tr>
+    <tr><td><b>catching up to</b></td><td>追赶；赶上</td></tr>
+    <tr><td><b>be susceptible to</b></td><td>易受…影响的；易患…的</td></tr>
+    <tr><td><b>in response to</b></td><td>作为对…的反应</td></tr>
+    <tr><td><b>affect the stress response</b></td><td>影响压力反应</td></tr>
+    <tr><td><b>under stress</b></td><td>处于压力之下</td></tr>
+    <tr><td><b>adding to</b></td><td>增加；加剧</td></tr>
+    <tr><td><b>cope with</b></td><td>应对；处理；设法解决</td></tr>
+    <tr><td><b>tolerating stress</b></td><td>耐受压力；忍受压力</td></tr>
+    <tr><td><b>worn out</b></td><td>精疲力竭；消耗殆尽</td></tr>
+    <tr><td><b>be exposed to</b></td><td>暴露于；面临；接触到</td></tr>
+    <tr><td><b>combat stress</b></td><td>战斗压力；战争压力</td></tr>
+    <tr><td><b>physical violence</b></td><td>肢体暴力；身体伤害</td></tr>
+    <tr><td><b>domestic situations</b></td><td>家庭环境；家庭情境</td></tr>
+    <tr><td><b>one-shot deal</b></td><td>一次性的；一锤子买卖</td></tr>
+    <tr><td><b>wear-and-tear</b></td><td>（长期的）磨损；消耗；折磨</td></tr>
+    <tr><td><b>be determined to</b></td><td>下定决心做…</td></tr>
+    <tr><td><b>get ahead</b></td><td>获得成功；出人头地；向前发展</td></tr>
+    <tr><td><b>single mother</b></td><td>单身母亲</td></tr>
+    <tr><td><b>from paycheck to paycheck</b></td><td>月光族；手停口停；入不敷出</td></tr>
+    <tr><td><b>coping with</b></td><td>应付；应对（= cope with）</td></tr>
+    <tr><td><b>feeling the strain</b></td><td>感受到压力；感到紧绷</td></tr>
+    <tr><td><b>diffuse stress</b></td><td>缓解压力；化解压力</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico green"></span>值得背诵的 3 个句型<span class="toggle" data-target="patterns">收起</span></h2>
+  <div class="collapsible-body" id="patterns">
+  <div class="p-item">
+    <b>句型 1：It's not (necessarily) that ... It's (just) that ...</b>
+    <div class="puse">这不是（一定）是…，而是（只是）…（用于澄清误解、给出真正原因）</div>
+    <div style="font-style:italic; color: var(--muted); margin-top: 4px;">
+      "It's not necessarily that women don't cope as well. It's just that they have so much more to cope with."
+    </div>
+  </div>
+  <div class="p-item">
+    <b>句型 2：so ... that ...（如此…以至于…，结果状语从句）</b>
+    <div class="puse">表示因果关系的经典从句结构，that 后接结果</div>
+    <div style="font-style: italic; color: var(--muted); margin-top: 4px;">
+      "I was living in so much frustration that that was my escape, to go to school..."
+    </div>
+  </div>
+  <div class="p-item">
+    <b>句型 3：The ... that ... can be quite ...（定语从句 + 系表结构评价后果）</b>
+    <div class="puse">先通过定语从句限定范围，再对整体做出判断/评价</div>
+    <div style="font-style: italic; color: var(--muted); margin-top: 4px;">
+      "The wear-and-tear that comes from these longer relationships can be quite devastating."
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico brick"></span>题目答案速查<span class="toggle" data-target="qa">收起</span></h2>
+  <div class="collapsible-body" id="qa">
+
+  <div class="er">
+    <div class="q-num">21. Which of the following is true according to the first two paragraphs?</div>
+    <div class="q-text">根据前两段，下列哪项正确？</div>
+    <div class="opts">
+      <span class="opt no">[A] Women are biologically more vulnerable to stress.</span>
+      <span class="opt no">[B] Women are still suffering much stress caused by men.</span>
+      <span class="opt no">[C] Women are more experienced than men in coping with stress.</span>
+      <span class="opt ok">[D] Men and women show different inclinations when faced with stress. ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P1（女性更容易患抑郁/焦虑）+ P2（性激素影响压力反应，雌性产生更多化学物质）</p>
+      <p>✅ <b>D 正确推理</b>：P1 说女性在"undesirable category"（压力疾病）领先；P2 说性激素使雌性产生更多触发化学物质——综合即"男女在面对压力时表现出不同的倾向/反应模式"。D 准确概括了两段的共同主题。</p>
+      <p>❌ <b>A 错误</b>：P2 提到性激素影响压力反应，但这不等同于"生物学上更脆弱"（biologically more vulnerable）。P3 明确说女性的耐压能力可能比男性更强。</p>
+      <p>❌ <b>B 错误</b>：原文从未提及"男性给女性造成压力"这一因果关系，属于无中生有。</p>
+      <p>❌ <b>C 错误</b>：P3 明确说"It's not necessarily that women don't cope as well"（不是说她们应对得不好），C 与原文矛盾。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">22. Dr. Yehuda's research suggests that women _____.</div>
+    <div class="q-text">Dr. Yehuda 的研究表明女性_____。</div>
+    <div class="opts">
+      <span class="opt no">[A] need extra doses of chemicals to handle stress.</span>
+      <span class="opt no">[B] have limited capacity of tolerating stress.</span>
+      <span class="opt no">[C] are more capable of avoiding stress.</span>
+      <span class="opt ok">[D] are exposed to more stress. ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P3 核心——"It's just that they have so much more to cope with"；P4——女性面对的压力是"chronic or repeated"（慢性的或反复的）</p>
+      <p>✅ <b>D 正确推理</b>：P3 明确指出女性压力大的根本原因是"so much more to cope with"（要应对的事情多得多）；P4 进一步补充女性面对的压力类型是持续性的。"are exposed to more stress"准确概括了这两点。</p>
+      <p>❌ <b>A 错误</b>：原文说的是女性在压力下"produce more of the trigger chemicals"（产生更多的触发化学物质），不是"need extra doses"（需要额外的量）。A 把"产生更多"曲解为"需要额外摄入"。</p>
+      <p>❌ <b>B 错误</b>：P3 直接否定这一点——"Their capacity for tolerating stress may even be greater than men's"（她们的耐压能力可能甚至比男性更强）。B 与原文相反。</p>
+      <p>❌ <b>C 错误</b>：原文讨论的是如何"cope with"（应对）压力而非"avoiding"（回避）压力。女性面对的是无法回避的家庭/人际关系压力，不是能不能避开的问题。</p>
+    </div>
+  </div>
+
+  <dom class="er">
+    <div class="q-num">23. According to Paragraph 4, the stress women confront tends to be _____.</div>
+    <div class="q-text">根据第四段，女性面临的压力往往是_____。</div>
+    <div class="opts">
+      <span class="opt no">[A] domestic and voluntary.</span>
+      <span class="opt no">[B] irregular and violent.</span>
+      <span class="opt ok">[C] durable and frequent. ✓</span>
+      <span class="opt no">[D] trivial and random.</span>
+    </div>
+    <div class="ua">标准答案：C</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P4 ——"tend to be in more of a chronic or repeated nature"、"not be one-shot deals"、"longer relationships"、"wear-and-tear"</p>
+      <p>✅ <b>C 正确推理</b>：P4 用多个关键词一致指向同一特征——<b>chronic</b>（慢性的=持久的=durable）、<b>repeated</b>（反复的=frequent）、<b>not one-shot</b>（非一次性的）、<b>longer relationships</b>（更长的关系）。C 选项"durable and frequent"完美对应"chronic + repeated"的同义替换。</p>
+      <p>❌ <b>A 错误</b>：domestic（家庭的）是对的，但 voluntary（自愿的）完全错误——家庭暴力/家庭义务显然不是女性"自愿"选择的。</p>
+      <p>❌ <b>B 错误</b>：violent（暴力的）只适用于部分情况（interpersonal violence）；irregular（不规律的）与原文"chronic/repeated/longer"恰恰相反——原文强调的是规律性和持续性。</p>
+      <p>❌ <b>D 错误</b>：trivial（琐碎的）严重低估了家暴和家庭压力的严重程度（原文用了 devastating"毁灭性的"）；random（随机的）是男性压力的特征（random physical violence），不是女性的。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">24. The sentence "I lived from paycheck to paycheck." (Line 6, Para.5) shows that _____.</div>
+    <div class="q-text">"I lived from paycheck to paycheck."这句话表明_____。</div>
+    <div class="opts">
+      <span class="opt no">[A] Alvarez cared about nothing but making money.</span>
+      <span class="opt ok">[B] Alvarez's salary barely covered her household expenses. ✓</span>
+      <span class="opt no">[C] Alvarez got paychecks from different jobs.</span>
+      <span class="opt no">[D] Alvarez paid practically everything by check.</span>
+    </div>
+    <div class="ua">标准答案：B</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P5 最后一句——"take care of a teenager, have a job, pay the rent, pay the car payment, and pay the debt. I lived from paycheck to paycheck."</p>
+      <p>✅ <b>B 正确推理</b>：上下文列出了五项支出（teenager + rent + car payment + debt + 生活开销），然后说"from paycheck to paycheck"——意思就是收入刚好覆盖支出、没有剩余。B 选项"salary barely covered household expenses"（薪水勉强够支付家庭开支）正是这个习语的准确含义。</p>
+      <p>❌ <b>A 错误</b>：过度推断。原文说的是经济拮据，不是"只在乎赚钱"（nothing but making money）。Alvarez 上学、工作、养孩子，显然不只是在乎钱。</p>
+      <p>❌ <b>C 错误</b>：字面理解错误。from paycheck to paycheck 是固定习语（=月光族），不是字面意思"从不同工作的薪水中拿钱"。</p>
+      <p>❌ <b>D 错误</b>：同样犯了字面理解的错。paycheck 这里不等于"支票"，而是泛指"工资/薪水"。该习语的含义与支付方式无关。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">25. Which of the following would be the best title for the text?</div>
+    <div class="q-text">下列哪项是本文最佳标题？</div>
+    <div class="opts">
+      <span class="opt no">[A] Strain of Stress: No Way Out?</span>
+      <span class="opt no">[B] Responses to Stress: Gender Difference</span>
+      <span class="opt no">[C] Stress Analysis: What Chemicals Say</span>
+      <span class="opt ok">[D] Gender Inequality: Women Under Stress ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：全文主旨——P1-P2（女性更易患病）→ P3（女性要应对的更多）→ P4（女性压力更持久/毁灭性）→ P5（案例佐证）→ P6（大多数女性都在承受压力）</p>
+      <p>✅ <b>D 正确推理</b>：全文的核心议题是"性别视角下女性所承受的特殊压力"——既有生理层面的（性激素），也有社会层面的（家庭角色、慢性压力、多重义务）。D 的"Gender Inequality"点出了性别差异框架，"Women Under Stress"精准概括了文章焦点。</p>
+      <p>❌ <b>A 错误</b>：No Way Out?（无路可走？）太消极/绝望，不符合原文基调。原文最后一段明确指出应"find ways to diffuse stress"（找到缓解方法），是有出路的。</p>
+      <p>❌ <b>B 错误</b>：Responses to Stress: Gender Difference（压力反应：性别差异）只覆盖了 P1-P2 和 P4 的内容（激素+压力类型差异），遗漏了 P3/P5/P6 关于女性压力负担更重的核心论点。标题偏窄。</p>
+      <p>❌ <b>C 错误</b>：Stress Analysis: What Chemicals Say（压力分析：化学物质告诉我们什么）只聚焦于 P2 的性激素部分，过于片面——文章大部分篇幅讨论的不是化学层面而是社会/心理层面的压力差异。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var targetId = this.getAttribute('data-target');
+    var body = document.getElementById(targetId);
+    if (!body) return;
+    if (body.classList.contains('hidden')) {
+      body.classList.remove('hidden');
+      this.textContent = '收起';
+    } else {
+      body.classList.add('hidden');
+      this.textContent = '展开';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
