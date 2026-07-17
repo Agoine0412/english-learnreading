@@ -173,16 +173,6 @@ body {
   flex: 1;
   letter-spacing: .3px;
 }
-.ycount {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--muted-light);
-  background: var(--card);
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
 
 /* 年份配色变量（通过内联 style 注入） */
 [data-year="2008"] { --year-color: var(--brick); }
@@ -345,7 +335,6 @@ body {
   <div class="year-section" data-year="2008" style="--delay:1">
     <div class="year-header">
       <span class="ytitle">🗓️ 2008 年</span>
-      <span class="ycount">4 篇</span>
     </div>
     <div class="item-list">
       <a class="item" href="2008/英二-text1.html" data-index="1" style="--item-delay:1">
@@ -371,7 +360,6 @@ body {
   <div class="year-section" data-year="2009" style="--delay:5">
     <div class="year-header">
       <span class="ytitle">🗓️ 2009 年</span>
-      <span class="ycount">2 篇</span>
     </div>
     <div class="item-list">
       <a class="item" href="2009/英二-text1.html" data-index="1" style="--item-delay:5">
@@ -389,7 +377,6 @@ body {
   <div class="year-section" data-year="2015" style="--delay:7">
     <div class="year-header">
       <span class="ytitle">🗓️ 2015 年</span>
-      <span class="ycount">3 篇</span>
     </div>
     <div class="item-list">
       <a class="item" href="2015/英二-text1.html" data-index="1" style="--item-delay:7">
@@ -421,7 +408,6 @@ body {
   <div class="year-section" data-year="YYYY" style="--delay:N">
     <div class="year-header">
       <span class="ytitle">🗓️ YYYY 年</span>
-      <span class="ycount">N 篇</span>
     </div>
     <div class="item-list">
       <a class="item" href="YYYY/xxx.html" data-index="1" style="--item-delay:M">
