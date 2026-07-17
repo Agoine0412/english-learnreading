@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2008 考研英语（二）· Text 3 — 身高的极限</title>
+<style>
+:root {
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --text: #3a3029;
+  --muted: #7a7067;
+  --brick: #c0392b;
+  --olive: #6b8e23;
+  --gold: #b8860b;
+  --accent: #c0392b;
+  --border: #e8dfd4;
+  --panel-bg: #fcf8f3;
+  --radius: 12px;
+  --shadow: 0 1px 4px rgba(60,40,20,0.08), 0 6px 20px rgba(60,40,20,0.06);
+  --transition: 0.25s ease;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Georgia, "Noto Serif SC", "Source Han Serif CN", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 28px 16px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@keyframes gradFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.header {
+  background: linear-gradient(135deg, var(--brick), var(--olive), var(--gold));
+  background-size: 300% 300%;
+  animation: gradFlow 8s ease infinite;
+  border-radius: var(--radius);
+  padding: 32px 26px 26px;
+  color: #fff;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 50%;
+}
+.header h1 { font-size: 22px; line-height: 1.35; margin-bottom: 10px; font-weight: 700; }
+.header .sub { opacity: 0.88; font-size: 14px; line-height: 1.5; }
+.header .meta { margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; opacity: 0.82; }
+.header .meta span { background: rgba(255,255,255,0.18); padding: 3px 10px; border-radius: 20px; }
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(60,40,20,0.12); }
+
+.sent {
+  animation: fadeUp 0.5s var(--transition) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.snum {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brick), #e74c3c);
+  color: #fff;
+  padding: 2px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.en {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.en mark {
+  background: rgba(184,134,11,0.18);
+  color: #8b6914;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: help;
+  position: relative;
+  border-bottom: 1.5px dashed rgba(184,134,11,0.45);
+}
+.en u {
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+  font-style: italic;
+}
+.sent-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4c4b0, transparent);
+  margin: 14px 0;
+}
+.tl-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13.5px;
+  color: var(--olive);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.zh {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #555048;
+  margin-bottom: 8px;
+}
+
+details {
+  background: var(--panel-bg);
+  border-left: 3.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.78;
+}
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: var(--accent);
+  list-style: none;
+  outline: none;
+  user-select: none;
+}
+summary::before { content: "▸ "; color: var(--gold); }
+details[open] summary::before { content: "▾ "; }
+details p { margin-bottom: 6px; }
+details .long-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), #daa520);
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+details[open] { animation: slideDown 0.25s ease; }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ico {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.ico.brick { background: var(--brick); }
+.ico.green { background: var(--olive); }
+.ico.gold { background: var(--gold); }
+.toggle {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--olive);
+  background: rgba(107,142,35,0.09);
+  padding: 3px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(107,142,35,0.18);
+  user-select: none;
+  transition: var(--transition);
+}
+.toggle:hover { background: rgba(107,142,35,0.17); }
+.collapsible-body { overflow: hidden; transition: max-height 0.3s ease; }
+.collapsible-body.hidden { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 6px 0 0;
+}
+th, td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: rgba(184,134,11,0.08);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+}
+tr:hover td { background: rgba(184,134,11,0.04); }
+
+.p-item {
+  background: var(--panel-bg);
+  border-left: 3.5px solid var(--olive);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.p-item b { color: var(--accent); }
+.puse { margin-top: 6px; color: var(--muted); font-size: 13px; }
+
+.er {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.er:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.q-num {
+  font-weight: 700;
+  color: var(--brick);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.q-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text);
+  line-height: 1.65;
+}
+.opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.opt {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(60,40,20,0.03);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.opt.ok { background: rgba(107,142,35,0.1); border-color: var(--olive); font-weight: 600; color: #4a6b0a; }
+.opt.no { background: rgba(192,57,43,0.05); border-color: rgba(192,57,43,0.2); text-decoration: line-through; color: var(--muted); }
+.ua { font-size: 13px; margin-bottom: 6px; color: var(--olive); font-weight: 600; }
+.analysis {
+  background: var(--panel-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.78;
+  margin-top: 6px;
+}
+.analysis p { margin-bottom: 6px; }
+
+.item-list { list-style: none; padding: 0; }
+.item-list li {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  transition: var(--transition);
+}
+.item-list li:last-child { border-bottom: none; }
+.item-list li:hover { background: rgba(184,134,11,0.04); }
+.item-list li b { color: var(--accent); }
+
+@media print {
+  body { padding: 20px; background: #fff; }
+  .card { break-inside: avoid; page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+  .toggle { display: none; }
+  .collapsible-body.hidden { display: block !important; }
+  details { display: block !important; }
+  details > * { display: block !important; }
+  summary { display: none !important; }
+  .header { background: #555; color: #fff; -webkit-print-color-adjust: exact; }
+}
+@media (max-width: 720px) {
+  body { padding: 16px 8px 60px; }
+  .header { padding: 24px 18px 20px; }
+  .header h1 { font-size: 19px; }
+  .card { padding: 18px 16px; }
+  .opts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>2008 考研英语（二）· Text 3</h1>
+  <div class="sub">身高的极限——美国人为何停止长高？</div>
+  <div class="meta">
+    <span>来源：2008 英二 Part A Text 3</span>
+    <span>难度：★★★☆☆</span>
+    <span>题材：科普 / 人类生物学</span>
+  </div>
+</div>
+
+<!-- S01 -->
+<div class="sent" style="animation-delay: 0.02s">
+  <div class="card">
+    <span class="snum">S01</span>
+    <div class="en">
+      In the early 1960s <mark>Wilt Chamberlain</mark> was one of the only three players in the National Basketball Association (NBA) listed at over seven feet.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">20 世纪 60 年代初，威尔特·张伯伦是美国国家篮球协会（NBA）中仅有的三名身高超过七英尺的球员之一。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：主语 + 系动词 + 表语 + 过去分词短语作后置定语</p><p>• 主语：<code>Wilt Chamberlain</code>（威尔特·张伯伦，NBA 传奇中锋）</p><p>• 表语核心：<code>one of the only three players ... listed at over seven feet</code></p><p>• 分词 <code>listed at over seven feet</code> = 身高登记为超过七英尺（listed 的过去分词作后置定语修饰 players）</p><p>• <code>National Basketball Association (NBA)</code> = 美国国家篮球协会（美国职业篮球联盟）</p></details>
+  </div>
+</div>
+
+<!-- S02 -->
+<div class="sent" style="animation-delay: 0.05s">
+  <div class="card">
+    <span class="snum">S02</span>
+    <div class="en">
+      If he had played last season, however, he would have been one of 42.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">然而，如果他在上赛季打球的话，他将是 42 名身高超过七英尺的球员之一。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：虚拟语气（与过去事实相反的假设）</p><p>• <code>If he had played ... , he would have been ...</code> = 第三条件句（虚拟语气）</p><p>• 从句：<code>If he had played last season</code>（如果他在上赛季打——实际上不可能，张伯伦早已退役）</p><p>• 主句：<code>he would have been one of 42</code>（他将会是 42 人中的一员）</p><p>• 数字对比：**3 → 42**！用极端反差引出本文主题——人类（尤其是 NBA 球员）的身高在几十年间大幅增长</p></details>
+  </div>
+</div>
+
+<!-- S03 -->
+<div class="sent" style="animation-delay: 0.08s">
+  <div class="card">
+    <span class="snum">S03</span>
+    <div class="en">
+      The bodies playing major professional sports have changed dramatically over the years, and managers have been more than willing to adjust team uniforms to fit the growing numbers of bigger, longer frames.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">从事主要职业体育运动的运动员体格多年来发生了巨大变化，而且经理们也非常乐意调整队服以适应越来越多更高、更壮的身材。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：并列句（and 连接两个分句）</p><p>• 分句 1：<code>The bodies playing ... have changed dramatically over the years</code></p><p>　– 分词 <code>playing major professional sports</code> 作后置定语修饰 bodies</p><p>　– <code>dramatically</code> = 剧烈地、显著地（强调变化幅度大）</p><p>• 分句 2：<code>managers have been more than willing to adjust team uniforms to fit ...</code></p><p>　– <code>more than willing</code> = 非常乐意、不仅愿意（more than 修饰 willing，加强语气）</p><p>　– <code>bigger, longer frames</code> = 更高更壮的体格/身材（frame 指骨架/体形）</p><p>• 本段（P1）通过张伯伦的例子和运动员体格变化的描述，引出<strong>身高增长</strong>这一现象</p></details>
+  </div>
+</div>
+
+<!-- S04 -->
+<div class="sent" style="animation-delay: 0.11s">
+  <div class="card">
+    <span class="snum">S04</span>
+    <div class="en">
+      The trend in sports, though, may be <u>obscuring</u> an unrecognized reality: Americans have generally stopped growing.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">不过，体育界的这种趋势可能掩盖了一个未被认识到的现实：美国人的身高总体上已经停止增长了。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 插入语（让步状语）+ 同位语从句</p><p>• 主句：<code>The trend in sports ... may be obscuring an unrecognized reality</code></p><p>• <code>though</code> = 插入式让步（相当于 however，放在句中表示转折）</p><p>• <b>obscure</b> = 掩盖、遮蔽、使模糊（重点词汇，v.）</p><p>• 冒号后 <code>Americans have generally stopped growing</code> 是 reality 的同位语从句（解释这个"未被认识的现实"是什么）</p><p>• ⚠️ 这是全文的<strong>中心论点句</strong>——体育界看起来人在不断变高，但实际美国人的平均身高已停滞</p></details>
+  </div>
+</div>
+
+<!-- S05 -->
+<div class="sent" style="animation-delay: 0.14s">
+  <div class="card">
+    <span class="snum">S05</span>
+    <div class="en">
+      Though typically about two inches taller now than 140 years ago, today's people—especially those born to families who have lived in the U.S. for many generations—apparently reached their limit in the early 1960s.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">尽管如今通常比 140 年前高出约两英寸，但现在的人——尤其是那些出生在美国生活了多代的家庭中的——显然在 20 世纪 60 年代初就已经达到了他们的身高极限。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：让步状语 + 主句 + 嵌套定语从句</p><p>• 让步状语：<code>Though typically about two inches taller now than 140 years ago</code>（省略了主语和 be 动词，完整为 "Though (they are) typically..."）</p><p>• 主句核心：<code>today's people ... apparently reached their limit in the early 1960s</code></p><p>• 双破折号之间是插入语，进一步限定 people 的范围：</p><p>　– <code>especially those born to families who have lived in the U.S. for many generations</code></p><p>　– 其中含两层嵌套：① born to families（分词修饰 those）② who ... for many generations（定语从句修饰 families）</p><p>• <b>apparently</b> = 显然地、似乎地（表示基于证据的推断）</p><p>• <b>reach one's limit</b> = 达到某人的极限</p></details>
+  </div>
+</div>
+
+<!-- S06 -->
+<div class="sent" style="animation-delay: 0.17s">
+  <div class="card">
+    <span class="snum">S06</span>
+    <div class="en">
+      And they aren't likely to get any taller. "In the general population today, at this genetic, environmental level, we've pretty much gone as far as we can go," says <mark>anthropologist</mark> William Cameron Chumlea of Wright State University.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">而且他们不太可能再长高了。"就当今普通人群而言，在这个基因和环境水平上，我们已经基本达到了能长的极限，"赖特州立大学的人类学家威廉·卡梅隆·丘姆利亚说。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：陈述句 + 直接引语（含介词短语作状语）</p><p>• <code>aren't likely to</code> = 不太可能（likelihood 的否定形式，表推测）</p><p>• 引语部分：</p><p>　– <code>In the general population today</code> = 就当今普通人群而言（范围限定）</p><p>　– <code>at this genetic, environmental level</code> = 在当前基因和环境水平下（前提条件）</p><p>　– <code>we've pretty much gone as far as we can go</code> = 我们已经基本到了能到达的极限</p><p>　– <code>pretty much</code> = 基本上、差不多（口语化程度副词）</p><p>• <b>anthropologist</b> = /ˌænθrəˈpɑːlədʒɪst/ n. 人类学家（研究人类的起源、进化、体貌等的学者）</p><p>• 引语是权威专家对中心论点的佐证</p></details>
+  </div>
+</div>
+
+<!-- S07 -->
+<div class="sent" style="animation-delay: 0.20s">
+  <div class="card">
+    <span class="snum">S07</span>
+    <div class="en">
+      In the case of NBA players, their increase in height appears to result from the increasingly common practice of recruiting players from all over the world.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">至于 NBA 球员，他们身高的增加似乎源于从全球各地招募球员的做法越来越普遍。</div>
+    <details><summary>语法分析</summary><p>📌 <b>句型结构</b>：介词短语作状语 + 主句</p><p>• <code>In the case of NBA players</code> = 至于/就 NBA 球员的情况而言（话题转换标志）</p><p>• 主句：<code>their increase in height appears to result from ...</code></p><p>• <code>appears to do sth.</code> = 似乎是/看来（表推测的不确定语气）</p><p>• <code>result from</code> = 源于、由……导致（因果关系，注意与 result in 相反：result in = 导致/造成）</p><p>• <code>recruiting players from all over the world</code> = 从世界各地招募球员（解释 NBA 变高的真正原因——不是美国人长高了，而是全球选材）</p><p>• ⚠️ 本句是对 P1 张伯伦例子的<strong>修正性解释</strong>：NBA 球员变高 ≠ 美国人变高</p></details>
+  </div>
+</div>
+
+<!-- S08 -->
+<div class="sent" style="animation-delay: 0.23s">
+  <div class="card">
+    <span class="snum">S08</span>
+    <div class="en">
+      Growth, which rarely continues beyond the age of 20, demands calories and nutrients—notably, protein—to feed expanding tissues.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">生长过程——很少持续到 20 岁以后——需要热量和营养素——特别是蛋白质——来滋养不断扩张的组织。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：主句 + 非限制性定语从句 + 插入语</p><p>• 主句核心：<code>Growth demands calories and nutrients ... to feed expanding tissues</code></p><p>• 非限制性定语从句：<code>which rarely continues beyond the age of 20</code>（which 指代 Growth，补充说明生长过程的年龄限制）</p><p>• 不定式 <code>to feed expanding tissues</code> 作目的状语（需要营养是为了什么？→ 滋养扩张中的组织）</p><p>• 插入语 <code>--notably, protein--</code> = 特别是蛋白质（notably = 尤其/值得注意地，用于强调列举中最重要的一项）</p><p>• <b>calories</b> = 卡路里（热量单位）；<b>nutrients</b> = 营养素；<b>tissues</b> = 组织（生物学术语）</p></details>
+  </div>
+</div>
+
+<!-- S09 -->
+<div class="sent" style="animation-delay: 0.26s">
+  <div class="card">
+    <span class="snum">S09</span>
+    <div class="en">
+      At the start of the 20th century, under-nutrition and childhood infections got in the way.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">20 世纪初，营养不良和儿童期感染性疾病阻碍了身高的增长。</div>
+    <details><summary>语法分析</summary><p>📌 简单句，说明历史上阻碍生长的因素：</p><p>• <code>under-nutrition</code> = 营养不良（under- 前缀=不足）</p><p>• <code>childhood infections</code> = 儿童期的感染疾病</p><p>• <code>get in the way</code> = 阻碍、妨碍（习语）</p><p>• 本句与下一句形成对比：以前有障碍 → 后来障碍消除 → 身高增加 → 但现在又停滞了</p></details>
+  </div>
+</div>
+
+<!-- S10 -->
+<div class="sent" style="animation-delay: 0.29s">
+  <div class="card">
+    <span class="snum">S10</span>
+    <div class="en">
+      But as diet and health improved, children and adolescents have, on average, increased in height by about an inch and a half every 20 years, a pattern known as the <mark>secular</mark> trend in height.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">但随着饮食和健康的改善，儿童和青少年的身高平均每 20 年增长约 1.5 英寸，这一模式被称为身高的"长期趋势"。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：时间状语从句 + 主句 + 同位语</p><p>• 从句：<code>But as diet and health improved</code>（as = 随着……，引导时间/原因状语从句）</p><p>• 主句：<code>children and adolescents have ... increased in height by about an inch and a half every 20 years</code></p><p>• <code>on average</code> = 平均而言（插入语，修饰 increased）</p><p>• <code>by about an inch and a half</code> = 增加了约 1.5 英寸（by 表示幅度）</p><p>• 同位语：<code>a pattern known as the secular trend in height</code>（pattern = 上述增长模式的概括说法）</p><p>• <b>secular</b> = /ˈsekjələr/ adj. 长期的、世代间的（secular trend = 长期趋势/世俗趋势；人口学/医学常用术语）</p></details>
+  </div>
+</div>
+
+<!-- S11 -->
+<div class="sent" style="animation-delay: 0.32s">
+  <div class="card">
+    <span class="snum">S11</span>
+    <div class="en">
+      Yet according to the Centers for Disease Control and Prevention, average height 5'9" for men, 5'4" for women—hasn't really changed since 1960.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">然而根据美国疾病控制与预防中心的数据，平均身高——男性 5 英尺 9 英寸，女性 5 英尺 4 英寸——自 1960 年以来并未真正改变。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：转折 + 数据引用 + 核心判断</p><p>• <code>Yet</code> = 然而（强转折，与前一句"每 20 年长 1.5 寸"形成对比——那是过去，现在停了）</p><p>• <code>Centers for Disease Control and Prevention</code> = 美国疾病控制与预防中心（CDC，权威公共卫生机构）</p><p>• <code>5'9"</code> = 5 feet 9 inches = 约 175 cm；<code>5'4"</code> = 约 162.5 cm</p><p>• <code>hasn't really changed since 1960</code> = 自 1960 年以来没有真正改变（现在完成时 + since 时间段）</p><p>• ⚠️ 本句是 P3 的<strong>关键证据句</strong>：用 CDC 官方数据证明身高确实已经停滞</p></details>
+  </div>
+</div>
+
+<!-- S12 -->
+<div class="sent" style="animation-delay: 0.35s">
+  <div class="card">
+    <span class="snum">S12</span>
+    <div class="en">
+      Genetically speaking, there are advantages to avoiding substantial height.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">从遗传学角度来看，避免过高是有优势的。</div>
+    <details><summary>语法分析</summary><p>📌 过渡句——P4 开头，从"现象描述"转向"原因分析"：</p><p>• <code>Genetically speaking</code> = 从遗传学的角度来说（独立评注性状语）</p><p>• <code>there are advantages to doing sth.</code> = 做某事有好处/优势</p><p>• <code>avoiding substantial height</code> = 避免长得过高（substantial = 大量的、实质性的）</p><p>• 这句话颠覆直觉：我们以为越高越好，但从进化角度看并非如此</p></details>
+  </div>
+</div>
+
+<!-- S13 -->
+<div class="sent" style="animation-delay: 0.38s">
+  <div class="card">
+    <span class="snum">S13</span>
+    <div class="en">
+      During childbirth, larger babies have more difficulty passing through the birth canal.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">分娩过程中，体型较大的婴儿更难通过产道。</div>
+    <details><summary>语法分析</summary><p>📌 第一个具体论据——<strong>生殖制约</strong>：</p><p>• <code>childbirth</code> = 分娩；<code>birth canal</code> = 产道</p><p>• 进化逻辑：婴儿太大 → 难产 → 母婴死亡率高 → 自然选择不利于过高的基因</p></details>
+  </div>
+</div>
+
+<!-- S14 -->
+<div class="sent" style="animation-delay: 0.41s">
+  <div class="card">
+    <span class="snum">S14</span>
+    <div class="en">
+      Moreover, even though humans have been upright for millions of years, our feet and back continue to struggle and cannot easily withstand repeated strain imposed by <u>oversized limbs</u>.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">此外，尽管人类直立行走已有数百万年之久，我们的双脚和背部仍在艰难承受，无法轻易抵御因四肢过大而反复施加的压力。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：让步状语从句 + 并列主句 + 过去分词短语</p><p>• 让步从句：<code>even though humans have been upright for millions of years</code></p><p>• <code>upright</code> = 直立的（adv./adj.，指直立行走 bipedal posture）</p><p>• 主句并列谓语：<code>continue to struggle AND cannot easily withstand ...</code></p><p>• 过去分词短语：<code>imposed by oversized limbs</code> 修饰 strain（什么样的压力？→ 四肢过大施加的）</p><p>• <b>withstand</b> = 抵抗、经受住（常与 pressure/strain/force 连用）</p><p>• <b>oversized limbs</b> = 过大的四肢（limbs = 四肢）</p><p>• 第二个具体论据——<strong>生理力学制约</strong>：双脚和背部承受不了过大四肢带来的压力</p></details>
+  </div>
+</div>
+
+<!-- S15 -->
+<div class="sent" style="animation-delay: 0.44s">
+  <div class="card">
+    <span class="snum">S15</span>
+    <div class="en">
+      "There are some real constraints that are set by the genetic architecture of the individual organism," says anthropologist William Leonard of Northwestern University.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">""存在一些真正的制约因素，它们是由个体生物体的基因架构所设定的，""西北大学的人类学家威廉·伦纳德说。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：直接引语 + 定语从句（嵌套）</p><p>• 引语核心：<code>There are some real constraints that are set by ...</code></p><p>• 定语从句：<code>that are set by the genetic architecture of the individual organism</code> 修饰 constraints</p><p>• <code>set by</code> = 由……设定/决定</p><p>• <b>genetic architecture</b> = 基因架构/遗传构造（architecture 的比喻用法：把基因组比作建筑蓝图）</p><p>• <b>individual organism</b> = 个体生物体</p><p>• 本句是 P4 的<strong>总结性论点</strong>：身高的限制不是随意的，而是由基因架构决定的硬约束</p></details>
+  </div>
+</div>
+
+<!-- S16 -->
+<div class="sent" style="animation-delay: 0.47s">
+  <div class="card">
+    <span class="snum">S16</span>
+    <div class="en">
+      Genetic maximums can change, but don't expect this to happen soon.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">基因决定的身高上限是可以改变的，但别指望这很快发生。</div>
+    <details><summary>语法分析</summary><p>📌 P5 开头过渡句——承上启下：</p><p>• <code>Genetic maximums</code> = 基因最大值/基因上限（即基因所能允许的最高身高）</p><p>• <code>can change, but don't expect ... soon</code> = 可以变，但别期待短期实现（先承认可能性再泼冷水）</p><p>• 为下文 Gordon 的实证数据做铺垫</p></details>
+  </div>
+</div>
+
+<!-- S17 -->
+<div class="sent" style="animation-delay: 0.50s">
+  <div class="card">
+    <span class="snum">S17</span>
+    <div class="en">
+      Claire C. Gordon, senior anthropologist at the Army Research Center in Natick, Mass., ensures that 90 percent of the uniforms and workstations fit recruits without alteration.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">克莱尔·C·戈登是位于马萨诸塞州纳蒂克的陆军研究中心的高级人类学家，她确保 90% 的制服和工作台无需改动就能适合新兵使用。</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：同位语 + 主句 + 宾语从句</p><p>• 同位语：<code>Claire C. Gordon, senior anthropologist at the Army Research Center in Natick, Mass.</code>（介绍人物身份）</p><p>• 主句谓语：<code>ensures that ...</code>（确保……）</p><p>• 宾语从句：<code>90 percent of the uniforms and workstations fit recruits without alteration</code></p><p>• <code>fit recruits without alteration</code> = 无需修改就能适配新兵（说明新兵身高分布稳定，制服不需要频繁改版）</p><p>• <b>recruits</b> = 新兵（军队入伍人员）</p><p>• 这个数据是"身高已停止增长"的又一个有力证据</p></details>
+  </div>
+</div>
+
+<!-- S18 -->
+<div class="sent" style="animation-delay: 0.53s">
+  <div class="card">
+    <span class="snum">S18</span>
+    <div class="en">
+      She says that, unlike those for basketball, the length of military uniforms has not changed for some time.
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">她说，与篮球服不同，军用制服的尺寸已经有一段时间没有改变了。</div>
+    <details><summary>语法分析</summary><p>📌 对比论证：</p><p>• <code>unlike those for basketball</code> = 与篮球服不同（those 指代前文的 uniforms）</p><p>• <code>the length of military uniforms has not changed for some time</code> = 军服尺寸一段时间没变了</p><p>• 对比含义：NBA 队服一直在加大（因为全球招募高大球员），但军服没变（因为美国本土士兵身高稳定）</p><p>• 再次印证：NBA 球员变高 ≠ 美国人整体变高</p></details>
+  </div>
+</div>
+
+<!-- S19 -->
+<div class="sent" style="animation-delay: 0.56s">
+  <div class="card">
+    <span class="snum">S19</span>
+    <div class="en">
+      And if you need to predict human height in the near future to design a piece of equipment, Gordon says that by and large, "you could use today's data and feel fairly confident."
+    </div>
+    <hr class="sent-hr">
+    <div class="tl-label">🌐 译文</div>
+    <div class="zh">如果你需要在不久的将来预测人类身高以便设计一件装备，戈登基本上说："你可以用今天的数据，并且相当有信心。"</div>
+    <details open><summary><span class="long-tag">长难句</span>语法分析</summary><p>📌 <b>句型结构</b>：条件状语从句 + 主句 + 宾语从句 + 直接引语</p><p>• 条件从句：<code>if you need to predict human height in the near future to design a piece of equipment</code></p><p>• 主句：<code>Gordon says that by and large, "you could use ..."</code></p><p>• <code>by and large</code> = 总的来说、大体上（固定短语，常用于总结性陈述前）</p><p>• 引语：<code>you could use today's data and feel fairly confident</code></p><p>• <code>fairly confident</code> = 相当有信心（fairly = 相当地，修饰 confident）</p><p>• ⚠️ 这是第 34 题的考点句！Gordon 明确说可以用"今天的数据"预测未来身高 → 说明现有数据在未来依然适用</p></details>
+  </div>
+</div>
+
+<!-- ===== 底部汇总区 ===== -->
+
+<div class="card">
+  <h2><span class="ico brick"></span>全文脉络<span class="toggle" data-target="outline">收起</span></h2>
+  <div class="collapsible-body" id="outline">
+  <ul class="item-list">
+    <li><b>① 现象引入（P1）</b>：以张伯伦为例——60 年代初 NBA 仅 3 人超 7 英尺，若放到现在则是 42 人。职业运动员体格剧变，队服不断调整。</li>
+    <li><b>② 核心论点（P2）</b>：体育界的增高趋势掩盖了一个现实——美国人总体已停止增长。60 年代初已达基因/环境极限（Chumlea 专家佐证）。NBA 球员增高是因为全球选材，不是美国人长高了。</li>
+    <li><b>③ 增长机制与数据（P3）</b>：生长需要热量+蛋白质；20 世纪初营养不良和疾病曾阻碍生长；饮食改善后每 20 年增约 1.5 英寸（secular trend）；但 CDC 数据显示自 1960 年男女平均身高未变——增长已停滞。</li>
+    <li><b>④ 制约因素（P4）</b>：从遗传学角度，避免过高有优势——① 大婴儿难通过产道（生殖制约）② 双脚背部无法承受过大四肢压力（力学制约）③ 基因架构设定了硬约束（Leonard 总结）。</li>
+    <li><b>⑤ 结论与展望（P5）</b>：基因上限可变但不指望很快发生。军方数据证实：90% 军服无需改动能适配新兵，军服尺寸多年未变。设计装备可直接用当前身高数据且"相当有信心"——身高可预测性强。</li>
+  </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico gold"></span>重点词汇表<span class="toggle" data-target="vocab">收起</span></h2>
+  <div class="collapsible-body" id="vocab">
+  <table>
+    <tr><th>单词/短语</th><th>音标 & 词义</th><th>例句/搭配</th></tr>
+    <tr><td><b>obscure</b></td><td>/əbˈskjʊr/ v. 掩盖；使模糊 adj. 晦涩的</td><td>obscuring a reality 掩盖一个现实</td></tr>
+    <tr><td><b>anthropologist</b></td><td>/ˌænθrəˈpɒlədʒɪst/ n. 人类学家</td><td>senior anthropologist 高级人类学家</td></tr>
+    <tr><td><b>recruit</b></td><td>/rɪˈkruːt/ v./n. 招募；新兵/新成员</td><td>recruit players from all over the world 全球招募球员</td></tr>
+    <tr><td><b>nutrient</b></td><td>/ˈnuːtriənt/ n. 营养素；养分</td><td>calories and nutrients 热量和营养素</td></tr>
+    <tr><td><b>under-nutrition</b></td><td>/ˌʌndə njuːˈtrɪʃn/ n. 营养不良</td><td>under-nutrition and childhood infections 营养不良和儿童感染</td></tr>
+    <tr><td><b>secular</b></td><td>/ˈsekjələr/ adj. 长期的；世代的</td><td>secular trend in height 身高的长期趋势</td></tr>
+    <tr><td><b>withstand</b></td><td>/wɪðˈstænd/ v. 抵抗；经受住</td><td>withstand strain 抵御压力</td></tr>
+    <tr><td><b>oversized</b></td><td>/ˈoʊvərsaɪzd/ adj. 过大的；特大号的</td><td>oversized limbs 过大的四肢</td></tr>
+    <tr><td><b>constraint</b></td><td>/kənˈstreɪnt/ n. 制约；约束；限制</td><td>genetic constraints 基因制约</td></tr>
+    <tr><td><b>architecture</b></td><td>/ˈɑːrkɪtektʃər/ n. 架构；结构；建筑学</td><td>genetic architecture 基因架构</td></tr>
+    <tr><td><b>maximum</b></td><td>/ˈmæksɪməm/ n. 最大值；上限</td><td>Genetic maximums 基因最大值/上限</td></tr>
+    <tr><td><b>alteration</b></td><td>/ˌɔːltəˈreɪʃn/ n. 改动；修改</td><td>without alteration 无需改动</td></tr>
+    <tr><td><b>recruit</b></td><td>/rɪˈkruːt/ n. 新兵；新成员 v. 招募</td><td>fit recruits 适合新兵</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico green"></span>熟词生义<span class="toggle" data-target="familiar">收起</span></h2>
+  <div class="collapsible-body" id="familiar">
+  <table>
+    <tr><th>词汇</th><th>常见义</th><th>本文生义</th></tr>
+    <tr><td><b>list</b></td><td>v. 列清单；列出</td><td>v. （被）登记为；（被）列为（listed at over seven feet = 登记身高超过七英尺）</td></tr>
+    <tr><td><b>frame</b></td><td>n. 框架；画框</td><td>n. 体格；骨架；身材（bigger, longer frames = 更高更壮的身躯）</td></tr>
+    <tr><td><b>case</b></td><td>n. 情况；案例；箱子</td><td>n. ……的情况/场合（In the case of... = 至于/就……而言）</td></tr>
+    <tr><td><b>limit</b></td><td>n. 限制；界限</td><td>n. 极限；顶峰（reached their limit = 达到了他们的极限/天花板）</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico gold"></span>重点短语搭配<span class="toggle" data-target="phrases">收起</span></h2>
+  <div class="collapsible-body" id="phrases">
+  <table>
+    <tr><th>短语</th><th>释义</th></tr>
+    <tr><td><b>be listed at</b></td><td>被登记为（某数值/指标）</td></tr>
+    <tr><td><b>more than willing to</b></td><td>非常乐意；不仅愿意（加强语气）</td></tr>
+    <tr><td><b>adjust ... to fit ...</b></td><td>调整……以适应……</td></tr>
+    <tr><td><b>be likely to</b></td><td>可能；很可能</td></tr>
+    <tr><td><b>go as far as ... can</b></td><td>尽可能远；达到能到达的极限</td></tr>
+    <tr><td><b>result from</b></td><td>由……导致；源于（注意区别于 result in）</td></tr>
+    <tr><td><b>beyond the age of ...</b></td><td>超过……岁之后</td></tr>
+    <tr><td><b>get in the way</b></td><td>阻碍；妨碍</td></tr>
+    <tr><td><b>on average</b></td><td>平均而言</td></tr>
+    <tr><td><b>known as</b></td><td>被称为；以……著称</td></tr>
+    <tr><td><b>Genetically speaking</b></td><td>从遗传学角度看</td></tr>
+    <tr><td><b>have difficulty (in) doing sth.</b></td><td>做某事有困难</td></tr>
+    <tr><td><b>pass through</b></td><td>通过；穿过</td></tr>
+    <tr><td><b>even though</b></td><td>即使；尽管（让步）</td></tr>
+    <tr><td><b>withstand</b></td><td>抵抗；承受住</td></tr>
+    <tr><td><b>imposed by</b></td><td>由……施加/造成的</td></tr>
+    <tr><td><b>set by</b></td><td>由……设定/决定</td></tr>
+    <tr><td><b>for some time</b></td><td>有一段时间；暂时</td></tr>
+    <tr><td><b>by and large</b></td><td>总的来说；大体上；基本上</td></tr>
+    <tr><td><b>in the near future</b></td><td>在不远的将来</td></tr>
+    <tr><td><b>feel confident</b></td><td>感到有信心</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico green"></span>值得背诵的 3 个句型<span class="toggle" data-target="patterns">收起</span></h2>
+  <div class="collapsible-body" id="patterns">
+  <div class="p-item">
+    <b>句型 1：The trend in ..., though, may be obscuring an unrecognized reality: ...</b>
+    <div class="puse">……领域的趋势可能正在掩盖一个未被认识到的现实：……（用于揭示表象下的真相）</div>
+    <div style="font-style:italic; color: var(--muted); margin-top: 4px;">
+      "The trend in sports, though, may be obscuring an unrecognized reality: Americans have generally stopped growing."
+    </div>
+  </div>
+  <div class="p-item">
+    <b>句型 2：X, which ..., demands Y and Z—notably, A—to do B.（非限制性定语从句 + 插入语强调）</b>
+    <div class="puse">X（虽然……），需要 Y 和 Z——特别是 A——来完成 B。（先给定义范围，再用插入语突出最重要的一项）</div>
+    <div style="font-style: italic; color: var(--muted); margin-top: 4px;">
+      "Growth, which rarely continues beyond the age of 20, demands calories and nutrients—notably, protein—to feed expanding tissues."
+    </div>
+  </div>
+  <div class="p-item">
+    <b>句型 3：There are some real constraints that are set by ...（存在由……设定的真正约束）</b>
+    <div class="puse">存在一些真正的制约因素，它们是由……所设定的。（用于阐述客观限制或不可逾越的条件）</div>
+    <div style="font-style: italic; color: var(--muted); margin-top: 4px;">
+      "There are some real constraints that are set by the genetic architecture of the individual organism."
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="ico brick"></span>题目答案速查<span class="toggle" data-target="qa">收起</span></h2>
+  <div class="collapsible-body" id="qa">
+
+  <div class="er">
+    <div class="q-num">31. Wilt Chamberlain is cited as an example to _____.</div>
+    <div class="q-text">文章引用威尔特·张伯伦作为例子是为了_____。</div>
+    <div class="opts">
+      <span class="opt ok">[A] illustrate the change of height of NBA players. ✓</span>
+      <span class="opt no">[B] show the popularity of NBA players in the U.S..</span>
+      <span class="opt no">[C] compare different generations of NBA players.</span>
+      <span class="opt no">[D] assess the achievements of famous NBA players.</span>
+    </div>
+    <div class="ua">标准答案：A</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P1 ——"In the early 1960s Wilt Chamberlain was one of the only three players ... listed at over seven feet. If he had played last season, however, he would have been one of 42." + "The bodies playing major professional sports have changed dramatically over the years"</p>
+      <p>✅ <b>A 正确推理</b>：P1 用张伯伦做对比锚点——60 年代初全联盟仅 3 人超 7 英尺，而放到"last season"就是 42 人。数字从 3 到 14 倍暴增，配合"The bodies ... have changed dramatically"，目的只有一个：**直观展示 NBA 球员身高的巨大变化**。A 的"illustrate the change of height of NBA players"精准匹配此意图。</p>
+      <p>❌ <b>B 错误</b>：全文未提及 NBA 球员在美国的"受欢迎程度/流行度（popularity）"。讨论的是身高数据，不是人气。</p>
+      <p>❌ <b>C 错误</b>：文章只对比了同一人（张伯伦）在不同时代的相对排名（3人中之一 vs 42人中之一），并不是系统性地"比较不同年代 NBA 球员的差异"。C 扩大了原文的对比范围。</p>
+      <p>❌ <b>D 错误</b>：张伯伦被引用不是为了"评估成就（assess achievements）"。他的名字只是一个身高参照系——"一个 7 英尺多的人在当时多稀有 vs 现在多常见"。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">32. Which of the following plays a key role in body growth according to the text?</div>
+    <div class="q-text">根据文章，下列哪项在身体生长中起着关键作用？</div>
+    <div class="opts">
+      <span class="opt no">[A] Genetic modification.</span>
+      <span class="opt no">[B] Natural environment.</span>
+      <span class="opt ok">[C] Living standards. ✓</span>
+      <span class="opt no">[D] Daily exercise.</span>
+    </div>
+    <div class="ua">标准答案：C</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P3 ——"Growth ... demands calories and nutrients—notably, protein—to feed expanding tissues"；"At the start of the 20th century, under-nutrition and childhood infections got in the way"；"But as diet and health improved, children and adolescents have ... increased in height ... a pattern known as the secular trend in height"</p>
+      <p>✅ <b>C 正确推理</b>：P3 明确指出影响身高的两大实际因素是：① <b>营养</b>（calories, nutrients, protein, under-nutrition）和 ② <b>健康/医疗条件</b>（childhood infections, diet and health improved）。这两者都属于"生活水平（living standards）"的范畴——当生活水准提高（吃得更好、医疗卫生改善），身高就增长；当这些条件达到一定高度后，增长就停止了（1960 年后的数据）。C 准确归纳了 P3 所述的核心驱动力。</p>
+      <p>❌ <b>A 错误</b>：文章说基因设定了"上限（maximums/constraints）"，但并没有提到"基因改造（genetic modification）"在身体生长中发挥作用。A 属于无中生有——原文讨论的是自然状态下的基因极限，不是人为干预的基因改造技术。</p>
+      <p>❌ <b>B 错误</b>"Natural environment"（自然环境）过于宽泛模糊。P3 讨论的具体因素是营养摄入和疾病控制，这些都是"living standards"的具体表现，而非笼统的"自然环境"。</p>
+      <p>❌ <b>D 错误</b>：全文从未提及"daily exercise"（日常锻炼）对身高的影响。这是常识性干扰项——很多人认为运动能长高，但文章根本没提这一点。</p>
+    </div>
+  </div>
+
+  <dom class="er">
+    <div class="q-num">33. On which of the following statements would the author most probably agree?</div>
+    <div class="q-text">关于下列哪种说法作者最有可能同意？</div>
+    <div class="opts">
+      <span class="opt ok">[A] Non-Americans add to the average height of the nation. ✓</span>
+      <span class="opt no">[B] Human height is conditioned by the upright posture.</span>
+      <span class="opt no">[C] Americans are the tallest on average in the world.</span>
+      <span class="opt no">[D] Larger babies tend to become taller in adulthood.</span>
+    </div>
+    <div class="ua">标准答案：A</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P2 S07 ——"In the case of NBA players, their increase in height appears to result from the increasingly common practice of recruiting players from all over the world."；结合 P2 中心论点"Americans have generally stopped growing"</p>
+      <p>✅ <b>A 正确推理</b>：P2 明确指出 NBA 球员身高增加的原因是"recruiting players from **all over the world**"（从全球各地招募球员）——这意味着加入 NBA 的外国人拉高了平均值。既然美国人自己已经停止生长（P2 中心论点 + CDC 数据支撑），那么任何观察到的"平均身高上升"都只能来自非美国人的贡献。A 的"Non-Americans add to the average height of the nation"正是这个逻辑的直接推论。</p>
+      <p>❌ <b>B 错误</b>：P4 说直立姿势使双脚和背部难以承受过大四肢的压力（"our feet and back continue to struggle"），但这只是说明<strong>过高</strong>会有问题，不是说"human height is conditioned by（由……决定/受制于）upright posture"。直立姿势是制约过高的因素之一，但不是决定身高的条件。B 夸大了直立姿势的作用。</p>
+      <p>❌ <b>C 错误</b>：全文没有任何信息表明"Americans are the tallest on average in the world"（美国人是世界平均最高的）。事实上，文中暗示美国人的身高增长已在 1960 年代触顶，而其他国家/地区可能还在增长。C 缺乏文本依据。</p>
+      <p>❌ <b>D 错误</b>：P4 提到"larger babies have more difficulty passing through the birth canal"（大婴儿更难通过产道），但这说的是分娩风险，不是说"大婴儿长大后更高"。D 把"出生时较大"和"成年后更高"建立了因果联系，原文完全没有这种意思——反而暗示过大的婴儿面临进化劣势（难产）。</p>
+    </div>
+  </dom>
+
+  <div class="er">
+    <div class="q-num">34. We learn from the last paragraph that in the near future _____.</div>
+    <div class="q-text">我们从最后一段得知，在不久的将来_____。</div>
+    <div class="opts">
+      <span class="opt no">[A] the garment industry will reconsider the uniform size.</span>
+      <span class="opt no">[B] the design of military uniforms will remain unchanged.</span>
+      <span class="opt no">[C] genetic testing will be employed in selecting sportsmen.</span>
+      <span class="opt ok">[D] the existing data of human height will still be applicable. ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P5 最后一句——"if you need to predict human height in the near future to design a piece of equipment, Gordon says that by and large, 'you could use today's data and feel fairly confident.'"</p>
+      <p>✅ <b>D 正确推理</b>：Gordon 明确指出，如果要预测"near future"（不远的将来）的人类身高来设计装备，"could use **today's data**"（可以使用今天的数据）并且"feel **fairly confident**"（相当有信心）。这说明当前的身高数据在未来仍然有效/适用——因为身高不会有大变化。D 的"the existing data of human height will still be applicable"完美对应这段话。</p>
+      <p>❌ <b>A 错误</b>：文中提到的制服是<strong>军事制服（military uniforms）</strong>，不是"garment industry"（服装/制衣行业）的民用服装。A 偷换了主体对象。</p>
+      <p>❌ <b>B 错误</b>：P5 说军服尺寸"has not changed **for some time**"（到目前为止有一段时间没变），但这不等于说"in the near future will **remain** unchanged"（将来也保持不变）。B 把"过去的静态"断言为"未来的不变"，过度推断。原文的意思是：目前不需要改，但如果需要预测未来，用现有数据就行——并不排除未来某天可能需要调整。</p>
+      <p>❌ <b>C 错误</b>：全文未提及"genetic testing"（基因检测）在"selecting sportsmen"（选拔运动员）中的应用。C 完全脱离原文内容。</p>
+    </div>
+  </div>
+
+  <div class="er">
+    <div class="q-num">35. The text intends to tell us that _____.</div>
+    <div class="q-text">这篇文章想要告诉我们_____。</div>
+    <div class="opts">
+      <span class="opt no">[A] the change of human height follows a cyclic pattern.</span>
+      <span class="opt ok">[B] human height is becoming even more predictable. ✓</span>
+      <span class="opt no">[C] Americans have reached their genetic growth limit.</span>
+      <span class="opt no">[D] the genetic pattern of Americans has altered.</span>
+    </div>
+    <div class="ua">标准答案：B</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：全文主线——P1（NBA 身高剧增的现象）→ P2（美国人实际已停止生长）→ P3（增长机制+CDC 数据证实的停滞）→ P4（基因层面的制约因素）→ P5（Gordon：可用当前数据预测未来身高且有信心）</p>
+      <p>✅ <b>B 正确推理</b>：全文的推进逻辑是：先展示"看起来在变"的现象 → 揭示"实际已停滞"的事实 → 分析"为什么停滞"（基因/生理制约）→ 最终落脚于"正因为停滞了，所以未来身高变得可预测"。P5 结尾 Gordon 的话是全文结论的集中体现："use today's data and feel fairly confident"——这就是"predictable"（可预测的）最直接表达。B 的"becoming even more predictable"准确捕捉了全文从"看似不可控的变化"走向"可以放心预测"的这一核心叙事弧线。</p>
+      <p>❌ <b>A 错误</b>："follows a cyclic pattern"（遵循循环模式/周期性规律）意味着身高会"涨→跌→涨→跌"地循环，但原文明确说身高在 1960 年后**停滞（hasn't changed）**，不是周期性波动，更不会循环回去。A 与原文数据矛盾。</p>
+      <p>❌ <b>C 错误</b>：C "Americans have reached their genetic growth limit"（美国人已达到基因生长极限）虽然是 P2 的原话（"we've pretty much gone as far as we can go"），但它只是文章的**中间论据**而非**最终意图**。文章不止要说"到了极限"，还要进一步说明"到了极限意味着什么"——意味着身高可预测、数据可持续使用。C 只覆盖了文章的一半内容，不够完整。</p>
+      <p>❌ <b>D 错误</b>："the genetic pattern of Americans has altered"（美国人的基因模式已经改变）与原文完全相反。P4 明确说基因架构（genetic architecture）设定的是**不变的约束（constraints）**，P5 说"don't expect this to happen soon"——基因上限短期内不会改变。D 与原文立场相悖。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var targetId = this.getAttribute('data-target');
+    var body = document.getElementById(targetId);
+    if (!body) return;
+    if (body.classList.contains('hidden')) {
+      body.classList.remove('hidden');
+      this.textContent = '收起';
+    } else {
+      body.classList.add('hidden');
+      this.textContent = '展开';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
