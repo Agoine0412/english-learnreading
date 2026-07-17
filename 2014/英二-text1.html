@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2014 考研英语（二）Text 1 — 金钱与幸福感</title>
+<style>
+/* ====== 温润幸福风（Warm Happiness）—— 消费心理篇专属配色 ====== */
+:root {
+  --bg: #f7f3ec;
+  --card: #fefcf9;
+  --text: #2c2420;
+  --text-soft: #6b5a50;
+  --text-muted: #9c8a7a;
+  --accent: #c97d2a;          /* 暖橙，幸福/温暖 */
+  --accent-light: #fdf6ee;
+  --amber: #2a9d8f;           /* 青绿，满足/富足 */
+  --amber-light: #e8f6f4;
+  --rust: #d4872a;            /* 金黄，财富 */
+  --rust-light: #fcf3e6;
+  --steel: #8b6b4a;           /* 暖褐 */
+  --steel-light: #f0ece8;
+  --panel-bg: #faf8f5;
+  --panel-border: #e8ddd0;
+  --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#1a7a6e;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:var(--steel);}
+
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(42,157,143,.18) 0%,rgba(42,157,143,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(201,125,42,.15) 0%,rgba(201,125,42,.05) 100%);
+  border-left:3px solid var(--accent); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(212,135,42,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--accent);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important; cursor:pointer;
+  color:#fff !important; font-weight:700 !important;
+  background:var(--accent) !important; padding:5px 14px !important;
+  border-radius:20px !important; user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;margin-left:auto;
+  letter-spacing:.5px; border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(201,125,42,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important; transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(42,157,143,0.35) !important;
+}
+.card h2 .toggle.collapsed{background:var(--rust) !important; border-left-color:var(--amber) !important;}
+.card h2 .toggle.collapsed:hover{background:var(--steel) !important;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#1a7a6e;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#1a7a6e;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>金钱与幸福感<small>2014 考研英语（二）· Text 1</small></h1>
+  <p class="sub">What would you do with $590m? — 什么样的消费方式最让人满足</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 消费心理</span>
+    <span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 如果中了 5.9 亿美元，你会怎么花？</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">What would you do with $590m?</div>
+  <hr class="sent-hr">
+  <div class="cn">如果有 5.9 亿美元，你会做什么？</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1">
+    <b>🔍 语法解析</b><br>
+    <b>结构</b>：特殊疑问句 + 虚拟语气（would do）。what would you do with ... = "如果有……你会做什么？"<br>
+    <b>💡 修辞</b>：开篇用一个引人入胜的问题抓住读者，然后引出彩票中奖者 Gloria MacKenzie 的故事，自然过渡到"怎么花钱才幸福"的主题。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">This is now a question for Gloria MacKenzie, an 84-year-old widow who recently emerged from her small, tin-roofed house in Florida to collect the biggest undivided lottery <u>jackpot</u> in history.</div>
+  <hr class="sent-hr">
+  <div class="cn">这现在是 Gloria MacKenzie 面临的问题——一位 84 岁的寡妇，最近从佛罗里达州她那小小的铁皮屋顶房子里走出来，领取了历史上最大的一笔独得彩票头奖。</div>
+  <button class="syntax-toggle" id="btn-s2" onclick="toggleSyntax('s2')">▲ 收起解析</button>
+  <div class="syntax" id="s2">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：This is now a question for Gloria MacKenzie（主+系+表）。<br>
+    <b>同位语</b>：an 84-year-old widow 解释 Gloria MacKenzie 的身份。<br>
+    <b>定语从句</b>：who recently emerged from her small, tin-roofed house in Florida to collect the biggest undivided lottery jackpot in history → 修饰 widow。从句内有不定式 to collect ... 作目的状语。<br>
+    <b>词义</b>：<b>emerge from</b> 从……中出现；<b>tin-roofed</b> 铁皮屋顶的；<b>jackpot</b> 头奖 / 巨额奖金。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">If she hopes her new-found fortune will yield lasting feelings of fulfillment, she could do worse than read <em>Happy Money</em> by Elizabeth Dunn and Michael Norton.</div>
+  <hr class="sent-hr">
+  <div class="cn">如果她希望新获得的财富能带来持久的满足感，她最好读一读 Elizabeth Dunn 和 Michael Norton 合著的《快乐消费》。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>条件状语从句</b>：If she hopes her new-found fortune will yield lasting feelings of fulfillment。<br>
+    <b>主句</b>：she could do worse than read <em>Happy Money</em> → <b>could do worse than do sth.</b> 是一个委婉建议句型，字面义"做某事比做更差的事要好"= "最好做某事"。<br>
+    <b>词义</b>：<b>new-found</b> 新获得的；<b>yield</b> 产生；<b>fulfillment</b> 满足感 / 成就感。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 花钱的回报方式可能违反直觉</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">These two academics use an array of behavioral research to show that the most rewarding ways to spend money can be <u>counterintuitive</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">这两位学者利用一系列行为研究表明，最值得的消费方式可能是违反直觉的。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：These two academics use an array of behavioral research to show that ...（主+谓+宾+不定式目的+宾语从句）。<br>
+    <b>宾语从句</b>：the most rewarding ways to spend money can be counterintuitive。<br>
+    <b>词义</b>：<b>an array of</b> 一系列；<b>counterintuitive</b> 违反直觉的（counter- 反 + intuitive 直觉的）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">Fantasies of great wealth often involve visions of fancy cars and extravagant homes.</div>
+  <hr class="sent-hr">
+  <div class="cn">对巨额财富的幻想通常涉及豪车和豪宅的画面。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Fantasies of great wealth（主语）+ involve（谓语）+ visions of fancy cars and extravagant homes（宾语）。简单句。<br>
+    <b>词义</b>：<b>fantasy</b> 幻想；<b>extravagant</b> 奢侈的 / 昂贵的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Yet satisfaction with these material purchases wears off fairly quickly: what was once exciting and new becomes old-hat; regret <u>creeps in</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而对这类物质消费的满足感消退得相当快：曾经令人兴奋的新鲜事物变成了旧帽子；后悔悄然而至。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：satisfaction ... wears off fairly quickly（主+谓+状）。<br>
+    <b>冒号后</b>：两个并列分句，解释说明前面的内容：<br>
+    &nbsp;&nbsp;① what was once exciting and new becomes old-hat（主语从句 + 系动词 + 表语）<br>
+    &nbsp;&nbsp;② regret creeps in（简单句）<br>
+    <b>词义</b>：<b>wear off</b> 逐渐消退；<b>old-hat</b> 过时的（口语）；<b>creep in</b> 悄悄来临。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">It is far better to spend money on experiences, say Ms. Dunn and Mr. Norton, like interesting trips, unique meals or even going to the cinema.</div>
+  <hr class="sent-hr">
+  <div class="cn">Dunn 女士和 Norton 先生说，把钱花在体验上要好得多——比如有趣的旅行、独特的美食，甚至去看电影。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：It is far better to spend money on experiences（it 作形式主语，不定式为真正主语）。<br>
+    <b>插入语</b>：say Ms. Dunn and Mr. Norton → 引述结构，交代说话人。<br>
+    <b>词义</b>：<b>far better</b> 好得多（far 修饰比较级加强语气）；<b>unique</b> 独特的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">These purchases often become more valuable with time—as stories or memories—particularly if they involve feeling more connected to others.</div>
+  <hr class="sent-hr">
+  <div class="cn">这类消费常常随着时间的推移而变得更加有价值——作为故事或回忆——尤其是当它们涉及与他人更深的情感联系时。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：These purchases become more valuable（主+系+表）+ with time（时间状语）。<br>
+    <b>插入语</b>：as stories or memories（作为故事或回忆），破折号括起，补充说明 become more valuable 的方式。<br>
+    <b>条件状语从句</b>：particularly if they involve feeling more connected to others。<br>
+    <b>💡 Q21 考点</b>：此句说明体验型消费（如旅行）之所以高于物质消费，正因它们能变成回忆、让人产生情感连接。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 如何让每一分钱都买到最多的幸福</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">This slim volume is packed with tips to help wage slaves as well as lottery winners "get the most happiness <mark>bang for your buck</mark>."</div>
+  <hr class="sent-hr">
+  <div class="cn">这本薄薄的书充满了各种建议，帮助工薪族和彩票赢家"让每一分钱都买到最多的幸福"。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：This slim volume is packed with tips（主+谓+宾）。<br>
+    <b>修饰</b>：to help wage slaves as well as lottery winners → 不定式短语作后置定语修饰 tips。<br>
+    <b>💡 习语</b>：bang for your buck = 性价比 / 花得值（buck = 美元，bang = 爆炸/效果）。"get the most happiness bang for your buck" 是双关，幽默地套用这个习语。<br>
+    <b>词义</b>：<b>slim volume</b> 薄薄的一本书；<b>wage slave</b> 工薪族（戏称"工资奴隶"）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">It seems most people would be better off if they could shorten their commutes to work, spend more time with friends and family and less of it watching television (something the average American spends a <u>whopping</u> two months a year doing, and is hardly jollier for it).</div>
+  <hr class="sent-hr">
+  <div class="cn">似乎大多数人如果能缩短通勤时间、花更多时间与朋友和家人在一起、少看电视（普通美国人一年花整整两个月看电视，且并未因此更快乐），他们的生活就会更好。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：It seems（主句）+ （that）most people would be better off if ...（表语从句，省略 that）。<br>
+    <b>条件状语从句</b>：if they could shorten ..., spend ... and less of it watching television（三个并列动词）。<br>
+    <b>括号内</b>：something the average American spends ... doing, and is hardly jollier for it → 同位语修饰 watching television，进一步说明看电视这件事。<br>
+    <b>词义</b>：<b>commute</b> 通勤；<b>whopping</b> 巨大的/惊人的（口语）；<b>jolly</b> 快乐的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Buying gifts or giving to charity is often more pleasurable than purchasing things for oneself, and luxuries are most enjoyable when they are consumed <u>sparingly</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">买礼物或捐给慈善机构往往比给自己买东西更愉快，而奢侈品在有节制地消费时最令人享受。</div>
+  <button class="syntax-toggle" id="btn-s11" onclick="toggleSyntax('s11')">▲ 收起解析</button>
+  <div class="syntax" id="s11">
+    <b>🔍 长难句拆解</b><br>
+    <b>并列句</b>：and 连接两个分句。<br>
+    &nbsp;&nbsp;前分句：Buying gifts or giving to charity is often more pleasurable than purchasing things for oneself（动名词作主语 + 比较级）<br>
+    &nbsp;&nbsp;后分句：luxuries are most enjoyable when they are consumed sparingly（主系表 + 时间状语从句）<br>
+    <b>词义</b>：<b>charity</b> 慈善机构；<b>pleasurable</b> 令人愉快的；<b>sparingly</b> 有节制地 / 少量地。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">This is apparently the reason McDonald's restricts the availability of its popular McRib—a marketing trick that has turned the pork sandwich into an object of <u>obsession</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">这显然是麦当劳限制其广受欢迎的 McRib 烤汁猪排堡供应的原因——这个营销技巧把这款猪肉三明治变成了令人痴迷的对象。</div>
+  <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
+  <div class="syntax" id="s12">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：This is apparently the reason（主+系+表）+ （why）McDonald's restricts the availability of its popular McRib（定语从句修饰 reason，省略 why）。<br>
+    <b>同位语</b>：a marketing trick 是前面整件事的同位语（说明这个做法是一个营销技巧）。<br>
+    <b>定语从句</b>：that has turned the pork sandwich into an object of obsession → 修饰 marketing trick。<br>
+    <b>词义</b>：<b>availability</b> 可获得性；<b>obsession</b> 痴迷 / 着迷。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 《快乐消费》的洞见与政策建议</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">Readers of <em>Happy Money</em> are clearly a <u>privileged</u> lot, anxious about fulfillment, not hunger.</div>
+  <hr class="sent-hr">
+  <div class="cn">《快乐消费》的读者显然是一群特权阶层，他们担忧的是满足感，而不是饥饿。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Readers ... are clearly a privileged lot（主+系+表）。lot 此处 = group（一群人）。<br>
+    <b>修饰</b>：anxious about fulfillment, not hunger → 形容词短语作伴随/补充状语，说明读者群体的特征——他们在乎满足感而非温饱。<br>
+    <b>词义</b>：<b>privileged</b> 有特权的 / 幸运的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">Money may not quite buy happiness, but people in wealthier countries are generally happier than those in poor ones.</div>
+  <hr class="sent-hr">
+  <div class="cn">金钱或许买不到幸福，但较富裕国家的人通常比贫穷国家的人更幸福。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14">
+    <b>🔍 语法解析</b><br>
+    <b>并列句</b>：but 连接两个分句，形成转折——"虽然金钱买不到幸福（绝对意义上），但富人比穷人更幸福（相对意义上）"。<br>
+    <b>比较级</b>：happier than those in poor ones。<br>
+    <b>词义</b>：<b>quite</b> 完全地（not quite = 不完全 / 不一定）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Yet the link between feeling good and spending money on others can be seen among rich and poor people around the world, and scarcity enhances the pleasure of most things for most people.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而，无论在富人还是穷人身上，都能看到"感觉良好"与"为他人花钱"之间的联系，而且稀缺性会增强大多数事物对大多数人的愉悦感。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15">
+    <b>🔍 语法解析</b><br>
+    <b>并列句</b>：and 连接两个分句。<br>
+    &nbsp;&nbsp;前分句：the link ... can be seen among rich and poor people around the world（被动语态）<br>
+    &nbsp;&nbsp;后分句：scarcity enhances the pleasure of most things for most people<br>
+    <b>词义</b>：<b>scarcity</b> 稀缺性（scarce + -ity），是 Q23（McRib 例子）的考点依据。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">Not everyone will agree with the authors' policy ideas, which range from <u>mandating</u> more holiday time to reducing tax incentives for American homebuyers.</div>
+  <hr class="sent-hr">
+  <div class="cn">并非所有人都会同意作者的政策主张——从规定更多假期时间到减少对美国购房者的税收激励。</div>
+  <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s16">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Not everyone will agree with the authors' policy ideas（部分否定——"不是所有人都同意"）。<br>
+    <b>非限制性定语从句</b>：which range from mandating more holiday time to reducing tax incentives for American homebuyers → 修饰 policy ideas，列举政策范围。<br>
+    <b>词义</b>：<b>mandate</b> 强制规定；<b>tax incentive</b> 税收激励/优惠。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">But most people will come away from this book believing it was money well spent.</div>
+  <hr class="sent-hr">
+  <div class="cn">但大多数人读完这本书后，会觉得这钱花得值。</div>
+  <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s17">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：most people will come away（主+谓）。<br>
+    <b>伴随状语</b>：believing it was money well spent → 现在分词短语，说明"离开时相信"。it was money well spent = "这钱花得值"。<br>
+    <b>💡 词义注意</b>：money well spent = 花得值的钱，是英语常见搭配。well spent 是过去分词短语作后置定语修饰 money。
+  </div>
+</div>
+
+
+<!-- ===== Bottom ===== -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 引入——彩票中奖者 Gloria MacKenzie 面临"怎么花 5.9 亿"的问题，引出《Happy Money》这本书。<br>
+        <span class="num">②</span> P2: 核心观点——花钱的幸福来自<b>体验</b>而非<b>物质</b>。物质享受满足感消退快，体验消费会变成美好回忆。<br>
+        <span class="num">③</span> P3: 具体建议——缩短通勤、多陪亲友、少看电视；为他人花钱比为自己更快乐；稀罕感增强愉悦（McRib 的例子）。<br>
+        <span class="num">④</span> P4: 总结——为他人花钱带来的幸福感跨越贫富；书的政策建议有争议，但值得购买。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table>
+      <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>jackpot</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>头奖/巨额奖金</td><td>lottery ~ 彩票头奖</td></tr>
+        <tr><td><b>fulfillment</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>满足感</td><td>sense of ~</td></tr>
+        <tr><td><b>counterintuitive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>违反直觉的</td><td>counter- + intuitive</td></tr>
+        <tr><td><b>extravagant</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>奢侈的</td><td>~ homes 豪宅</td></tr>
+        <tr><td><b>commute</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>通勤</td><td>shorten one's ~</td></tr>
+        <tr><td><b>whopping</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>巨大的</td><td>口语用法</td></tr>
+        <tr><td><b>charity</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>慈善机构</td><td>give to ~</td></tr>
+        <tr><td><b>sparingly</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>有节制地</td><td>consume ~</td></tr>
+        <tr><td><b>obsession</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>痴迷</td><td>object of ~</td></tr>
+        <tr><td><b>scarcity</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>稀缺性</td><td>Q23 考点词</td></tr>
+        <tr><td><b>mandate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>强制规定</td><td>~ more holiday</td></tr>
+        <tr><td><b>privileged</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有特权的</td><td>~ lot 特权群体</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>💡 熟词生义 <span class="toggle collapsed" onclick="toggleBody('poly')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="poly">
+    <table>
+      <thead><tr><th>词汇</th><th>熟义</th><th>本文义</th><th>例句</th></tr></thead>
+      <tbody>
+        <tr><td><b>lot</b></td><td style="color:var(--text-muted);font-size:.9em;">许多/ lot</td><td>一群人</td><td>a privileged lot 特权群体</td></tr>
+        <tr><td><b>bang for your buck</b></td><td style="color:var(--text-muted);font-size:.9em;">爆炸/钱</td><td>性价比</td><td>happiness bang for your buck</td></tr>
+        <tr><td><b>yield</b></td><td style="color:var(--text-muted);font-size:.9em;">屈服</td><td>产生</td><td>yield lasting feelings</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">If she hopes her new-found fortune will yield lasting feelings of fulfillment, she could do worse than read Happy Money.</div>
+      <div class="pat-cn">如果她希望新财富带来持久满足，她最好读读这本书。</div>
+      <span class="pat-tag">could do worse than + 委婉建议</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Satisfaction with these material purchases wears off fairly quickly: what was once exciting and new becomes old-hat; regret creeps in.</div>
+      <div class="pat-cn">物质消费的满足感消退得相当快：曾经令人兴奋的变成过时的，后悔悄然来临。</div>
+      <span class="pat-tag">冒号解释 + 并列分句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">It is far better to spend money on experiences, like interesting trips, unique meals or even going to the cinema.</div>
+      <div class="pat-cn">把钱花在体验上要好得多。</div>
+      <span class="pat-tag">It is far better to do + 举例列举</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">21. According to Dunn and Norton, which of the following is the most rewarding purchase?</div>
+    <div class="opts">
+      <span class="opt no">[A] A big house.</span>
+      <span class="opt ok">[B] A special tour.</span>
+      <span class="opt no">[C] A stylish car.</span>
+      <span class="opt no">[D] A rich meal.</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（A special tour 一次特别的旅行）</b></p>
+      <p><b>定位</b>：P2 · S07-S08 — "It is far better to spend money on <b>experiences</b>, say Ms. Dunn and Mr. Norton, like <b>interesting trips</b>, unique meals or even going to the cinema." 以及 S08 "These purchases often become more valuable with time—as stories or memories"</p>
+      <p><b>推理</b>：作者明确说"把钱花在体验上要好得多"，并举例 interesting trips, unique meals, going to the cinema。A special tour（特别之旅）就是 interesting trips 的同义替换。A 和 C 是物质消费（house / car），D 的 rich meal 虽然被提及，但只是作为体验的例子之一，不如 special tour 更具代表性。</p>
+      <p><b>❌ A 错误</b>：A big house（大房子）——这是 S05 提到的 "extravagant homes"（物质消费），S06 说这类消费满足感会很快消退。</p>
+      <p><b>❌ C 错误</b>：A stylish car（时尚汽车）——同上，属于物质消费。</p>
+      <p><b>❌ D 错误</b>：A rich meal（丰盛的一餐）——虽然 unique meals 被列为体验消费的一种，但 B 选项 special tour（旅行）更全面地代表了"体验型消费"的核心，且文中用 like 列举的顺序是 trips 在前。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">22. The author's attitude toward Americans' watching TV is ____________.</div>
+    <div class="opts">
+      <span class="opt ok">[A] critical</span>
+      <span class="opt no">[B] supportive</span>
+      <span class="opt no">[C] sympathetic</span>
+      <span class="opt no">[D] ambiguous</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（critical 批评的）</b></p>
+      <p><b>定位</b>：P3 · S10 — "spend more time with friends and family and <b>less of it watching television</b> (something the average American spends a whopping two months a year doing, and is <b>hardly jollier</b> for it)"</p>
+      <p><b>推理</b>：作者建议"少看电视"，并补充说美国人每年花整整两个月看电视"并未因此更快乐"（hardly jollier）。"less of it" + "hardly jollier" 都表明作者对看电视持负面/批评态度。</p>
+      <p><b>❌ B 错误</b>：supportive（支持的）——与原文 "less of it" 相反。</p>
+      <p><b>❌ C 错误</b>：sympathetic（同情的）——作者没有同情看电视的人，而是批评这种行为没带来更多快乐。</p>
+      <p><b>❌ D 错误</b>：ambiguous（模糊的）——作者态度很明确（负面），不模糊。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">23. McRib is mentioned in Paragraph 3 to show that ____________.</div>
+    <div class="opts">
+      <span class="opt no">[A] consumers are sometimes irrational</span>
+      <span class="opt no">[B] popularity usually comes after quality</span>
+      <span class="opt no">[C] marketing tricks are often effective</span>
+      <span class="opt ok">[D] rarity generally increases pleasure</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（rarity generally increases pleasure 稀缺性通常会提升愉悦感）</b></p>
+      <p><b>定位</b>：P3 · S11-S12 — 先提出观点 "luxuries are most enjoyable when they are consumed <b>sparingly</b>"（奢侈品有节制地消费时最令人享受），紧跟着 "This is apparently the reason McDonald's restricts the availability of its popular McRib..."</p>
+      <p><b>推理</b>：作者先用观点句说明"节制消费增强愉悦感"，然后用 McRib 的例子作为例证——麦当劳限制供应 McRib，反而让它成为令人痴迷的对象。McRib 的例子就是为了说明"稀缺性提升愉悦感"（rarity enhances pleasure），这正是 S15 明确提到的 "scarcity enhances the pleasure"。D 选项 rarity increases pleasure 是 scarcity enhances pleasure 的同义替换。</p>
+      <p><b>❌ A 错误</b>：consumers are sometimes irrational（消费者有时不理性）——即使 McRib 的狂热看起来不理性，但作者引用此例的目的是要说明 scarcity/rarity 的作用，而非消费者的理性问题。</p>
+      <p><b>❌ B 错误</b>：popularity usually comes after quality（流行通常来自质量）——McRib 的流行正是因为稀缺，文中没说它的质量有多好。</p>
+      <p><b>❌ C 错误</b>：marketing tricks are often effective（营销技巧通常有效）——虽然 McRib 的例子确实涉及营销技巧（marketing trick），但作者的落脚点是"稀缺性提升愉悦感"（scarcity），不是"营销技巧有效"。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">24. According to the last paragraph, <em>Happy Money</em> ____________.</div>
+    <div class="opts">
+      <span class="opt no">[A] has left much room for readers' criticism</span>
+      <span class="opt ok">[B] may prove to be a worthwhile purchase</span>
+      <span class="opt no">[C] has predicted a wider income gap in the US</span>
+      <span class="opt no">[D] may give its readers a sense of achievement</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（may prove to be a worthwhile purchase 可能证明是一笔值得的消费）</b></p>
+      <p><b>定位</b>：P4 · S17 — "But <b>most people will come away from this book believing it was money well spent</b>"</p>
+      <p><b>推理</b>："money well spent" = 花得值的钱 = worthwhile purchase。这句话以类比的方式回扣全文主题——这本书本身就是一种"消费"，而且大多数人会觉得这笔钱花得值。B 选项是对原文最准确的同义替换。</p>
+      <p><b>❌ A 错误</b>：left much room for readers' criticism（给读者留下了很多批评空间）——S16 说"Not everyone will agree with the authors' policy ideas"，但这只是说政策建议有争议，不是全书都留下批评空间。</p>
+      <p><b>❌ C 错误</b>：predicted a wider income gap（预测了更大的收入差距）——文中未提 income gap（收入差距）。</p>
+      <p><b>❌ D 错误</b>：give its readers a sense of achievement（给读者成就感）——文中说的是"觉得钱花得值"，不是"成就感"。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">25. This text mainly discusses how to ____________.</div>
+    <div class="opts">
+      <span class="opt no">[A] balance feeling good and spending money</span>
+      <span class="opt no">[B] spend large sums of money won in lotteries</span>
+      <span class="opt ok">[C] obtain lasting satisfaction from money spent</span>
+      <span class="opt no">[D] become more reasonable in spending on luxuries</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（obtain lasting satisfaction from money spent 如何从花出去的钱中获得持久的满足感）</b></p>
+      <p><b>定位</b>：全文主旨题。文章开篇用彩票中奖引出"怎么花钱才幸福"，P2 讲体验消费优于物质消费（lasting satisfaction），P3 讲具体方法（为他人花钱、节制消费），P4 总结——整篇文章围绕的核心就是"如何从消费中获得持久的幸福感"。</p>
+      <p><b>推理</b>：C 选项中的 lasting satisfaction 直接对应 P1 S03 的 "lasting feelings of fulfillment"，是最全面的概括。</p>
+      <p><b>❌ A 错误</b>：balance feeling good and spending money（平衡感觉良好和花钱）——balance（平衡）不是文章的主线，文章讲的是"如何花"而不是"如何平衡"。</p>
+      <p><b>❌ B 错误</b>：spend large sums of money won in lotteries（花掉中彩票的大笔钱）——彩票中奖只是文章开篇的引子，不是全文主旨。</p>
+      <p><b>❌ D 错误</b>：become more reasonable in spending on luxuries（在奢侈品消费上更理性）——luxuries 只是 P3 的一个小点（消费要节制），不是全文重点。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2014 英语（二）Text 1 · 17 句 · 5 题 · 答案 BADBC</div>
+
+</div>
+
+<script>
+function toggleSyntax(id) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent='▲ 收起解析';
+  }else{
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent='▼ 展开解析';
+  }
+}
+function toggleBody(id) {
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
+}
+</script>
+</body>
+</html>

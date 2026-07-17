@@ -65,6 +65,9 @@
   --card-2010: linear-gradient(145deg, #f7ede4 0%, #efe0d3 50%, #f6ece2 100%);
   --card-2010-accent: #b54830;
   --card-2010-glow: rgba(181,72,48,.15);
+  --card-2014: linear-gradient(145deg, #fdf5e8 0%, #faead0 50%, #fcf2e0 100%);
+  --card-2014-accent: #c97d2a;
+  --card-2014-glow: rgba(201,125,42,.15);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -384,6 +387,7 @@ body {
 .year-card[data-y="2015"] .yc-inner { background: var(--card-2015); --yc-accent: var(--card-2015-accent); --yc-glow: var(--card-2015-glow); }
 .year-card[data-y="2016"] .yc-inner { background: var(--card-2016); --yc-accent: var(--card-2016-accent); --yc-glow: var(--card-2016-glow); }
 .year-card[data-y="2010"] .yc-inner { background: var(--card-2010); --yc-accent: var(--card-2010-accent); --yc-glow: var(--card-2010-glow); }
+.year-card[data-y="2014"] .yc-inner { background: var(--card-2014); --yc-accent: var(--card-2014-accent); --yc-glow: var(--card-2014-glow); }
 
 /* 轮播位置状态 */
 /* 中间（激活）*/
@@ -808,8 +812,19 @@ body {
         </div>
       </div>
 
+      <!-- 2014 年卡片 -->
+      <div class="year-card" data-y="2014" onclick="openArticles(this)" data-idx="3">
+        <div class="yc-inner">
+          <div class="yc-icon">📒</div>
+          <div class="yc-year">2014</div>
+          <div class="yc-label">英二阅读</div>
+          <div class="yc-count"><span class="yc-count-num" data-year="2014"></span>&nbsp;篇文章</div>
+          <div class="yc-hint">点击查看文章</div>
+        </div>
+      </div>
+
       <!-- 2015 年卡片 -->
-      <div class="year-card" data-y="2015" onclick="openArticles(this)" data-idx="3">
+      <div class="year-card" data-y="2015" onclick="openArticles(this)" data-idx="4">
         <div class="yc-inner">
           <div class="yc-icon">📗</div>
           <div class="yc-year">2015</div>
@@ -820,7 +835,7 @@ body {
       </div>
 
       <!-- 2016 年卡片 -->
-      <div class="year-card" data-y="2016" onclick="openArticles(this)" data-idx="4">
+      <div class="year-card" data-y="2016" onclick="openArticles(this)" data-idx="5">
         <div class="yc-inner">
           <div class="yc-icon">📙</div>
           <div class="yc-year">2016</div>
@@ -840,6 +855,7 @@ body {
       <button class="carousel-dot" data-t="2" onclick="carouselGoTo(2)"></button>
       <button class="carousel-dot" data-t="3" onclick="carouselGoTo(3)"></button>
       <button class="carousel-dot" data-t="4" onclick="carouselGoTo(4)"></button>
+      <button class="carousel-dot" data-t="5" onclick="carouselGoTo(5)"></button>
     </div>
   </div>
 
@@ -945,6 +961,9 @@ body {
     '2010': [
       { href: '2010/英二-text1.html', title: 'Text 1', desc: '艺术市场的衰退——赫斯特拍卖与金融危机', num: 1 }
     ],
+    '2014': [
+      { href: '2014/英二-text1.html', title: 'Text 1', desc: '金钱与幸福感——什么样的消费方式最让人满足', num: 1 }
+    ],
     '2015': [
       { href: '2015/英二-text1.html', title: 'Text 1', desc: '家比工作更有压力——皮质醇研究揭示的颠覆性真相', num: 1 },
       { href: '2015/英二-text2.html', title: 'Text 2', desc: '第一代大学生的困境与出路——一小时干预缩小63%成就差距', num: 2 },
@@ -958,15 +977,15 @@ body {
 
   // ===== 缓存破坏：强制移动端/浏览器重新请求最新文章页，绕过 HTML 缓存 =====
   (function () {
-    const ART_CACHE_VER = '20260719g';
+    const ART_CACHE_VER = '20260720';
     Object.values(articlesData).forEach(list => list.forEach(a => {
       if (a.href && !a.href.includes('?v=')) a.href += '?v=' + ART_CACHE_VER;
     }));
   })();
 
   // 年份对应的强调色
-  const yearAccent = { '2008': '#d4623e', '2009': '#389e92', '2010': '#b54830', '2015': '#7a9420', '2016': '#2c3e7a' };
-  const yearIcon = { '2008': '📕', '2009': '📘', '2010': '📕', '2015': '📗', '2016': '📙' };
+  const yearAccent = { '2008': '#d4623e', '2009': '#389e92', '2010': '#b54830', '2014': '#c97d2a', '2015': '#7a9420', '2016': '#2c3e7a' };
+  const yearIcon = { '2008': '📕', '2009': '📘', '2010': '📕', '2014': '📒', '2015': '📗', '2016': '📙' };
 
   const POSITIONS = ['pos-center', 'pos-right', 'pos-far-right', 'pos-far-left', 'pos-left'];
   // pos-far-left 是索引 -2 的位置，pos-left 是索引 -1
