@@ -797,8 +797,19 @@ body {
         </div>
       </div>
 
+      <!-- 2010 年卡片 -->
+      <div class="year-card pos-far-right" data-y="2010" onclick="openArticles(this)" data-idx="2">
+        <div class="yc-inner">
+          <div class="yc-icon">📕</div>
+          <div class="yc-year">2010</div>
+          <div class="yc-label">英二阅读</div>
+          <div class="yc-count"><span class="yc-count-num" data-year="2010"></span>&nbsp;篇文章</div>
+          <div class="yc-hint">点击查看文章</div>
+        </div>
+      </div>
+
       <!-- 2015 年卡片 -->
-      <div class="year-card pos-far-right" data-y="2015" onclick="openArticles(this)" data-idx="2">
+      <div class="year-card" data-y="2015" onclick="openArticles(this)" data-idx="3">
         <div class="yc-inner">
           <div class="yc-icon">📗</div>
           <div class="yc-year">2015</div>
@@ -809,23 +820,12 @@ body {
       </div>
 
       <!-- 2016 年卡片 -->
-      <div class="year-card" data-y="2016" onclick="openArticles(this)" data-idx="3">
+      <div class="year-card" data-y="2016" onclick="openArticles(this)" data-idx="4">
         <div class="yc-inner">
           <div class="yc-icon">📙</div>
           <div class="yc-year">2016</div>
           <div class="yc-label">英二阅读</div>
           <div class="yc-count"><span class="yc-count-num" data-year="2016"></span>&nbsp;篇文章</div>
-          <div class="yc-hint">点击查看文章</div>
-        </div>
-      </div>
-
-      <!-- 2010 年卡片 -->
-      <div class="year-card" data-y="2010" onclick="openArticles(this)" data-idx="4">
-        <div class="yc-inner">
-          <div class="yc-icon">📕</div>
-          <div class="yc-year">2010</div>
-          <div class="yc-label">英二阅读</div>
-          <div class="yc-count"><span class="yc-count-num" data-year="2010"></span>&nbsp;篇文章</div>
           <div class="yc-hint">点击查看文章</div>
         </div>
       </div>
@@ -958,7 +958,7 @@ body {
 
   // ===== 缓存破坏：强制移动端/浏览器重新请求最新文章页，绕过 HTML 缓存 =====
   (function () {
-    const ART_CACHE_VER = '20260719f';
+    const ART_CACHE_VER = '20260719g';
     Object.values(articlesData).forEach(list => list.forEach(a => {
       if (a.href && !a.href.includes('?v=')) a.href += '?v=' + ART_CACHE_VER;
     }));
