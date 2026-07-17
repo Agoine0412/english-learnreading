@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2016 考研英语（二）Text 1 — 编程教育：从高中课堂到数字素养</title>
 <style>
-/* ====== 🔵 靛蓝电光风（Indigo & Electric）—— 科技教育篇专属配色 ====== */
+/* ====== 靛蓝电光风（Indigo & Electric）—— 科技教育篇专属配色 ====== */
 :root {
   --bg: #f4f6fa;
   --card: #ffffff;
@@ -102,6 +102,7 @@ body {
 .cn{
   color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
 }
+
 /* ====== 逐句语法解析折叠按钮 ====== */
 .syntax-toggle{
   font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
@@ -130,6 +131,8 @@ body {
   box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
 }
 .card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+
+/* ====== 折叠按钮 ====== */
 .card h2 .toggle{
   font-size:.78em !important;
   cursor:pointer;
@@ -284,7 +287,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">03</span>
-  <div class="en">When younger kids learn computer science, they learn that <u>it's not just a confusing, endless string of letters and numbers—but a tool to build apps, or create artwork, or test hypotheses</u>. It's not as hard for them to <mark>transform</mark> their <mark>thought processes</mark> as it is for older students.</div>
+  <div class="en">When younger kids learn computer science, they learn that <u>it's not just a confusing, endless string of letters and numbers—but a tool to build apps, or create artwork, or test hypotheses</u>. It's not as hard for them to <mark>transform their thought processes</mark> as it is for older students.</div>
   <hr class="sent-hr">
   <div class="cn">当更小的孩子学习计算机科学时，他们学到的不只是一串令人困惑、无穷无尽的字母和数字——而是一个构建应用、创作艺术作品或检验假设的工具。对他们来说，转变思维方式并不像年长的学生那么困难。</div>
   <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
@@ -304,7 +307,7 @@ tr:hover td{background:var(--panel-bg);}
 
 <div class="sent">
   <span class="snum">04</span>
-  <div class="en"><mark>Breaking down</mark> problems into <mark>bite-sized chunks</mark> and using code to solve them becomes normal.</div>
+  <div class="en">Breaking down problems into <mark>bite-sized chunks</mark> and using code to solve them becomes normal.</div>
   <hr class="sent-hr">
   <div class="cn">把问题拆成小块并用代码来解决，变得习以为常。</div>
   <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
@@ -339,7 +342,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P3 -->
 <div class="sent">
   <span class="snum">06</span>
-  <div class="en">Students also benefit from learning something about coding before they get to college, where <mark>introductory computer-science classes</mark> are <mark>packed to the brim</mark>, which can drive the less-experienced or-determined students away.</div>
+  <div class="en">Students also benefit from learning something about coding before they get to college, where introductory computer-science classes are <mark>packed to the brim</mark>, which can drive the less-experienced or-determined students away.</div>
   <hr class="sent-hr">
   <div class="cn">学生在进入大学之前学习一些编程知识也有好处，因为大学的入门计算机科学课程往往人满为患，这会把经验不足或意志不坚定的学生劝退。</div>
   <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
@@ -360,7 +363,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P4 -->
 <div class="sent">
   <span class="snum">07</span>
-  <div class="en">The <mark>Flatiron School</mark>, where people pay to learn programming, started as one of the many <mark>coding boot camps</mark> that have become popular for adults looking for a career change.</div>
+  <div class="en">The Flatiron School, where people pay to learn programming, started as one of the many <mark>coding boot camps</mark> that have become popular for adults looking for a career change.</div>
   <hr class="sent-hr">
   <div class="cn">Flatiron School（人们付费学编程的地方）最初只是众多编程训练营中的一个，这些训练营近年来在寻求转行的成年人中变得流行起来。</div>
   <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
@@ -453,7 +456,7 @@ tr:hover td{background:var(--panel-bg);}
 <!-- P6 -->
 <div class="sent">
   <span class="snum">12</span>
-  <div class="en"><mark>Indeed</mark>, the Flatiron students might not go into IT at all.</div>
+  <div class="en">Indeed, the Flatiron students might not go into IT at all.</div>
   <hr class="sent-hr">
   <div class="cn">确实，Flatiron 的学生可能根本不会进入 IT 行业。</div>
   <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
@@ -524,8 +527,8 @@ tr:hover td{background:var(--panel-bg);}
 
 <!-- ====== 📋 全文脉络 ====== -->
 <div class="card">
-  <h2>📖 全文脉络 <button class="toggle" onclick="toggleBody(this)">收起 ▲</button></h2>
-  <div class="collapsible-body">
+  <h2>📖 全文脉络 <span class="toggle" data-target="outline" onclick="toggleBody('outline')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="outline">
     <p>本文讨论<b>高中阶段编程教育的价值</b>，通过多位专家观点层层递进：</p>
     <p><b style="color:var(--accent)">① 让步 — 编程课非必需（P1 · S01）</b><br>
     Tom Cortina（CMU）指出高中编程课对大学学CS不是必需的，没经验的学生上几门入门课即可跟上。</p>
@@ -544,8 +547,8 @@ tr:hover td{background:var(--panel-bg);}
 
 <!-- ====== 📝 重点词汇 ====== -->
 <div class="card">
-  <h2>📝 重点词汇 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
-  <div class="collapsible-body hidden">
+  <h2>📝 重点词汇 <span class="toggle collapsed" data-target="vocab" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
     <table>
       <tr><th>单词/短语</th><th>释义</th><th>所在句</th></tr>
       <tr><td>essential</td><td>a. 必不可少的；本质的</td><td>S01</td></tr>
@@ -576,8 +579,8 @@ tr:hover td{background:var(--panel-bg);}
 
 <!-- ====== 🔤 熟词生义 & 短语搭配 ====== -->
 <div class="card">
-  <h2>🔤 熟词生义 & 搭配 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
-  <div class="collapsible-body hidden">
+  <h2>🔤 熟词生义 & 搭配 <span class="toggle collapsed" data-target="phrases" onclick="toggleBody('phrases')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="phrases">
     <table>
       <tr><th>词汇</th><th>本文含义</th><th>常见含义</th></tr>
       <tr><td><b>catch</b></td><td>追上（catch up 追赶）</td><td>抓住；接住</td></tr>
@@ -596,8 +599,8 @@ tr:hover td{background:var(--panel-bg);}
 
 <!-- ====== ✨ 值得背诵的句型 ====== -->
 <div class="card">
-  <h2>✨ 值得背诵的句型 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
-  <div class="collapsible-body hidden">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" data-target="patterns" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
     <div class="pat">
       <div class="pat-en">It's not as hard for A to do sth as it is for B.</div>
       <div class="pat-cn">对 A 来说做某事不像对 B 来得那么困难。</div>
@@ -618,8 +621,8 @@ tr:hover td{background:var(--panel-bg);}
 
 <!-- ====== 📊 题目答案速查 ====== -->
 <div class="card" id="qa">
-  <h2>📊 题目答案速查 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
-  <div class="collapsible-body hidden">
+  <h2>📊 题目答案速查 <span class="toggle collapsed" data-target="answers" onclick="toggleBody('answers')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="answers">
     <p style="text-align:center;font-size:1.1em;margin:10px 0;color:var(--accent);font-weight:700;">
       21-B ｜ 22-B ｜ 23-A ｜ 24-C ｜ 25-A &nbsp; <b style="color:var(--amber)">（BBACA）</b>
     </p>
@@ -732,10 +735,28 @@ tr:hover td{background:var(--panel-bg);}
 </div><!-- /.container -->
 
 <script>
+function toggleBody(id) {
+  const body = document.getElementById(id);
+  const toggle = document.querySelector('[data-target="'+id+'"]');
+  if (!body || !toggle) return;
+  const isHidden = body.classList.contains('hidden');
+  if (isHidden) {
+    body.classList.remove('hidden');
+    toggle.classList.remove('collapsed');
+    toggle.textContent = '▲ 收起';
+  } else {
+    body.classList.add('hidden');
+    toggle.classList.add('collapsed');
+    toggle.textContent = '▼ 展开';
+  }
+}
+
 function toggleSyntax(id) {
   const el = document.getElementById(id);
-  const btn = document.getElementById('btn-' + id);
-  if (el.classList.contains('hidden')) {
+  const btn = document.getElementById('btn-'+id);
+  if (!el || !btn) return;
+  const isHidden = el.classList.contains('hidden');
+  if (isHidden) {
     el.classList.remove('hidden');
     btn.classList.remove('collapsed');
     btn.textContent = '▲ 收起解析';
@@ -745,27 +766,6 @@ function toggleSyntax(id) {
     btn.textContent = '▼ 展开解析';
   }
 }
-
-function toggleBody(btn) {
-  const body = btn.parentElement.querySelector('.collapsible-body');
-  if (!body) return;
-  if (body.classList.contains('hidden')) {
-    body.classList.remove('hidden');
-    btn.classList.remove('collapsed');
-    const txt = btn.textContent;
-    btn.textContent = txt.replace(/展开\s*▼/, '收起 ▲');
-  } else {
-    body.classList.add('hidden');
-    btn.classList.add('collapsed');
-    const txt = btn.textContent;
-    btn.textContent = txt.replace(/收起\s*▲/, '展开 ▼');
-  }
-}
-
-// 页面加载后折叠所有简单句语法（仅保留长难句展开）
-document.addEventListener('DOMContentLoaded', () => {
-  // 默认已通过 HTML class 控制展开/收起状态
-});
 </script>
 </body>
 </html>
