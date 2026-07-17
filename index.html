@@ -730,7 +730,7 @@ body {
           <div class="yc-icon">📕</div>
           <div class="yc-year">2008</div>
           <div class="yc-label">英二阅读</div>
-          <div class="yc-count"><span class="yc-count-num">4</span>&nbsp;篇文章</div>
+          <div class="yc-count"><span class="yc-count-num" data-year="2008"></span>&nbsp;篇文章</div>
           <div class="yc-hint">点击查看文章</div>
         </div>
       </div>
@@ -741,7 +741,7 @@ body {
           <div class="yc-icon">📘</div>
           <div class="yc-year">2009</div>
           <div class="yc-label">英二阅读</div>
-          <div class="yc-count"><span class="yc-count-num">2</span>&nbsp;篇文章</div>
+          <div class="yc-count"><span class="yc-count-num" data-year="2009"></span>&nbsp;篇文章</div>
           <div class="yc-hint">点击查看文章</div>
         </div>
       </div>
@@ -752,7 +752,7 @@ body {
           <div class="yc-icon">📗</div>
           <div class="yc-year">2015</div>
           <div class="yc-label">英二阅读</div>
-          <div class="yc-count"><span class="yc-count-num">3</span>&nbsp;篇文章</div>
+          <div class="yc-count"><span class="yc-count-num" data-year="2015"></span>&nbsp;篇文章</div>
           <div class="yc-hint">点击查看文章</div>
         </div>
       </div>
@@ -919,6 +919,13 @@ body {
   window.carouselNext = carouselNext;
   window.carouselPrev = carouselPrev;
   window.carouselGoTo = carouselGoTo;
+
+  // 自动统计每张卡片的文章数量（从 articlesData 取）
+  document.querySelectorAll('.yc-count-num').forEach(el => {
+    const year = el.dataset.year;
+    const articles = articlesData[year];
+    if (articles) el.textContent = articles.length;
+  });
 
   // 触摸滑动支持
   let touchStartX = 0;
