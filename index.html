@@ -5,97 +5,482 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>英语精读存档</title>
 <style>
-  :root{
-    --bg:#f5f0eb; --card:#fffdfa; --text:#3a322b; --muted:#8a7d6e;
-    --brick:#b5482f; --olive:#6b7a3a; --gold:#c89b3c; --shadow:0 4px 18px rgba(120,90,60,.10);
-    --radius:14px; --transition:.25s;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:Georgia,"Noto Serif SC",serif;
-    padding:32px 16px 60px;line-height:1.7;}
-  .wrap{max-width:760px;margin:0 auto;}
-  .header{background:linear-gradient(90deg,var(--brick),var(--gold),var(--olive));
-    height:5px;border-radius:5px;margin-bottom:26px;animation:flow 6s linear infinite;
-    background-size:200% 100%;}
-  @keyframes flow{to{background-position:200% 0;}}
-  h1{font-size:28px;margin-bottom:6px;letter-spacing:.5px;}
-  .sub{color:var(--muted);font-size:14px;margin-bottom:30px;}
-  .year{margin-bottom:26px;}
-  .ytitle{font-size:18px;color:var(--brick);border-left:4px solid var(--gold);
-    padding-left:10px;margin-bottom:12px;}
-  .item{display:block;background:var(--card);border-radius:var(--radius);padding:14px 18px;
-    box-shadow:var(--shadow);margin-bottom:10px;text-decoration:none;color:var(--text);
-    transition:var(--transition);}
-  .item:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(120,90,60,.16);}
-  .item b{color:var(--olive);}
-  .item span{color:var(--muted);font-size:13px;display:block;margin-top:3px;}
-  .empty{color:var(--muted);font-style:italic;font-size:14px;}
+/* ====== 🎨 全局变量 & 字体系统 ====== */
+:root {
+  /* 色彩 */
+  --bg: #f7f3ee;
+  --bg-warm: #faf6f0;
+  --card: #fffdf9;
+  --text: #3a322b;
+  --text-soft: #5c4f42;
+  --muted: #8e8070;
+  --muted-light: #b5a99a;
+  --brick: #b5482f;
+  --olive: #6b7a3a;
+  --gold: #c89b3c;
+  --teal: #2a9d8f;
+  --blue: #457b9d;
+  --rose: #c26a6a;
+
+  /* 阴影体系 */
+  --shadow-sm: 0 1px 4px rgba(120,90,60,.06);
+  --shadow-md: 0 4px 16px rgba(120,90,60,.09);
+  --shadow-lg: 0 8px 30px rgba(120,90,60,.13);
+  --shadow-hover: 0 12px 36px rgba(120,90,60,.18);
+
+  /* 圆角 & 过渡 */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --transition: .28s cubic-bezier(.4,0,.2,1);
+  --transition-fast: .18s ease;
+
+  /* 字体栈 —— 中文衬线+数字等宽美化 */
+  --font-serif: "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", Georgia, serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "JetBrains Mono", "Consolas", monospace;
+}
+
+/* ====== 🔤 全局字体渲染优化 ====== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(181,72,47,.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(107,122,58,.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a09070' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  padding: 0 16px 60px;
+  min-height: 100vh;
+}
+.wrap { max-width: 780px; margin: 0 auto; }
+
+/* ====== ✨ Hero 头部区域 ====== */
+.hero {
+  position: relative;
+  margin: 40px auto 36px;
+  padding: 48px 36px 40px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: fadeUp .6s ease both;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--brick) 0%,
+    var(--gold) 25%,
+    var(--olive) 50%,
+    var(--teal) 75%,
+    var(--blue) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerFlow 8s linear infinite;
+}
+@keyframes shimmerFlow {
+  to { background-position: -200% 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero 标题区 */
+.hero-title-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.hero-icon {
+  font-size: 38px; line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
+  flex-shrink: 0;
+}
+.hero h1 {
+  font-size: 28px;
+  letter-spacing: .5px;
+  font-family: var(--font-serif);
+  color: var(--text);
+}
+.hero-subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-left: 52px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* 统计徽章条 */
+.stats-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  padding-left: 52px;
+}
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.stat-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.stat-pill--total { background: linear-gradient(135deg, #fef3e8, #fde8d4); color: #a0522d; }
+.stat-pill--years { background: linear-gradient(135deg, #eef6ec, #dff0da); color: #4a6830; }
+.stat-pill--feature { background: linear-gradient(135deg, #edf4f6, #ddeff3); color: #2d6a6a; }
+.stat-num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ====== 📂 年份分区 ====== */
+.year-section {
+  margin-bottom: 32px;
+  animation: fadeUp .55s ease both;
+  animation-delay: calc(var(--delay, 0) * .08s);
+  opacity: 0;
+  /* JS will set delay, fallback to visible */
+}
+.year-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 10px 16px;
+  background: var(--bg-warm);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--year-color, var(--gold));
+  position: relative;
+  overflow: hidden;
+}
+.year-header::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--year-color, var(--gold));
+  opacity: .08;
+}
+.ytitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-serif);
+  flex: 1;
+  letter-spacing: .3px;
+}
+.ycount {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted-light);
+  background: var(--card);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 年份配色变量（通过内联 style 注入） */
+[data-year="2008"] { --year-color: var(--brick); }
+[data-year="2009"] { --year-color: var(--teal); }
+[data-year="2015"] { --year-color: var(--olive); }
+
+/* ====== 📄 文章卡片 ====== */
+.item-list { display: flex; flex-direction: column; gap: 10px; }
+.item {
+  display: block;
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px 20px 16px 56px;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--text);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+/* 左侧彩色竖条 */
+.item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--year-color, var(--gold)), transparent 80%);
+  border-radius: 4px 0 0 4px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+/* 左上角序号圆点 */
+.item::after {
+  content: attr(data-index);
+  position: absolute;
+  left: 18px;
+  top: 19px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--year-color, var(--gold));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  opacity: .85;
+  transition: opacity var(--transition);
+}
+
+.item:hover {
+  transform: translateY(-3px) translateX(2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(120,90,60,.08);
+}
+.item:hover::before { opacity: 1; }
+.item:hover::after { opacity: 1; }
+
+.item b {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-serif);
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+.item span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  padding-left: 2px;
+}
+
+/* 卡片入场动画交错 */
+.item {
+  animation: cardIn .4s ease both;
+  animation-delay: calc((var(--item-delay, 0)) * .07s);
+  opacity: 0;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== 🎐 页脚 ====== */
+.footer {
+  margin-top: 48px;
+  padding: 28px 0;
+  text-align: center;
+  border-top: 1px solid rgba(120,90,60,.08);
+  animation: fadeUp .5s ease .6s both;
+  opacity: 0;
+}
+.footer-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.footer-text {
+  font-size: 13px;
+  color: var(--muted-light);
+  font-family: var(--font-sans);
+}
+.footer-heart {
+  display: inline-block;
+  animation: heartbeat 1.6s ease infinite;
+  color: var(--rose);
+  font-size: 15px;
+  line-height: 1;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+/* ====== 📱 响应式适配 ====== */
+@media (max-width: 520px) {
+  body { padding: 0 10px 48px; }
+  .hero { padding: 32px 22px 28px; border-radius: var(--radius); margin-top: 24px; }
+  .hero-icon { font-size: 30px; }
+  .hero h1 { font-size: 23px; }
+  .hero-subtitle { padding-left: 0; font-size: 13px; }
+  .stats-row { padding-left: 0; gap: 8px; }
+  .stat-pill { padding: 5px 12px; font-size: 12px; }
+  .year-header { padding: 8px 12px; }
+  .ytitle { font-size: 15.5px; }
+  .item { padding: 14px 14px 14px 48px; }
+  .item::after { left: 13px; width: 22px; height: 22px; font-size: 11px; top: 17px; }
+  .item b { font-size: 14.5px; }
+  .item span { font-size: 12.5px; }
+  .footer { margin-top: 32px; padding: 20px 0; }
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="header"></div>
-  <h1>📚 英语精读存档</h1>
-  <div class="sub">按年份分类 · 手机/电脑均可交互阅读（可展开折叠、带动画）</div>
 
-  <div class="year">
-    <div class="ytitle">2008 年</div>
-    <a class="item" href="2008/英二-text1.html">
-      <b>2008 考研英语（二）· Text 1</b>
-      <span>女性与压力——性别差异下的压力反应与应对</span>
-    </a>
-    <a class="item" href="2008/英二-text2.html">
-      <b>2008 考研英语（二）· Text 2</b>
-      <span>学术出版的变革——从传统期刊到开放获取的转型之路</span>
-    </a>
-    <a class="item" href="2008/英二-text3.html">
-      <b>2008 考研英语（二）· Text 3</b>
-      <span>身高的极限——美国人为何停止长高？</span>
-    </a>
-    <a class="item" href="2008/英二-text4.html">
-      <b>2008 考研英语（二）· Text 4</b>
-      <span>华盛顿与奴隶制——从"拔牙"案看开国元勋的历史复杂性</span>
-    </a>
+  <!-- ========== Hero 区域 ========== -->
+  <div class="hero">
+    <div class="hero-title-wrap">
+      <span class="hero-icon">📚</span>
+      <h1>英语精读存档</h1>
+    </div>
+    <p class="hero-subtitle">按年份分类 · 手机/电脑均可交互阅读（可展开折叠、带动画）</p>
+
+    <!-- 统计徽章 -->
+    <div class="stats-row">
+      <span class="stat-pill stat-pill--total"><span class="stat-num">9</span>&nbsp;篇精读文章</span>
+      <span class="stat-pill stat-pill--years"><span class="stat-num">3</span>&nbsp;个考试年度</span>
+      <span class="stat-pill stat-pill--feature">✦ 逐句语法解析</span>
+    </div>
   </div>
 
-  <div class="year">
-    <div class="ytitle">2009 年</div>
-    <a class="item" href="2009/英二-text1.html">
-      <b>2009 考研英语（二）· Text 1</b>
-      <span>习惯、大脑与创造力（Habits are a funny thing）</span>
-    </a>
-    <a class="item" href="2009/英二-text2.html">
-      <b>2009 考研英语（二）· Text 2</b>
-      <span>亲子鉴定与 DNA 检测的商业乱象与局限</span>
-    </a>
+  <!-- ========== 2008 年 ========== -->
+  <div class="year-section" data-year="2008" style="--delay:1">
+    <div class="year-header">
+      <span class="ytitle">🗓️ 2008 年</span>
+      <span class="ycount">4 篇</span>
+    </div>
+    <div class="item-list">
+      <a class="item" href="2008/英二-text1.html" data-index="1" style="--item-delay:1">
+        <b>2008 考研英语（二）· Text 1</b>
+        <span>女性与压力——性别差异下的压力反应与应对</span>
+      </a>
+      <a class="item" href="2008/英二-text2.html" data-index="2" style="--item-delay:2">
+        <b>2008 考研英语（二）· Text 2</b>
+        <span>学术出版的变革——从传统期刊到开放获取的转型之路</span>
+      </a>
+      <a class="item" href="2008/英二-text3.html" data-index="3" style="--item-delay:3">
+        <b>2008 考研英语（二）· Text 3</b>
+        <span>身高的极限——美国人为何停止长高？</span>
+      </a>
+      <a class="item" href="2008/英二-text4.html" data-index="4" style="--item-delay:4">
+        <b>2008 考研英语（二）· Text 4</b>
+        <span>华盛顿与奴隶制——从"拔牙"案看开国元勋的历史复杂性</span>
+      </a>
+    </div>
   </div>
 
-  <div class="year">
-    <div class="ytitle">2015 年</div>
-    <a class="item" href="2015/英二-text1.html">
-      <b>2015 考研英语（二）· Text 1</b>
-      <span>家比工作更有压力——皮质醇研究揭示的颠覆性真相</span>
-    </a>
-    <a class="item" href="2015/英二-text2.html">
-      <b>2015 考研英语（二）· Text 2</b>
-      <span>第一代大学生的困境与出路——一小时干预缩小63%成就差距</span>
-    </a>
-    <a class="item" href="2015/英二-text3.html">
-      <b>2015 考研英语（二）· Text 3</b>
-      <span>Office Speak：企业话术——人人嘲笑却人人接受的职场悖论</span>
-    </a>
+  <!-- ========== 2009 年 ========== -->
+  <div class="year-section" data-year="2009" style="--delay:5">
+    <div class="year-header">
+      <span class="ytitle">🗓️ 2009 年</span>
+      <span class="ycount">2 篇</span>
+    </div>
+    <div class="item-list">
+      <a class="item" href="2009/英二-text1.html" data-index="1" style="--item-delay:5">
+        <b>2009 考研英语（二）· Text 1</b>
+        <span>习惯、大脑与创造力（Habits are a funny thing）</span>
+      </a>
+      <a class="item" href="2009/英二-text2.html" data-index="2" style="--item-delay:6">
+        <b>2009 考研英语（二）· Text 2</b>
+        <span>亲子鉴定与 DNA 检测的商业乱象与局限</span>
+      </a>
+    </div>
   </div>
 
-  <!-- 新增文章时，按下面的模板复制一个 .item 即可 -->
+  <!-- ========== 2015 年 ========== -->
+  <div class="year-section" data-year="2015" style="--delay:7">
+    <div class="year-header">
+      <span class="ytitle">🗓️ 2015 年</span>
+      <span class="ycount">3 篇</span>
+    </div>
+    <div class="item-list">
+      <a class="item" href="2015/英二-text1.html" data-index="1" style="--item-delay:7">
+        <b>2015 考研英语（二）· Text 1</b>
+        <span>家比工作更有压力——皮质醇研究揭示的颠覆性真相</span>
+      </a>
+      <a class="item" href="2015/英二-text2.html" data-index="2" style="--item-delay:8">
+        <b>2015 考研英语（二）· Text 2</b>
+        <span>第一代大学生的困境与出路——一小时干预缩小63%成就差距</span>
+      </a>
+      <a class="item" href="2015/英二-text3.html" data-index="3" style="--item-delay:9">
+        <b>2015 考研英语（二）· Text 3</b>
+        <span>Office Speak：企业话术——人人嘲笑却人人接受的职场悖论</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-text">Made with</span>
+      <span class="footer-heart">♥</span>
+      <span class="footer-text">for English intensive reading</span>
+    </div>
+  </footer>
+
+  <!-- 新增文章时，复制一个 .year-section 区块即可 -->
   <!--
-  <div class="year">
-    <div class="ytitle">YYYY 年</div>
-    <a class="item" href="YYYY/xxx.html">
-      <b>标题</b>
-      <span>副标题/说明</span>
-    </a>
+  <div class="year-section" data-year="YYYY" style="--delay:N">
+    <div class="year-header">
+      <span class="ytitle">🗓️ YYYY 年</span>
+      <span class="ycount">N 篇</span>
+    </div>
+    <div class="item-list">
+      <a class="item" href="YYYY/xxx.html" data-index="1" style="--item-delay:M">
+        <b>标题</b>
+        <span>副标题/说明</span>
+      </a>
+    </div>
   </div>
   -->
+
 </div>
+
+<!-- 入场动画触发：移除 opacity:0 以防 JS 关闭时不可见 -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 让所有带动画的元素可见（CSS 动画会处理淡入）
+    const animated = document.querySelectorAll('.year-section, .item, .footer');
+    animated.forEach(el => el.style.opacity = '');
+  });
+</script>
 </body>
 </html>
