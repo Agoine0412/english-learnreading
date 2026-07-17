@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2009 英二 Text 1 精读 · Habits</title>
+<style>
+:root {
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --text: #2d2a24;
+  --text-soft: #6b6559;
+  --text-muted: #9c9486;
+  --accent: #c0392b;
+  --accent-light: #fdf2f0;
+  --green: #558b5c;
+  --green-light: #eef5ec;
+  --gold: #b8860b;
+  --gold-light: #fcf6e8;
+  --panel-bg: #fcf8f3;
+  --panel-border: #e8ddd0;
+  --border: #e5ddd2;
+  --shadow: 0 2px 8px rgba(45,42,36,0.08);
+  --shadow-hover: 0 4px 16px rgba(45,42,36,0.14);
+  --radius: 10px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 32px 16px 80px;
+}
+.container { max-width: 800px; margin: 0 auto; }
+
+/* ===== Header ===== */
+.header {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 36px 32px 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeUp 0.6s var(--transition) both;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--gold), var(--green));
+  background-size: 200% 100%;
+  animation: shimmer 4s ease infinite;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.header h1 {
+  font-family: var(--font);
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.header .sub {
+  color: var(--text-soft);
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid rgba(192,57,43,0.2);
+  transition: var(--transition);
+  cursor: default;
+}
+.badge:nth-child(2) { background: var(--green-light); color: var(--green); border-color: rgba(85,139,92,0.2); }
+.badge:nth-child(3) { background: var(--gold-light); color: var(--gold); border-color: rgba(184,134,11,0.2); }
+.badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(45,42,36,0.12); }
+
+/* ===== Notice ===== */
+.notice {
+  background: var(--gold-light);
+  border-left: 3px solid var(--gold);
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s 0.1s var(--transition) both;
+}
+.notice b { color: var(--text); }
+
+/* ===== Divider ===== */
+.divider {
+  height: 2px;
+  background: var(--border);
+  margin: 28px 0 16px;
+  position: relative;
+  animation: fadeUp 0.6s 0.2s var(--transition) both;
+}
+.divider::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+.divider:hover::before { width: 80px; }
+
+/* ===== Sentence (上下单栏) ===== */
+.sent {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s var(--transition) both;
+  transition: var(--transition);
+}
+.sent:hover { box-shadow: var(--shadow-hover); }
+.snum {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.en {
+  display: block;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.en mark {
+  background: linear-gradient(180deg, #fce4c8 0%, #f8d5b0 100%);
+  color: var(--text);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.en mark:hover { background: linear-gradient(180deg, #f8d5b0 0%, #f4c08a 100%); }
+.en u {
+  text-decoration: none;
+  border-bottom: 2px dotted var(--accent);
+  padding-bottom: 1px;
+}
+
+/* ===== 句内分隔线 ===== */
+.sent-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+  margin: 14px 0 12px;
+}
+
+/* ===== 译文区 ===== */
+.tl {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.zh {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* ===== Collapsible panel ===== */
+details {
+  margin-top: 6px;
+}
+details summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-soft);
+  padding: 6px 0;
+  list-style: none;
+  user-select: none;
+  transition: var(--transition);
+  position: relative;
+  padding-left: 18px;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  transition: transform 0.3s var(--transition);
+}
+details[open] summary::before { transform: rotate(90deg); }
+details summary:hover { color: var(--accent); }
+details.complex summary::after {
+  content: "长难句";
+  margin-left: 8px;
+  font-size: 11px;
+  color: var(--gold);
+  background: var(--gold-light);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 6px;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.row:last-child { margin-bottom: 0; }
+.label {
+  flex-shrink: 0;
+  color: #8b6914;
+  font-weight: bold;
+  min-width: 50px;
+}
+.val { color: var(--text); }
+.val b { color: var(--accent); font-weight: bold; }
+.val i { color: var(--green); font-style: normal; font-weight: 500; }
+.val u { text-decoration: none; border-bottom: 1px solid var(--text-muted); }
+
+/* ===== Bottom summary cards ===== */
+.bottom { margin-top: 36px; }
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.6s var(--transition) both;
+  transition: var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-hover); }
+.card h2 {
+  font-family: var(--font);
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card h2 .ico {
+  display: inline-block;
+  width: 6px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 3px;
+}
+.card h2 .ico.green { background: var(--green); }
+.card h2 .ico.gold { background: var(--gold); }
+.card h2 .toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-soft);
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-sans);
+  font-weight: normal;
+  transition: var(--transition);
+}
+.card h2 .toggle::before {
+  content: "▾";
+  display: inline-block;
+  margin-right: 4px;
+  transition: transform 0.3s var(--transition);
+}
+.card h2 .toggle.collapsed::before { transform: rotate(-90deg); }
+.card h2 .toggle:hover { color: var(--accent); }
+.collapsible-body {
+  max-height: 5000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.4s var(--transition), opacity 0.35s var(--transition);
+}
+.collapsible-body.hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* ===== List items ===== */
+.item {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.item:last-child { border-bottom: none; }
+.item b { color: var(--accent); }
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+th {
+  background: var(--accent-light);
+  color: var(--accent);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent);
+}
+td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+tbody tr { transition: var(--transition); }
+tbody tr:hover { background: var(--bg); }
+td b { color: var(--accent); }
+td i { color: var(--green); font-style: normal; font-weight: 500; }
+
+/* ===== Pattern cards ===== */
+.p-item {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+.p-item:hover { transform: translateX(3px); }
+.p-item .ptype {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--green);
+  background: #fff;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.p-item .ppat {
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.p-item .pdesc { font-size: 13.5px; color: var(--text-soft); margin-bottom: 4px; }
+.p-item .puse { font-size: 12px; color: var(--green); }
+
+/* ===== Question review ===== */
+.er {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--border);
+  transition: var(--transition);
+}
+.er:hover { transform: translateX(2px); border-left-color: var(--accent); box-shadow: 0 2px 8px rgba(45,42,36,0.06); }
+.qhead { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; }
+.qnum {
+  font-family: var(--font);
+  font-weight: bold;
+  color: var(--accent);
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.er:hover .qnum { transform: scale(1.1); }
+.qtext { font-size: 14.5px; color: var(--text); }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; font-size: 13.5px; }
+.opt {
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.opt.ok { background: var(--green-light); color: var(--green); border-color: var(--green); font-weight: bold; }
+.opt.no { background: #fbeae8; color: #c0392b; border-color: #c0392b; }
+.ua { font-size: 12.5px; color: var(--gold); margin-bottom: 8px; font-weight: bold; }
+.analysis { font-size: 13.5px; line-height: 1.7; color: var(--text-soft); }
+.analysis p { margin-bottom: 4px; }
+.analysis p b { color: var(--text); }
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.sent:nth-of-type(1)  { animation-delay: 0.15s; }
+.sent:nth-of-type(2)  { animation-delay: 0.20s; }
+.sent:nth-of-type(3)  { animation-delay: 0.25s; }
+.sent:nth-of-type(4)  { animation-delay: 0.30s; }
+.sent:nth-of-type(5)  { animation-delay: 0.35s; }
+.sent:nth-of-type(6)  { animation-delay: 0.40s; }
+.sent:nth-of-type(7)  { animation-delay: 0.45s; }
+.sent:nth-of-type(8)  { animation-delay: 0.50s; }
+.sent:nth-of-type(9)  { animation-delay: 0.55s; }
+.sent:nth-of-type(10) { animation-delay: 0.60s; }
+.sent:nth-of-type(11) { animation-delay: 0.65s; }
+.sent:nth-of-type(12) { animation-delay: 0.70s; }
+.sent:nth-of-type(13) { animation-delay: 0.75s; }
+.sent:nth-of-type(14) { animation-delay: 0.80s; }
+.sent:nth-of-type(15) { animation-delay: 0.85s; }
+.sent:nth-of-type(16) { animation-delay: 0.90s; }
+.sent:nth-of-type(17) { animation-delay: 0.95s; }
+.sent:nth-of-type(18) { animation-delay: 1.00s; }
+.sent:nth-of-type(19) { animation-delay: 1.05s; }
+.sent:nth-of-type(20) { animation-delay: 1.10s; }
+.sent:nth-of-type(21) { animation-delay: 1.15s; }
+.sent:nth-of-type(22) { animation-delay: 1.20s; }
+
+/* ===== Mobile ===== */
+@media (max-width: 720px) {
+  .opts { grid-template-columns: 1fr; }
+  body { padding: 16px 8px 60px; }
+  .header { padding: 24px 18px 20px; }
+  .header h1 { font-size: 22px; }
+  .card { padding: 18px 16px; }
+  .sent { padding: 18px 16px; }
+}
+
+/* ===== Print ===== */
+@media print {
+  body { background: white; padding: 0; }
+  .header, .sent, .card { box-shadow: none; padding: 12px 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== HEADER ========== -->
+  <div class="header">
+    <h1>2009 年考研英语（二）Text 1 精读</h1>
+    <div class="sub">Habits are a funny thing · 习惯、大脑与创造力</div>
+    <div class="badges">
+      <span class="badge">考研英语（二）</span>
+      <span class="badge">六级~考研级</span>
+      <span class="badge">Text 1 / 共 4 篇</span>
+      <span class="badge">22 句 + 5 道题</span>
+    </div>
+  </div>
+
+  <!-- ========== NOTICE ========== -->
+  <div class="notice">
+    📊 <b>难度推断</b>：考研级（依据：文章 CET-4 词表外词汇占比约 12~16%，含习惯形成/神经科学相关学术词汇。此为根据词汇密度自动推断的级别，不代表文章来源限制）
+  </div>
+
+  <!-- ========== SENTENCES ========== -->
+
+  <div class="divider"></div>
+
+  <!-- S01 -->
+  <div class="sent">
+    <span class="snum">S01</span>
+    <span class="en">Habits are a funny thing.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">习惯是一件很有趣的事。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">Habits（主） + are（系） + a funny thing（表）</span></div>
+        <div class="row"><span class="label">语法</span><span class="val">简单句；主系表结构</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S02 -->
+  <div class="sent">
+    <span class="snum">S02</span>
+    <span class="en">We reach for them <mark>mindlessly</mark>, setting our brains on auto-pilot and relaxing into the unconscious comfort of familiar routine.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">我们不假思索地依赖习惯，让大脑处于自动驾驶模式，并放松地沉浸于熟悉的常规所带来的无意识舒适感中。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">We（主） + reach for（谓） + them（宾） + <b>mindlessly</b>（状）</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val">setting our brains on auto-pilot → <b>现在分词作伴随状语</b>；and relaxing into ... routine → <b>并列的现在分词作伴随状语</b>；of familiar routine → 介词短语作后置定语修饰 comfort</span></div>
+        <div class="row"><span class="label">语法</span><span class="val">简单句 + 现在分词短语作状语；auto-pilot 为暗喻</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>mindlessly</b> adv. 不假思索地 / auto-pilot n. 自动驾驶 / routine n. 常规</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S03 -->
+  <div class="sent">
+    <span class="snum">S03</span>
+    <span class="en">"Not choice, but habit rules the <mark>unreflecting</mark> herd," William Wordsworth said in the 19th century.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">「不是选择，而是习惯支配着那些不思考的人群。」华兹华斯如是说。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干(引语)</span><span class="val">Not choice, but habit（主） + rules（谓） + the unreflecting herd（宾）</span></div>
+        <div class="row"><span class="label">主干(全句)</span><span class="val">William Wordsworth（主） + said（谓） + [直接引语]（宾）</span></div>
+        <div class="row"><span class="label">语法</span><span class="val">直接引语作宾语；Not ... but ... 强调 B（不是 A 而是 B）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>unreflecting</b> adj. 不反思的（un- + reflect + -ing） / herd n. 人群（喻指盲从的大众）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S04 -->
+  <div class="sent">
+    <span class="snum">S04</span>
+    <span class="en">In the ever-changing 21st century, even the word "habit" carries a negative <mark>connotation</mark>.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">在不断变化的 21 世纪，就连「习惯」这个词也带上了贬义色彩。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">the word "habit"（主） + carries（谓） + a negative connotation（宾）</span></div>
+        <div class="row"><span class="label">语法</span><span class="val">简单句；even 为强调副词，凸显对比</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>connotation</b> n. 内涵意义 / 联想义；搭配 carry a connotation</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S05 -->
+  <div class="sent">
+    <span class="snum">S05</span>
+    <span class="en">So it seems <mark>antithetical</mark> to talk about habits in the same context as creativity and innovation.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">在同一语境下谈论「习惯」和「创造与创新」似乎自相矛盾。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">it（形式主语） + seems（系） + antithetical（表） + to talk about...（真正主语，不定式短语）</span></div>
+        <div class="row"><span class="label">语法</span><span class="val">it 作形式主语，避免头重脚轻</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>antithetical</b> adj. 对立的 / 自相矛盾的（anti 反对 + thesis 论点）；innovation n. 创新</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S06 -->
+  <div class="sent">
+    <span class="snum">S06</span>
+    <span class="en">But brain researchers have discovered that when we consciously develop new habits, we create parallel <mark>synaptic</mark> paths, and even entirely new brain cells, that can jump our trains of thought onto new, innovative tracks.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">大脑研究者发现，当我们有意识地培养新习惯时，我们创建平行的突触通路甚至全新脑细胞，将思维列车转移到创新轨道上。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">brain researchers（主） + have discovered（谓） + [that 从句]（宾）</span></div>
+        <div class="row"><span class="label">that 从句</span><span class="val">when we consciously develop new habits → <b>时间状语从句</b>；主句 we create → 三并列宾语：①parallel synaptic paths ②new brain cells ③that can jump...tracks（<b>限制性定语从句</b>）</span></div>
+        <div class="row"><span class="label">语法</span><span class="val">复合句（嵌套时间状语从句 + 定语从句）；jump...onto 为暗喻（思维列车→轨道）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>synaptic</b> adj. 突触的 / consciously adv. 有意识地 / track n. 轨道（暗喻用法）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S07 -->
+  <div class="sent">
+    <span class="snum">S07</span>
+    <span class="en">Rather than dismissing ourselves as unchangeable <mark>creatures</mark> of habit, we can instead direct our own change by consciously developing new habits.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">与其把自己视为不可改变的「习惯生物」，我们完全可以通过有意识培养新习惯来主导自己的变化。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">we（主） + can direct（谓） + our own change（宾）</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val">Rather than dismissing ourselves as... → <b>介词短语作比较状语</b>（Rather than doing = 与其做某事不如……）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>creature</b> n. 生物 / 受…支配的人；dismiss v. 摒弃 / 否定</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S08 -->
+  <div class="sent">
+    <span class="snum">S08</span>
+    <span class="en">In fact, the more new things we try—the more we step outside our <mark>comfort zone</mark>—the more inherently creative we become...</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">事实上，我们尝试的新事物越多——越走出舒适区——就越具内在创造力。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">结构</span><span class="val"><b>The more ... the more ... 句型</b>（越……就越……）</span></div>
+        <div class="row"><span class="label">分句</span><span class="val">前：the more new things we try；插入语：—the more we step outside our comfort zone—；后：the more inherently creative we become</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>comfort zone</b> 舒适区；inherently adv. 内在地 / 天生地</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S09 -->
+  <div class="sent">
+    <span class="snum">S09</span>
+    <span class="en">But don't bother trying to <mark>kill off</mark> old habits; once those <mark>ruts</mark> of procedure are worn into the hippocampus, they're there to stay.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">别费劲去消灭旧习惯了；一旦那些程序化的「车辙」被刻入海马体，它们就会永久留存。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">前半句</span><span class="val">祈使句 + bother doing（别费劲去做 = 没必要做）</span></div>
+        <div class="row"><span class="label">后半句</span><span class="val">once [条件从句], they're there to stay → 并列句；ruts 为<b>暗喻</b>（车辙→固定神经通路）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>rut</b> n. 车辙 / 老规矩（⭐ Q23 考点）；hippocampus n. 海马体（记忆中枢）；kill off 扼杀 / 消灭</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S10 -->
+  <div class="sent">
+    <span class="snum">S10</span>
+    <span class="en">Instead, the new habits we deliberately <mark>ingrain</mark> into ourselves create parallel pathways that can <mark>bypass</mark> those old roads.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">有意识地将新习惯灌输给自己，创造出能绕过旧道路的平行通路。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">the new habits（主） + create（谓） + parallel pathways（宾）</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val">[that] we deliberately ingrain → <b>省略关系代词的限制性定语从句</b>；that can bypass those old roads → <b>限制性定语从句</b></span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>ingrain</b> v. 使根深蒂固（in-进入 + grain 种植）；bypass v. 绕过（by-旁边 + pass 通过）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S11 -->
+  <div class="sent">
+    <span class="snum">S11</span>
+    <span class="en">"The first thing needed for innovation is a <mark>fascination</mark> with wonder," says Dawna Markova...</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">「创新所需的第一要素是对奇迹的好奇心。」Markova 如是说。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">引语主干</span><span class="val">The first thing（主） + needed for innovation（过去分词后置定语） + is（系） + a fascination with wonder（表）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>fascination</b> n. 着迷 / 极大兴趣；consultant n. 顾问</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S12 -->
+  <div class="sent">
+    <span class="snum">S12</span>
+    <span class="en">"But we are taught instead to 'decide,' just as our president calls himself 'the Decider.'"</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">但我们却被教导要「做决定」，就像总统自称「决策者」一样。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">语法</span><span class="val">被动语态 + just as 方式状语从句；双关修辞（Decider / decide）</span></div>
+        <div class="row"><span class="label">译文</span><span class="val">「做决定」是被动习得的思维惯性，破折号前的 just as 类比总统自称，增强讽刺感</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S13 -->
+  <div class="sent">
+    <span class="snum">S13</span>
+    <span class="en">She adds, however, that "to decide is to <mark>kill off</mark> all possibilities but one."</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">做决定就是扼杀掉除一种之外的所有可能性。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">结构</span><span class="val">to decide（不定式主语） + is（系） + to kill off...（不定式表语）= <b>不定式对称结构</b></span></div>
+        <div class="row"><span class="label">注意</span><span class="val">but 在此为<b>介词 = except</b>（除了）；all possibilities but one = 除一种之外的所有可能性</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val">kill off phr.v. 扼杀 / 消灭</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S14 -->
+  <div class="sent">
+    <span class="snum">S14</span>
+    <span class="en">A good innovational thinker is always exploring the many other possibilities.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">一个优秀的创新型思考者总是在探索许多其他可能性。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">语法</span><span class="val">现在进行时 + always 表<b>赞赏/强调</b>语气（并非单纯描述进行）</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S15 -->
+  <div class="sent">
+    <span class="snum">S15</span>
+    <span class="en">All of us work through problems in ways <mark>of which</mark> we're unaware, she says.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">我们所有人都在以自己并未意识到的方式来解决问题。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">All of us（主） + work through（谓） + problems（宾） + in ways（状）</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val">of which we're unaware → <b>介词 + which 定语从句</b>（of 前置，which 指代 ways）</span></div>
+        <div class="row"><span class="label">译文</span><span class="val">we're unaware of the ways = 我们没意识到的那些方式</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S16 -->
+  <div class="sent">
+    <span class="snum">S16</span>
+    <span class="en">Researchers in the late 1960s discovered that humans are born with the capacity to approach challenges in four primary ways: analytically, procedurally, relationally (or collaboratively) and innovatively.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">60 年代末研究者发现，人类天生具备四种主要应对方式：分析式、程序式、关系式和创新式。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">Researchers（主） + discovered（谓） + that 从句（宾）</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">be born with 天生具有；冒号引出<b>同位语列表</b>解释 four primary ways</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val">analytically 分析式地；procedurally 程序式地；relationally 关系式地；collaboratively 协作式地</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S17 -->
+  <div class="sent">
+    <span class="snum">S17</span>
+    <span class="en">At <mark>puberty</mark>, however, the brain <mark>shuts down</mark> half of that capacity, preserving only those modes of thought that have seemed most valuable during the first decade or so of life.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">到了青春期，大脑关闭一半能力，只保留生命最初十年左右最有价值的思维模式。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">the brain（主） + shuts down（谓） + half of that capacity（宾） + preserving...（伴随状语）</span></div>
+        <div class="row"><span class="label">修饰</span><span class="val">that have seemed most valuable... → <b>定语从句</b>修饰 modes of thought</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>puberty</b> n. 青春期；shut down 关闭；preserve v. 保留</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S18 -->
+  <div class="sent">
+    <span class="snum">S18</span>
+    <span class="en">The current emphasis on <mark>standardized testing</mark> highlights analysis and procedure, meaning that few of us inherently use our innovative and collaborative modes of thought.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">当前对标准化考试的重视突出了分析和程序化能力，意味着很少有人使用创新性和协作性思维。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val">emphasis（主） + highlights（谓） + analysis and procedure（宾） + meaning...（结果状语）</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">分词 meaning 作<b>结果状语</b>（接 that 宾语从句，说明前句带来的后果）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>standardized testing</b> 标准化考试（⭐ Q25 关键词）；emphasis n. 重视；collaborative adj. 协作的</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S19 -->
+  <div class="sent">
+    <span class="snum">S19</span>
+    <span class="en">"This breaks the major rule in the American belief system—that anyone can do anything," explains M. J. Ryan...</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">「这打破了美国信仰体系中的一条主要规则——即任何人都能做成任何事。」</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">结构</span><span class="val">破折号 + <b>同位语从句</b>（that anyone can do anything 解释 rule 的内容）</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val">belief system 信仰体系 / 价值体系</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S20 -->
+  <div class="sent">
+    <span class="snum">S20</span>
+    <span class="en">"That's a lie that we have <mark>perpetuated</mark>, and it <mark>fosters</mark> commonness."</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">那是一个我们一直延续的谎言，而且它助长了平庸。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">结构</span><span class="val">定语从句（that we have perpetuated 修饰 lie）；<b>现在完成时</b>表持续状态</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val"><b>perpetuate</b> v. 使延续 / 使永存；foster v. 培养 / 助长；commonness n. 平庸</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S21 -->
+  <div class="sent">
+    <span class="snum">S21</span>
+    <span class="en">"Knowing what you're good at and doing even more of it creates excellence."</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">了解自己擅长什么并投入更多精力，就能成就卓越。</div>
+    <details class="complex" open>
+      <summary>语法分析 · 长难句</summary>
+      <div class="panel">
+        <div class="row"><span class="label">主干</span><span class="val"><b>动名词并列作主语</b>：Knowing... and doing... → creates（谓） → excellence（宾）</span></div>
+        <div class="row"><span class="label">结构</span><span class="val">what 引导宾语从句（what you're good at）；and 连接两个动名词短语共同作主语</span></div>
+        <div class="row"><span class="label">词汇</span><span class="val">excellence n. 卓越</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- S22 -->
+  <div class="sent">
+    <span class="snum">S22</span>
+    <span class="en">This is where developing new habits comes in.</span>
+    <hr class="sent-hr">
+    <div class="tl">🌐 译文</div>
+    <div class="zh">这就是培养新习惯的用武之地了。</div>
+    <details>
+      <summary>语法分析</summary>
+      <div class="panel">
+        <div class="row"><span class="label">结构</span><span class="val">where 引导<b>表语从句</b>（where = 在这一点上）；come in = 派上用场</span></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ========== BOTTOM SUMMARY ========== -->
+  <div class="bottom">
+
+    <div class="card">
+      <h2><span class="ico"></span>全文脉络<span class="toggle" data-target="summary">收起</span></h2>
+      <div class="collapsible-body" id="summary">
+        <div class="item"><b>① 引入（P1）</b>：定义习惯——人们无意识依赖（auto-pilot），华兹华斯视其为机械性支配（herd），21 世纪「习惯」已带贬义。</div>
+        <div class="item"><b>② 转折（P2）</b>：习惯与创造力不对立！大脑研究：有意识培养新习惯可创建新神经通路（synaptic paths）→ 思维跳上创新轨道。</div>
+        <div class="item"><b>③ 建议（P3）</b>：不必消灭旧习惯（ruts 刻入海马体不可逆），建立新路径（bypass）；越走出舒适区 → 越有内在创造力。</div>
+        <div class="item"><b>④ 专家观点·Markova（P5-P6）</b>：创新首要条件是好奇心（fascination with wonder）而非「做决定」；人天生四种思维方式（analytically / procedurally / relationally / innovatively），青春期后大脑关闭一半。</div>
+        <div class="item"><b>⑤ 社会批判·Ryan（P7）</b>：标准化考试只强调分析和程序化能力 → 抑制创新/协作思维 → 违背美国信条 → 解决方案是培养新习惯突破平庸。</div>
+        <div class="item" style="margin-top: 12px; background: var(--gold-light); padding: 10px 14px; border-radius: 6px;"><b>作者态度</b>：辩证中立偏批判——先破「习惯=机械」的偏见，再用脑科学为习惯正名，最后借两位专家之口批判教育体制对创新思维的压制。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico green"></span>重点词汇表<span class="toggle" data-target="vocab">收起</span></h2>
+      <div class="collapsible-body" id="vocab">
+        <table>
+          <thead><tr><th style="width:18%">单词</th><th style="width:10%">词性</th><th style="width:30%">释义</th><th>文中例句</th></tr></thead>
+          <tbody>
+            <tr><td><b>antithetical</b></td><td>adj.</td><td>对立的 / 自相矛盾的</td><td>seems antithetical to talk about</td></tr>
+            <tr><td><b>synaptic</b></td><td>adj.</td><td>突触的</td><td>parallel synaptic paths</td></tr>
+            <tr><td><b>connotation</b></td><td>n.</td><td>内涵意义 / 联想义</td><td>negative connotation</td></tr>
+            <tr><td><b>rut</b></td><td>n.</td><td>车辙 / 老规矩</td><td>⭐ Q23 考点；those ruts of procedure</td></tr>
+            <tr><td><b>hippocampus</b></td><td>n.</td><td>海马体（记忆中枢）</td><td>worn into the hippocampus</td></tr>
+            <tr><td><b>ingrain</b></td><td>v.</td><td>使根深蒂固 / 灌输</td><td>deliberately ingrain into ourselves</td></tr>
+            <tr><td><b>fascination</b></td><td>n.</td><td>着迷 / 极大兴趣</td><td>a fascination with wonder</td></tr>
+            <tr><td><b>puberty</b></td><td>n.</td><td>青春期</td><td>at puberty 到了青春期</td></tr>
+            <tr><td><b>perpetuate</b></td><td>v.</td><td>使延续 / 使永存</td><td>a lie that we have perpetuated</td></tr>
+            <tr><td><b>standardized testing</b></td><td>n.phr.</td><td>标准化考试</td><td>⭐ Q25 关键词</td></tr>
+            <tr><td><b>unreflecting</b></td><td>adj.</td><td>不反思的 / 盲从的</td><td>un- + reflect（构词法）</td></tr>
+            <tr><td><b>bypass</b></td><td>v.</td><td>绕过 / 避开</td><td>bypass those old roads</td></tr>
+            <tr><td><b>inherently</b></td><td>adv.</td><td>内在地 / 天生地</td><td>inherently creative</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico gold"></span>熟词生义特辑<span class="toggle" data-target="tricky">收起</span></h2>
+      <div class="collapsible-body" id="tricky">
+        <table>
+          <thead><tr><th style="width:18%">单词</th><th style="width:35%">通常义</th><th>文中义</th></tr></thead>
+          <tbody>
+            <tr><td><b>track</b></td><td>n. 跑道 / 音轨</td><td><b>n.</b> 思维轨道 / 神经通路（jump onto innovative tracks）</td></tr>
+            <tr><td><b>kill off</b></td><td>杀死</td><td><b>v.</b> 扼杀 / 消灭（可能性/想法）（kill off all possibilities）</td></tr>
+            <tr><td><b>come in</b></td><td>进来 / 流行</td><td><b>v.</b> 派上用场 / 发挥作用（This is where ... comes in）</td></tr>
+            <tr><td><b>but</b></td><td>conj./prep. 但是</td><td><b>prep.</b> 除了（= except）（all possibilities but one）</td></tr>
+            <tr><td><b>creature</b></td><td>生物 / 动物</td><td><b>n.</b> 受…支配的人（creatures of habit）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico green"></span>重点短语搭配<span class="toggle" data-target="phrases">收起</span></h2>
+      <div class="collapsible-body" id="phrases">
+        <table>
+          <thead><tr><th style="width:40%">短语</th><th>释义</th></tr></thead>
+          <tbody>
+            <tr><td><b>set one's brains on auto-pilot</b></td><td>让大脑处于自动驾驶状态</td></tr>
+            <tr><td><b>relax into the unconscious comfort of...</b></td><td>放松沉浸于…</td></tr>
+            <tr><td><b>rule the unreflecting herd</b></td><td>支配不思考的人群</td></tr>
+            <tr><td><b>carry a negative connotation</b></td><td>带有贬义色彩</td></tr>
+            <tr><td><b>jump our trains of thought onto ... tracks</b></td><td>将思维转移到…轨道</td></tr>
+            <tr><td><b>Rather than doing sth.</b></td><td>与其做某事不如……</td></tr>
+            <tr><td><b>step outside one's comfort zone</b></td><td>走出舒适区</td></tr>
+            <tr><td><b>be worn into the hippocampus</b></td><td>被刻入海马体</td></tr>
+            <tr><td><b>bypass those old roads</b></td><td>绕过旧路</td></tr>
+            <tr><td><b>a fascination with wonder</b></td><td>对奇迹的好奇心</td></tr>
+            <tr><td><b>kill off all possibilities</b></td><td>扼杀所有可能</td></tr>
+            <tr><td><b>be born with the capacity</b></td><td>天生具备…能力</td></tr>
+            <tr><td><b>shut down half of that capacity</b></td><td>关闭一半能力</td></tr>
+            <tr><td><b>emphasis on standardized testing</b></td><td>对标准化考试的重视</td></tr>
+            <tr><td><b>foster commonness</b></td><td>助长平庸</td></tr>
+            <tr><td><b>develop new habits comes in</b></td><td>培养新习惯派上用场</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico green"></span>值得背诵的 3 个句型<span class="toggle" data-target="patterns">收起</span></h2>
+      <div class="collapsible-body" id="patterns">
+        <div class="p-item">
+          <div class="ptype">句型 1</div>
+          <div class="ppat">Not choice, but habit rules the unreflecting herd.</div>
+          <div class="pdesc">不是选择，而是习惯支配着那些不反思的人群。</div>
+          <div class="puse">抽象名词作主语的正式表达 + Not...but... 强调结构 | 来源 S03</div>
+        </div>
+        <div class="p-item">
+          <div class="ptype">句型 2</div>
+          <div class="ppat">The more new things we try—the more we step outside our comfort zone—the more inherently creative we become.</div>
+          <div class="pdesc">我们尝试的新事物越多——越走出舒适区——我们就变得越具内在创造力。</div>
+          <div class="puse">The more ... the more ... 渐进比较句型；破折号插入语补充说明前一分句 | 来源 S08</div>
+        </div>
+        <div class="p-item">
+          <div class="ptype">句型 3</div>
+          <div class="ppat">To decide is to kill off all possibilities but one.</div>
+          <div class="pdesc">做决定就是扼杀掉除一种之外的所有可能性。</div>
+          <div class="puse">To do is to do 不定式对称结构；but 作介词（except），简洁有力的论证表达 | 来源 S13</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="ico"></span>题目答案速查<span class="toggle" data-target="qa">收起</span></h2>
+      <div class="collapsible-body" id="qa">
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">21.</span>
+            <span class="qtext">In Wordsworth's view, "habits" is characterized by being ________.</span>
+          </div>
+          <div class="opts">
+            <span class="opt no">[A] casual</span>
+            <span class="opt no">[B] familiar</span>
+            <span class="opt ok">[C] mechanical ✓</span>
+            <span class="opt no">[D] changeable</span>
+          </div>
+          <div class="ua">你的答案：A（casual）❌ 应为 C（mechanical）</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P1 S02-S03 → mindlessly / on auto-pilot / rules the unreflecting herd</p>
+            <p>✅ <b>正确答案推理</b>：华兹华斯认为习惯支配「不思考的人群」（unreflecting herd），且人们「不假思索地」（mindlessly）依赖、让大脑「自动驾驶」（auto-pilot）——核心特征是机械性、无意识地重复运作，故选 mechanical（机械的）。</p>
+            <p>❌ <b>A 选项</b>：casual 指「随意的」，原文强调的是「机械重复」而非「随意」——习惯是惯性，不是随便。</p>
+            <p>❌ <b>B 选项</b>：familiar 是干扰项，familiar routine 确为原文词，但题目问的是习惯的「特征性质」，familiar 只是修饰 routine，并非习惯本身的特征。</p>
+            <p>❌ <b>D 选项</b>：changeable（易变的）与原文相反——文章强调习惯是稳定、难改的。</p>
+            <p>📌 <b>用户答案点评</b>：选 A 偏差。auto-pilot 很容易被误读成「随意」，但 auto-pilot 的准确含义是「无需主动控制的机械运作」，对应 mechanical 才准。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">22.</span>
+            <span class="qtext">Brain researchers have discovered that the formation of new habits can be ________.</span>
+          </div>
+          <div class="opts">
+            <span class="opt no">[A] predicted</span>
+            <span class="opt no">[B] regulated</span>
+            <span class="opt no">[C] traced</span>
+            <span class="opt ok">[D] guided ✓</span>
+          </div>
+          <div class="ua">你的答案：B/D（D 正确）⚠️ 半对</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P2 S06 → when we <b>consciously develop</b> new habits</p>
+            <p>✅ <b>正确答案推理</b>：原文说「当我们有意识地（consciously）培养新习惯时」，consciously = 可以被人主动引导/指导 → 新习惯的形成是 <b>guided</b>（被引导的），而非被动发生。</p>
+            <p>❌ <b>A 选项</b>：predicted（被预测）——文中无任何预测含义。</p>
+            <p>❌ <b>B 选项</b>：regulated（被管制）——管制程度过强，原文只说可以被有意识地引导，未涉及外部规则约束。</p>
+            <p>❌ <b>C 选项</b>：traced（被追踪）——偏离文意，文章讲的是「主动培养」而非「追溯」。</p>
+            <p>📌 <b>用户答案点评</b>：D 选对 ✓ 判断准确；B 偏「管制」语义过重，容易被中文「控制」联想带偏。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">23.</span>
+            <span class="qtext">"ruts" (Line 1, Para.4) 最接近的含义是 ________.</span>
+          </div>
+          <div class="opts">
+            <span class="opt ok">[A] tracks ✓</span>
+            <span class="opt no">[B] series</span>
+            <span class="opt no">[C] characteristics</span>
+            <span class="opt no">[D] connections</span>
+          </div>
+          <div class="ua">你的答案：B/A（A 正确）⚠️ 半对</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P4 S09 → ruts <b>are worn into</b>（被磨入 / 压出痕迹）</p>
+            <p>✅ <b>正确答案推理</b>：rut 本义 = 车轮压出的沟槽 / 车辙 ≈ <b>tracks</b>（轨迹 / 痕迹）。worn into（被磨入）暗示物理性的「压痕」，与车辙意象完全吻合。</p>
+            <p>❌ <b>B 选项</b>：series（系列）——与「磨入」的动作逻辑不符。</p>
+            <p>❌ <b>C 选项</b>：characteristics（特征）——ruts 是具体意象，不是抽象特征。</p>
+            <p>❌ <b>D 选项</b>：connections（联系）——偏离「车辙/轨迹」的具象含义。</p>
+            <p>📌 <b>用户答案点评</b>：A 选对 ✓ 这是典型「熟词生义」题——rut 日常义是「车辙」，恰好就是 tracks 的意思，抓住 worn into 这个动词即可锁定。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">24.</span>
+            <span class="qtext">Dawna Markova would most probably agree that ________.</span>
+          </div>
+          <div class="opts">
+            <span class="opt no">[A] relaxing the mind</span>
+            <span class="opt no">[B] innovativeness could be taught</span>
+            <span class="opt no">[C] decisiveness derives from fantastic ideas</span>
+            <span class="opt ok">[D] curiosity activates creative minds ✓</span>
+          </div>
+          <div class="ua">你的答案：D ✓ 正确</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P5 S11 → <b>The first thing needed for innovation is a fascination with wonder</b></p>
+            <p>✅ <b>正确答案推理</b>：fascination（着迷 / 迷恋）≈ curiosity（好奇心）；wonder（奇迹 / 好奇）≈ activates creative minds → D「好奇心激活创造性思维」完美对应 Markova 的原话重点。</p>
+            <p>❌ <b>A 选项</b>：relaxing mind（放松大脑）——原文无据。</p>
+            <p>❌ <b>B 选项</b>：innovativeness could be taught（创新可被教）——虽看似合理但非 Markova 原话重点，她强调的是「好奇心」而非「教学」。</p>
+            <p>❌ <b>C 选项</b>：decisiveness derives from fantastic ideas（果断源于奇妙想法）——与原文意思相反（她说 decide = kill off possibilities，即「做决定」扼杀可能性，并非产生好想法）。</p>
+            <p>📌 <b>用户答案点评</b>：选 D 正确 ✓ fascination ≈ curiosity 的对应很准。</p>
+          </div>
+        </div>
+
+        <div class="er">
+          <div class="qhead">
+            <span class="qnum">25.</span>
+            <span class="qtext">Ryan's comments suggest that the practice of standardized testing ________.</span>
+          </div>
+          <div class="opts">
+            <span class="opt ok">[A] prevents new habits from being formed ✓</span>
+            <span class="opt no">[B] no longer emphasizes commonness</span>
+            <span class="opt no">[C] maintains American thinking mode</span>
+            <span class="opt no">[D] complies with belief system</span>
+          </div>
+          <div class="ua">你的答案：A/D（A 正确）⚠️ 半对</div>
+          <div class="analysis">
+            <p>🔍 <b>定位</b>：P7 S18-S22 全段</p>
+            <p>✅ <b>正确答案推理</b>：标准化考试 → 只强调 analysis & procedure → few use innovative/collaborative modes → breaks "anyone can do anything" → 最后一句 <b>This is where developing new habits comes in</b>（正因考试锁死思维，才需要新习惯来突破）→ 推论：标准化考试<b>阻碍了</b>包含创新在内的多元新习惯的形成。</p>
+            <p>❌ <b>B 选项</b>：与原文矛盾（it <b>fosters</b> commonness 助长平庸，而非「不再强调」）。</p>
+            <p>❌ <b>C 选项</b>：与原文相反（它 <b>breaks</b> the rule 打破了美国思维规则）。</p>
+            <p>❌ <b>D 选项</b>：与原文相反（breaks ≠ comply 遵守）。</p>
+            <p>📌 <b>用户答案点评</b>：A 选对 ✓ 这是典型的「推论题」——答案不直接出现在某句，而要串起 P7 整段逻辑链；D 是强干扰项，因为 belief system 是原文词，但它恰好是被「打破」的对象而非「遵守」。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleBody(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('hidden');
+  var btn = document.querySelector('[data-target="' + id + '"]');
+  if (btn) {
+    if (el.classList.contains('hidden')) {
+      btn.classList.add('collapsed');
+      btn.textContent = '展开';
+    } else {
+      btn.classList.remove('collapsed');
+      btn.textContent = '收起';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleBody(btn.getAttribute('data-target'));
+    });
+  });
+});
+</script>
+</body>
+</html>
