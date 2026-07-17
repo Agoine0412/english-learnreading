@@ -283,12 +283,19 @@ tr:hover td { background: rgba(184,134,11,0.04); }
 .item-list li {
   padding: 10px 14px;
   border-bottom: 1px solid var(--border);
-  font-size: 14px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  font-family: "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", serif;
+  color: #333;
   transition: var(--transition);
 }
 .item-list li:last-child { border-bottom: none; }
 .item-list li:hover { background: rgba(184,134,11,0.04); }
-.item-list li b { color: var(--accent); }
+.item-list li b {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14.5px;
+}
 
 @media print {
   body { padding: 20px; background: #fff; }
