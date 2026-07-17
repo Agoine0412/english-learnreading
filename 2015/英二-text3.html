@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015 考研英语（二）Text 3 — Office Speak：企业话术的真相</title>
+<style>
+/* ====== 📰 炭灰琥珀商务风（Charcoal & Amber）—— 职场语言篇专属配色 ====== */
+:root {
+  --bg: #f5f3f0;
+  --card: #ffffff;
+  --text: #2c2825;
+  --text-soft: #5c5550;
+  --text-muted: #8a827a;
+  /* 主色系：炭灰 + 琥珀金 + 锈红 */
+  --accent: #3d3a36;          /* 炭黑，商务/专业 */
+  --accent-light: #eae8e4;
+  --amber: #b8860b;           /* 琥珀金，亮点/强调 */
+  --amber-light: #fdf6e3;
+  --rust: #a0522d;            /* 锈红，活力/警示 */
+  --rust-light: #faf0e6;
+  --steel: #5f6b7a;           /* 钢蓝，冷静分析 */
+  --steel-light: #edf0f5;
+  --panel-bg: #fafaf8;
+  --panel-border: #ddd9d4;
+  --border: #e5e1dc;
+  --shadow: 0 2px 10px rgba(44,40,37,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,40,37,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+
+/* ====== Header ====== */
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#8B6914;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:var(--steel);}
+
+/* ====== 文章内容区 ====== */
+.article{margin-top:22px;}
+
+/* ====== 逐句卡片（上下单栏）===== */
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(160,82,45,.15) 0%,rgba(160,82,45,.05) 100%);
+  border-left:3px solid var(--rust); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--amber),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--amber);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+}
+
+/* ====== 底部汇总卡片 ====== */
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+
+/* ====== 🔥 升级版折叠按钮（更大、更醒目、带图标） ====== */
+.card h2 .toggle{
+  font-size:.78em !important;  /* 加大字号 */
+  cursor:pointer;
+  color:#fff !important;        /* 白色文字在彩色背景上 */
+  font-weight:700 !important;
+  background:var(--accent) !important;   /* 默认深色背景 */
+  padding:5px 14px !important;          /* 加大内边距 */
+  border-radius:20px !important;
+  user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-left:auto;               /* 推到右边 */
+  letter-spacing:.5px;
+  /* 加左边小装饰条 */
+  border-left:3px solid var(--amber) !important;
+  /* 微妙阴影让按钮"浮起来" */
+  box-shadow:0 2px 6px rgba(61,58,54,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important;    /* hover 变金色 */
+  transform:translateY(-1px);             /* 轻微上浮 */
+  box-shadow:0 4px 10px rgba(184,134,11,0.35) !important;
+}
+.card h2 .toggle:active{
+  transform:translateY(0) !important;
+  box-shadow:0 1px 3px rgba(61,58,54,0.25) !important;
+}
+/* 展开状态 = 收起按钮用锈红色区分 */
+.card h2 .toggle.collapsed{
+  background:var(--rust) !important;
+  border-left-color:var(--amber) !important;
+}
+.card h2 .toggle.collapsed:hover{
+  background:var(--steel) !important;
+}
+
+.collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
+
+/* ====== 表格 ====== */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+/* ====== 句型展示 ====== */
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#8B6914;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+/* ====== 题目区 ====== */
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#8B6914;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;
+  padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+/* ====== 动画 ====== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+/* ====== 响应式 ====== */
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+
+/* ====== PDF 导出：初始全部展开 ====== */
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .badge,.divider,.toggle,.sent-hr{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ====== Header ====== -->
+<div class="header">
+  <h1>Office Speak：企业话术<small>2015 考研英语（二）· Text 3</small></h1>
+  <p class="sub">从"使命愿景"到"团队协作"——职场语言如何重塑我们的工作认同</p>
+  <div class="badges">
+    <span class="badge">难度 ★★★☆</span>
+    <span class="badge amber">词汇量 365</span>
+    <span class="badge rust">主题 · 职场文化</span>
+    <span class="badge steel">长难句 4</span>
+  </div>
+</div>
+
+<div class="article">
+
+<!-- P1 -->
+<div class="sent">
+  <span class="snum">01</span>
+  <div class="en"><mark>Even in traditional offices</mark>, "<u>the lingua franca of corporate America has gotten much more emotional and much more right-brained than it was 20 years ago</u>," said Harvard Business School professor Nancy Koehn.</div>
+  <hr class="sent-hr">
+  <div class="cn">哈佛商学院教授 Nancy Koehn 说，即使在传统办公室里，"美国企业的通用语也比20年前变得更有情感色彩、更具右脑思维特征了。"</div>
+  <div class="syntax">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句</b>："...said Harvard Business School professor Nancy Koehn"<br>
+    → said 的宾语是直接引号内的完整句子<br>
+    <b>引号核心结构</b>：<br>
+    &nbsp;&nbsp;主语 = the lingua franca（通用语/混合语，借自拉丁语，指"通用交流语言"）<br>
+    &nbsp;&nbsp;谓语 = has gotten（变得）<br>
+    &nbsp;&nbsp;表语 = ① more emotional（更有情感）② more right-brained（更右脑化=更直觉/感性而非理性分析）
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">02</span>
+  <div class="en">She started <mark>spinning off examples</mark>. "If you and I parachuted back to Fortune 500 companies in 1990, we would see much less frequent use of terms like journey, mission, passion."</div>
+  <hr class="sent-hr">
+  <div class="cn">她开始举例子。"如果你我穿越回1990年的财富500强企业，我们会看到 journey（旅程）、mission（使命）、passion（热情）这些词的使用频率低得多。"</div>
+</div>
+
+<div class="sent">
+  <span class="snum">03</span>
+  <div class="en">There were goals, there were strategies, use of terms like energy; we didn't talk about <mark>passion</mark>."</div>
+  <hr class="sent-hr">
+  <div class="cn">那时有目标、有策略，也会用到 energy（精力）这类词；但我们不谈论 passion（热情）。"</div>
+</div>
+
+<!-- P2 -->
+<div class="sent">
+  <span class="snum">04</span>
+  <div class="en">Koehn pointed out that this new era of corporate vocabulary is very "<mark>team</mark>"-oriented—and not by coincidence.</div>
+  <hr class="sent-hr">
+  <div class="cn">Koehn 指出，这个新时代的企业词汇非常以"团队"为导向——这并非巧合。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">05</span>
+  <div class="en">"<u>Let's not forget sports—in male-dominated corporate America, it's still a big deal</u>."</div>
+  <hr class="sent-hr">
+  <div class="cn">"别忘了体育——在男性主导的美国企业界，它依然举足轻重。"</div>
+  <div class="syntax">
+    <b>🔍 长难句拆解</b><br>
+    <b>Let's not forget sports</b> = 让我们别忘记体育运动<br>
+    <b>破折号后为补充说明</b>：in male-dominated corporate America（在男性主导的企业美国中），it（指体育文化）'s still a big deal（依然很重要/影响力巨大）<br>
+    → 暗示企业"团队导向"词汇深受体育文化影响
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">06</span>
+  <div class="en">"It's not explicitly conscious; it's the idea that I'm a coach, and you're my team, and we're in this together."</div>
+  <hr class="sent-hr">
+  <div class="cn">"这不是刻意的意识选择；而是这种观念：我是教练，你是我的队员，我们在一起奋斗。"</div>
+</div>
+
+<div class="sent">
+  <span class="snum">07</span>
+  <div class="en">There are lots and lots of CEOs in very different companies, but most think of themselves as coaches and this is their team and they want to win.</div>
+  <hr class="sent-hr">
+  <div class="cn">有很多来自完全不同公司的CEO，但大多数人都把自己视为教练，这是他们的团队，他们想要赢。</div>
+</div>
+
+<!-- P3 -->
+<div class="sent">
+  <span class="snum">08</span>
+  <div class="en"><u>These terms are also intended to infuse work with meaning</u>—and, as Khurana, another professor, points out, increase <mark>allegiance</mark> to the firm.</div>
+  <hr class="sent-hr">
+  <div class="cn">这些术语还旨在给工作注入意义——正如另一位教授 Khurana 所指出的，增强对公司的忠诚度。</div>
+  <div class="syntax">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句主语</b> = These terms（这些术语）<br>
+    <b>谓语1</b> = are intended to（旨在/被设计来）<br>
+    <b>宾语1</b> = infuse work with meaning（给工作注入意义）<br>
+    <b>破折号引出第二个目的</b>：increase allegiance to the firm（增强对公司忠诚度）<br>
+    → <b>插入语</b> "as Khurana, another professor, points out" 是对后半部分的引用来源说明
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">09</span>
+  <div class="en">"<u>You have the importation of terminology that historically used to be associated with non-profit organizations and religious organizations: terms like vision, values, passion, and purpose</u>," said Khurana.</div>
+  <hr class="sent-hr">
+  <div class="cn">"你引入了历史上通常与非营利组织和宗教组织相关的术语：比如 vision（愿景）、values（价值观）、passion（热情）、purpose（目标/宗旨），"Khurana 说。</div>
+  <div class="syntax">
+    <b>🔍 长难句拆解</b><br>
+    <b>You have</b> = 你这里有 / 这里存在（引出下文的描述性说法）<br>
+    <b>核心名词短语</b> = the importation of terminology（术语的引入/借用）<br>
+    <b>that 从句修饰 terminology</b>：historically used to be associated with non-profit organizations and religious organizations<br>
+    （历史上常与非营利和宗教组织联系在一起）<br>
+    <b>冒号后举例</b>：terms like vision, values, passion, and purpose
+  </div>
+</div>
+
+<!-- P4 -->
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">This new focus on personal fulfillment can help keep employees motivated amid increasingly loud debates over <mark>work-life balance</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">这种对个人成就感的新关注，有助于在关于工作与生活平衡的日益激烈的辩论中保持员工积极性。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">The "mommy wars" of the 1990's are still going on today, prompting arguments about why women still can't have it all and books like Sheryl Sandberg's <i>Lean In</i>, whose title has become a <mark>buzzword</mark> in its own right.</div>
+  <hr class="sent-hr">
+  <div class="cn">90年代的"妈妈战争"至今仍在持续，引发了关于为什么女性仍然无法兼顾一切的争论，以及像 Sheryl Sandberg《Lean In》（向前一步）这样的书——其书名本身已成为一个流行词。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Terms like unplug, offline, life-hack, bandwidth, and capacity are all about setting boundaries between the office and the home.</div>
+  <hr class="sent-hr">
+  <div class="cn">unplug（断开连接）、offline（离线）、life-hack（生活黑客技巧）、bandwidth（带宽/精力上限）、capacity（容量/能力）这类词都是在设定办公室与家庭之间的界限。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">But if your work is your "passion," you'll be more likely to devote yourself to it, even if that means going home for dinner and then working long after the kids are in bed.</div>
+  <hr class="sent-hr">
+  <div class="cn">但如果你的工作就是你的"热情所在"，你就更可能全身心投入——哪怕这意味着回家吃晚饭后再工作到孩子们睡着之后很久。</div>
+</div>
+
+<!-- P5 -->
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">But this seems to be the irony of office speak: Everyone makes fun of it, but managers love it, companies depend on it, and regular people willingly absorb it.</div>
+  <hr class="sent-hr">
+  <div class="cn">但这似乎正是办公室话术的讽刺之处：人人都嘲笑它，但管理者喜欢它、公司依赖它、普通人也自愿吸收它。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">As a linguist once said, "<u>You can get people to think it's nonsense at the same time that you buy into it.</u>"</div>
+  <hr class="sent-hr">
+  <div class="cn">正如一位语言学家曾经说过的，"你可以让人们一边认为它是废话，一边又买它的账。"</div>
+  <div class="syntax">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句</b>：You can get people to think...（你可以让人们认为……）<br>
+    <b>think 的宾语从句</b>：(that) it's nonsense at the same time that you buy into it<br>
+    &nbsp;&nbsp;→ it's nonsense（它是废话）<br>
+    &nbsp;&nbsp;→ at the same time（与此同时）<br>
+    &nbsp;&nbsp;→ (that) you buy into it（你又接受了它/买它的账）<br>
+    → <b>buy into sth</b> = 相信、接受某种观点/做法（字面"买入股份"→ 引申为"信服"）<br>
+    → <b>矛盾统一</b>：嘴上说"这是废话"，行为上却在用它
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">In a workplace that's fundamentally indifferent to your life and its meaning, office speak can help you figure out how you relate to your work—and how your work defines who you are.</div>
+  <hr class="sent-hr">
+  <div class="cn">在一个对你的人生及其意义根本漠不关心的职场环境中，办公室话术可以帮助你搞清楚自己与工作的关系——以及你的工作如何定义了你这个人。</div>
+</div>
+
+
+<!-- ====== 六大汇总卡片 ====== -->
+
+<div class="card">
+  <h2>📋 全文脉络<span class="toggle" onclick="toggleBody('flow')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="flow">
+  <p style="line-height:1.85;color:var(--text-soft);font-size:.92em;">
+  <b style="color:var(--accent)">P1（现象引入）</b>——Koehn 观察：企业语言从"目标策略"转向"情感右脑"，passion/journey/mission 等20年前罕见的新词泛滥。<br><br>
+  <b style="color:var(--accent)">P2（来源追溯）</b>——新词汇以"团队"为导向，根源是男性主导的企业界中的<strong>体育文化</strong>（coach/team/win），CEO们把自己视为教练。<br><br>
+  <b style="color:var(--accent)">P3（深层目的）</b>——两重意图：① 给工作<strong>注入意义</strong>(infuse meaning)；② 借用非营利/宗教组织的术语(vision/values/purpose)增强员工<strong>忠诚度</strong>(allegiance)。<br><br>
+  <b style="color:var(--accent)">P4（功能延伸）</b>——个人成就感关注帮助维持员工动力；work-life balance 辩论催生新词(unplug/offline/bandwidth)；如果工作是"passion"，你会自愿加班到深夜。<br><br>
+  <b style="color:var(--accent);background:var(--amber-light);padding:4px 8px;border-radius:4px;">P5（核心悖论 · Irony）</b>——office speak 的终极讽刺：<strong>人人嘲笑却人人接受</strong>。管理者爱它、公司依赖它、普通人自愿吸收它——因为它帮你在冷漠的职场中建立身份认同。
+  </p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📚 重点词汇<span class="toggle" onclick="toggleBody('vocab')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="vocab">
+  <table>
+  <tr><th><b>单词</b></th><th><b>音标/释义</b></th><th><b>语境记忆</b></th></tr>
+  <tr><td><b>lingua franca</b></td><td>/ˌlɪŋɡwə ˈfræŋkə/ n. 通用语；混合语</td><td>拉丁语原义"法兰克语"，现指跨群体通用的混合语言</td></tr>
+  <tr><td><b>right-brained</b></td><td>/ˈraɪt breɪnd/ adj. 右脑型的；直觉/感性的</td><td>左脑=逻辑分析，右脑=创意情感；right-brained=偏向感性思维</td></tr>
+  <tr><td><b>parachute</b></td><td>/ˈpærəʃuːt/ v. 空降；（喻）突然介入某环境</td><td>parachuted back to 1990 = 突然穿越回1990年</td></tr>
+  <tr><td><b>spin off</b></td><td>phr. v. 衍生出；逐一列举</td><td>spin off examples = 一个接一个地举例</td></tr>
+  <tr><td><b>team-oriented</b></td><td>/tiːm ˈɔːrientid/ adj. 以团队为导向的</td><td>-oriented = 以……为方向的/注重……的</td></tr>
+  <tr><td><b>male-dominated</b></td><td>/meɪl ˈdɒmɪneɪtɪd/ adj. 男性主导的</td><td>corporate America = 美国企业界/商界</td></tr>
+  <tr><td><b>infuse ... with ...</b></td><td>/ɪnˈfjuːz/ phr. 注入；灌输</td><td>infuse work with meaning = 给工作注入意义</td></tr>
+  <tr><td><b>allegiance</b></td><td>/əˈliːdʒəns/ n. 忠诚；效忠</td><td>increase allegiance to the firm = 增强对公司的忠诚</td></tr>
+  <tr><td><b>fulfillment</b></td><td>/fʊlˈfɪlmənt/ n. 成就感；满足感</td><td>personal fulfillment = 个人自我实现/成就感</td></tr>
+  <tr><td><b>work-life balance</b></td><td>n. 工作与生活的平衡</td><td>当代职场的永恒议题</td></tr>
+  <tr><td><b>buzzword</b></td><td>/ˈbʌzwɜːd/ n. 流行词；时髦术语</td><td>become a buzzword in its own right = 本身就成了一句流行口号</td></tr>
+  <tr><td><b>unplug</b></td><td>/ʌnˈplʌɡ/ v. 断开连接；脱离网络</td><td>数字时代的"断网休息"</td></tr>
+  <tr><td><b>life-hack</b></td><td>n. 生活窍门；生活黑客技巧</td><td>hack 在此不是"黑入"，而是"巧妙解决方案"</td></tr>
+  <tr><td><b>bandwidth</b></td><td>/ˈbændwɪdθ/ n. 带宽；（喻）精力容量</td><td>I don't have the bandwidth = 我没精力/没时间处理这事</td></tr>
+  <tr><td><b>irony</b></td><td>/ˈaɪrəni/ n. 讽刺；反讽</td><td>the irony of office speak = 办公室话术的讽刺之处</td></tr>
+  <tr><td><b>absorb</b></td><td>/əbˈzɔːb/ v. 吸收；接受</td><td>willingly absorb it = 自愿接受/消化它</td></tr>
+  <tr><td><b>buy into</b></td><td>phr. v. 相信；接受；买……的账</td><td>you buy into it = 你接受了这套说法（尽管嘴上说是废话）</td></tr>
+  <tr><td><b>indifferent</b></td><td>/ɪnˈdɪfrənt/ adj. 漠不关心的</td><td>fundamentally indifferent to your life = 对你的人生根本不在乎</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🔍 熟词生义<span class="toggle" onclick="toggleBody('familiar')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="familiar">
+  <table>
+  <tr><th><b>词汇</b></th><th><b>常见义</b></th><th><b>本文生义</b></th><th><b>例句</b></th></tr>
+  <tr><td><b>passion</b></td><td>激情；热爱</td><td><b>（企业话术中）工作热情/使命感</b></td><td>We didn't talk about passion.（我们过去不谈论"工作热情"这类词。）</td></tr>
+  <tr><td><b>coach</b></td><td>教练；长途客车</td><td><b>（管理隐喻）领导/导师角色</b></td><td>I'm a coach, and you're my team.（我是教练，你们是我的团队。）</td></tr>
+  <tr><td><b>mission</b></td><td>使命；任务</td><td><b>（企业语境）组织愿景/战略方向</b></td><td>terms like mission, passion（使命、热情这类词）</td></tr>
+  <tr><td><b>journey</b></td><td>旅行；旅程</td><td><b>（企业话术）发展历程/成长路径</b></td><td>use of terms like journey（使用"旅程"这类词）</td></tr>
+  <tr><td><b>capacity</b></td><td>容量；能力</td><td><b>（时间管理语境）可支配的时间/精力</b></td><td>Terms like capacity are all about setting boundaries.</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🔗 重点短语搭配<span class="toggle" onclick="toggleBody('phrases')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="phrases">
+  <table>
+  <tr><th><b>短语</b></th><th><b>释义</b></th><th><b>原文例句</b></th></tr>
+  <tr><td><b>get much more ... than</b></td><td>比……变得更加……</td><td>has gotten much more emotional than it was 20 years ago</td></tr>
+  <tr><td><b>by coincidence</b></td><td>巧合地；并非偶然</td><td>not by coincidence（并非巧合）</td></tr>
+  <tr><td><b>a big deal</b></b><td>重要的事；举足轻重</td><td>it's still a big deal（它依然很重要）</td></tr>
+  <tr><td><b>in this together</b></b><td>在一起；同舟共济</td><td>we're in this together（我们在一起奋斗）</td></tr>
+  <tr><td><b>associate with</b></b><td>与……相关联；联想到</td><td>associated with non-profit organizations</td></tr>
+  <tr><td><b>in one's own right</b></b><td>凭自身资格；本身就</td><td>a buzzword in its own right（本身就是一句流行词）</td></tr>
+  <tr><td><b>devote oneself to</b></b><td>致力于；全身心投入</td><td>devote yourself to it（全身心投入工作）</td></tr>
+  <tr><td><b>make fun of</b></b><td>嘲笑；取笑</td><td>Everyone makes fun of it（人人都嘲笑它）</td></tr>
+  <tr><td><b>depend on</b></b><td>依赖；取决于</td><td>companies depend on it（公司依赖它）</td></tr>
+  <tr><td><b>at the same time that</b></b><td>与此同时；然而（表转折）</td><td>think it's nonsense at the same time that you buy into it</td></tr>
+  <tr><td><b>figure out</b></b><td>弄清楚；理解</td><td>figure out how you relate to your work</td></tr>
+  <tr><td><b>define who you are</b></b><td>定义你是谁；塑造身份认同</td><td>your work defines who you are（你的工作定义了你的身份）</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型<span class="toggle" onclick="toggleBody('patterns')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="patterns">
+
+  <div class="pat">
+    <div class="pat-en">"<u>The lingua franca of corporate America has gotten much more emotional and much more right-brained than it was 20 years ago</u>."</div>
+    <div class="pat-cn">"美国企业的通用语也比20年前变得更有情感色彩、更具右脑思维特征了。"</div>
+    <span class="pat-tag">比较级双重升级 + has gotten 结构</span>
+  </div>
+
+  <div class="pat">
+    <div class="pat-en"><u>These terms are also intended to infuse work with meaning</u>—and, as Khurana points out, increase allegiance to the firm.</div>
+    <div class="pat-cn">这些术语还旨在给工作注入意义——并增强对公司的忠诚度。</div>
+    <span class="pat-tag">be intended to do — 破折号补充第二目的 + 插入语引用</span>
+  </div>
+
+  <div class="pat">
+    <div class="pat-en">You can get people to think it's nonsense <u>at the same time that</u> you buy into it.</div>
+    <div class="pat-cn">你可以让人们一边认为它是废话，一边又买它的账。</div>
+    <span class="pat-tag">at the same time that — 表面矛盾的并行动作（高级转折表达）</span>
+  </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目速查<span class="toggle" onclick="toggleBody('questions')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="questions">
+
+  <!-- Q31 -->
+  <div class="q-block">
+    <div class="q-title">31. According to Nancy Koehn, office language has become _______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] more emotional ✓</span>
+      <span class="opt no">[B] more objective</span>
+      <span class="opt no">[C] less energetic</span>
+      <span class="opt no">[D] less strategic</span>
+    </div>
+    <div class="ua">标准答案：A</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P1 S01 直接引语——Koehn 的原话</p>
+      <p>✅ <b>A 正确推理</b>S01 明确指出 "has gotten much more <b>emotional</b> and much more right-brained than it was 20 years ago"——"more emotional" 与选项 A 完全对应。</p>
+      <p>❌ <b>B 错误</b>more objective（更客观）与原文相反——原文说的是更"情感化/右脑化"，即更主观而非客观。</p>
+      <p>❌ <b>C 错误</b>less energetic（更少精力）——S03 提到了 "energy" 一词的使用，且全文讨论的是语言的丰富化和意义化，不是减少能量。</p>
+      <p>❌ <b>D 错误</b>less strategic（更少策略性）——S02-S03 明确提到 90年代有 goals 和 strategies，现在多了 passion 类词汇，是增加而非减少策略维度。</p>
+    </div>
+  </div>
+
+  <!-- Q32 -->
+  <div class="q-block">
+    <div class="q-title">32. "Team"-oriented corporate vocabulary is closely related to _______.</div>
+    <div class="opts">
+      <span class="opt no">[A] historical incidents</span>
+      <span class="opt no">[B] gender difference</span>
+      <span class="opt ok">[C] sports culture ✓</span>
+      <span class="opt no">[D] athletic executives</span>
+    </div>
+    <div class="ua">标准答案：C</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P2（S04-S07），特别是 S05</p>
+      <p>✅ <b>C 正确推理</b>S05 直接点明 "<b>Let's not forget sports</b>—in male-dominated corporate America, it's still a big deal." 后续 S06 用 coach/team/win 等体育术语进一步印证——"team"-oriented 词汇源于<strong>体育文化</strong>在企业界的渗透。</p>
+      <p>❌ <b>A 错误</b>historical incidents（历史事件）——原文讲的是文化渊源（sports culture），不是某个具体历史事件。</p>
+      <p>❌ <b>B 错误</b>gender difference（性别差异）——虽然提到了 "male-dominated"（男性主导），但这只是描述企业界现状，不是"team"词汇的来源。来源是 sports 不是 gender。</p>
+      <p>❌ <b>D 错误</b>athletic executives（运动员出身的高管）——原文说的是 CEO 把自己视为"教练"(coach)，不是说他们是真正的运动员出身。</p>
+    </div>
+  </div>
+
+  <!-- Q33 -->
+  <div class="q-block">
+    <div class="q-title">33. Khurana believes that the importation of terminology aims to _______.</div>
+    <div class="opts">
+      <span class="opt no">[A] revive historical terms</span>
+      <span class="opt no">[B] promote company image</span>
+      <span class="opt no">[C] foster corporate cooperation</span>
+      <span class="opt ok">[D] strengthen employee loyalty ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P3 S08</p>
+      <p>✅ <b>D 正确推理</b>S08 明确指出两个目的：① infuse work with meaning（注入意义）；② <b>increase allegiance to the firm</b>（增强对公司忠诚）。allegiance = loyalty（忠诚），与 D 完全对应。</p>
+      <p>❌ <b>A 错误</b>revive historical terms（复兴历史术语）——Khurana 说的是"importation"（引入/借用）非营利组织的术语，不是"revive"（复兴）旧术语。</p>
+      <p>❌ <b>B 错误</b>promote company image（提升公司形象）——虽然可能有间接效果，但这不是 Khurana 明确提出的aims。他明确说的是 allegiance（内部忠诚）而非外部形象。</p>
+      <p>❌ <b>C 错误</b>foster corporate cooperation（促进公司合作）——cooperation 更接近 P2 的"team-oriented"概念，而 P3 Khurana 强调的是 loyalty（忠诚），两者不同。</p>
+    </div>
+  </div>
+
+  <!-- Q34 -->
+  <div class="q-block">
+    <div class="q-title">34. It can be inferred that Lean In _______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] voices for working women ✓</span>
+      <span class="opt no">[B] appeals to passionate workaholics</span>
+      <span class="opt no">[C] triggers debates among mommies</span>
+      <span class="opt no">[D] praises motivated employees</span>
+    </div>
+    <div class="ua">标准答案：A</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P4 S11</p>
+      <p>✅ <b>A 正确推理</b>S11 将《Lean In》放在 "mommy wars"（妈妈战争）的上下文中——"arguments about why women still can't have it all"（关于女性为何仍不能兼顾一切的争论）。Sheryl Sandberg 作为 Facebook COO 写这本书的核心目的正是为<strong>职业女性发声</strong>(voices for working women)，鼓励她们在职场进取。</p>
+      <p>❌ <b>B 错误</b>appeals to passionate workaholics（吸引狂热的工作狂）——Lean In 的受众是有事业心的女性，不等于"workaholic"（贬义的过度工作者），属于过度推断。</p>
+      <p>❌ <b>C 错误</b>triggers debates among mommies（引发妈妈们的辩论）——原文说 mommy wars "prompting arguments about why women still can't have it all"，《Lean In》是这场辩论中的产物而非触发者。因果倒置。</p>
+      <p>❌ <b>D 错误</b>praises motivated employees（赞扬有动力的员工）——《Lean In》聚焦于女性职场平等，不是泛泛赞扬"有动力的员工"。</p>
+    </div>
+  </div>
+
+  <!-- Q35 -->
+  <div class="q-block">
+    <div class="q-title">35. Which of the following statements is true about office speak?</div>
+    <div class="opts">
+      <span class="opt no">[A] Managers admire it but avoid it.</span>
+      <span class="opt no">[B] Linguists believe it to be nonsense.</span>
+      <span class="opt no">[C] Companies find it to be fundamental.</span>
+      <span class="opt ok">[D] Regular people mock it but accept it. ✓</span>
+    </div>
+    <div class="ua">标准答案：D</div>
+    <div class="analysis">
+      <p>🔍 <b>定位</b>：P5（S14-S16），全段核心</p>
+      <p>✅ <b>D 正确推理</b>S14 是全文最精彩的悖论总结：<b>"Everyone makes fun of it, but managers love it, companies depend on it, and regular people willingly absorb it."</b> 其中 "Everyone makes fun of it"（人人嘲笑）+ "regular people willingly absorb it"（普通人自愿接受）= D 的 "mock it but accept it" 完美对应。</p>
+      <p>❌ <b>A 错误</b>Managers admire it but avoid it.（管理者欣赏但回避它）——原文明确说 managers <b>love it</b>（喜欢它），不存在 avoid（回避）的意思。A 自相矛盾。</p>
+      <p>❌ <b>B 错误</b>Linguists believe it to be nonsense.（语言学家认为它是废话）——原文只提到 "As <i>a</i> linguist once said"（某一位语言学家曾说过），不能推广到所有语言学家（linguists 复数）。而且那位语言学家的观点是"人们一边认为是废话一边又接受它"，不是单纯否定。</p>
+      <p>❌ <b>C 错误</b>Companies find it to be fundamental.（公司认为它至关重要）——原文只说了 "companies depend on it"（公司依赖它），depend ≠ fundamental（根本性的/基础性的）。depend 只是表示"离不开/需要"，程度不如 fundamental 深。</p>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:16px;padding:12px;background:var(--amber-light);border-radius:8px;font-size:.88em;color:#8B6914;">
+  <b>答案速查</b>：31-A &nbsp;|&nbsp; 32-C &nbsp;|&nbsp; 33-D &nbsp;|&nbsp; 34-A &nbsp;|&nbsp; 35-D &nbsp;|&nbsp; <b>ACDAD</b>
+  </p>
+  </div>
+</div>
+
+</div><!-- /.article -->
+
+<script>
+function toggleBody(id){
+  var el=document.getElementById(id);
+  var toggle=el.parentElement.querySelector('.toggle');
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');el.style.maxHeight='2000px';
+    // 改为 ▲ 收起
+    toggle.innerHTML='\u25B2 \u6536\u8D77';
+    toggle.classList.remove('collapsed');
+  }else{
+    el.classList.add('hidden');el.style.maxHeight='0';
+    // 改为 ▼ 展开，加 collapsed 样式
+    toggle.innerHTML='\u25BC \u5C55\u5F00';
+    toggle.classList.add('collapsed');
+  }
+}
+</script>
+
+</body>
+</html>
