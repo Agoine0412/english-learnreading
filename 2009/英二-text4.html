@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2009 考研英语（二）Text 4 — 新英格兰的知识生活与早期定居者</title>
+<style>
+/* ====== 学术古典风（Scholarly Sepia）—— 历史人文篇专属配色 ====== */
+:root {
+  --bg: #f5f0e1;
+  --card: #faf7f2;
+  --text: #2c2420;
+  --text-soft: #6b5a50;
+  --text-muted: #9c8a7a;
+  --accent: #4a3728;          /* 深褐，学术/历史 */
+  --accent-light: #f0ece8;
+  --amber: #b8860b;           /* 古铜金 */
+  --amber-light: #fcf6e8;
+  --rust: #8b7355;            /* 古铜棕 */
+  --rust-light: #f2ede6;
+  --steel: #5a4a3a;           /* 深褐 */
+  --steel-light: #f0ece8;
+  --panel-bg: #faf8f5;
+  --panel-border: #e8ddd0;
+  --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#8b6914;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:#5a4a3a;}
+
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(139,115,85,.15) 0%,rgba(139,115,85,.05) 100%);
+  border-left:3px solid var(--rust); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--amber),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(139,115,85,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--amber);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important;
+  cursor:pointer;
+  color:#fff !important;
+  font-weight:700 !important;
+  background:var(--accent) !important;
+  padding:5px 14px !important;
+  border-radius:20px !important;
+  user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-left:auto;
+  letter-spacing:.5px;
+  border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(74,55,40,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important;
+  transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(184,134,11,0.35) !important;
+}
+.card h2 .toggle.collapsed{
+  background:var(--rust) !important;
+  border-left-color:var(--amber) !important;
+}
+.card h2 .toggle.collapsed:hover{background:var(--steel) !important;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#8b6914;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#8b6914;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;
+  padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>新英格兰的知识生活与早期定居者<small>2009 考研英语（二）· Text 4</small></h1>
+  <p class="sub">The most thoroughly studied intellectuals in the history of the New World are the ministers and political leaders of seventeenth-century New England.</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 历史人文</span>
+    <span class="badge steel">长难句 6</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 新英格兰的知识分子与清教徒传统</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">The most thoroughly studied intellectuals in the history of the New World are the ministers and political leaders of seventeenth-century New England.</div>
+  <hr class="sent-hr">
+  <div class="cn">在新世界历史上被研究得最透彻的知识分子是 17 世纪新英格兰的牧师和政治领袖。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The most thoroughly studied intellectuals（主语）+ are（系动词）+ the ministers and political leaders（表语）→ 主系表结构。<br>
+    <b>修饰</b>：in the history of the New World 作后置定语修饰 intellectuals；of seventeenth-century New England 作后置定语修饰 ministers and political leaders。<br>
+    <b>词义</b>：<b>thoroughly</b> 彻底地；<b>intellectual</b> 知识分子；<b>minister</b> 牧师（不是"部长"）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">According to the standard history of American philosophy, <mark>nowhere else in colonial America was "so much importance attached to intellectual pursuits."</mark></div>
+  <hr class="sent-hr">
+  <div class="cn">根据标准美国哲学史，在殖民地时期的美国，没有任何其他地方"如此重视对知识的追求"。</div>
+  <button class="syntax-toggle" id="btn-s2" onclick="toggleSyntax('s2')">▲ 收起解析</button>
+  <div class="syntax" id="s2">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：nowhere else ... was so much importance attached to intellectual pursuits.<br>
+    <b>倒装结构</b>：否定词 <b>nowhere</b> 位于句首，句子需<b>部分倒装</b>。正常语序为：So much importance was attached to intellectual pursuits nowhere else in colonial America.<br>
+    &nbsp;&nbsp;主语 = so much importance / 谓语 = was attached / 状语 = nowhere else in colonial America<br>
+    <b>💡 句式亮点</b>：否定词（nowhere / never / seldom / hardly）置于句首→倒装，是考研阅读高频考点。<br>
+    <b>词义</b>：<b>attach importance to</b> 重视；<b>intellectual pursuits</b> 知识追求 / 学术活动。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">According to many books and articles, New England's leaders established the basic themes and <u>preoccupations</u> of an unfolding, dominant Puritan tradition in American intellectual life.</div>
+  <hr class="sent-hr">
+  <div class="cn">根据许多书籍和文章，新英格兰的领袖们确立了美国知识生活中正在展开的、占主导地位的清教徒传统的基本主题和关注点。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：New England's leaders（主语）+ established（谓语）+ the basic themes and preoccupations（宾语）。<br>
+    <b>修饰</b>：of an unfolding, dominant Puritan tradition 作后置定语修饰 themes and preoccupations；in American intellectual life 作地点状语。<br>
+    <b>词义</b>：<b>preoccupation</b> 关注点 / 全神贯注的事；<b>unfolding</b> 正在展开的；<b>dominant</b> 占主导地位的。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 清教徒作为欧洲文化的承载者</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">To take this approach to the New Englanders normally means to start with the Puritans' theological innovations and their distinctive ideas about the church—important subjects that we may not neglect.</div>
+  <hr class="sent-hr">
+  <div class="cn">以这种方式研究新英格兰人通常意味着要从清教徒的神学创新及其对教会的独特见解入手——这些都是我们不可忽视的重要主题。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：To take this approach（不定式作主语）+ means（谓语）+ to start with ...（不定式作宾语）。<br>
+    <b>同位语</b>：破折号后的 important subjects that we may not neglect 是前面 Puritans' theological innovations and their distinctive ideas 的同位语，对其进行补充说明。<br>
+    <b>词义</b>：<b>take this approach to</b> 用这种方式对待；<b>theological</b> 神学的；<b>neglect</b> 忽视。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">But in keeping with our examination of southern intellectual life, we may consider the original Puritans as carriers of European culture, adjusting to New World circumstances.</div>
+  <hr class="sent-hr">
+  <div class="cn">但为了与我们对南部知识生活的研究保持一致，我们可以将最初的清教徒视为欧洲文化的承载者，正在适应新世界的环境。</div>
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：we（主）+ may consider（谓）+ the original Puritans（宾）+ as carriers of European culture（宾补）。<br>
+    <b>修饰</b>：<br>
+    &nbsp;&nbsp;① in keeping with our examination of southern intellectual life → 目的状语，"为了与…保持一致"<br>
+    &nbsp;&nbsp;② adjusting to New World circumstances → 现在分词短语作伴随/方式状语，修饰 carriers，说明"在适应新世界环境的同时"<br>
+    <b>词义</b>：<b>in keeping with</b> 与…一致；<b>carrier</b> 承载者。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">The New England colonies were the scenes of important episodes in the pursuit of widely understood ideals of civility and <u>virtuosity</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">新英格兰殖民地是追寻广为人知的文明和精湛技艺理想的重要事件的发生地。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The New England colonies（主语）+ were（系）+ the scenes（表语）。<br>
+    <b>修饰</b>：of important episodes 作后置定语修饰 scenes；in the pursuit of widely understood ideals of civility and virtuosity 作后置定语修饰 episodes。<br>
+    <b>词义</b>：<b>episode</b> 事件 / 插曲；<b>civility</b> 文明 / 礼貌；<b>virtuosity</b> 精湛技艺 / 高尚品德。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 马萨诸塞湾早期定居者的教育背景</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">The early settlers of Massachusetts Bay included men of impressive education and influence in England.</div>
+  <hr class="sent-hr">
+  <div class="cn">马萨诸塞湾的早期定居者中包括在英国受过良好教育且有影响力的人。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The early settlers（主语）+ included（谓语）+ men（宾语）。<br>
+    <b>修饰</b>：of Massachusetts Bay 作后置定语修饰 settlers；of impressive education and influence in England 作后置定语修饰 men。<br>
+    <b>词义</b>：<b>impressive</b> 令人印象深刻的 / 出色的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">Besides the ninety or so learned ministers who came to Massachusetts churches in the decade after 1629, there were political leaders like John Winthrop, an educated gentleman, lawyer, and official of the Crown before he journeyed to Boston.</div>
+  <hr class="sent-hr">
+  <div class="cn">除了 1629 年后的十年间来到马萨诸塞教堂的约 90 位博学的牧师外，还有像 John Winthrop 这样的政治领袖——他在前往波士顿之前是一位受过教育的绅士、律师和王室官员。</div>
+  <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：there were political leaders like John Winthrop（there be 句型）。<br>
+    <b>修饰</b>：<br>
+    &nbsp;&nbsp;① Besides the ninety or so learned ministers ... → 介词短语作状语，引出"除此之外"<br>
+    &nbsp;&nbsp;② who came to Massachusetts churches in the decade after 1629 → 定语从句修饰 ministers<br>
+    &nbsp;&nbsp;③ an educated gentleman, lawyer, and official of the Crown before he journeyed to Boston → <b>同位语</b>，解释 John Winthrop 的多重身份<br>
+    <b>词义</b>：<b>learned</b> 博学的（learn + -ed）；<b>official of the Crown</b> 王室官员。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">These men wrote and published extensively, reaching both New World and Old World audiences, and giving New England an atmosphere of intellectual earnestness.</div>
+  <hr class="sent-hr">
+  <div class="cn">这些人广泛地写作和出版，影响了新世界和旧世界的读者，并为新英格兰营造了一种认真求知的气氛。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：These men（主语）+ wrote and published（并列谓语）+ extensively（状语）。<br>
+    <b>修饰</b>：reaching ... and giving ... → 两个并列的现在分词短语作结果状语，说明"广泛写作和出版"带来的结果。<br>
+    <b>词义</b>：<b>extensively</b> 广泛地；<b>atmosphere</b> 氛围；<b>intellectual earnestness</b> 认真求知的态度。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 大多数新英格兰人受教育程度较低 + John Dane 的故事</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">We should not forget, however, that most New Englanders were less well educated.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而我们不应忘记，大多数新英格兰人受教育程度较低。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10">
+    <b>🔍 语法解析</b><br>
+    <b>转折关系</b>：however 表示与上段（P3 讲精英）形成对比。上文说"这些人受过良好教育"，此处转而说"但大多数并非如此"。<br>
+    <b>宾语从句</b>：that most New Englanders were less well educated，作 forget 的宾语。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">While few craftsmen or farmers, let alone dependents and servants, left literary compositions to be analyzed, it is obvious that their views were less fully intellectualized.</div>
+  <hr class="sent-hr">
+  <div class="cn">尽管很少有工匠或农民——更不用说家属和个人——留下可供分析的文学作品，但很明显他们的观点没有那么充分的知识化。</div>
+  <button class="syntax-toggle" id="btn-s11" onclick="toggleSyntax('s11')">▲ 收起解析</button>
+  <div class="syntax" id="s11">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句</b>：it is obvious that their views were less fully intellectualized（it 作形式主语，that 从句为真正主语）。<br>
+    <b>让步状语从句</b>：While few craftsmen or farmers ... left literary compositions to be analyzed（While = 虽然/尽管）。<br>
+    &nbsp;&nbsp;插入语：let alone dependents and servants（更不用说），对 craftsmen or farmers 的递进补充。<br>
+    <b>词义</b>：<b>let alone</b> 更不用说；<b>literary compositions</b> 文学作品；<b>intellectualized</b> 知识化。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Their thinking often had a traditional <u>superstitious</u> quality.</div>
+  <hr class="sent-hr">
+  <div class="cn">他们的思想往往带有传统的迷信色彩。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Their thinking（主语）+ had（谓语）+ a traditional superstitious quality（宾语）。简单句。<br>
+    <b>词义</b>：<b>superstitious</b> 迷信的（superstition + -ious），是 Q39 的定位关键词。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">A tailor named John Dane, who emigrated in the late 1630s, left an account of his reasons for leaving England that is filled with signs.</div>
+  <hr class="sent-hr">
+  <div class="cn">一位名为 John Dane 的裁缝于 17 世纪 30 年代末移居新大陆，留下了一份关于他离开英国的原因的记录，其中充满了各种征兆。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：A tailor ... left an account ...（主+谓+宾）。<br>
+    <b>修饰</b>：<br>
+    &nbsp;&nbsp;① named John Dane → 过去分词短语后置定语修饰 tailor<br>
+    &nbsp;&nbsp;② who emigrated in the late 1630s → 非限制性定语从句修饰 John Dane<br>
+    &nbsp;&nbsp;③ that is filled with signs → 定语从句修饰 account（注意：that 前面隔着 for leaving England，这是"分隔定语从句"结构）<br>
+    <b>词义</b>：<b>account</b> 记述 / 记录；<b>sign</b> 征兆 / 迹象。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en"><mark>Sexual confusion, economic frustrations, and religious hope—all came together in a decisive moment when he opened the Bible, told his father that the first line he saw would settle his fate, and read the magical words</mark>: "Come out from among them, touch no unclean thing, and I will be your God and you shall be my people."</div>
+  <hr class="sent-hr">
+  <div class="cn">性的困惑、经济上的挫折和宗教的希望——所有这些在一个决定性的时刻交织在一起：他打开《圣经》，告诉父亲他看到的第一行字将决定他的命运，然后读到了这些神奇的文字。</div>
+  <button class="syntax-toggle" id="btn-s14" onclick="toggleSyntax('s14')">▲ 收起解析</button>
+  <div class="syntax" id="s14">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：all came together（主+谓）。Sexual confusion, economic frustrations, and religious hope 是 all 的同位语，破折号引出。<br>
+    <b>定语从句</b>：when he opened the Bible, told his father that ... and read the magical words → when 引导定语从句修饰 moment，从句内有三个并列谓语动词（opened, told, read）。<br>
+    &nbsp;&nbsp;told 后接双宾语：his father（间接宾语）+ that 从句（直接宾语）。<br>
+    <b>💡 句式亮点</b>：长并列动词序列（opened → told → read）使叙事紧凑有节奏。圣经引文 "Come out from among them..." 是 John Dane 命运的转折点。<br>
+    <b>词义</b>：<b>frustration</b> 挫折；<b>decisive</b> 决定性的；<b>settle one's fate</b> 决定某人的命运。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">One wonders what Dane thought of the careful sermons explaining the Bible that he heard in Puritan churches.</div>
+  <hr class="sent-hr">
+  <div class="cn">人们不禁想知道，Dane 在清教徒教堂里听到的那些精心讲解《圣经》的布道，在他心中会作何感想。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：One wonders what Dane thought of the careful sermons（主+谓+宾语从句）。<br>
+    <b>修饰</b>：<br>
+    &nbsp;&nbsp;① explaining the Bible → 现在分词短语作后置定语修饰 sermons<br>
+    &nbsp;&nbsp;② that he heard in Puritan churches → 定语从句修饰 sermons（被 explaining the Bible 分隔）<br>
+    <b>词义</b>：<b>wonder</b> 想知道 / 纳闷；<b>sermon</b> 布道 / 讲道。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 许多定居者的宗教承诺并不深厚</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">Meanwhile, many settlers had slighter religious commitments than Dane's, as one clergyman learned in confronting folk along the coast who mocked that they had not come to the New World for religion.</div>
+  <hr class="sent-hr">
+  <div class="cn">与此同时，许多定居者的宗教承诺比 Dane 要淡薄，正如一位牧师在沿海与当地人交谈时所了解到的——那些人嘲弄说他们来新世界不是为了宗教。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：many settlers had slighter religious commitments than Dane's（比较级）。<br>
+    <b>as 从句</b>：as one clergyman learned → 方式状语从句，as = 正如。<br>
+    <b>定语从句</b>：who mocked that ... → 修饰 folk。<br>
+    <b>宾语从句</b>：that they had not come to the New World for religion → 作 mocked 的宾语。<br>
+    <b>词义</b>：<b>commitment</b> 承诺 / 投入；<b>mock</b> 嘲笑；<b>confront</b> 面对 / 与…交谈。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">"Our main end was to catch fish."</div>
+  <hr class="sent-hr">
+  <div class="cn">"我们的主要目的是捕鱼。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s17">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Our main end（主语）+ was（系）+ to catch fish（不定式作表语）。<br>
+    <b>💡 修辞效果</b>：这句大白话与前面学究式的长难句形成鲜明对比，揭示了相当一部分定居者务实甚至功利的目的，与清教徒的宗教理想形成反差。end = 目的/目标（熟词生义）。
+  </div>
+</div>
+
+
+<!-- ===== Bottom ===== -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 新英格兰知识分子被广泛研究——牧师与政治领袖确立了清教徒传统。<br>
+        <span class="num">②</span> P2: 清教徒作为欧洲文化的承载者，适应新世界环境。<br>
+        <span class="num">③</span> P3: 马萨诸塞早期定居者中不乏博学之人（如 Winthrop），营造了求知氛围。<br>
+        <span class="num">④</span> P4: 但大多数新英格兰人受教育程度低，思想迷信。John Dane 用《圣经》占卜的故事为例。<br>
+        <span class="num">⑤</span> P5: 许多定居者宗教承诺淡薄——"我们来是为了捕鱼"。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table>
+      <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>intellectual</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>知识分子</td><td>adj. 智力的</td></tr>
+        <tr><td><b>minister</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>牧师</td><td>不是"部长"</td></tr>
+        <tr><td><b>pursuit</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>追求</td><td>in ~ of</td></tr>
+        <tr><td><b>dominant</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>占主导的</td><td>dominate 的形容词</td></tr>
+        <tr><td><b>theological</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>神学的</td><td>theology + -ical</td></tr>
+        <tr><td><b>distinctive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>独特的</td><td>distinction 形容词</td></tr>
+        <tr><td><b>neglect</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>忽视</td><td>neg- 否定 + lect 选择</td></tr>
+        <tr><td><b>extensively</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>广泛地</td><td>写作替换 widely</td></tr>
+        <tr><td><b>earnestness</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>认真</td><td>earnest + -ness</td></tr>
+        <tr><td><b>superstitious</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>迷信的</td><td>Q39 定位词</td></tr>
+        <tr><td><b>decisive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>决定性的</td><td>decide + -sive</td></tr>
+        <tr><td><b>commitment</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>承诺/投入</td><td>religious ~ 宗教承诺</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>💡 熟词生义 <span class="toggle collapsed" onclick="toggleBody('poly')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="poly">
+    <table>
+      <thead><tr><th>词汇</th><th>熟义</th><th>本文义</th><th>例句</th></tr></thead>
+      <tbody>
+        <tr><td><b>minister</b></td><td style="color:var(--text-muted);font-size:.9em;">部长</td><td>牧师</td><td>ministers and political leaders</td></tr>
+        <tr><td><b>learned</b></td><td style="color:var(--text-muted);font-size:.9em;">学习（过去式）</td><td>博学的</td><td>learned ministers 博学的牧师</td></tr>
+        <tr><td><b>end</b></td><td style="color:var(--text-muted);font-size:.9em;">结束</td><td>目的/目标</td><td>Our main end was to catch fish.</td></tr>
+        <tr><td><b>account</b></td><td style="color:var(--text-muted);font-size:.9em;">账户/描述</td><td>记述</td><td>left an account 留下记述</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">Nowhere else in colonial America was so much importance attached to intellectual pursuits.</div>
+      <div class="pat-cn">在殖民地美国，没有任何其他地方如此重视知识追求。</div>
+      <span class="pat-tag">否定倒装句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">In keeping with our examination of southern intellectual life, we may consider the original Puritans as carriers of European culture, adjusting to New World circumstances.</div>
+      <div class="pat-cn">为了与对南部知识生活的研究保持一致，我们可以将清教徒视为欧洲文化的承载者。</div>
+      <span class="pat-tag">in keeping with + consider as + 分词状语</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">While few craftsmen or farmers, let alone dependents and servants, left literary compositions to be analyzed, it is obvious that their views were less fully intellectualized.</div>
+      <div class="pat-cn">尽管很少有工匠或农民留下作品，但很明显他们的观点没有充分知识化。</div>
+      <span class="pat-tag">While 让步 + let alone 递进 + it is obvious that</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">36. The author notes that in the seventeenth-century New England ________.</div>
+    <div class="opts">
+      <span class="opt no">[A] Puritan tradition dominated political life</span>
+      <span class="opt ok">[B] intellectual interests were encouraged</span>
+      <span class="opt no">[C] politics benefited much from intellectual endeavors</span>
+      <span class="opt no">[D] intellectual pursuits enjoyed a liberal environment</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（intellectual interests were encouraged 知识兴趣受到鼓励）</b></p>
+      <p><b>定位</b>：P1 · S02 — "nowhere else in colonial America was <b>so much importance attached to intellectual pursuits</b>"</p>
+      <p><b>推理</b>：attach so much importance to intellectual pursuits = 高度重视知识追求 = 鼓励知识兴趣。nowhere else ... so much = 没有其他地方如此……→ 新英格兰在这方面最突出。</p>
+      <p><b>❌ A 错误</b>：Puritan tradition dominated political life（清教传统主导政治生活）——P1 说的是 Puritan tradition 在 intellectual life 中占主导（S03），并未说主导 political life。</p>
+      <p><b>❌ C 错误</b>：politics benefited much from intellectual endeavors（政治从知识努力中获益）——"benefited from" 原文未提及。</p>
+      <p><b>❌ D 错误</b>：enjoyed a liberal environment（享有自由的环境）——原文强调重视 intellectual pursuits，但并未说环境是"自由的（liberal）"。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">37. It is suggested in Paragraph 2 that New Englanders ________.</div>
+    <div class="opts">
+      <span class="opt no">[A] experienced a comparatively peaceful early history</span>
+      <span class="opt ok">[B] brought with them the culture of the Old World</span>
+      <span class="opt no">[C] paid little attention to southern intellectual life</span>
+      <span class="opt no">[D] were obsessed with religious innovations</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（brought with them the culture of the Old World 带来了旧世界的文化）</b></p>
+      <p><b>定位</b>：P2 · S05 — "we may consider the original Puritans as <b>carriers of European culture</b>"</p>
+      <p><b>推理</b>：carriers of European culture = 欧洲文化的承载者 → 他们把旧世界（Old World/欧洲）的文化带到了新世界。B 选项是对此最直接的概括。</p>
+      <p><b>❌ A 错误</b>：comparatively peaceful early history（相对和平的早期历史）——文中未提和平与否。</p>
+      <p><b>❌ C 错误</b>：paid little attention to southern intellectual life（不关注南部知识生活）——原文说"in keeping with our examination of southern intellectual life"（为了与对南部的考查保持一致），说明作者是在参考南部，不是新英格兰人不关注南部。</p>
+      <p><b>❌ D 错误</b>：were obsessed with religious innovations（沉迷于宗教创新）——P2 S04 提到 theological innovations，但 New Englanders 并没有被描述为"obsessed"（沉迷）。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">38. The early ministers and political leaders in Massachusetts Bay ________.</div>
+    <div class="opts">
+      <span class="opt no">[A] were famous in the New World for their writings</span>
+      <span class="opt no">[B] gained increasing importance in religious affairs</span>
+      <span class="opt no">[C] abandoned high positions before coming to the New World</span>
+      <span class="opt ok">[D] created a new intellectual atmosphere in New England</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（created a new intellectual atmosphere in New England 在新英格兰创造了新的求知氛围）</b></p>
+      <p><b>定位</b>：P3 · S09 — "giving New England an <b>atmosphere of intellectual earnestness</b>"</p>
+      <p><b>推理</b>：giving New England an atmosphere of intellectual earnestness = 为新英格兰营造了认真求知的气氛。D 选项 "created a new intellectual atmosphere" 是这句话的准确概括。</p>
+      <p><b>❌ A 错误</b>：famous for their writings（因著作而闻名）——原文说 they wrote and published extensively, reaching both New World and Old World audiences（影响了两地的读者），但并未说他们"famous"（闻名）。</p>
+      <p><b>❌ C 错误</b>：abandoned high positions before coming to the New World（来新世界前放弃了高位）——S08 说 John Winthrop 曾是 official of the Crown，但并不能代表所有人；且"abandoned"一词过于强烈，原文只说他是 official before he journeyed，没说他是"放弃"高位。</p>
+      <p><b>❌ B 错误</b>：gained increasing importance in religious affairs（在宗教事务中越来越重要）——文中未提。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">39. The story of John Dane shows that less well-educated New Englanders were often ________.</div>
+    <div class="opts">
+      <span class="opt ok">[A] influenced by superstitions</span>
+      <span class="opt no">[B] troubled with religious beliefs</span>
+      <span class="opt no">[C] puzzled by church sermons</span>
+      <span class="opt no">[D] frustrated with family earnings</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（influenced by superstitions 受迷信影响）</b></p>
+      <p><b>定位</b>：P4 · S12-S14 — 作者先铺垫 "Their thinking often had a traditional <b>superstitious</b> quality"（S12），然后立即用 John Dane 的故事举例：他用打开《圣经》看到的第一行字来决定命运——这是一种典型的迷信行为（用经文占卜）。</p>
+      <p><b>推理</b>：S12 提出观点（受教育程度低的人思想迷信）→ S13-S14 用 John Dane 的故事作为例证。John Dane 的行为（看第一行字决定命运）正是 superstitious 的具体表现。</p>
+      <p><b>❌ B 错误</b>：troubled with religious beliefs（受宗教信仰困扰）——John Dane 确实有 religious hope，但这不是"困扰"（troubled），而是他主动寻求的。</p>
+      <p><b>❌ C 错误</b>：puzzled by church sermons（被教堂布道困惑）——S15 确实说 "One wonders what Dane thought of the careful sermons"，但这只是作者的感慨（"不知他作何感想"），并不是 John Dane 被困惑。</p>
+      <p><b>❌ D 错误</b>：frustrated with family earnings（对家庭收入感到沮丧）——文中提到 economic frustrations（经济挫折），但这只是他离开英国的原因之一，不是重点。"frustrated with family earnings" 缩小了 economic frustrations 的范围。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">40. The text suggests that early settlers in New England ________.</div>
+    <div class="opts">
+      <span class="opt no">[A] were mostly engaged in political activities</span>
+      <span class="opt no">[B] were motivated by an illusory prospect</span>
+      <span class="opt ok">[C] came from different intellectual backgrounds</span>
+      <span class="opt no">[D] left few formal records for later reference</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（came from different intellectual backgrounds 来自不同的知识背景）</b></p>
+      <p><b>定位</b>：全文主旨概括题。P3 讲有学问的精英（learned ministers, John Winthrop）→ P4 讲受教育程度低的普通人（less well educated）→ P5 讲宗教目的不同的人。</p>
+      <p><b>推理</b>：全文呈现了一个<b>多层次</b>的新英格兰社会：既有博学的牧师和政治领袖，也有迷信的工匠，还有务实的渔民。C 选项 "different intellectual backgrounds" 最全面地概括了这种多样性。</p>
+      <p><b>❌ A 错误</b>：mostly engaged in political activities（主要从事政治活动）——只有少数领袖参与政治，大多数人不是。</p>
+      <p><b>❌ B 错误</b>：motivated by an illusory prospect（被虚幻的前景激励）——文中没有说前景是"虚幻的"（illusory）。</p>
+      <p><b>❌ D 错误</b>：left few formal records（留下了很少正式记录）——P4 S11 说 few craftsmen or farmers left literary compositions（很少留下文学作品），但这不是全文重点，只是 P4 中的一个细节。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2009 英语（二）Text 4 · 17 句 · 5 题 · 答案 BBDAC</div>
+
+</div>
+
+<script>
+function toggleSyntax(id) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent='▲ 收起解析';
+  }else{
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent='▼ 展开解析';
+  }
+}
+function toggleBody(id) {
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
+}
+</script>
+</body>
+</html>
