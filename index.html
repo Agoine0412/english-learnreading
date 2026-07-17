@@ -56,6 +56,9 @@
   --card-2015: linear-gradient(145deg, #f2f5dc 0%, #e6ebc4 50%, #f5f7e3 100%);
   --card-2015-accent: #7a9420;
   --card-2015-glow: rgba(122,148,32,.15);
+  --card-2016: linear-gradient(145deg, #eef1f9 0%, #dce4f5 50%, #eaf0fa 100%);
+  --card-2016-accent: #2c3e7a;
+  --card-2016-glow: rgba(44,62,122,.15);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -373,6 +376,7 @@ body {
 .year-card[data-y="2008"] .yc-inner { background: var(--card-2008); --yc-accent: var(--card-2008-accent); --yc-glow: var(--card-2008-glow); }
 .year-card[data-y="2009"] .yc-inner { background: var(--card-2009); --yc-accent: var(--card-2009-accent); --yc-glow: var(--card-2009-glow); }
 .year-card[data-y="2015"] .yc-inner { background: var(--card-2015); --yc-accent: var(--card-2015-accent); --yc-glow: var(--card-2015-glow); }
+.year-card[data-y="2016"] .yc-inner { background: var(--card-2016); --yc-accent: var(--card-2016-accent); --yc-glow: var(--card-2016-glow); }
 
 /* 轮播位置状态 */
 /* 中间（激活）*/
@@ -797,6 +801,17 @@ body {
         </div>
       </div>
 
+      <!-- 2016 年卡片 -->
+      <div class="year-card" data-y="2016" onclick="openArticles(this)" data-idx="3">
+        <div class="yc-inner">
+          <div class="yc-icon">📙</div>
+          <div class="yc-year">2016</div>
+          <div class="yc-label">英二阅读</div>
+          <div class="yc-count"><span class="yc-count-num" data-year="2016"></span>&nbsp;篇文章</div>
+          <div class="yc-hint">点击查看文章</div>
+        </div>
+      </div>
+
     </div>
     <button class="carousel-nav next" onclick="carouselNext()" aria-label="下一张">›</button>
 
@@ -805,6 +820,7 @@ body {
       <button class="carousel-dot active" data-t="0" onclick="carouselGoTo(0)"></button>
       <button class="carousel-dot" data-t="1" onclick="carouselGoTo(1)"></button>
       <button class="carousel-dot" data-t="2" onclick="carouselGoTo(2)"></button>
+      <button class="carousel-dot" data-t="3" onclick="carouselGoTo(3)"></button>
     </div>
   </div>
 
@@ -910,12 +926,15 @@ body {
       { href: '2015/英二-text2.html', title: 'Text 2', desc: '第一代大学生的困境与出路——一小时干预缩小63%成就差距', num: 2 },
       { href: '2015/英二-text3.html', title: 'Text 3', desc: 'Office Speak：企业话术——人人嘲笑却人人接受的职场悖论', num: 3 },
       { href: '2015/英二-text4.html', title: 'Text 4', desc: '就业市场：被忽视的兼职真相与奥巴马医改', num: 4 }
+    ],
+    '2016': [
+      { href: '2016/英二-text1.html', title: 'Text 1', desc: '编程教育：从高中课堂到数字素养', num: 1 }
     ]
   };
 
   // 年份对应的强调色
-  const yearAccent = { '2008': '#d4623e', '2009': '#389e92', '2015': '#7a9420' };
-  const yearIcon = { '2008': '📕', '2009': '📘', '2015': '📗' };
+  const yearAccent = { '2008': '#d4623e', '2009': '#389e92', '2015': '#7a9420', '2016': '#2c3e7a' };
+  const yearIcon = { '2008': '📕', '2009': '📘', '2015': '📗', '2016': '📙' };
 
   const POSITIONS = ['pos-center', 'pos-right', 'pos-far-right', 'pos-far-left', 'pos-left'];
   // pos-far-left 是索引 -2 的位置，pos-left 是索引 -1

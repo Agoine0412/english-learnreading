@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016 考研英语（二）Text 1 — 编程教育：从高中课堂到数字素养</title>
+<style>
+/* ====== 🔵 靛蓝电光风（Indigo & Electric）—— 科技教育篇专属配色 ====== */
+:root {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --text: #1e2a42;
+  --text-soft: #4a5568;
+  --text-muted: #8896ab;
+  /* 主色系：靛蓝 + 电光蓝 + 代码绿 + 紫罗兰 */
+  --accent: #2c3e7a;          /* 深靛蓝，专业/学术 */
+  --accent-light: #eef1f9;
+  --amber: #1a73e8;           /* 电光蓝，编程/技术核心 */
+  --amber-light: #e8f0fe;
+  --rust: #188038;            /* 代码绿，成长/创造 */
+  --rust-light: #e6f4ea;
+  --steel: #7b1fa2;           /* 紫罗兰，思维/创新 */
+  --steel-light: #f3e5f5;
+  --panel-bg: #fafbfd;
+  --panel-border: #dde2ec;
+  --border: #e2e8f0;
+  --shadow: 0 2px 10px rgba(30,42,66,0.06);
+  --shadow-hover: 0 6px 22px rgba(30,42,66,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+
+/* ====== Header ====== */
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#1558b0;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:#6a1b9a;}
+
+/* ====== 文章内容区 ====== */
+.article{margin-top:22px;}
+
+/* ====== 逐句卡片（上下单栏）===== */
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(26,115,232,.18) 0%,rgba(26,115,232,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(24,128,56,.15) 0%,rgba(24,128,56,.05) 100%);
+  border-left:3px solid var(--rust); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--amber),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+/* ====== 逐句语法解析折叠按钮 ====== */
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(24,128,56,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--amber);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+/* ====== 底部汇总卡片 ====== */
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important;
+  cursor:pointer;
+  color:#fff !important;
+  font-weight:700 !important;
+  background:var(--accent) !important;
+  padding:5px 14px !important;
+  border-radius:20px !important;
+  user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;
+  margin-left:auto;
+  letter-spacing:.5px;
+  border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(44,62,122,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important;
+  transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(26,115,232,0.35) !important;
+}
+.card h2 .toggle:active{
+  transform:translateY(0) !important;
+  box-shadow:0 1px 3px rgba(44,62,122,0.25) !important;
+}
+.card h2 .toggle.collapsed{
+  background:var(--rust) !important;
+  border-left-color:var(--amber) !important;
+}
+.card h2 .toggle.collapsed:hover{
+  background:var(--steel) !important;
+}
+
+.collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
+
+/* ====== 表格 ====== */
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+/* ====== 句型展示 ====== */
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#1558b0;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+/* ====== 题目区 ====== */
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#1558b0;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;
+  padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+/* ====== 动画 ====== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+/* ====== 响应式 ====== */
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+
+/* ====== PDF 导出：初始全部展开 ====== */
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ====== Header ====== -->
+<div class="header">
+  <h1>编程教育：从高中课堂到数字素养<small>2016 考研英语（二）· Text 1</small></h1>
+  <p class="sub">高中编程课非必需但有益——Flatiron School 如何教青少年用代码思考</p>
+  <div class="badges">
+    <span class="badge">难度 ★★★☆</span>
+    <span class="badge amber">词汇量 340</span>
+    <span class="badge rust">主题 · 教育科技</span>
+    <span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="article">
+
+<!-- P1 -->
+<div class="sent">
+  <span class="snum">01</span>
+  <div class="en"><mark>It's true</mark> that <mark>high-school coding classes</mark> aren't <mark>essential</mark> for learning <mark>computer science</mark> in college. Students without experience can <mark>catch up</mark> after a few <mark>introductory</mark> courses, said <mark>Tom Cortina</mark>, the assistant dean at <mark>Carnegie Mellon</mark>'s School of Computer Science.</div>
+  <hr class="sent-hr">
+  <div class="cn">高中编程课对大学学习计算机科学并非必不可少。卡内基梅隆大学计算机学院助理院长 Tom Cortina 说，没有经验的学生上几门入门课后就能跟上。</div>
+  <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
+  <div class="syntax" id="s1">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句结构</b>：<br>
+    &nbsp;&nbsp;主语 = It（形式主语，指代后面 that 从句）<br>
+    &nbsp;&nbsp;谓语 = 's（is 的缩写）<br>
+    &nbsp;&nbsp;表语 = true<br>
+    &nbsp;&nbsp;<b>真正主语</b> = that high-school coding classes aren't essential for learning computer science in college（高中编程课对大学学CS并非必需）<br>
+    <b>补充说明句</b>：said Tom Cortina, the assistant dean at Carnegie Mellon's School of Computer Science → 插入语，交代信息来源。assistant dean = 副院长。<br>
+    <b>并列句</b>：Students without experience can catch up after a few introductory courses → 没有经验的学生上几门入门课就能追上（catch up）。introductory = 入门级的、引导性的。<br>
+    <b>💡 句式亮点</b>：It's true that... 引出"让步"——先承认对方观点（高中编程不是必须的），为下文 However 转折做铺垫。这是典型的"先抑后扬"论证结构。
+  </div>
+</div>
+
+<!-- P2 -->
+<div class="sent">
+  <span class="snum">02</span>
+  <div class="en"><u>However</u>, Cortina said, <mark>early exposure</mark> is <mark>beneficial</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而 Cortina 说，早期接触是有益的。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>① However 转折</b>：与上一段形成鲜明对比——前文说"不essential"，此处说"beneficial"。However 位于句首，后接逗号，表示强转折。<br>
+    <b>② 插入语</b>：Cortina said 夹在主语 early exposure 和谓语 is 之间，是典型的"插入式引述"结构，使行文更自然流畅。<br>
+    <b>③ 核心搭配</b>：early exposure to sth = 早期接触某事；be beneficial = 有益的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">03</span>
+  <div class="en">When younger kids learn computer science, they learn that <u>it's not just a confusing, endless string of letters and numbers—but a tool to build apps, or create artwork, or test hypotheses</u>. It's not as hard for them to <mark>transform</mark> their <mark>thought processes</mark> as it is for <mark>older students</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">当更小的孩子学习计算机科学时，他们学到的不只是一串令人困惑、无穷无尽的字母和数字——而是一个构建应用、创作艺术作品或检验假设的工具。对他们来说，转变思维方式并不像年长的学生那么困难。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 长难句拆解</b><br>
+    <b>① When 时间状语从句</b>：When younger kids learn computer science（当小孩子学CS时）<br>
+    <b>② 主句</b>：they learn that...（他们学到……）→ that 引导宾语从句，作 learn 的宾语<br>
+    <b>③ 宾语从句核心（not just...but... 结构）</b>：<br>
+    &nbsp;&nbsp;否定部分 = it's not just a confusing, endless string of letters and numbers（不只是令人困惑的无尽字母数字串）<br>
+    &nbsp;&nbsp;肯定部分 = but a tool to [build apps / create artwork / test hypotheses]（而是一个用来[建应用/做艺术/验假设]的工具）<br>
+    &nbsp;&nbsp;三个不定式短语并列修饰 tool<br>
+    <b>④ 并列句</b>：It's not as hard for them to transform their thought processes as it is for older students → 对孩子来说改变思维模式不像大龄学生那么难。<br>
+    &nbsp;&nbsp;not as ... as ... = 不像……那么……（比较结构）；transform thought processes = 转变/重塑思维过程<br>
+    <b>💡 句式亮点</b>：not just...but... 破折号连接，先破后立——先打破"编码 = 字母数字堆砌"的刻板印象，再树立"编码 = 创造工具"的新认知。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">04</span>
+  <div class="en"><mark>Breaking down</mark> problems into <mark>bite-sized chunks</mark> and using code to solve them becomes <mark>normal</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">把问题拆成小块并用代码来解决，变得习以为常。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>① 动名词短语作主语</b>：Breaking down problems into bite-sized chunks and using code to solve them 是<strong>两个动名词短语由 and 连接构成的复合主语</strong><br>
+    &nbsp;&nbsp;- Breaking down problems into bite-sized chunks = 将问题拆解成一口大小的块<br>
+    &nbsp;&nbsp;- bite-sized = 一口能吃下的（比喻"小块/易处理的"）<br>
+    &nbsp;&nbsp;- using code to solve them = 用代码来解决问题<br>
+    <b>② 谓语</b>：becomes normal（变得正常/习惯成自然）<br>
+    <b>💡 核心表达</b>：break down = 拆解/分解；bite-sized chunks = 小块/碎片化处理；这是计算思维（Computational Thinking）中"分解问题"能力的形象描述。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">05</span>
+  <div class="en">Giving more children this training could <mark>increase</mark> the number of people <mark>interested in the field</mark> and help <mark>fill the jobs gap</mark>, Cortina said.</div>
+  <hr class="sent-hr">
+  <div class="cn">Cortina 说，让更多孩子接受这种培训可能会增加对该领域感兴趣的人数，并帮助填补就业缺口。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5">
+    <b>🔍 语法解析</b><br>
+    <b>① 动名词作主语</b>：Giving more children this training（给更多孩子这种训练）<br>
+    <b>② 并列谓语</b>：could [increase ... and help ...] → 情态动词 could 后跟两个动词原形并列<br>
+    &nbsp;&nbsp;- increase the number of people interested in the field = 增加对该领域感兴趣的人数（interested 作后置定语修饰 people）<br>
+    &nbsp;&nbsp;- help fill the jobs gap = 帮助填补就业缺口<br>
+    <b>③ 插入语</b>：Cortina said 放在句末，属于"后置引述"，美式口语常见。<br>
+    <b>💡 核心表达</b>：fill the jobs gap = 填补职位空缺/缩小人才供需差距。
+  </div>
+</div>
+
+<!-- P3 -->
+<div class="sent">
+  <span class="snum">06</span>
+  <div class="en">Students also benefit from <mark>learning something about coding</mark> before they get to college, where <mark>introductory computer-science classes</mark> are <mark>packed to the brim</mark>, which can drive the <mark>less-experienced or-determined</mark> students away.</div>
+  <hr class="sent-hr">
+  <div class="cn">学生在进入大学之前学习一些编程知识也有好处，因为大学的入门计算机科学课程往往人满为患，这会把经验不足或意志不坚定的学生劝退。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6">
+    <b>🔍 长难句拆解</b><br>
+    <b>① 主句</b>：Students also benefit from learning something about coding before they get to college<br>
+    &nbsp;&nbsp;benefit from doing sth = 从……中获益；before they get to college = 在上大学之前（时间状语从句）<br>
+    <b>② where 引导的非限制性定语从句</b>：where (= in which，指代 college）introductory CS classes are packed to the brim<br>
+    &nbsp;&nbsp;packed to the brim = 塞满到边缘（brim = 杯/碗的边沿），形容课程爆满、人挤人<br>
+    <b>③ which 引导的非限制性定语从句</b>：which can drive the less-experienced or-determined students away<br>
+    &nbsp;&nbsp;which 指代前面整件事（课程人满为患这件事）<br>
+    &nbsp;&nbsp;drive sb away = 把某人赶走/吓跑<br>
+    &nbsp;&nbsp;less-experienced or-determined = 经验较少或决心不够强的（复合形容词，or 连接两个过去分词）<br>
+    <b>💡 句式亮点</b>：where + which 双重定语从句嵌套——where 修饰地点(college)，which 修饰前文描述的整个情境。
+  </div>
+</div>
+
+<!-- P4 -->
+<div class="sent">
+  <span class="snum">07</span>
+  <div class="en">The <mark>Flatiron School</mark>, where people pay to learn programming, started as one of the many <mark>coding boot camps</mark> that <mark>have become popular</mark> for adults <mark>looking for a career change</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">Flatiron School（人们付费学编程的地方）最初只是众多编程训练营中的一个，这些训练营近年来在寻求转行的成年人中变得流行起来。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>① where 引导的非限制性定语从句</b>：where people pay to learn programming（人们付费学编程的地方），修饰 Flatiron School<br>
+    <b>② 主句</b>：The Flatiron School started as one of the many coding boot camps（Flatiron School 起源于众多编程训练营之一）<br>
+    &nbsp;&nbsp;start as = 以……身份起步/起源于<br>
+    &nbsp;&nbsp;boot camp = 训练营（原指新兵训练营，IT 行业指短期高强度技能培训项目）<br>
+    <b>③ that 引导的定语从句</b>：that have become popular for adults looking for a career change<br>
+    &nbsp;&nbsp;that 先行词 = boot camps（复数）<br>
+    &nbsp;&nbsp;looking for a career change = 现在分词短语作后置定语修饰 adults（寻求职业转变的成年人）
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">08</span>
+  <div class="en">The high-schoolers get the same <mark>curriculum</mark>, but "<mark>we try to gear lessons toward things they're interested in</mark>," said <mark>Victoria Friedman</mark>, an <mark>instructor</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">高中生们接受同样的课程，但"我们会尽量根据他们的兴趣来调整教学内容，"讲师 Victoria Friedman 说。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8">
+    <b>🔍 语法解析</b><br>
+    <b>① but 并列转折</b>：前后两句形成对比——课程相同(curriculum)，但教学方式不同(gear lessons toward interests)<br>
+    <b>② gear sth toward sth</b> = 使……适应/针对……进行调整；gear 本义"齿轮"，引申为"使配合/定向"<br>
+    <b>③ 省略了 that 的定语从句</b>：(that) they're interested in → 修饰 things，省略关系代词 that（作介词 in 的宾语时可省略）<br>
+    <b>④ 插入语</b>：said Victoria Friedman, an instructor → 后置引述，an instructor 为同位语
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">09</span>
+  <div class="en">For <mark>instance</mark>, one of the <mark>apps</mark> the students are developing <mark>suggests movies based on your mood</mark>.</div>
+  <hr class="sent-hr">
+  <div class="cn">例如，学生们正在开发的一款应用可以根据你的心情推荐电影。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9">
+    <b>🔍 语法解析</b><br>
+    <b>① For instance</b> = 例如（举例标志词），常用于引入具体案例支撑上文观点<br>
+    <b>② 定语从句（省略 that）</b>：(that) the students are developing → 修饰 apps（学生们正在开发的那些应用之一）<br>
+    <b>③ 主谓宾结构</b>：one of the apps suggests movies based on your mood<br>
+    &nbsp;&nbsp;suggests = 推荐/建议<br>
+    &nbsp;&nbsp;based on your mood = 根据你的心情（过去分词短语作状语，修饰 suggests）
+  </div>
+</div>
+
+<!-- P5 -->
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">The students in the Flatiron class probably won't <mark>drop out of high school</mark> and build the next Facebook. Programming languages have a <mark>quick turnover</mark>, so the "<mark>Ruby on Rails</mark>" language they learned may not even be <mark>relevant</mark> by the time they enter the job market.</div>
+  <hr class="sent-hr">
+  <div class="cn">Flatiron 班里的学生大概不会退学去打造下一个 Facebook。编程语言更新换代很快，所以他们学的"Ruby on Rails"语言等到他们进入就业市场时可能已经不再流行了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10">
+    <b>🔍 语法解析</b><br>
+    <b>① 并列谓语</b>：won't [drop out of high school] AND [build the next Facebook]<br>
+    &nbsp;&nbsp;drop out of = 退出/辍学<br>
+    &nbsp;&nbsp;the next Facebook = 下一个 Facebook（比喻"下一个伟大的科技公司/产品"）<br>
+    <b>② so 结果状语</b>：Programming languages have a quick turnover, so...（编程语言快速迭代，所以……）<br>
+    &nbsp;&nbsp;turnover = 更替率/周转率；quick turnover = 快速更迭<br>
+    <b>③ by the time 时间状语从句</b>：by the time they enter the job market（等到他们进入职场时）<br>
+    &nbsp;&nbsp;by the time + 一般现在时 → 主句用 may/might（将来可能性）<br>
+    &nbsp;&nbsp;relevant = 相关的/仍适用的<br>
+    <b>④ 省略 that 的定语从句</b>：(that) they learned → 修饰 Ruby on Rails language<br>
+    <b>💡 句式亮点</b>：本句提出反直觉的观点——具体编程语言会过时（Ruby on Rails 可能不再 relevant），引出下文的真正价值（可迁移的思维能力）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">But the skills they learn—<u>how to think logically through a problem and organize the results</u>—apply to <mark>any coding language</mark>, said <mark>Deborah Seehorn</mark>, an <mark>education consultant</mark> for the state of North Carolina.</div>
+  <hr class="sent-hr">
+  <div class="cn">但他们学到的技能——如何逻辑性地分析问题并整理结果——适用于任何编程语言，北卡罗来纳州的教育顾问 Deborah Seehorn 说。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11">
+    <b>🔍 长难句拆解</b><br>
+    <b>① But 转折</b>：紧承上文"语言会过时"——但是技能不过时！<br>
+    <b>② 主句核心</b>：the skills (...) apply to any coding language<br>
+    &nbsp;&nbsp;skills 的定语从句（省略 that）：they learn（他们学到的那些技能）<br>
+    &nbsp;&nbsp;apply to = 适用于/应用于<br>
+    <b>③ 双破折号插入成分</b>：—how to think logically through a problem and organize the results—<br>
+    &nbsp;&nbsp;这是对 skills 的具体解释/同位说明<br>
+    &nbsp;&nbsp;think logically through a problem = 有条理地/合乎逻辑地分析问题<br>
+    &nbsp;&nbsp;organize the results = 组织/整理结果<br>
+    <b>④ 插入语</b>：said Deborah Seehorn, an education consultant for the state of NC<br>
+    <b>💡 核心论点</b>：编程教育的真正价值不在于掌握某种特定语言，而在于培养<strong>可迁移的计算思维能力</strong>（computational thinking）。这是全文的核心论点之一。
+  </div>
+</div>
+
+<!-- P6 -->
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en"><mark>Indeed</mark>, the Flatiron students might not go into IT at all.</div>
+  <hr class="sent-hr">
+  <div class="cn">确实，Flatiron 的学生可能根本不会进入 IT 行业。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>① Indeed</b> = 的确/确实（承接/加强上文语气），常用于段落开头，表示进一步阐述或确认前面的观点。<br>
+    <b>② might not</b> = 可能不（情态动词 might 表示可能性较小但不排除）<br>
+    <b>③ go into IT</b> = 进入 IT 行业/从事信息技术工作<br>
+    <b>💡 作用</b>：这句话将论述推向更深层次——编程教育不是为了培养程序员，而是为了培养数字时代的"原住民"。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">But creating a <mark>future army of coders</mark> is not the <mark>sole purpose</mark> of the classes.</div>
+  <hr class="sent-hr">
+  <div class="cn">但这些课程的唯一目的并不是培养一支未来的程序员大军。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13">
+    <b>🔍 语法解析</b><br>
+    <b>① But 转折</b>：再次转折，强调编程教育的目标比"培养程序员"更宏大<br>
+    <b>② 主系表结构</b>：creating a future army of coders（动名词短语作主语）is（系动词）not the sole purpose of the classes（表语）<br>
+    &nbsp;&nbsp;future army of coders = 未来的程序员大军（army 此处为比喻，指大量人群）<br>
+    &nbsp;&nbsp;sole = 唯一的<br>
+    <b>💡 句式亮点</b>：not the sole purpose = 不是唯一目的——暗示还有更重要/更深层的目的（下文揭示：数字素养）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">These kids are going to be <mark>surrounded by computers</mark>—in their pockets, in their offices, in their homes—for the rest of their lives.</div>
+  <hr class="sent-hr">
+  <div class="cn">这些孩子在余生都将被电脑包围——在口袋里（手机）、在办公室里、在家里。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14">
+    <b>🔍 语法解析</b><br>
+    <b>① be going to</b> = 将要/注定（表示对未来趋势的确切判断）<br>
+    <b>② be surrounded by</b> = 被……包围<br>
+    <b>③ 破折号插入列举</b>：—in their pockets, in their offices, in their homes—<br>
+    &nbsp;&nbsp;三个介词短语并列，具体描绘"被电脑包围"的场景<br>
+    &nbsp;&nbsp;in their pockets = 手机（放在口袋里的智能设备）<br>
+    &nbsp;&nbsp;for the rest of their lives = 在他们余生的岁月里<br>
+    <b>💡 写作手法</b>：排比+具象化——不说"无处不在"，而是说"口袋里、办公室里、家里"，让读者直观感受到数字设备渗透生活的程度。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">The younger they learn how computers think, how to <mark>coax</mark> the machine into producing what they want—the earlier they learn that they have the <mark>power</mark> to do that—the better.</div>
+  <hr class="sent-hr">
+  <div class="cn">他们越早学会计算机是如何运作的、如何操控机器来产出自己想要的东西——就越早发现自己拥有这样做的能力——这就越好。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15">
+    <b>🔍 长难句拆解（"the..., the..." 比较级特殊句式）</b><br>
+    <b>核心句式</b>：the + 比较级 ..., the + 比较级 ... = 越……就越……<br>
+    <b>① 第一个"the + 比较级"部分</b>：The younger（越早）they learn [A] and [B]<br>
+    &nbsp;&nbsp;[A] = how computers think（计算机怎么思考/运作）<br>
+    &nbsp;&nbsp;[B] = how to coax the machine into producing what they want（如何引导机器产出想要的东西）<br>
+    <b>② 第二个"the + 比较级"部分</b>：the earlier（越早）they learn that they have the power to do that<br>
+    &nbsp;&nbsp;that they have the power to do that = 他们拥有做那件事的能力（learn 的宾语从句）<br>
+    <b>③ 最终结论</b>：the better（就越好）<br>
+    <b> coax</b> = 哄诱/诱导/巧妙地引导（原义"用好话哄"，这里指通过编程指令"引导"计算机执行任务）<br>
+    <b> power</b> = 能力/力量/掌控力（此处强调"赋能"——让孩子意识到自己可以控制机器而非被动使用）<br>
+    <b>💡 全文升华</b>：这是文章的点睛之笔——编程教育的终极意义不在于职业准备，而在于<strong>赋予下一代驾驭数字世界的能力和自信</strong>。
+  </div>
+</div>
+
+
+<!-- ====== 📋 全文脉络 ====== -->
+<div class="card">
+  <h2>📖 全文脉络 <button class="toggle" onclick="toggleBody(this)">收起 ▲</button></h2>
+  <div class="collapsible-body">
+    <p>本文讨论<b>高中阶段编程教育的价值</b>，通过多位专家观点层层递进：</p>
+    <p><b style="color:var(--accent)">① 让步 — 编程课非必需（P1 · S01）</b><br>
+    Tom Cortina（CMU）指出高中编程课对大学学CS不是必需的，没经验的学生上几门入门课即可跟上。</p>
+    <p><b style="color:var(--amber)">② 转折 — 但早期接触有益（P2 · S02-S05）</b><br>
+    孩子越小接触编程越好——他们不会觉得那是"字母数字堆砌"而是"创造工具"；拆解问题、用代码解决变得自然而然。</p>
+    <p><b style="color:var(--rust)">③ 补充 — 大学前的优势（P3 · S06）</b><br>
+    提前了解编码有助于应对大学入门CS课"人满为患"的压力，避免被劝退。</p>
+    <p><b style="color:var(--steel)">④ 案例 — Flatiron School（P4 · S07-S09）</b><br>
+    Flatiron School 的成人编程训练营延伸到高中生群体——同样课程但教学围绕学生兴趣展开（如按心情推荐电影的应用）。</p>
+    <p><b style="color:var(--accent)">⑤ 深化 — 技能 > 语言（P5 · S10-S11）</b><br>
+    具体语言（如 Ruby on Rails）会过时，但学到的<strong>逻辑思维和问题组织能力</strong>适用于任何编程语言。（Deborah Seehorn）</p>
+    <p><b style="color:var(--amber)">⑥ 升华 — 数字素养（P6 · S12-S15）</b><br>
+    学生未必进入IT行业。但未来人人被数字设备包围——越早理解计算机运作原理、越早获得"我能驾驭它"的 empowerment（赋能感），就越好。</p>
+  </div>
+</div>
+
+<!-- ====== 📝 重点词汇 ====== -->
+<div class="card">
+  <h2>📝 重点词汇 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
+  <div class="collapsible-body hidden">
+    <table>
+      <tr><th>单词/短语</th><th>释义</th><th>所在句</th></tr>
+      <tr><td>essential</td><td>a. 必不可少的；本质的</td><td>S01</td></tr>
+      <tr><td>catch up</td><td>v. 追上；赶上</td><td>S01</td></tr>
+      <tr><td>introductory</td><td>a. 引导的；入门的</td><td>S01</td></tr>
+      <tr><td>exposure</td><td>n. 接触；暴露</td><td>S02</td></tr>
+      <tr><td>beneficial</td><td>a. 有益的；有利的</td><td>S02</td></tr>
+      <tr><td>transform</td><td>v. 转变；改造</td><td>S03</td></tr>
+      <tr><td>thought process</td><td>n. 思维过程；思考方式</td><td>S03</td></tr>
+      <tr><td>breaking down</td><td>n. 拆解；分解</td><td>S04</td></tr>
+      <tr><td>bite-sized chunks</td><td>n. 小块；碎片化的部分</td><td>S04</td></tr>
+      <tr><td>fill the jobs gap</td><td>v. 填补就业缺口</td><td>S05</td></tr>
+      <tr><td>packed to the brim</td><td>phr. 塞满到边缘；爆满</td><td>S06</td></tr>
+      <tr><td>boot camp</td><td>n. 训练营（短期高强度培训）</td><td>S07</td></tr>
+      <tr><td>curriculum</td><td>n. 课程；课程体系</td><td>S08</td></tr>
+      <tr><td>gear ... toward ...</td><td>v. 针对…进行调整</td><td>S08</td></tr>
+      <tr><td>turnover</td><td>n. 更替率；周转率</td><td>S10</td></tr>
+      <tr><td>relevant</td><td>a. 相关的；适用的</td><td>S10</td></tr>
+      <tr><td>apply to</td><td>v. 应用于；适用于</td><td>S11</td></tr>
+      <tr><td>consultant</td><td>n. 顾问</td><td>S11</td></tr>
+      <tr><td>sole</td><td>a. 唯一的</td><td>S13</td></tr>
+      <tr><td>surround</td><td>v. 包围；环绕</td><td>S14</td></tr>
+      <tr><td>coax</td><td>v. 诱导；哄劝；巧妙引导</td><td>S15</td></tr>
+      <tr><td>power</td><td>n. 能力；力量；权力</td><td>S15</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 🔤 熟词生义 & 短语搭配 ====== -->
+<div class="card">
+  <h2>🔤 熟词生义 & 搭配 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
+  <div class="collapsible-body hidden">
+    <table>
+      <tr><th>词汇</th><th>本文含义</th><th>常见含义</th></tr>
+      <tr><td><b>catch</b></td><td>追上（catch up 追赶）</td><td>抓住；接住</td></tr>
+      <tr><td><b>exposure</b></td><td>接触（early exposure 早期接触）</td><td>暴露（如暴露在阳光下/危险中）</td></tr>
+      <tr><td><b>drive</b></td><td>驱赶/迫使（drive sb away 吓跑某人）</td><td>驾驶；驱动</td></tr>
+      <tr><td><b>boot</b></td><td>训练营（boot camp）</td><td>靴子；启动（电脑开机）</td></tr>
+      <tr><td><b>gear</b></td><td>v. 调整/适应（gear toward）</td><td>n. 齿轮；装备</td></tr>
+      <tr><td><b>class</b></td><td>课程（the Flatiron class）</td><td>班级；阶级</td></tr>
+      <tr><td><b>turnover</b></td><td>更替率（语言的快速更迭）</td><td>营业额；人员流动率</td></tr>
+      <tr><td><b>army</b></td><td>大军（喻大量人群）</td><td>军队；陆军</td></tr>
+      <tr><td><b>coax</b></td><td>巧妙引导/操纵（机器）</td><td>哄劝（用甜言蜜语说服）</td></tr>
+      <tr><td><b>power</b></td><td>能力/掌控力（empowerment）</td><td>电力；权力</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ====== ✨ 值得背诵的句型 ====== -->
+<div class="card">
+  <h2>✨ 值得背诵的句型 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
+  <div class="collapsible-body hidden">
+    <div class="pat">
+      <div class="pat-en">It's not as hard for A to do sth as it is for B.</div>
+      <div class="pat-cn">对 A 来说做某事不像对 B 来得那么困难。</div>
+      <span class="pat-tag">比较结构 · 对比论证</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">It's not just X — but Y.</div>
+      <div class="pat-cn">这不只是 X —— 而是 Y。（先破后立，重新定义认知）</div>
+      <span class="pat-tag">not just...but... · 定义重构</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">The + comparative ..., the + comparative ..., the better.</div>
+      <div class="pat-cn">越……，就越……，就越好。（多重递进比较）</div>
+      <span class="pat-tag">the...the... · 层层递进</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 📊 题目答案速查 ====== -->
+<div class="card" id="qa">
+  <h2>📊 题目答案速查 <button class="toggle collapsed" onclick="toggleBody(this)">展开 ▼</button></h2>
+  <div class="collapsible-body hidden">
+    <p style="text-align:center;font-size:1.1em;margin:10px 0;color:var(--accent);font-weight:700;">
+      21-B ｜ 22-B ｜ 23-A ｜ 24-C ｜ 25-A &nbsp; <b style="color:var(--amber)">（BBACA）</b>
+    </p>
+
+    <!-- Q21 -->
+    <div class="q-block">
+      <div class="q-title">21. Cortina holds that early exposure to computer science makes it easier to _______.</div>
+      <div class="opts">
+        <div class="opt no">[A] complete future job training</div>
+        <div class="opt ok">[B] remodel the way of thinking</div>
+        <div class="opt no">[C] formulate logical hypotheses</div>
+        <div class="opt no">[D] perfect artwork production</div>
+      </div>
+      <div class="ua">用户答案：B ✓</div>
+      <div class="analysis">
+        <p><b>✅ 正确答案：B（remodel the way of thinking 重塑思维方式）</b></p>
+        <p><b>定位</b>：P2 · S03 — "It's not as hard for them to <b>transform their thought processes</b> as it is for older students."</p>
+        <p><b>推理</b>：transform their thought processes（转变思维过程）= remodel the way of thinking（重塑思维方式），两者完全对应。Cortina 明确指出小孩学编程更容易转变思维模式。</p>
+        <p><b>❌ A 错误</b>：complete future job training（完成未来职业培训）——文中说的是增加兴趣和填补就业缺口（S05），而非直接完成职业培训。</p>
+        <p><b>❌ C 错误</b>：formulate logical hypotheses（形成逻辑假设）——文中提到的是 test hypotheses（检验假设，S03），且这不是 Cortina 强调的核心点。</p>
+        <p><b>❌ D 错误</b>：perfect artwork production（完善艺术品创作）——create artwork 只是编程应用的一个例子，不是早期接触编程的主要目的。</p>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="q-block">
+      <div class="q-title">22. In delivering lessons for high-schoolers, Flatiron has considered their _______.</div>
+      <div class="opts">
+        <div class="opt no">[A] experience</div>
+        <div class="opt ok">[B] interest</div>
+        <div class="opt no">[C] career prospects</div>
+        <div class="opt no">[D] academic backgrounds</div>
+      </div>
+      <div class="ua">用户答案：B ✓</div>
+      <div class="analysis">
+        <p><b>✅ 正确答案：B（interest 兴趣）</b></p>
+        <p><b>定位</b>：P4 · S08 — "we try to <b>gear lessons toward things they're <i>interested</i> in</b>"</p>
+        <p><b>推理</b>：gear lessons toward things they're interested in = 根据学生的兴趣来调整教学内容。interest（兴趣）直接对应 interested。</p>
+        <p><b>❌ A 错误</b>：experience（经验）——文中未提及考虑学生经验，而是提到 less-experienced 学生被大学课程劝退（S06），那是另一个话题。</p>
+        <p><b>❌ C 错误</b>：career prospects（职业前景）——这是成人训练营的目标（looking for a career change, S07），不是 Flatiron 高中班的教学考量。</p>
+        <p><b>❌ D 错误</b>：academic backgrounds（学术背景）——文中未提及根据学术背景调整教学。</p>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="q-block">
+      <div class="q-title">23. Deborah Seehorn believes that the skills learned at Flatiron will _______.</div>
+      <div class="opts">
+        <div class="opt ok">[A] help students learn other computer languages</div>
+        <div class="opt no">[B] have to be upgraded when new technologies come</div>
+        <div class="opt no">[C] need improving when students look for jobs</div>
+        <div class="opt no">[D] enable students to make big quick money</div>
+      </div>
+      <div class="ua">用户答案：A ✓</div>
+      <div class="analysis">
+        <p><b>✅ 正确答案：A（help students learn other computer languages 帮助学生学习其他编程语言）</b></p>
+        <p><b>定位</b>：P5 · S11 — "But the skills they learn—how to think logically through a problem and organize the results—<b>apply to any coding language</b>"</p>
+        <p><b>推理</b>：apply to any coding language = 适用于任何编程语言 = 可以帮助学生学习其他编程语言（因为核心技能是通用的）。Deborah Seehorn 明确指出学到的技能（逻辑思维+组织结果）具有可迁移性。</p>
+        <p><b>❌ B 错误</b>：have to be upgraded when new technologies come（新技术出现时需要升级）——文中说的是编程语言本身会过时（S10），而不是技能需要升级。恰恰相反，Seehorn 认为技能是通用不变的。</p>
+        <p><b>❌ C 错误</b>：need improving when students look for jobs（找工作时需要改进）——Seehorn 的观点是技能已经足够好（apply to any language），不需要额外改进。</p>
+        <p><b>❌ D 错误</b>：enable students to make big quick money（让学生快速赚大钱）——文中完全没有提及经济回报，这属于过度推断。</p>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="q-block">
+      <div class="q-title">24. According to the last paragraph, Flatiron students are expected to _______.</div>
+      <div class="opts">
+        <div class="opt no">[A] bring forth innovative computer technologies</div>
+        <div class="opt no">[B] stay longer in the information technology industry</div>
+        <div class="opt ok">[C] become better prepared for the digitalized world</div>
+        <div class="opt no">[D] compete with a future army of programmers</div>
+      </div>
+      <div class="ua">用户答案：C ✓</div>
+      <div class="analysis">
+        <p><b>✅ 正确答案：C（become better prepared for the digitalized world 更好地为数字化世界做准备）</b></p>
+        <p><b>定位</b>：P6 · S12-S15 — 最后一段整体论述</p>
+        <p><b>推理</b>：最后一段的核心论点是——学生将被电脑包围一生（S14），越早学会理解计算机、操控计算机、获得 empowerment（S15），就越好。综合来看，这意味着学生将<strong>更好地为数字化世界做准备</strong>，而不一定成为程序员。</p>
+        <p><b>❌ A 错误</b>：bring forth innovative computer technologies（推出创新计算机技术）——S10 明确说学生 probably won't build the next Facebook，且最后一段强调的不是技术创新能力。</p>
+        <p><b>❌ B 错误</b>：stay longer in the information technology industry（在IT行业待得更久）——S12 直接说 might not go into IT at all（可能根本不进IT行业）。</p>
+        <p><b>❌ D 错误</b>：compete with a future army of programmers（与未来的程序员大军竞争）——S13 说 creating a future army of coders is NOT the sole purpose（培养程序员大军不是唯一目的），不存在竞争关系。</p>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="q-block">
+      <div class="q-title">25. The word "coax" (Line 4, Para. 6) is closest in meaning to _______.</div>
+      <div class="opts">
+        <div class="opt ok">[A] persuade</div>
+        <div class="opt no">[B] frighten</div>
+        <div class="opt no">[C] misguide</div>
+        <div class="opt no">[D] challenge</div>
+      </div>
+      <div class="ua">用户答案：A ✓</div>
+      <div class="analysis">
+        <p><b>✅ 正确答案：A（persuade 说服/诱导）</b></p>
+        <p><b>定位</b>：P6 · S15 — "...how to <b>coax</b> the machine into producing what they want"</p>
+        <p><b>推理</b>：coax 本义为"用好话哄/劝说"，在编程语境下意为通过代码指令"引导/说服"计算机执行你想要的操作。persuade（说服）最接近 coax 的"通过温和手段让对方按你的意愿行事"这一含义。其他选项意思均偏离太远。</p>
+        <p><b>❌ B frighten</b>（恐吓）——与 coax 的温和方式完全相反</p>
+        <p><b>❌ C misguide</b>（误导）——含贬义，coax 不带负面色彩</p>
+        <p><b>❌ D challenge</b>（挑战）——语义方向完全不对</p>
+        <p><b>💡 词根拓展</b>：coax 源于古法语 coacier（哄劝），与 cajole（哄骗）、persuade（说服）近义。在计算机语境中特指"通过精心设计的指令让机器'自愿'执行操作"。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /.article -->
+</div><!-- /.container -->
+
+<script>
+function toggleSyntax(id) {
+  const el = document.getElementById(id);
+  const btn = document.getElementById('btn-' + id);
+  if (el.classList.contains('hidden')) {
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent = '▲ 收起解析';
+  } else {
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent = '▼ 展开解析';
+  }
+}
+
+function toggleBody(btn) {
+  const body = btn.parentElement.querySelector('.collapsible-body');
+  if (!body) return;
+  if (body.classList.contains('hidden')) {
+    body.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    const txt = btn.textContent;
+    btn.textContent = txt.replace(/展开\s*▼/, '收起 ▲');
+  } else {
+    body.classList.add('hidden');
+    btn.classList.add('collapsed');
+    const txt = btn.textContent;
+    btn.textContent = txt.replace(/收起\s*▲/, '展开 ▼');
+  }
+}
+
+// 页面加载后折叠所有简单句语法（仅保留长难句展开）
+document.addEventListener('DOMContentLoaded', () => {
+  // 默认已通过 HTML class 控制展开/收起状态
+});
+</script>
+</body>
+</html>
