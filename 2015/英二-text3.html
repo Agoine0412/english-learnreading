@@ -46,7 +46,7 @@ body {
 .header {
   background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
   box-shadow:var(--shadow); position:relative; overflow:hidden;
-  animation: fadeUp .5s ease both;
+  animation: fadeIn .5s ease  forwards;
 }
 .header::before{
   content:''; position:absolute; top:0; left:0; right:0; height:5px;
@@ -73,7 +73,7 @@ body {
 .sent{
   background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
   box-shadow:var(--shadow); margin-bottom:14px;
-  animation: fadeUp .45s ease both; position:relative;
+  animation: fadeIn .45s ease  forwards; position:relative;
 }
 .snum{
   display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
@@ -120,15 +120,15 @@ body {
   margin-top:8px; padding:10px 14px; border-radius:8px;
   background:#fefcf8; border-left:3px solid var(--amber);
   font-size:.86em; color:#6b6048; line-height:1.65;
-  overflow:hidden; max-height:2000px;
-  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+   
+  
 }
-.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+.syntax.hidden { display: none; }
 
 /* ====== 底部汇总卡片 ====== */
 .card{
   background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
-  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+  box-shadow:var(--shadow); margin-top:16px; animation: fadeIn .5s ease .1s  forwards;
 }
 .card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 
@@ -169,8 +169,8 @@ body {
   background:var(--steel) !important;
 }
 
-.collapsible-body{overflow:hidden;transition:max-height .38s ease,opacity .35s ease;}
-.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;}
+.collapsible-body { display: block; }
+.collapsible-body.hidden { display: none; }
 
 /* ====== 表格 ====== */
 table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
@@ -206,7 +206,7 @@ tr:hover td{background:var(--panel-bg);}
 .analysis p{margin-bottom:6px;}
 
 /* ====== 动画 ====== */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }to{opacity:1;transform:translateY(0);}}
 .sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
 .sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
 .sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
@@ -228,8 +228,8 @@ tr:hover td{background:var(--panel-bg);}
 
 /* ====== PDF 导出：初始全部展开 ====== */
 @media print{
-  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
-  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .collapsible-body.hidden { display: none; }
+  .syntax.hidden { display: none; }
   .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
   body{padding:0;background:#fff;}
   .sent,.card,.header{box-shadow:none;break-inside:avoid;}
