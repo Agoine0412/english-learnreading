@@ -180,11 +180,14 @@ tr:hover td{background:var(--panel-bg);}
   .header{padding:24px 18px 20px;}
   .header h1{font-size:1.35em;}
   .sent{padding:16px 14px 14px;}
-  .en{font-size:1em;}
+  .en{font-size:1em;overflow-wrap:break-word;word-break:break-word;}
   .opts{grid-template-columns:1fr;}
   .card{padding:18px 16px 14px;}
   .card h2{font-size:1.05em;flex-wrap:wrap;}
   .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+  .collapsible-body{max-height:200000px!important;}
+  .syntax{max-height:none!important;}
+  .analysis p{overflow-wrap:break-word;word-break:break-word;}
 }
 @media print{
   .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
