@@ -164,8 +164,8 @@
     transition: color var(--transition);
   }
   .toggle:hover { color: var(--accent); }
-  .collapsible-body { overflow: visible; transition: max-height 0.5s ease, opacity 0.3s ease; max-height: 10000px; opacity: 1; }
-  .collapsible-body.hidden { max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; overflow: hidden; }
+  .collapsible-body { display: block; }
+  .collapsible-body.hidden { display: none; }
 
   /* Summary items */
   .item {
