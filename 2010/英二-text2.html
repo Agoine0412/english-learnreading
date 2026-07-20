@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2010 考研英语（二）Text 2 — 男女沟通差异与婚姻危机</title>
+<style>
+/* ====== 紫韵暖风（Plum & Warm）—— 社会关系篇专属配色 ====== */
+:root {
+  --bg: #f7f3ee;
+  --card: #fefcf9;
+  --text: #2c2420;
+  --text-soft: #6b5a50;
+  --text-muted: #9c8a7a;
+  --accent: #7b4a6e;          /* 紫罗兰，情感/关系 */
+  --accent-light: #f5eef2;
+  --amber: #c97d5a;           /* 暖杏，人际温暖 */
+  --amber-light: #fdf2ec;
+  --rust: #9a6b4a;            /* 暖褐 */
+  --rust-light: #f0ece8;
+  --steel: #6b5a6e;           /* 灰紫 */
+  --steel-light: #f0ecee;
+  --panel-bg: #faf8f5;
+  --panel-border: #e8ddd0;
+  --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#b55a3a;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:var(--steel);}
+
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(201,125,90,.18) 0%,rgba(201,125,90,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(123,74,110,.15) 0%,rgba(123,74,110,.05) 100%);
+  border-left:3px solid var(--accent); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(154,107,74,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--accent);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important; cursor:pointer;
+  color:#fff !important; font-weight:700 !important;
+  background:var(--accent) !important; padding:5px 14px !important;
+  border-radius:20px !important; user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;margin-left:auto;
+  letter-spacing:.5px; border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(123,74,110,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important; transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(201,125,90,0.35) !important;
+}
+.card h2 .toggle.collapsed{background:var(--rust) !important; border-left-color:var(--amber) !important;}
+.card h2 .toggle.collapsed:hover{background:var(--steel) !important;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#b55a3a;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#b55a3a;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+}
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>男女沟通差异与婚姻危机<small>2010 考研英语（二）· Text 2</small></h1>
+  <p class="sub">This episode crystallizes the irony — men talk more in public, less at home</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 社会关系</span>
+    <span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 一场聚会中的对话：丈夫在外侃侃而谈，在家沉默寡言</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">I was addressing a small gathering in a suburban Virginia living room—a women's group that had invited men to join them.</div>
+  <hr class="sent-hr">
+  <div class="cn">我在弗吉尼亚郊区一间客厅里对一个小型聚会发表讲话——这是一个邀请了男性参加的妇女团体。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：I was addressing a small gathering（主+谓+宾），过去进行时，描述故事背景。<br>
+    <b>同位语</b>：破折号后的 a women's group that had invited men to join them 是 gathering 的同位语，具体说明这是什么性质的聚会。<br>
+    <b>词义</b>：<b>address</b> 对……讲话（熟词生义，不是"地址"）；<b>suburban</b> 郊区的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">Throughout the evening, one man had been particularly talkative, frequently offering ideas and anecdotes, while his wife sat silently beside him on the couch.</div>
+  <hr class="sent-hr">
+  <div class="cn">整晚，有一个男人特别健谈，频频献计献策、讲述趣闻轶事，而他的妻子则静静地坐在他身旁的沙发上。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：one man had been particularly talkative（主+系+表），过去完成进行时，强调持续整个晚上的状态。<br>
+    <b>伴随状语</b>：frequently offering ideas and anecdotes → 现在分词短语，补充说明 talkative 的具体表现。<br>
+    <b>while 从句</b>：while his wife sat silently beside him on the couch → 对比（while = 而/却），形成鲜明对照——丈夫健谈 vs 妻子沉默。<br>
+    <b>词义</b>：<b>talkative</b> 健谈的；<b>anecdote</b> 趣闻轶事。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">Toward the end of the evening, I commented that women frequently complain that their husbands don't talk to them.</div>
+  <hr class="sent-hr">
+  <div class="cn">临近晚会结束时，我评论说女性经常抱怨丈夫不跟她们说话。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：I commented that ...（主+谓+宾语从句）。<br>
+    <b>嵌套宾语从句</b>：that women frequently complain that their husbands don't talk to them — 第一层 that 作 commented 的宾语；第二层 that 作 complain 的宾语。<br>
+    <b>词义</b>：<b>comment</b> 评论 / 说道。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">This man quickly nodded in agreement.</div>
+  <hr class="sent-hr">
+  <div class="cn">这个男人赶紧点头表示同意。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：This man nodded（主+谓）。in agreement 作方式状语。<br>
+    <b>词义</b>：<b>nodded in agreement</b> 点头同意。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">He gestured toward his wife and said, "She's the talker in our family."</div>
+  <hr class="sent-hr">
+  <div class="cn">他朝妻子做了个手势说："她才是我们家那个爱说话的人。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5">
+    <b>🔍 语法解析</b><br>
+    <b>并列谓语</b>：gestured and said（两个动词并列），说明他先做手势后说话。<br>
+    <b>直接引语</b>：said 后接直接引语，引用原话。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">The room burst into laughter; the man looked puzzled and hurt.</div>
+  <hr class="sent-hr">
+  <div class="cn">满屋子哄堂大笑；这个男人看上去既困惑又受伤。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6">
+    <b>🔍 语法解析</b><br>
+    <b>并列句</b>：分号连接两个独立分句，形成对比——别人觉得好笑（burst into laughter），他却感到不解和受伤（puzzled and hurt）。<br>
+    <b>词义</b>：<b>burst into</b> 突然……起来；<b>puzzled</b> 困惑的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">"It's true," he explained.</div>
+  <hr class="sent-hr">
+  <div class="cn">"这是真的，"他解释道。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>引述倒装</b>：he explained 置于引语之后，是常见的"引述倒装"结构。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">"When I come home from work, I have nothing to say. If she didn't keep the conversation going, we'd spend the whole evening in silence."</div>
+  <hr class="sent-hr">
+  <div class="cn">"我下班回家没什么可说的。要不是她一直说话，我们整晚都会在沉默中度过。"</div>
+  <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8">
+    <b>🔍 长难句拆解</b><br>
+    <b>第一句</b>：When I come home（时间状语从句）+ I have nothing to say（主句），陈述事实。<br>
+    <b>第二句</b>：If she didn't keep the conversation going（虚拟条件句，与现在事实相反），we'd spend the whole evening in silence（虚拟主句）。<br>
+    <b>💡 虚拟语气</b>：If + 过去时(didn't keep) → would + 动词原形(spend)。表示"如果她不……（但实际上她在做），我们就会……"。这是与现在事实相反的虚拟条件句。<br>
+    <b>词义</b>：<b>keep sth. going</b> 使……持续下去。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 反讽：美国男性在外话多，在家话少</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">This episode <u>crystallizes</u> the irony that although American men tend to talk more than women in public situations, they often talk less at home.</div>
+  <hr class="sent-hr">
+  <div class="cn">这个小插曲揭示了一个反讽的现象：尽管美国男性在公共场合比女性话多，在家却往往话更少。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：This episode crystallizes the irony（主+谓+宾）。<br>
+    <b>同位语从句</b>：that although American men tend to talk more than women in public situations, they often talk less at home → 解释 irony（反讽）的具体内容。从句内含 although 引导的让步状语从句。<br>
+    <b>💡 句式逻辑</b>：although ...（公众场合话多）vs ...（在家话少），形成对比。<br>
+    <b>词义</b>：<b>crystallize</b> 使具体化 / 使明确（原义"结晶"，引申义"使变得清晰"）；<b>irony</b> 反讽 / 具有讽刺意味的事。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">And this pattern is <mark>wreaking havoc</mark> with marriage.</div>
+  <hr class="sent-hr">
+  <div class="cn">这一模式正在对婚姻造成严重破坏。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：this pattern is wreaking havoc with marriage（主+谓+宾）。<br>
+    <b>时态</b>：现在进行时 is wreaking，强调这个模式正在持续造成破坏。<br>
+    <b>词义</b>：<b>wreak havoc</b> 造成严重破坏（wreak = 造成，havoc = 浩劫/大破坏），是 Q27 的考点词。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 社会学研究：沟通不畅是离婚的主因</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">The pattern was observed by political scientist Andrew Hacker in the late 1970s.</div>
+  <hr class="sent-hr">
+  <div class="cn">政治学家 Andrew Hacker 早在 20 世纪 70 年代末就观察到了这一模式。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11">
+    <b>🔍 语法解析</b><br>
+    <b>被动语态</b>：The pattern was observed by ...，强调"这一模式被观察到"，而非"谁观察到了"。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Sociologist Catherine Kohler Riessman reports in her new book <em>Divorce Talk</em> that most of the women she interviewed—but only a few of the men—gave lack of communication as the reason for their divorces.</div>
+  <hr class="sent-hr">
+  <div class="cn">社会学家 Catherine Kohler Riessman 在其新书《离婚对话》中报告说，她采访的大多数女性——但只有少数男性——将缺乏沟通列为离婚的原因。</div>
+  <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
+  <div class="syntax" id="s12">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：Sociologist Catherine Kohler Riessman reports ... that ...（主+谓+宾语从句）。<br>
+    <b>宾语从句</b>：most of the women ... gave lack of communication as the reason for their divorces。<br>
+    &nbsp;&nbsp;① she interviewed → 省略关系代词的定语从句修饰 women<br>
+    &nbsp;&nbsp;② but only a few of the men → 破折号插入语，与 most of the women 形成对比<br>
+    <b>词义</b>：<b>lack of communication</b> 缺乏沟通；<b>give ... as the reason</b> 将……作为理由。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">Given the current divorce rate of nearly 50 percent, that amounts to millions of cases in the United States every year—a virtual <u>epidemic</u> of failed conversation.</div>
+  <hr class="sent-hr">
+  <div class="cn">考虑到目前近 50% 的离婚率，这意味着美国每年有数百万例——一场名副其实的沟通失败流行病。</div>
+  <button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：that amounts to millions of cases（主+谓+宾）。<br>
+    <b>条件状语</b>：Given the current divorce rate of nearly 50 percent — Given 在此为介词"考虑到/鉴于"，不是"给予"。<br>
+    <b>同位语</b>：a virtual epidemic of failed conversation → 补充说明 millions of cases，将其比喻为"流行病"。<br>
+    <b>词义</b>：<b>amount to</b> 总计 / 相当于；<b>epidemic</b> 流行病（此处为暗喻）；<b>virtual</b> 实际上 / 几乎。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 妻子的核心诉求：丈夫成为对话伙伴</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">In my own research, complaints from women about their husbands most often focused not on tangible <u>inequities</u> such as having given up the chance for a career to accompany a husband to his, or doing far more than their share of daily life-support work like cleaning, cooking and social arrangements.</div>
+  <hr class="sent-hr">
+  <div class="cn">在我自己的研究中，女性对丈夫的抱怨大多并非集中于那些有形的、不平等的事情上——比如放弃自己的职业机会去配合丈夫的事业，或者在打扫、烹饪和社交安排等日常支撑性工作中承担远超自己份额的部分。</div>
+  <button class="syntax-toggle" id="btn-s14" onclick="toggleSyntax('s14')">▲ 收起解析</button>
+  <div class="syntax" id="s14">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：complaints ... focused not on ...（主+谓+宾）。主干很短，但宾语部分非常长。<br>
+    <b>not on 后的列举</b>：<br>
+    &nbsp;&nbsp;① having given up the chance for a career to accompany a husband to his → 放弃事业机会去配合丈夫<br>
+    &nbsp;&nbsp;② doing far more than their share of daily life-support work → 承担远超份额的家务<br>
+    <b>such as</b> 引出两个并列的动名词短语作举例。<br>
+    <b>💡 Q28 考点</b>：此句清楚说明妻子的抱怨不是关于 tangible inequities（有形的不平等），而是关于 communication（沟通），为后文做铺垫。<br>
+    <b>词义</b>：<b>tangible</b> 有形的 / 具体的；<b>inequity</b> 不公平（in- 否定 + equity 公平）；<b>accompany</b> 陪伴。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Instead they focused on communication: "He doesn't listen to me." "He doesn't talk to me."</div>
+  <hr class="sent-hr">
+  <div class="cn">相反，她们关注的是沟通："他不听我说话。""他不跟我说话。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15">
+    <b>🔍 语法解析</b><br>
+    <b>转折</b>：Instead 与上一句的 not on tangible inequities 形成对比——"不是……而是……"。<br>
+    <b>直接引语</b>：冒号后引用女性实际说的话，增加真实感。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">I found, as Hacker observed years before, that most wives want their husbands to be, first and foremost, conversational partners, but few husbands share this expectation of their wives.</div>
+  <hr class="sent-hr">
+  <div class="cn">正如 Hacker 多年前观察到的那样，我发现大多数妻子都希望自己的丈夫首先是一个对话伙伴，但很少有丈夫对妻子抱有同样的期望。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：I found ... that ...（主+谓+宾语从句）。<br>
+    <b>插入语</b>：as Hacker observed years before（正如 Hacker 多年前观察到的那样）→ 插入在 found 和 that 之间，交代研究发现的依据。<br>
+    <b>宾语从句</b>：most wives want their husbands to be ... conversational partners, but few husbands share this expectation of their wives → but 连接两个并列分句，形成对比——妻子希望丈夫是"对话伙伴"，但丈夫不这么期望妻子。<br>
+    <b>词义</b>：<b>first and foremost</b> 首先（写作高频插入语）；<b>conversational partner</b> 对话伙伴。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 一个经典的漫画画面</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">In short, the image that best represents the current crisis is the stereotypical cartoon scene of a man sitting at the breakfast table with a newspaper held up in front of his face, while a woman glares at the back of it, wanting to talk.</div>
+  <hr class="sent-hr">
+  <div class="cn">简而言之，最能代表当前危机的一幕是那个刻板印象中的漫画场景：一个男人坐在早餐桌前，举着一张报纸挡在面前，而一个女人瞪着报纸背面，想要说话。</div>
+  <button class="syntax-toggle" id="btn-s17" onclick="toggleSyntax('s17')">▲ 收起解析</button>
+  <div class="syntax" id="s17">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：the image ... is the stereotypical cartoon scene（主+系+表）。<br>
+    <b>定语从句</b>：that best represents the current crisis → 修饰 image。<br>
+    <b>scene 的修饰</b>：of a man sitting ... while a woman glaring ... → 介词短语作后置定语，详细描述这个场景。<br>
+    &nbsp;&nbsp;① a man sitting at the breakfast table with a newspaper held up in front of his face → with + n. + 过去分词(hheld up)，独立主格结构<br>
+    &nbsp;&nbsp;② while a woman glares at the back of it, wanting to talk → while 对比 + 现在分词 wanting 作伴随状语<br>
+    <b>💡 修辞</b>：用一个生动的画面结束全文，将抽象的"沟通危机"具象化。这个画面本身就是 Q30 的线索——文章接下来很可能详细描述这幅漫画。<br>
+    <b>词义</b>：<b>stereotypical</b> 刻板印象的；<b>glare at</b> 怒视。
+  </div>
+</div>
+
+
+<!-- ===== Bottom ===== -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 开场故事——聚会上丈夫在外健谈，在家沉默，引发哄笑。<br>
+        <span class="num">②</span> P2: 点题——男性公众场合话多、在家话少，这一模式正在破坏婚姻。<br>
+        <span class="num">③</span> P3: 研究证据——Hacker 早期观察 + Riessman 新书数据：沟通缺失是离婚主因。<br>
+        <span class="num">④</span> P4: 作者研究——妻子最在意的不是家务分工等有形不平等，而是沟通。妻子想要"对话伙伴"。<br>
+        <span class="num">⑤</span> P5: 漫画画面收尾——丈夫举报纸挡脸，妻子瞪报纸想说话。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table>
+      <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>address</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>对…讲话</td><td>熟词生义</td></tr>
+        <tr><td><b>talkative</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>健谈的</td><td>talk + -ative</td></tr>
+        <tr><td><b>anecdote</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>趣闻轶事</td><td>CET6 考研词</td></tr>
+        <tr><td><b>crystallize</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>使具体化/明确</td><td>crystal + -lize</td></tr>
+        <tr><td><b>irony</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>反讽</td><td>写作高频词</td></tr>
+        <tr><td><b>wreak</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>造成</td><td>~ havoc 造成破坏</td></tr>
+        <tr><td><b>havoc</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>浩劫/大破坏</td><td>Q27 考点词</td></tr>
+        <tr><td><b>epidemic</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>流行病</td><td>暗喻用法</td></tr>
+        <tr><td><b>tangible</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有形的/具体的</td><td>反: intangible</td></tr>
+        <tr><td><b>inequity</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>不公平</td><td>in- + equity</td></tr>
+        <tr><td><b>stereotypical</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>刻板印象的</td><td>stereotype + -ical</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>💡 熟词生义 <span class="toggle collapsed" onclick="toggleBody('poly')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="poly">
+    <table>
+      <thead><tr><th>词汇</th><th>熟义</th><th>本文义</th><th>例句</th></tr></thead>
+      <tbody>
+        <tr><td><b>address</b></td><td style="color:var(--text-muted);font-size:.9em;">地址</td><td>对…讲话</td><td>I was addressing a small gathering</td></tr>
+        <tr><td><b>given</b></td><td style="color:var(--text-muted);font-size:.9em;">给予(give的过去分词)</td><td>考虑到/鉴于</td><td>Given the current divorce rate...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">This episode crystallizes the irony that although American men tend to talk more than women in public situations, they often talk less at home.</div>
+      <div class="pat-cn">这个小插曲揭示了一个反讽现象。</div>
+      <span class="pat-tag">crystallize + 同位语从句 + although 对比</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Given the current divorce rate of nearly 50 percent, that amounts to millions of cases in the United States every year.</div>
+      <div class="pat-cn">考虑到近 50% 的离婚率，这意味着全美每年数百万例。</div>
+      <span class="pat-tag">Given + 数据 + amount to 结论</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Most wives want their husbands to be, first and foremost, conversational partners, but few husbands share this expectation of their wives.</div>
+      <div class="pat-cn">大多数妻子希望丈夫首先是对话伙伴，但丈夫却不这么期望妻子。</div>
+      <span class="pat-tag">want ... to be + but 对比</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">26. What is most wives' main expectation of their husbands?</div>
+    <div class="opts">
+      <span class="opt ok">[A] Talking to them.</span>
+      <span class="opt no">[B] Trusting them.</span>
+      <span class="opt no">[C] Supporting their careers.</span>
+      <span class="opt no">[D] Sharing housework.</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（Talking to them 和她们说话）</b></p>
+      <p><b>定位</b>：P4 · S16 — "most wives want their husbands to be, first and foremost, <b>conversational partners</b>"</p>
+      <p><b>推理</b>：conversational partners（对话伙伴）= talking to them。且前文 S15 直接引用了妻子们的话："He doesn't listen to me. He doesn't talk to me."进一步证实妻子最核心的期望是丈夫和她们交谈。</p>
+      <p><b>❌ B 错误</b>：Trusting them（信任她们）——文中未提及信任问题。</p>
+      <p><b>❌ C 错误</b>：Supporting their careers（支持她们的事业）——S14 提到"giving up the chance for a career to accompany a husband to his"（放弃自己的事业去配合丈夫），但作者说的是这<b>不是</b>妻子抱怨的重点。</p>
+      <p><b>❌ D 错误</b>：Sharing housework（分担家务）——同上，S14 说"doing far more than their share of daily life-support work like cleaning, cooking"也不是妻子抱怨的重点。妻子最在意的是沟通。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">27. Judging from the context, the phrase "wreaking havoc" (Line 2, Para. 2) most probably means _______.</div>
+    <div class="opts">
+      <span class="opt no">[A] generating motivation</span>
+      <span class="opt no">[B] exerting influence</span>
+      <span class="opt ok">[C] causing damage</span>
+      <span class="opt no">[D] creating pressure</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（causing damage 造成破坏）</b></p>
+      <p><b>定位</b>：P2 · S10 — "this pattern is <b>wreaking havoc</b> with marriage" — 紧接着 P3 就用离婚率数据（nearly 50 percent, millions of cases, epidemic of failed conversation）来展开说明。</p>
+      <p><b>推理</b>：下文提到离婚率高达 50%、每年数百万例离婚、沟通失败的"epidemic"。这些词都具有强烈的负面含义，说明 wrecking havoc 一定是一个负面、破坏性的意思。havoc = 大破坏/浩劫，wreak = 造成。causing damage = 造成破坏，最接近。</p>
+      <p><b>❌ A 错误</b>：generating motivation（激发动力）——正面意思，与上下文负面语境不符。</p>
+      <p><b>❌ B 错误</b>：exerting influence（施加影响）——中性词，文中语境是负面的。</p>
+      <p><b>❌ D 错误</b>：creating pressure（制造压力）——虽然有点负面，但 pressure 的程度远不及 havoc（浩劫/大破坏），且与离婚率的"破坏性"不匹配。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">28. All of the following are true EXCEPT _______.</div>
+    <div class="opts">
+      <span class="opt no">[A] men tend to talk more in public than women</span>
+      <span class="opt ok">[B] nearly 50 percent of recent divorces are caused by failed conversation</span>
+      <span class="opt no">[C] women attach much importance to communication between couples</span>
+      <span class="opt no">[D] a female tends to be more talkative at home than her spouse</span>
+    </div>
+    <div class="ua">参考答案：B（NOT true）</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（nearly 50 percent of recent divorces are caused by failed conversation）——注意本题选 NOT true</b></p>
+      <p><b>定位</b>：逐项回文——A→P2 S09，B→P3 S13，C→P4 S15-16，D→P1 S02。</p>
+      <p><b>A 正确</b>：P2 S09 "American men tend to talk more than women in public situations" → ✅。</p>
+      <p><b>❌ B 错误（本题答案）</b>：P3 S13 "Given the current divorce rate of nearly <b>50 percent</b>, that amounts to millions of cases" — 注意！50% 是<b>离婚率</b>（divorce rate），不是"由沟通失败导致的离婚比例"。原文说"考虑到近 50% 的离婚率……那意味着数百万例"，但没有说这数百万例<b>全部</b>都是沟通失败导致的。选项 B 偷换了概念——把 divorce rate 变成了 caused by failed conversation 的比例。这是考研阅读中典型的"偷换概念"干扰手法。</p>
+      <p><b>C 正确</b>：P4 S15-16 全段都在讲妻子重视沟通 → ✅。</p>
+      <p><b>D 正确</b>：P1 S02 "his wife sat silently beside him" + S05 "She's the talker in our family" → 妻子在家更健谈 → ✅。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">29. Which of the following can best summarize the main idea of this text?</div>
+    <div class="opts">
+      <span class="opt no">[A] The moral decaying deserves more research by sociologists.</span>
+      <span class="opt no">[B] Marriage break-up stems from sex inequalities.</span>
+      <span class="opt no">[C] Husband and wife have different expectations from their marriage.</span>
+      <span class="opt ok">[D] Conversational patterns between man and wife are different.</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（Conversational patterns between man and wife are different 夫妻之间的对话模式不同）</b></p>
+      <p><b>定位</b>：全文主旨题。文章的核心线索：P1 丈夫在外健谈在家沉默 → P2 点题（talk more in public, talk less at home）→ P3-P4 沟通缺失导致离婚 → P5 漫画场景收尾。</p>
+      <p><b>推理</b>：全文都围绕"男性和女性在沟通模式上的差异"展开——外在公共场所 vs 在家、健谈 vs 沉默、想说话 vs 不想说话。D 选项最全面准确地概括了这一主旨。</p>
+      <p><b>❌ A 错误</b>：The moral decaying deserves more research（道德衰退需要更多研究）——文章讲的是沟通模式差异，不是"道德衰退"。</p>
+      <p><b>❌ B 错误</b>：Marriage break-up stems from sex inequalities（婚姻破裂源于性别不平等）——S14 明确说妻子抱怨的重点<b>不是</b> tangible inequities（有形的不平等），而是沟通问题。</p>
+      <p><b>❌ C 错误</b>：Husband and wife have different expectations from their marriage（夫妻对婚姻有不同期望）——虽然 S16 提到 different expectations，但具体来说是"沟通"层面的期望不同（conversational partners），C 选项过于宽泛。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">30. In the following part immediately after this text, the author will most probably focus on _______.</div>
+    <div class="opts">
+      <span class="opt no">[A] a vivid account of the new book <em>Divorce Talk</em></span>
+      <span class="opt no">[B] a detailed description of the stereotypical cartoon</span>
+      <span class="opt no">[C] other possible reasons for a high divorce rate in the U.S.</span>
+      <span class="opt ok">[D] a brief introduction to the political scientist Andrew Hacker</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（a detailed description of the stereotypical cartoon 对那幅刻板漫画的详细描述）</b></p>
+      <p><b>定位</b>：P5 · S17 — 文章以一幅漫画画面收尾："the stereotypical cartoon scene of a man sitting at the breakfast table with a newspaper held up in front of his face, while a woman glares at the back of it, wanting to talk"</p>
+      <p><b>推理</b>："In short"和"the image that best represents the current crisis"——作者用"最能代表"和"简而言之"表明这是全文的总结升华。同时，文章在最后一句话抛出了一个生动的画面，但还没有展开讨论。按写作逻辑，下一段很可能围绕这幅漫画进行详细描述。C 选项的答案我不确定，但这更符合续写逻辑。</p>
+      <p>等一下，我重新考虑一下。这篇文章主要讲男女沟通差异对婚姻的影响，结尾用漫画收尾。那接下来最可能做什么？应该是进一步讨论这个现象，而不是跳回到前面的内容。B 选项（detailed description of the stereotypical cartoon）是最自然的延续——既然在结尾提到了这幅漫画，下一段很可能展开描述它。</p>
+      <p><b>❌ A 错误</b>：《Divorce Talk》是 P3 提到的，已经介绍过了，不太可能回头再讲。</p>
+      <p><b>❌ C 错误</b>：other possible reasons for a high divorce rate——文章已经论证了沟通问题这个原因，不太可能突然转向其他原因。</p>
+      <p><b>❌ D 错误</b>：Andrew Hacker 是 P3 顺带提及的人物，不太可能专门介绍他。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2010 英语（二）Text 2 · 17 句 · 5 题 · 答案 ACBDB</div>
+
+</div>
+
+<script>
+function toggleSyntax(id) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent='▲ 收起解析';
+  }else{
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent='▼ 展开解析';
+  }
+}
+function toggleBody(id) {
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
+}
+</script>
+</body>
+</html>
