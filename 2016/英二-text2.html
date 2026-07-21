@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016 考研英语（二）Text 2 — 草原榛鸡保护之争</title>
+<style>
+:root {
+  --bg: #f2f5ee;
+  --card: #fefcf9;
+  --text: #2c2420;
+  --text-soft: #6b5a50;
+  --text-muted: #9c8a7a;
+  --accent: #3a6b4a;          /* 森林绿，自然/生态 */
+  --accent-light: #eaf2ec;
+  --amber: #c9a84c;           /* 暖金，草原日落 */
+  --amber-light: #fcf6e8;
+  --rust: #8b7355;            /* 大地褐 */
+  --rust-light: #f0ece8;
+  --steel: #4a7a8a;           /* 天空蓝 */
+  --steel-light: #e8eff2;
+  --panel-bg: #faf8f5;
+  --panel-border: #e8ddd0;
+  --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#a88a30;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:var(--steel);}
+
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(201,168,76,.18) 0%,rgba(201,168,76,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(58,107,74,.15) 0%,rgba(58,107,74,.05) 100%);
+  border-left:3px solid var(--accent); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(139,115,85,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--accent);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important; cursor:pointer;
+  color:#fff !important; font-weight:700 !important;
+  background:var(--accent) !important; padding:5px 14px !important;
+  border-radius:20px !important; user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;margin-left:auto;
+  letter-spacing:.5px; border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(58,107,74,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important; transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(201,168,76,0.35) !important;
+}
+.card h2 .toggle.collapsed{background:var(--rust) !important; border-left-color:var(--amber) !important;}
+.card h2 .toggle.collapsed:hover{background:var(--steel) !important;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#a88a30;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#a88a30;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;overflow-wrap:break-word;word-break:break-word;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+  .collapsible-body{max-height:200000px!important;}
+  .syntax{max-height:none!important;}
+  .analysis p{overflow-wrap:break-word;word-break:break-word;}
+}
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>草原榛鸡保护之争<small>2016 考研英语（二）· Text 2</small></h1>
+  <p class="sub">The lesser prairie chicken — a threatened species caught between conservationists, industry, and government</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 生态保护</span>
+    <span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 草原榛鸡数量锐减</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Biologists estimate that as many as 2 million lesser prairie chickens — a kind of bird living on stretching grasslands — once lent red to the often grey landscape of the midwestern and southwestern United States.</div>
+  <hr class="sent-hr">
+  <div class="cn">生物学家估计，多达 200 万只小草原榛鸡——一种生活在广阔草原上的鸟类——曾经给美国中西部和西南部常常灰暗的景观增添了红色。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Biologists estimate that ...（主+谓+宾语从句）。<br>
+    <b>宾语从句</b>：as many as 2 million lesser prairie chickens ... once lent red to the often grey landscape.<br>
+    <b>同位语</b>：破折号内的 a kind of bird living on stretching grasslands 解释 lesser prairie chickens 是什么。<br>
+    <b>词义</b>：<b>estimate</b> 估计；<b>lend ... to</b> 给……增添；<b>stretching</b> 广阔的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">But just some 22,000 birds remain today, occupying about 16% of the species' historic range.</div>
+  <hr class="sent-hr">
+  <div class="cn">但如今仅存约 22000 只，栖息地仅占该物种历史分布范围的约 16%。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：just some 22,000 birds remain today（主+谓+时状）。<br>
+    <b>伴随状语</b>：occupying about 16% of the species' historic range → 现在分词短语补充说明剩余的鸟类占据了多大范围。<br>
+    <b>词义</b>：<b>historic range</b> 历史分布范围。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 是否列为"濒危"物种的争议</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">The <u>crash</u> was a major reason the U.S. Fish and Wildlife Service (USFWS) decided to formally list the bird as threatened.</div>
+  <hr class="sent-hr">
+  <div class="cn">数量的骤降是美国鱼类和野生动物管理局决定正式将该鸟类列为受威胁物种的主要原因。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The crash was a major reason（主+系+表）。<br>
+    <b>定语从句</b>：（why）the USFWS decided to formally list the bird as threatened → 省略关系副词 why 的定语从句修饰 reason。<br>
+    <b>词义</b>：<b>crash</b> 暴跌/骤降；<b>list ... as</b> 将……列为。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">"The lesser prairie chicken is in a desperate situation," said USFWS Director Daniel Ashe.</div>
+  <hr class="sent-hr">
+  <div class="cn">"小草原榛鸡处于绝望的境地，"USFWS 局长 Daniel Ashe 说。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>直接引语</b>：said USFWS Director Daniel Ashe — 引述倒装结构。<br>
+    <b>词义</b>：<b>desperate</b> 绝望的/危急的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">Some environmentalists, however, were disappointed.</div>
+  <hr class="sent-hr">
+  <div class="cn">然而一些环保人士感到失望。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5">
+    <b>🔍 语法解析</b><br>
+    <b>转折</b>：however 表示环保人士的态度与 USFWS 的"threatened"决定不同——他们想要更严格的"endangered" status。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">They had pushed the agency to designate the bird as "endangered," a status that gives federal officials greater regulatory power to <u>crack down on</u> threats.</div>
+  <hr class="sent-hr">
+  <div class="cn">他们曾推动该机构将该鸟类列为"濒危"——这一身份赋予联邦官员更大的监管权力来打击威胁。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：They had pushed the agency to designate the bird as "endangered"（主+谓+宾+宾补）。<br>
+    <b>同位语</b>：a status that gives federal officials greater regulatory power to crack down on threats → a status 是 endangered 的同位语，说明 endangered 的含义。内含定语从句 that gives ... threats 修饰 status。<br>
+    <b>词义</b>：<b>designate ... as</b> 将……指定为；<b>crack down on</b> 打击/制裁。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">But Ashe and others argued that the "threatened" tag gave the federal government flexibility to try out new, potentially less <u>confrontational</u> conservation approaches.</div>
+  <hr class="sent-hr">
+  <div class="cn">但 Ashe 和其他人认为，"受威胁"的分类赋予了联邦政府尝试新的、可能对抗性较小的保护方法的灵活性。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：Ashe and others argued that ...（主+谓+宾语从句）。<br>
+    <b>宾语从句</b>：the "threatened" tag gave the federal government flexibility to try out ... approaches。<br>
+    <b>词义</b>：<b>flexibility</b> 灵活性；<b>confrontational</b> 对抗性的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">In particular, they called for forging closer collaborations with western state governments, which are often uneasy with federal action, and with the private landowners who control an estimated 95% of the prairie chicken's habitat.</div>
+  <hr class="sent-hr">
+  <div class="cn">特别是，他们呼吁与往往对联邦行动感到不安的西部各州政府，以及控制着约 95% 草原榛鸡栖息地的私人土地所有者建立更紧密的合作。</div>
+  <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：they called for forging closer collaborations with ... and with ...（主+谓+宾+并列介宾）。<br>
+    <b>两个并列的 with 对象</b>：<br>
+    &nbsp;&nbsp;① with western state governments, which are often uneasy with federal action → which 非限制性定语从句修饰 state governments<br>
+    &nbsp;&nbsp;② with the private landowners who control an estimated 95% of the prairie chicken's habitat → who 定语从句修饰 landowners<br>
+    <b>词义</b>：<b>forge</b> 建立/缔造；<b>collaboration</b> 合作；<b>uneasy with</b> 对……不安/不满。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 保护计划的具体内容</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Under the plan, for example, the agency said it would not prosecute landowners or businesses that unintentionally kill, harm, or disturb the bird, as long as they had signed a range-wide management plan to restore prairie chicken habitat.</div>
+  <hr class="sent-hr">
+  <div class="cn">例如，根据该计划，该机构表示，不会起诉无意中杀死、伤害或干扰该鸟类的土地所有者或企业——只要他们签署了恢复草原榛鸡栖息地的全范围管理计划。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：the agency said it would not prosecute landowners or businesses（主+谓+宾语从句）。<br>
+    <b>定语从句</b>：that unintentionally kill, harm, or disturb the bird → 修饰 landowners or businesses。<br>
+    <b>条件状语从句</b>：as long as they had signed a range-wide management plan to restore prairie chicken habitat。<br>
+    <b>词义</b>：<b>prosecute</b> 起诉；<b>unintentionally</b> 无意地；<b>as long as</b> 只要。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Negotiated by USFWS and the states, the plan requires individuals and businesses that damage habitat as part of their operations to pay into a fund to replace every acre destroyed with 2 new acres of suitable habitat.</div>
+  <hr class="sent-hr">
+  <div class="cn">由 USFWS 和各州协商制定，该计划要求因运营活动破坏栖息地的个人和企业向基金付款，以每破坏 1 英亩置换 2 英亩适宜栖息地。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：the plan requires individuals and businesses ... to pay into a fund（主+谓+宾+宾补）。<br>
+    <b>修饰</b>：<br>
+    &nbsp;&nbsp;① Negotiated by USFWS and the states → 过去分词短语作原因/背景状语<br>
+    &nbsp;&nbsp;② that damage habitat as part of their operations → 定语从句修饰 individuals and businesses<br>
+    &nbsp;&nbsp;③ to replace every acre destroyed with 2 new acres of suitable habitat → 不定式表目的<br>
+    <b>词义</b>：<b>negotiate</b> 协商；<b>fund</b> 基金。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">The fund will also be used to compensate landowners who set aside habitat.</div>
+  <hr class="sent-hr">
+  <div class="cn">该基金还将用于补偿留出栖息地的土地所有者。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The fund will be used to compensate landowners（主+被动谓+不定式目的）。<br>
+    <b>定语从句</b>：who set aside habitat → 修饰 landowners。<br>
+    <b>词义</b>：<b>compensate</b> 补偿；<b>set aside</b> 留出/划出。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">USFWS also set an interim goal of restoring prairie chicken populations to an annual average of 67,000 birds over the next 10 years.</div>
+  <hr class="sent-hr">
+  <div class="cn">USFWS 还设定了一个中期目标：在未来 10 年内将草原榛鸡的数量恢复到年均 67000 只。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：USFWS set an interim goal（主+谓+宾）。<br>
+    <b>修饰</b>：of restoring ... to an annual average of 67,000 → 介词短语作后置定语修饰 goal。<br>
+    <b>词义</b>：<b>interim</b> 临时的/过渡的；<b>annual average</b> 年平均数。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">And it gives the Western Association of Fish and Wildlife Agencies (WAFWA), a coalition of state agencies, the job of monitoring progress.</div>
+  <hr class="sent-hr">
+  <div class="cn">并且它赋予 Western Association of Fish and Wildlife Agencies (WAFWA)——一个州级机构的联盟——监督进展的职责。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：it gives ... the job（主+谓+双宾）。<br>
+    &nbsp;&nbsp;间接宾语：the Western Association of Fish and Wildlife Agencies (WAFWA)<br>
+    &nbsp;&nbsp;直接宾语：the job of monitoring progress<br>
+    <b>同位语</b>：a coalition of state agencies 解释 WAFWA 的性质。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">Overall, the idea is to let "states remain in the driver's seat for managing the species," Ashe said.</div>
+  <hr class="sent-hr">
+  <div class="cn">总体而言，这个想法是让"各州在管理该物种方面居于主导地位，"Ashe 说。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：the idea is to let "states remain in the driver's seat"（主+系+不定式表语）。<br>
+    <b>💡 习语</b>：in the driver's seat = 处于掌控地位/主导地位。这是 Q29 的考点句。<br>
+    <b>词义</b>：<b>overall</b> 总的来说；<b>species</b> 物种。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 争议：各方都不买账</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Not everyone buys the win-win <u>rhetoric</u>.</div>
+  <hr class="sent-hr">
+  <div class="cn">并非所有人都买这种双赢说辞的账。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15">
+    <b>🔍 语法解析</b><br>
+    <b>部分否定</b>：Not everyone = 不是所有人（部分否定，不是"没人"）。<br>
+    <b>💡 习语</b>：buy the rhetoric = 买账/接受这种说辞（buy 在此为比喻用法）。<br>
+    <b>词义</b>：<b>rhetoric</b> 说辞/花言巧语。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">Some Congress members are trying to block the plan, and at least a dozen industry groups, four states, and three environmental groups are challenging it in federal court.</div>
+  <hr class="sent-hr">
+  <div class="cn">一些国会议员正试图阻止该计划，至少有十几个行业团体、四个州和三个环保组织在联邦法院对其提出质疑。</div>
+  <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s16">
+    <b>🔍 语法解析</b><br>
+    <b>并列句</b>：and 连接两个分句。前句讲国会，后句讲法庭挑战。<br>
+    <b>列举</b>：a dozen industry groups, four states, and three environmental groups — 三个并列主语。<br>
+    <b>词义</b>：<b>block</b> 阻止；<b>challenge</b> 质疑/挑战。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">Not surprisingly, industry groups and states generally argue it goes too far; environmentalists say it doesn't go far enough.</div>
+  <hr class="sent-hr">
+  <div class="cn">毫不意外的是，行业团体和各州普遍认为计划做得太过分了；环保人士则认为它还不够。</div>
+  <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s17">
+    <b>🔍 语法解析</b><br>
+    <b>并列句</b>：分号连接两个对比分句。<br>
+    &nbsp;&nbsp;industry groups: goes too far (太过了)<br>
+    &nbsp;&nbsp;environmentalists: doesn't go far enough (还不够)<br>
+    <b>💡 对比</b>：too far vs not far enough 的鲜明对照，说明双方都不满意——这正是"win-win rhetoric"不被买账的原因。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">18</span>
+  <div class="en">"The federal government is giving responsibility for managing the bird to the same industries that are pushing it to extinction," says biologist Jay Lininger.</div>
+  <hr class="sent-hr">
+  <div class="cn">"联邦政府正在把管理这种鸟类的责任交给那些正将其推向灭绝的同一批行业，"生物学家 Jay Lininger 说。</div>
+  <button class="syntax-toggle" id="btn-s18" onclick="toggleSyntax('s18')">▲ 收起解析</button>
+  <div class="syntax" id="s18">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：The federal government is giving responsibility ... to the same industries（主+谓+宾+介宾）。<br>
+    <b>定语从句</b>：that are pushing it to extinction → 修饰 industries，说明正是这些行业导致了物种的濒危。<br>
+    <b>💡 Q30 考点</b>：Lininger 批评政府把保护责任交给导致问题的行业——他对 industry groups 持否定态度，意味着他站在 environmental groups 一边。<br>
+    <b>词义</b>：<b>responsibility</b> 责任；<b>extinction</b> 灭绝。
+  </div>
+</div>
+
+
+<!-- ===== Bottom ===== -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 草原榛鸡数量从 200 万骤降至 22000 只，栖息地仅余 16%。<br>
+        <span class="num">②</span> P2: USFWS 列为"受威胁"而非"濒危"引发争议——环保人士希望更强保护，政府倾向灵活性合作。<br>
+        <span class="num">③</span> P3: 保护计划内容：不追责签署协议者、破坏者需置换 2 倍栖息地、目标恢复至 67000 只、州主导。<br>
+        <span class="num">④</span> P4: 各方都不买账——行业说太严、环保说不够。Lininger 批评让破坏者来保护。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table>
+      <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>estimate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>估计</td><td>~ that</td></tr>
+        <tr><td><b>crash</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>暴跌/骤降</td><td>population ~</td></tr>
+        <tr><td><b>threatened</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>受威胁的</td><td>~ species</td></tr>
+        <tr><td><b>endangered</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>濒危的</td><td>比 threatened 更严重</td></tr>
+        <tr><td><b>designate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>指定/列为</td><td>~ as</td></tr>
+        <tr><td><b>flexibility</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>灵活性</td><td>flexible 的名词</td></tr>
+        <tr><td><b>confrontational</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>对抗性的</td><td>confront + -ational</td></tr>
+        <tr><td><b>forge</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>建立/缔造</td><td>~ collaborations</td></tr>
+        <tr><td><b>habitat</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>栖息地</td><td>~ restoration</td></tr>
+        <tr><td><b>prosecute</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>起诉</td><td>~ landowners</td></tr>
+        <tr><td><b>compensate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>补偿</td><td>~ for loss</td></tr>
+        <tr><td><b>interim</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>临时的</td><td>~ goal</td></tr>
+        <tr><td><b>rhetoric</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>说辞</td><td>buy the ~</td></tr>
+        <tr><td><b>extinction</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>灭绝</td><td>push to ~</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">The crash was a major reason the USFWS decided to formally list the bird as threatened.</div>
+      <div class="pat-cn">数量骤降是 USFWS 将其列为受威胁物种的主要原因。</div>
+      <span class="pat-tag">省略关系副词的定语从句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Industry groups argue it goes too far; environmentalists say it doesn't go far enough.</div>
+      <div class="pat-cn">行业认为太过了，环保人士认为还不够。</div>
+      <span class="pat-tag">对比句式：too far vs not far enough</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">The plan requires individuals that damage habitat to pay into a fund to replace every acre destroyed with 2 new acres of suitable habitat.</div>
+      <div class="pat-cn">计划要求破坏栖息地者向基金付款，以 1:2 置换栖息地。</div>
+      <span class="pat-tag">require ... to do + that 定语从句隔开 + to replace 目的</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">26. The major reason for listing the lesser prairie chicken as threatened is ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] its drastically decreased population</span>
+      <span class="opt no">[B] the underestimate of the grassland acreage</span>
+      <span class="opt no">[C] a desperate appeal from some biologists</span>
+      <span class="opt no">[D] the insistence of private landowners</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（its drastically decreased population 其大幅减少的种群数量）</b></p>
+      <p><b>定位</b>：P1 S01-S02（从 200 万降到 22000）+ P2 S03 "The <b>crash</b> was a major reason the USFWS decided to formally list the bird as threatened"</p>
+      <p><b>推理</b>：crash = 急剧下降。从 200 万到 22000、栖息地仅剩 16%——种群数量的骤降就是列为主要受威胁物种的原因。</p>
+      <p><b>❌ B 错误</b>：underestimate of the grassland acreage（低估了草原面积）——文中未提。</p>
+      <p><b>❌ C 错误</b>：a desperate appeal from some biologists（来自某些生物学家的绝望呼吁）——S04 说 USFWS Director 用了 "desperate situation"，但这是描述鸟类的处境，不是生物学家呼吁。</p>
+      <p><b>❌ D 错误</b>：the insistence of private landowners（私人土地所有者的坚持）——土地所有者是后来合作的对象，不是列入受威胁物种的原因。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">27. The "threatened" tag disappointed some environmentalists in that it ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] was a give-in to governmental pressure</span>
+      <span class="opt no">[B] would involve fewer agencies in action</span>
+      <span class="opt ok">[C] granted less federal regulatory power</span>
+      <span class="opt no">[D] went against conservation policies</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（granted less federal regulatory power 赋予了较少的联邦监管权力）</b></p>
+      <p><b>定位</b>：P2 S06-S07 — 环保人士想要 "endangered" 身份，因为那 "gives federal officials <b>greater regulatory power</b>"（S06）。而 "threatened" tag 提供的监管权力较小（S07 说 gave flexibility to try less confrontational approaches）。</p>
+      <p><b>推理</b>：环保人士想要"濒危"（endangered）是因为它赋予更大的监管权力 → 他们对"受威胁"（threatened）失望，正是因为后者赋予的监管权力较小。C 选项 "granted less federal regulatory power" 直接对应这一逻辑。</p>
+      <p><b>❌ A 错误</b>：was a give-in to governmental pressure（向政府压力屈服）——文中说的是 environmentalists push the agency，不是 agency 屈服于 pressure。</p>
+      <p><b>❌ B 错误</b>：would involve fewer agencies in action（涉及较少的机构）——文中未比较 agency 数量。</p>
+      <p><b>❌ D 错误</b>：went against conservation policies（违背保护政策）——threatened tag 本身就是 conservation policy 的一部分。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">28. It can be learned from Paragraph 3 that unintentional harm-doers will not be prosecuted if they ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] agree to pay a sum for compensation</span>
+      <span class="opt no">[B] volunteer to set up an equally big habitat</span>
+      <span class="opt no">[C] offer to support the WAFWA monitoring job</span>
+      <span class="opt no">[D] promise to raise funds for USFWS operations</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（agree to pay a sum for compensation 同意支付一笔补偿金）</b></p>
+      <p><b>定位</b>：P3 S09-S10 — "the agency said it would not prosecute landowners or businesses that unintentionally kill ... as long as they had signed a range-wide management plan" + S10 "requires ... to <b>pay into a fund</b> to replace every acre destroyed with 2 new acres"</p>
+      <p><b>推理</b>：无意伤害者不被起诉的前提是签署了管理计划（S09），而计划的核心要求之一就是 pay into a fund（向基金付款/交钱）。A 选项 "agree to pay a sum for compensation"（同意支付一笔补偿金）是对 pay into a fund 的同义概括。</p>
+      <p><b>❌ B 错误</b>：volunteer to set up an equally big habitat（自愿建立同等大小的栖息地）——不是 volunteer，而是必须 pay into a fund，然后由基金来置换。</p>
+      <p><b>❌ C 错误</b>：support the WAFWA monitoring job（支持 WAFWA 的监督工作）——那是 S13 中 WAFWA 被赋予的职责，不是不被起诉的条件。</p>
+      <p><b>❌ D 错误</b>：raise funds for USFWS operations（为 USFWS 运营筹集资金）——文中是 pay into a fund（向基金缴费），不是 raise funds（筹款）。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">29. According to Ashe, the leading role in managing the species is ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] the federal government</span>
+      <span class="opt no">[B] the wildlife agencies</span>
+      <span class="opt no">[C] the landowners</span>
+      <span class="opt ok">[D] the states</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（the states 各州）</b></p>
+      <p><b>定位</b>：P3 · S14 — "Overall, the idea is to let 'states remain in the <b>driver's seat</b> for managing the species,' Ashe said."</p>
+      <p><b>推理</b>：in the driver's seat = 处于主导地位/驾驶座。Ashe 明确说"让各州在管理该物种方面居于主导地位"——the leading role = the driver's seat。</p>
+      <p><b>❌ A 错误</b>：the federal government（联邦政府）——虽然 USFWS 是联邦机构，但 Ashe 主张的是让州来主导。</p>
+      <p><b>❌ B 错误</b>：the wildlife agencies（野生生物机构）——WAFWA 是州级机构的联盟，执行监督工作，但不是 leading role。</p>
+      <p><b>❌ C 错误</b>：the landowners（土地所有者）——他们是合作和保护的对象，不是管理者。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">30. Jay Lininger would most likely support ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] industry groups</span>
+      <span class="opt no">[B] the win-win rhetoric</span>
+      <span class="opt ok">[C] environmental groups</span>
+      <span class="opt no">[D] the plan under challenge</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（environmental groups 环保组织）</b></p>
+      <p><b>定位</b>：P4 · S18 — "The federal government is giving responsibility for managing the bird to the same <b>industries</b> that are pushing it to <b>extinction</b>"</p>
+      <p><b>推理</b>：Lininger 批评政府把保护责任交给"正在将这种鸟推向灭绝的行业"，说明他对 industry groups 持强烈的负面态度。这种批评立场与 environmental groups（环保组织）的立场一致——S17 说 environmentalists 认为 protection 还不够。Lininger 显然站在 environmental groups 一边。</p>
+      <p><b>❌ A 错误</b>：industry groups（行业团体）——Lininger 批评的就是 industries，不可能支持他们。</p>
+      <p><b>❌ B 错误</b>：the win-win rhetoric（双赢说辞）——S15 说"Not everyone buys the win-win rhetoric"，Lininger 的批评表明他也不买账。</p>
+      <p><b>❌ D 错误</b>：the plan under challenge（受挑战的计划）——Lininger 批评的就是这个计划的核心缺陷（让破坏者来保护），说明他反对该计划。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2016 英语（二）Text 2 · 18 句 · 5 题 · 答案 ACADC</div>
+
+</div>
+
+<script>
+function toggleSyntax(id) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent='▲ 收起解析';
+  }else{
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent='▼ 展开解析';
+  }
+}
+function toggleBody(id) {
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
+}
+</script>
+</body>
+</html>
