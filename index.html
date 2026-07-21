@@ -961,7 +961,8 @@ body {
     ],
     '2010': [
       { href: '2010/英二-text1.html', title: 'Text 1', desc: '艺术市场的衰退——赫斯特拍卖与金融危机', num: 1 },
-      { href: '2010/英二-text2.html', title: 'Text 2', desc: '男女沟通差异与婚姻危机——男人在外话多在家话少', num: 2 }
+      { href: '2010/英二-text2.html', title: 'Text 2', desc: '男女沟通差异与婚姻危机——男人在外话多在家话少', num: 2 },
+      { href: '2010/英二-text3.html', title: 'Text 3', desc: '制造习惯：企业如何塑造消费行为——广告与行为科学', num: 3 }
     ],
     '2014': [
       { href: '2014/英二-text1.html', title: 'Text 1', desc: '金钱与幸福感——什么样的消费方式最让人满足', num: 1 }
@@ -979,7 +980,7 @@ body {
 
   // ===== 缓存破坏：强制移动端/浏览器重新请求最新文章页，绕过 HTML 缓存 =====
   (function () {
-    const ART_CACHE_VER = '20260727';
+    const ART_CACHE_VER = '20260727a';
     Object.values(articlesData).forEach(list => list.forEach(a => {
       if (a.href && !a.href.includes('?v=')) a.href += '?v=' + ART_CACHE_VER;
     }));

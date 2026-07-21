@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2010 考研英语（二）Text 3 — 制造习惯：企业如何塑造消费行为</title>
+<style>
+:root {
+  --bg: #f4f2ed;
+  --card: #fefcf9;
+  --text: #2c2420;
+  --text-soft: #6b5a50;
+  --text-muted: #9c8a7a;
+  --accent: #2a7a7a;          /* 深青绿，企业/消费 */
+  --accent-light: #eaf4f4;
+  --amber: #c9a84c;           /* 暖金，广告/营销 */
+  --amber-light: #fcf6e8;
+  --rust: #8b7a5a;            /* 橄榄褐 */
+  --rust-light: #f0ece8;
+  --steel: #5a6a6e;           /* 灰蓝 */
+  --steel-light: #eef0f0;
+  --panel-bg: #faf8f5;
+  --panel-border: #e8ddd0;
+  --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#a88a30;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:var(--steel);}
+
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(201,168,76,.18) 0%,rgba(201,168,76,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(42,122,122,.15) 0%,rgba(42,122,122,.05) 100%);
+  border-left:3px solid var(--accent); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(139,122,90,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--accent);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important; cursor:pointer;
+  color:#fff !important; font-weight:700 !important;
+  background:var(--accent) !important; padding:5px 14px !important;
+  border-radius:20px !important; user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;margin-left:auto;
+  letter-spacing:.5px; border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(42,122,122,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important; transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(201,168,76,0.35) !important;
+}
+.card h2 .toggle.collapsed{background:var(--rust) !important; border-left-color:var(--amber) !important;}
+.card h2 .toggle.collapsed:hover{background:var(--steel) !important;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#a88a30;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#a88a30;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;overflow-wrap:break-word;word-break:break-word;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+  .collapsible-body{max-height:200000px!important;}
+  .syntax{max-height:none!important;}
+  .analysis p{overflow-wrap:break-word;word-break:break-word;}
+}
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>制造习惯：企业如何塑造消费行为<small>2010 考研英语（二）· Text 3</small></h1>
+  <p class="sub">Companies had perfected the art of creating automatic behaviors — habits — among consumers</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 消费行为</span>
+    <span class="badge steel">长难句 4</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 企业如何完美地制造消费者习惯</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Over the past decade, many companies had perfected the art of creating automatic behaviors — habits — among consumers.</div>
+  <hr class="sent-hr">
+  <div class="cn">在过去的十年里，许多公司完善了在消费者中创造自动行为——即习惯——的艺术。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：many companies had perfected the art（主+谓+宾）。过去完成时 had perfected，强调"到过去某个时间点已经完善了"。<br>
+    <b>同位语</b>：破折号中间的 habits 是 automatic behaviors 的同位语，解释说明。<br>
+    <b>词义</b>：<b>perfect</b> 完善/使完美（动词）；<b>automatic behaviors</b> 自动行为。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">These habits have helped companies earn billions of dollars when customers eat snacks or wipe counters almost without thinking, often in response to a carefully designed everyday setting.</div>
+  <hr class="sent-hr">
+  <div class="cn">这些习惯已经帮助公司赚取了数十亿美元——当消费者几乎不假思索地吃零食或擦拭柜台时，通常是对精心设计的日常场景做出的反应。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：These habits have helped companies earn billions of dollars（主+谓+宾+宾补)。<br>
+    <b>时间状语从句</b>：when customers eat snacks or wipe counters almost without thinking → 说明"在消费者不假思索地做这些事情的时候"。<br>
+    <b>伴随状语</b>：in response to a carefully designed everyday setting → 说明这些行为是对精心设计的日常场景的反应。<br>
+    <b>词义</b>：<b>in response to</b> 对……做出反应；<b>setting</b> 场景/环境。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — Curtis 博士：公共卫生问题源于无法改变习惯</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">"There are fundamental public health problems, like hand washing with soap, that remain killers only because we can't figure out how to change people's habits," said Dr. Curtis, the director of the Hygiene Center at the London School of Hygiene & Tropical Medicine.</div>
+  <hr class="sent-hr">
+  <div class="cn">"有一些基本的公共卫生问题，比如用肥皂洗手，之所以仍然是致命杀手，只是因为我们想不出如何改变人们的习惯，"伦敦卫生与热带医学院卫生中心主任 Curtis 博士说。</div>
+  <button class="syntax-toggle" id="btn-s3" onclick="toggleSyntax('s3')">▲ 收起解析</button>
+  <div class="syntax" id="s3">
+    <b>🔍 长难句拆解</b><br>
+    <b>引语</b>：There are fundamental public health problems ... that remain killers only because we can't figure out how to change people's habits。<br>
+    &nbsp;&nbsp;① like hand washing with soap → 举例<br>
+    &nbsp;&nbsp;② that remain killers → 定语从句修饰 problems<br>
+    &nbsp;&nbsp;③ only because we can't figure out how to change people's habits → 原因状语从句<br>
+    <b>引述结构</b>：said Dr. Curtis, the director of ... → 同位语解释身份。<br>
+    <b>词义</b>：<b>fundamental</b> 基本的/根本的；<b>figure out</b> 想出/弄明白。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">"We wanted to learn from private industry how to create new beneficial habits."</div>
+  <hr class="sent-hr">
+  <div class="cn">"我们想向私营企业学习如何创造新的有益习惯。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：We wanted to learn from private industry how to create new beneficial habits（主+谓+疑问词+不定式结构）。<br>
+    <b>词义</b>：<b>private industry</b> 私营企业；<b>beneficial</b> 有益的。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — Curtis 博士求助于哪些公司</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">The companies that Dr. Curtis turned to — Procter & Gamble, Colgate-Palmolive and Unilever — had invested hundreds of millions of dollars finding the subtle <u>cues</u> in consumers' lives that corporations could use to introduce new routines.</div>
+  <hr class="sent-hr">
+  <div class="cn">Curtis 博士求助的公司——宝洁、高露洁-棕榄和联合利华——已经投入了数亿美元，寻找消费者生活中那些企业可以用来引入新惯常行为的微妙线索。</div>
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：The companies ... had invested hundreds of millions of dollars finding the subtle cues（主+谓+宾+分词状语）。<br>
+    <b>修饰</b>：<br>
+    &nbsp;&nbsp;① that Dr. Curtis turned to → 定语从句修饰 companies<br>
+    &nbsp;&nbsp;② Procter & Gamble, Colgate-Palmolive and Unilever → 同位语，列举公司名称<br>
+    &nbsp;&nbsp;③ that corporations could use to introduce new routines → 定语从句修饰 cues<br>
+    <b>词义</b>：<b>turn to</b> 求助于；<b>cue</b> 线索/暗示；<b>routine</b> 惯常行为/常规。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 许多日常用品都是"制造出来的习惯"的产物</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">If you look hard enough, you'll find that many of the products we use every day — chewing gum, skin moisturizers, disinfecting wipes, air fresheners, water purifiers, health snacks, teeth whiteners, fabric softeners, vitamins — are results of manufactured habits.</div>
+  <hr class="sent-hr">
+  <div class="cn">如果你足够仔细地观察，你会发现我们日常使用的许多产品——口香糖、润肤霜、消毒湿巾、空气清新剂、净水器、健康零食、牙齿美白剂、衣物柔顺剂、维生素——都是制造出来的习惯的产物。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：you will find that ... are results of manufactured habits（主+谓+宾语从句）。<br>
+    <b>条件状语从句</b>：If you look hard enough。<br>
+    <b>宾语从句</b>：many of the products ... are results of manufactured habits。<br>
+    &nbsp;&nbsp;① we use every day → 省略关系代词的定语从句修饰 products<br>
+    &nbsp;&nbsp;② 产品列举列表（9 个产品名）→ 同位语，具体说明 products 包括什么<br>
+    <b>词义</b>：<b>manufactured habits</b> 制造出来的习惯（全文核心概念）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">A century ago, few people regularly pressed the hands of a stranger and said, "I'll take it."</div>
+  <hr class="sent-hr">
+  <div class="cn">一个世纪前，很少有人会定期握住一个陌生人的手说："我要了。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：few people pressed the hands and said（主+并列谓），过去时。<br>
+    <b>💡 修辞</b>：用"握手成交"的画面对比现代消费习惯，说明这些行为不是天然存在的，而是被制造出来的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">But thanks to the habits engineered by advertisers, manufacturers and retailers, these commodities are so essential that nearly everyone consumes them.</div>
+  <hr class="sent-hr">
+  <div class="cn">但由于广告商、制造商和零售商精心设计的习惯，这些商品变得如此不可或缺，以至于几乎每个人都在消费它们。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：these commodities are so essential that nearly everyone consumes them（主+系+表 + so...that 结果状语从句）。<br>
+    <b>修饰</b>：thanks to the habits engineered by advertisers, manufacturers and retailers → 原因状语。engineered by ... 是过去分词短语作后置定语修饰 habits。<br>
+    <b>词义</b>：<b>thanks to</b> 由于/多亏；<b>engineer</b> 设计/策划（动词）；<b>commodity</b> 商品。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 广告投入与行为科学的运用</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Take the quarter of a trillion dollars that companies spend annually on advertising and promotion — money that goes into "funding" the creation of habits.</div>
+  <hr class="sent-hr">
+  <div class="cn">想想公司每年在广告和促销上投入的 2500 亿美元——这些钱进入了"资助"习惯创造的领域。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9">
+    <b>🔍 语法解析</b><br>
+    <b>祈使句</b>：Take the quarter of a trillion dollars（Take = "想想/以……为例"，常见口语化用法）。<br>
+    <b>定语从句</b>：that companies spend annually on advertising and promotion → 修饰 dollars。<br>
+    <b>同位语</b>：破折号后的 money that goes into "funding" the creation of habits → 对 quarter of a trillion dollars 的具体说明。<br>
+    <b>词义</b>：<b>quarter of a trillion</b> 2500 亿（一万亿的四分之一）；<b>annually</b> 每年地。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">As this new wave of "behavioral sciences" spreads through the industry, the potential to manipulate behavior is "<u>immense</u>," writes a social scientist at the University of Michigan, who has studied habit formation.</div>
+  <hr class="sent-hr">
+  <div class="cn">随着这股"行为科学"新浪潮席卷整个行业，操纵行为的潜力是"巨大的"，密歇根大学一位研究习惯形成的社会科学家写道。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：the potential ... is immense（主+系+表）。<br>
+    <b>时间状语从句</b>：As this new wave of "behavioral sciences" spreads through the industry（as = 随着）。<br>
+    <b>插入引述</b>：writes a social scientist at the University of Michigan → 插入式引述结构。<br>
+    <b>非限制性定语从句</b>：who has studied habit formation → 修饰 social scientist。<br>
+    <b>词义</b>：<b>wave</b> 浪潮；<b>manipulate</b> 操纵；<b>immense</b> 巨大的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">"When you have a behavior that's automatic, you can make people do almost anything," he said.</div>
+  <hr class="sent-hr">
+  <div class="cn">"当你拥有一种自动化的行为时，你可以让人们几乎做任何事情，"他说。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11">
+    <b>🔍 语法解析</b><br>
+    <b>直接引语内含时间状语从句</b>：When you have a behavior that's automatic + you can make people do almost anything。<br>
+    <b>定语从句</b>：that's automatic → 修饰 behavior。<br>
+    <b>💡 核心观点</b>：这句话揭示了文章的核心担忧——一旦行为变成自动化的习惯，人就有可能被操控。这也是 why 作者对广告的影响持负面态度（Q35）。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 6 — 消费者的反击：有意识地决定</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Through experiments and observation, social scientists like Dr. Berning have learned that there is power in tying certain behaviors to habitual cues through relentless advertising.</div>
+  <hr class="sent-hr">
+  <div class="cn">通过实验和观察，像 Berning 博士这样的社会科学家已经了解到，通过无休止的广告将特定行为与习惯性线索联系起来是有效力的。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：social scientists have learned that ...（主+谓+宾语从句）。<br>
+    <b>宾语从句</b>：there is power in tying certain behaviors to habitual cues through relentless advertising（there be 句型）。<br>
+    <b>词义</b>：<b>tie ... to</b> 将……与……联系起来；<b>relentless</b> 无休止的/不懈的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">While it may be impossible to stop the relentless advertising, consumers can fight back by consciously deciding what they want from the products they buy.</div>
+  <hr class="sent-hr">
+  <div class="cn">虽然可能无法阻止无休止的广告，但消费者可以通过有意识地决定他们想从购买的产品中得到什么来进行反击。</div>
+  <button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句</b>：consumers can fight back（主+谓）。<br>
+    <b>方式状语</b>：by consciously deciding what they want from the products they buy → 通过有意识地决定……<br>
+    &nbsp;&nbsp;① what they want → 宾语从句作 deciding 的宾语<br>
+    &nbsp;&nbsp;② （that）they buy → 省略关系代词的定语从句修饰 products<br>
+    <b>让步状语从句</b>：While it may be impossible to stop the relentless advertising（While = 虽然/尽管）。<br>
+    <b>💡 Q35 考点</b>：作者对广告的态度是 negative（负面的）——"relentless advertising"（无休止的广告）用词本身就带有负面色彩，且提到消费者需要"fight back"（反击）。
+  </div>
+</div>
+
+
+<!-- ===== Bottom ===== -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 企业完善了制造消费者习惯的艺术，习惯帮企业赚了数十亿美元。<br>
+        <span class="num">②</span> P2: Curtis 博士想向企业学习如何创造有益习惯（以解决洗手等公共卫生问题）。<br>
+        <span class="num">③</span> P3-P4: 宝洁等公司投入巨资研究消费者生活中的"线索"。许多日用品都是制造出来的习惯的产物。<br>
+        <span class="num">④</span> P5: 企业每年 2500 亿广告费投入到习惯制造中。行为科学的运用使操纵行为成为可能。<br>
+        <span class="num">⑤</span> P6: 消费者可以通过有意识地决定来反击无休止的广告。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table>
+      <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>perfect</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>完善/使完美</td><td>adj. 完美的</td></tr>
+        <tr><td><b>automatic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>自动的</td><td>~ behavior</td></tr>
+        <tr><td><b>fundamental</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>基本的/根本的</td><td>~ problems</td></tr>
+        <tr><td><b>beneficial</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有益的</td><td>benefit + -cial</td></tr>
+        <tr><td><b>cue</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>线索/暗示</td><td>habitual ~</td></tr>
+        <tr><td><b>manufactured</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>制造的</td><td>~ habits 制造的习惯</td></tr>
+        <tr><td><b>engineer</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>设计/策划</td><td>~ habits</td></tr>
+        <tr><td><b>essential</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>必不可少的</td><td>so ~ that...</td></tr>
+        <tr><td><b>manipulate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>操纵</td><td>~ behavior</td></tr>
+        <tr><td><b>immense</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>巨大的</td><td>im- 否定 + mense 测量</td></tr>
+        <tr><td><b>relentless</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>无休止的</td><td>~ advertising</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>💡 熟词生义 <span class="toggle collapsed" onclick="toggleBody('poly')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="poly">
+    <table>
+      <thead><tr><th>词汇</th><th>熟义</th><th>本文义</th><th>例句</th></tr></thead>
+      <tbody>
+        <tr><td><b>perfect</b></td><td style="color:var(--text-muted);font-size:.9em;">完美的(adj.)</td><td>完善(v.)</td><td>perfected the art of</td></tr>
+        <tr><td><b>take</b></td><td style="color:var(--text-muted);font-size:.9em;">拿/取</td><td>以…为例</td><td>Take the quarter of a trillion...</td></tr>
+        <tr><td><b>engineer</b></td><td style="color:var(--text-muted);font-size:.9em;">工程师(n.)</td><td>设计/策划(v.)</td><td>engineered by advertisers</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">Many of the products we use every day are results of manufactured habits.</div>
+      <div class="pat-cn">我们每天使用的许多产品都是制造出来的习惯的产物。</div>
+      <span class="pat-tag">省略关系代词的定语从句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">These commodities are so essential that nearly everyone consumes them.</div>
+      <div class="pat-cn">这些商品如此不可或缺以至于每个人都在消费。</div>
+      <span class="pat-tag">so...that 结果状语从句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">While it may be impossible to stop the relentless advertising, consumers can fight back by consciously deciding what they want.</div>
+      <div class="pat-cn">虽然可能无法阻止无休止的广告，但消费者可以通过有意识地决定来反击。</div>
+      <span class="pat-tag">While 让步 + by doing 方式状语</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">31. According to Dr. Curtis, habits like hand washing with soap ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] should be further cultivated</span>
+      <span class="opt no">[B] should be changed gradually</span>
+      <span class="opt no">[C] are deeply rooted in history</span>
+      <span class="opt no">[D] are basically private concerns</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（should be further cultivated 应该被进一步培养）</b></p>
+      <p><b>定位</b>：P2 · S03-S04 — Dr. Curtis 说洗手等公共卫生问题之所以是 killers，是因为 "we can't figure out how to change people's habits" + "We wanted to learn from private industry how to create new beneficial habits"。</p>
+      <p><b>推理</b>：Curtis 认为如果人们能养成用肥皂洗手的习惯（beneficial habits），就不会有这些问题。因此，他认为洗手这类习惯应该被进一步培养/养成。</p>
+      <p><b>❌ B 错误</b>：should be changed gradually（应该逐渐改变）——Curtis 说的恰恰相反，他想要的是创造/培养新习惯，不是改变旧习惯。</p>
+      <p><b>❌ C 错误</b>：are deeply rooted in history（深深植根于历史）——文中未提。</p>
+      <p><b>❌ D 错误</b>：are basically private concerns（基本上是个人的私事）——Curtis 将其视为 public health problems（公共卫生问题），不是私事。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">32. Bottled water, chewing gum and skin moisturizers are mentioned in Paragraph 5 so as to ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] reveal their impact on people's habits</span>
+      <span class="opt no">[B] show the urgent need of daily necessities</span>
+      <span class="opt no">[C] indicate their effect on people's buying power</span>
+      <span class="opt no">[D] manifest the significant role of good habits</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（reveal their impact on people's habits 揭示它们对人们习惯的影响）</b></p>
+      <p><b>定位</b>：P4 · S06 — 文章列出这些产品的例子后说它们 "are results of manufactured habits"（是制造出来的习惯的产物）。</p>
+      <p><b>推理</b>：列举这些产品的目的正是为了说明——它们不是我们天然需要的，而是被制造出来的习惯促使我们消费的。A 选项最准确。</p>
+      <p><b>❌ B 错误</b>：show the urgent need of daily necessities（显示日常必需品的迫切需求）——文章不是要说它们多么"必需"，反而说它们是 manufactured habits 的结果。</p>
+      <p><b>❌ C 错误</b>：indicate their effect on people's buying power（表明它们对人们购买力的影响）——buying power 文中未提。</p>
+      <p><b>❌ D 错误</b>：manifest the significant role of good habits（展示好习惯的重要作用）——这些产品形成的习惯不一定是"good habits"，而且目的不是为了展示好习惯的作用。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">33. Which of the following does NOT belong to products that help create people's habits?</div>
+    <div class="opts">
+      <span class="opt no">[A] Tide.</span>
+      <span class="opt no">[B] Crest.</span>
+      <span class="opt no">[C] Colgate.</span>
+      <span class="opt ok">[D] Unilever.</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（Unilever）——注意本题选 NOT belong to products</b></p>
+      <p><b>定位</b>：P3 · S05 — "The companies that Dr. Curtis turned to — Procter & Gamble, Colgate-Palmolive and Unilever" — Unilever 是一家公司名称，不是具体产品。而 Tide（汰渍）和 Crest（佳洁士）是 P&G 的产品，Colgate 是 Colgate-Palmolive 的产品。</p>
+      <p><b>推理</b>：题目问的是"products that help create people's habits"（帮助创造人们习惯的<b>产品</b>），D 选项 Unilever（联合利华）是一家公司，不是单个产品品牌。而 A Tide、B Crest、C Colgate 都是具体的产品品牌。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">34. From the text we know that some of consumer's habits are developed due to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] perfected art of products</span>
+      <span class="opt no">[B] automatic behavior creation</span>
+      <span class="opt ok">[C] commercial promotions</span>
+      <span class="opt no">[D] scientific experiments</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（commercial promotions 商业促销/推广）</b></p>
+      <p><b>定位</b>：全文多处——P5 S09 "companies spend ... on advertising and promotion"（企业投入广告和促销）→ S10 "manipulate behavior" → S12 "through relentless advertising"（通过无休止的广告）。</p>
+      <p><b>推理</b>：文章的核心论点就是"企业通过广告和促销来制造消费者的习惯"。C 选项 commercial promotions 是 advertising and promotion 的同义概括。</p>
+      <p><b>❌ A 错误</b>：perfected art of products（产品的完美艺术）——"perfected the art of" 在 S01 中修饰的是"creating automatic behaviors"，不是"products"。</p>
+      <p><b>❌ B 错误</b>：automatic behavior creation（自动行为的创造）——这可能听起来像是一个原因，但实际上 automatic behavior creation 本身就是习惯被制造出来的结果，而不是原因。</p>
+      <p><b>❌ D 错误</b>：scientific experiments（科学实验）——S12 提到 experiments and observation，但那是社会科学家研究习惯的方法，不是习惯被开发出来的原因。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">35. The author's attitude towards the influence of advertisement on people's habits is ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] indifferent</span>
+      <span class="opt ok">[B] negative</span>
+      <span class="opt no">[C] positive</span>
+      <span class="opt no">[D] biased</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（negative 负面的）</b></p>
+      <p><b>定位</b>：P6 · S12-S13 — "relentless advertising"（无休止的广告）+ "consumers can <b>fight back</b>"（消费者可以<b>反击</b>）。</p>
+      <p><b>推理</b>：作者的用词暴露了态度——"relentless"（无休止的/ relentless 本身带有负面含义）、"manipulate"（操纵，明显负面）、"fight back"（反击，暗示广告是负面/压迫性的）。且全文的基调是：广告/企业在利用行为科学操纵消费者，消费者需要意识到这一点并主动反抗。这显然是负面（negative）的态度。</p>
+      <p><b>❌ A 错误</b>：indifferent（漠不关心的）——作者显然不是漠不关心，而是花了大量篇幅分析这个问题。</p>
+      <p><b>❌ C 错误</b>：positive（积极的）——与全文基调相反。</p>
+      <p><b>❌ D 错误</b>：biased（有偏见的）——biased 不是态度类别描述（indifferent/negative/positive 才是常用的态度题选项）。biased 不是单纯的态度形容词。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2010 英语（二）Text 3 · 13 句 · 5 题 · 答案 AADCB</div>
+
+</div>
+
+<script>
+function toggleSyntax(id) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent='▲ 收起解析';
+  }else{
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent='▼ 展开解析';
+  }
+}
+function toggleBody(id) {
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
+}
+</script>
+</body>
+</html>
