@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016 考研英语（二）Text 3 — 如何找到阅读的时间</title>
+<style>
+:root {
+  --bg: #f4efe8; --card: #fefcf9; --text: #2c2420;
+  --text-soft: #6b5a50; --text-muted: #9c8a7a;
+  --accent: #8b4a3a; --accent-light: #f5eeec;
+  --amber: #c97a3a; --amber-light: #fcf0e6;
+  --rust: #9a6a4a; --rust-light: #f0ece8;
+  --steel: #6a5a5e; --steel-light: #eeedee;
+  --panel-bg: #faf8f5; --panel-border: #e8ddd0; --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px; --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#b05a20}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(201,122,58,.18) 0%,rgba(201,122,58,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(139,74,58,.15) 0%,rgba(139,74,58,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(154,106,74,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(139,74,58,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(201,122,58,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#b05a20;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#b05a20}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>如何找到阅读的时间<small>2016 考研英语（二）· Text 3</small></h1>
+  <p class="sub">That everyone's too busy these days is a cliché — but there's never any time to read</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 阅读与时间</span><span class="badge steel">长难句 6</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 没人有时间阅读</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">That everyone's too busy these days is a <u>cliché</u>.</div>
+  <hr class="sent-hr"><div class="cn">如今每个人都太忙了——这已经是老生常谈了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>主语从句</b>：That everyone's too busy these days 是整个句子的主语（that 从句作主语）。<br><b>词义</b>：<b>cliché</b> 陈词滥调/老生常谈（法语借词）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">But one specific complaint is made especially <u>mournfully</u>: There's never any time to read.</div>
+  <hr class="sent-hr"><div class="cn">但有一个具体的抱怨尤为沉痛：永远没有时间阅读。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：one complaint is made（被动语态）。<br><b>冒号后</b>：解释 complaint 的具体内容。<br><b>词义</b>：<b>mournfully</b> 沉痛地/悲伤地（mourn 哀悼 + -ful + -ly）。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 时间管理技巧为何无效</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">What makes the problem <u>thornier</u> is that the usual time-management techniques don't seem sufficient.</div>
+  <hr class="sent-hr"><div class="cn">让问题更加棘手的是，通常的时间管理技巧似乎并不足够。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3"><b>🔍 语法解析</b><br><b>主语从句</b>：What makes the problem thornier = "让问题更棘手的事情"（what = the thing that）。<br><b>表语从句</b>：that the usual time-management techniques don't seem sufficient。<br><b>词义</b>：<b>thorny</b> 棘手的（thorn 刺 + -y）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">The web's full of articles offering tips on making time to read: "Give up TV" or "Carry a book with you at all times."</div>
+  <hr class="sent-hr"><div class="cn">网上满是提供挤出时间阅读技巧的文章："放弃电视"或"随身携带一本书"。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>主干</b>：The web's full of articles（主+系+表）。<br><b>修饰</b>：offering tips on making time to read → 现在分词短语作后置定语修饰 articles。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">But in my experience, using such methods to free up the odd 30 minutes doesn't work.</div>
+  <hr class="sent-hr"><div class="cn">但根据我的经验，用这些方法腾出零散的 30 分钟并不奏效。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>动名词作主语</b>：using such methods to free up the odd 30 minutes 作主语，doesn't work 作谓语。<br><b>词义</b>：<b>free up</b> 腾出/空出；<b>odd</b> 零散的/临时的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Sit down to read and the flywheel of work-related thoughts keeps spinning — or else you're so exhausted that a challenging book is the last thing you need.</div>
+  <hr class="sent-hr"><div class="cn">坐下来阅读，与工作相关的思绪飞轮却不停旋转——或者你筋疲力尽，一本有挑战性的书是你最不需要的东西。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6"><b>🔍 长难句拆解</b><br><b>并列结构</b>：and 连接两个分句：Sit down to read（祈使句）= If you sit down to read。<br><b>后分句</b>：the flywheel of work-related thoughts keeps spinning（暗喻——思绪像飞轮一样停不下来）。<br><b>or else</b>：否则，引出另一种情况：you're so exhausted that ...（so...that 结果状语从句）。<br><b>词义</b>：<b>flywheel</b> 飞轮；<b>the last thing you need</b> 最不需要的东西。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">"The modern mind," Tim Parks, a novelist and critic, writes, "is overwhelmingly inclined toward communication... It is not simply that one is interrupted; it is that one is actually inclined to interruption."</div>
+  <hr class="sent-hr"><div class="cn">"现代心智 overwhelmingly 倾向于交流……不仅仅是我们被打断，而是我们 actually 倾向于被打断，"小说家兼评论家 Tim Parks 写道。</div>
+  <button class="syntax-toggle" id="btn-s7" onclick="toggleSyntax('s7')">▲ 收起解析</button>
+  <div class="syntax" id="s7"><b>🔍 长难句拆解</b><br><b>引语结构</b>：Tim Parks 的引语被插入语（Tim Parks, a novelist and critic, writes）隔开。<br><b>引语内容</b>：<br>&nbsp;&nbsp;① The modern mind is overwhelmingly inclined toward communication<br>&nbsp;&nbsp;② It is not simply that ...; it is that ...（不是……而是……的并列句型）<br><b>💡 核心观点</b>：Parks 认为现代人不仅是被动地被干扰，而是主动倾向于被打断——这是深度阅读的敌人。<br><b>词义</b>：<b>overwhelmingly</b> 压倒性地；<b>inclined toward</b> 倾向于。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">Deep reading requires not just time, but a special kind of time which can't be obtained merely by becoming more efficient.</div>
+  <hr class="sent-hr"><div class="cn">深度阅读需要的不仅仅是时间，而是一种特殊的时间——仅靠变得更高效是无法获得的。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>主干</b>：Deep reading requires not just time, but a special kind of time（not...but 强调后者）。<br><b>定语从句</b>：which can't be obtained merely by becoming more efficient → 修饰 time。<br><b>💡 Q31 考点</b>：这句说明了时间管理技巧无效的原因——深度阅读需要"特殊的时间"，高效无法带来这种时间。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — "变得更高效"本身就是问题的一部分</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">In fact, "becoming more efficient" is part of the problem.</div>
+  <hr class="sent-hr"><div class="cn">事实上，"变得更高效"本身就是问题的一部分。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9"><b>🔍 语法解析</b><br><b>主干</b>："becoming more efficient" is part of the problem。动名词短语作主语。<br><b>💡</b>：这是全文最关键的观点转折——原本以为"高效"是解决方案，作者却说"高效"就是问题本身。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Thinking of time as a resource to be maximised means you approach it <u>instrumentally</u>, judging any given moment as well spent only in so far as it advances progress toward some goal.</div>
+  <hr class="sent-hr"><div class="cn">把时间视为一种需要最大化的资源，意味着你以工具性的态度对待它，只有在某个时刻能推动某个目标的进展时，才认为它花得值。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10"><b>🔍 长难句拆解</b><br><b>主干</b>：Thinking of time as a resource to be maximised means you approach it instrumentally（动名词主语 + means + 宾语从句）。<br><b>伴随状语</b>：judging any given moment as well spent only in so far as it advances progress → 现在分词短语，补充说明 instrumentally 的具体表现。<br><b>词义</b>：<b>instrumentally</b> 工具性地；<b>in so far as</b> 只要/在……范围内。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Immersive reading, by contrast, depends on being willing to risk inefficiency, goallessness, even time-wasting.</div>
+  <hr class="sent-hr"><div class="cn">相比之下，沉浸式阅读依赖于愿意承担低效、无目标甚至浪费时间。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>对比</b>：by contrast 与上文的"工具性时间观"形成对比。沉浸式阅读与高效目标完全相反——它需要的是"低效"和"浪费时间"。<br><b>词义</b>：<b>immersive</b> 沉浸式的；<b>goallessness</b> 无目标状态。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Try to slot it in as a to-do list item and you'll manage only goal-focused reading — useful, sometimes, but not the most fulfilling kind.</div>
+  <hr class="sent-hr"><div class="cn">试着把它（阅读）塞进待办事项清单，你只能做到以目标为导向的阅读——有时有用，但不是最令人满足的那种。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12"><b>🔍 语法解析</b><br><b>"祈使句 + and" 结构</b>：Try to ... and you'll ... = 如果你……那么你会……。<br><b>破折号后</b>：useful, sometimes, but not the most fulfilling kind → 补充说明这种阅读的局限性。<br><b>词义</b>：<b>slot in</b> 塞进/安排进去；<b>fulfilling</b> 令人满足的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">"The future comes at us like empty bottles along an unstoppable and nearly infinite conveyor belt," writes Gary Eberle in his book <em>Sacred Time</em>, and "we feel a pressure to fill these different-sized bottles (days, hours, minutes) as they pass, for if they get by without being filled, we will have wasted them."</div>
+  <hr class="sent-hr"><div class="cn">"未来像空瓶子一样沿着一条不可阻挡、近乎无限的传送带向我们涌来，"Gary Eberle 在他的《神圣时间》一书中写道，"我们感到一种压力，要在这些不同尺寸的瓶子（日、时、分）经过时把它们装满，因为如果它们没有被填满就过去了，那我们就浪费了它们。"</div>
+  <button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13"><b>🔍 长难句拆解</b><br><b>引语结构</b>：writes Gary Eberle 将引语分成前后两段。<br><b>第一段</b>：The future comes at us like empty bottles ...（明确隐喻）<br><b>第二段</b>：we feel a pressure to fill these different-sized bottles as they pass + for if they get by without being filled, we will have wasted them（for = 因为，引导原因状语从句）<br><b>💡 Q32 考点</b>：这个隐喻说明人们感到有压力要把经过的时间填满（让时间过得充实）。<br><b>词义</b>：<b>unstoppable</b> 不可阻挡的；<b>conveyor belt</b> 传送带。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">No mind-set could be worse for losing yourself in a book.</div>
+  <hr class="sent-hr"><div class="cn">对于沉浸于一本书来说，没有比这更糟糕的心态了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>否定比较级表最高级</b>："No ... could be worse" = 这是最糟糕的。"No mind-set could be worse" = 这种心态是最坏的。<br><b>词义</b>：<b>mind-set</b> 心态/思维模式。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 什么方法有效？</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">So what does work? Perhaps surprisingly, scheduling regular times for reading.</div>
+  <hr class="sent-hr"><div class="cn">那么什么方法确实有效呢？也许令人惊讶的是：安排固定的阅读时间。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15"><b>🔍 语法解析</b><br><b>设问</b>：作者先提问再回答。does 表强调（确实）。<br><b>词义</b>：<b>schedule</b> 安排（动词）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">You'd think this might fuel the efficiency mind-set, but in fact, Eberle notes, such ritualistic behaviour helps us "step outside time's flow" into "soul time".</div>
+  <hr class="sent-hr"><div class="cn">你可能认为这可能会助长效率心态，但事实上，Eberle 指出，这种仪式化的行为帮助我们在时间流之外进入"灵魂时间"。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16"><b>🔍 长难句拆解</b><br><b>转折并列句</b>：but 连接两个分句。<br>&nbsp;&nbsp;前分句：You'd think this might fuel the efficiency mind-set<br>&nbsp;&nbsp;后分句：such ritualistic behaviour helps us "step outside time's flow" into "soul time"<br><b>插入语</b>：Eberle notes 置于 but 之后。<br><b>💡 Q33 考点</b>：ritualistic behaviour（固定时间阅读）帮助达到 immersive reading（沉浸式阅读）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">You could limit distractions by reading only physical books, or on single-purpose e-readers.</div>
+  <hr class="sent-hr"><div class="cn">你可以通过只读纸质书或单一功能的电子阅读器来限制分心。</div>
+  <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s17"><b>🔍 语法解析</b><br><b>主干</b>：You could limit distractions（主+谓+宾），by reading ... 作方式状语。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">18</span>
+  <div class="en">"Carry a book with you at all times" can actually work, too — providing you dip in often enough, so that reading becomes the default state from which you temporarily surface to take care of business, before dropping back down.</div>
+  <hr class="sent-hr"><div class="cn">"随时带一本书"实际上也确实有效——只要你足够频繁地沉浸其中，使阅读成为默认状态，你只是暂时浮出水面处理事务，然后再沉回去。</div>
+  <button class="syntax-toggle" id="btn-s18" onclick="toggleSyntax('s18')">▲ 收起解析</button>
+  <div class="syntax" id="s18"><b>🔍 长难句拆解</b><br><b>主干</b>："Carry a book" can actually work（主+谓）。<br><b>条件状语</b>：providing you dip in often enough（providing = provided that = 只要）。<br><b>结果状语从句</b>：so that reading becomes the default state ...<br><b>定语从句</b>：from which you temporarily surface to take care of business → 修饰 default state。<br><b>现在分词</b>：before dropping back down → 时间状语。<br><b>💡 Q34 考点</b>：关键在于 "reading becomes the default state"（阅读成为默认状态）——阅读成为主业，其他事情只是临时打断。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">19</span>
+  <div class="en">On a really good day, it no longer feels as if you're "making time to read," but just reading, and making time for everything else.</div>
+  <hr class="sent-hr"><div class="cn">在一个真正美好的日子里，你不再感觉像是在"找时间阅读"，而就是阅读，然后为其他事情安排时间。</div>
+  <button class="syntax-toggle collapsed" id="btn-s19" onclick="toggleSyntax('s19')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s19"><b>🔍 语法解析</b><br><b>主干</b>：it no longer feels as if you're "making time to read"（as if 引导表语从句）。<br><b>but 后</b>：（you are）just reading, and (you are) making time for everything else → 并列省略。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 提出问题——人人都说没时间阅读。<br>
+      <span class="num">②</span> P2: 时间管理技巧无效，因为深度阅读需要"特殊的时间"而非碎片时间；现代人倾向被打断。<br>
+      <span class="num">③</span> P3: "高效"心态本身就是问题——工具性时间观 vs 沉浸式阅读的矛盾。<br>
+      <span class="num">④</span> P4: 解决方案——固定时间安排（仪式化行为）创造"soul time"；让阅读成为默认状态。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>cliché</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>陈词滥调</td><td>法语借词</td></tr>
+        <tr><td><b>thorny</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>棘手的</td><td>thorn + -y</td></tr>
+        <tr><td><b>overwhelmingly</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>压倒性地</td><td>写作替换 very</td></tr>
+        <tr><td><b>inclined</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>倾向的</td><td>be ~ to</td></tr>
+        <tr><td><b>instrumentally</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>工具性地</td><td>instrument + -al + -ly</td></tr>
+        <tr><td><b>immersive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>沉浸式的</td><td>immerse + -ive</td></tr>
+        <tr><td><b>ritualistic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>仪式化的</td><td>ritual + -istic</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">Deep reading requires not just time, but a special kind of time which can't be obtained merely by becoming more efficient.</div>
+      <div class="pat-cn">深度阅读需要的不仅是时间，而是一种特殊的时间。</div>
+      <span class="pat-tag">not just ... but + which 定语从句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">It is not simply that one is interrupted; it is that one is actually inclined to interruption.</div>
+      <div class="pat-cn">不仅仅是被打断，而是主动倾向于被打断。</div>
+      <span class="pat-tag">It is not simply that...; it is that... 递进</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">31. The usual time-management techniques don't work because ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] what they can offer does not ease the modern mind</span>
+      <span class="opt no">[B] what challenging books demand is repetitive reading</span>
+      <span class="opt no">[C] what people often forget is carrying a book with them</span>
+      <span class="opt ok">[D] what deep reading requires cannot be guaranteed</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ D（deep reading 所需的条件无法被保证）</b></p>
+      <p><b>定位</b>：P2 S08 — "Deep reading requires not just time, but a <b>special kind of time</b> which can't be obtained merely by becoming more efficient."</p>
+      <p><b>推理</b>：时间管理技巧只能让你更高效，但深度阅读需要"特殊的时间"（沉浸式不被打断的时间），这种时间是高效无法带来的。D = 深度阅读所需的条件（特殊时间）无法被保证（通过高效手段）。</p>
+      <p><b>❌ A</b>：does not ease the modern mind（不能缓解现代心智）——S07 提到 modern mind 倾向于被打断，但这不是时间管理技巧无效的直接原因。B/C 文中未提。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">32. The "empty bottles" metaphor illustrates that people feel a pressure to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] update their to-do lists</span>
+      <span class="opt ok">[B] make passing time fulfilling</span>
+      <span class="opt no">[C] carry their plans through</span>
+      <span class="opt no">[D] pursue carefree reading</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ B（让流逝的时间过得充实）</b></p>
+      <p><b>定位</b>：P3 S13 — "we feel a pressure to fill these different-sized bottles (days, hours, minutes) as they pass"</p>
+      <p><b>推理</b>：把时间比作瓶子，压力来自于"要把瓶子装满"——也就是要让每分每秒都过得充实（make passing time fulfilling）。</p>
+      <p><b>❌ A</b>：to-do lists 只是 S12 的小点，与隐喻无关。C：carry plans through（贯彻计划）过度引申。D：carefree reading（无忧阅读）正好与此心态相反。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">33. Eberle would agree that scheduling regular times for reading helps ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] encourage the efficiency mind-set</span>
+      <span class="opt no">[B] develop online reading habits</span>
+      <span class="opt no">[C] promote ritualistic reading</span>
+      <span class="opt ok">[D] achieve immersive reading</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ D（实现沉浸式阅读）</b></p>
+      <p><b>定位</b>：P4 S16 — "such <b>ritualistic behaviour</b> helps us 'step outside time's flow' into '<b>soul time</b>'"</p>
+      <p><b>推理</b>：soul time = 沉浸式阅读的时间。固定时间阅读的仪式化行为帮助跳出"时间流"进入 soul time → 实现沉浸式阅读。</p>
+      <p><b>❌ A</b>：与原文相反——S16 说固定时间 not fuel efficiency mindset。B/C 文中未提或不是核心目标。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">34. "Carry a book with you at all times" can work if ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] reading becomes your primary business of the day</span>
+      <span class="opt no">[B] all the daily business has been promptly dealt with</span>
+      <span class="opt no">[C] you are able to drop back to business after reading</span>
+      <span class="opt no">[D] time can be evenly split for reading and business</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ A（阅读成为你一天的主要事务）</b></p>
+      <p><b>定位</b>：P4 S18 — "providing you dip in often enough, so that reading becomes the <b>default state</b> from which you temporarily surface to take care of business"</p>
+      <p><b>推理</b>：default state = 默认状态 = 主要事务（primary business）。阅读成为常态，工作只是临时的打断。A 最准确。</p>
+      <p><b>❌ B</b>：先处理完日常事务再读——不对，应该是阅读优先。C：读完能回到工作——这只是描述，不是条件。D：平均分配——不对，阅读应为主导。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">35. The best title for this text could be ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] How to Enjoy Easy Reading</span>
+      <span class="opt ok">[B] How to Find Time to Read</span>
+      <span class="opt no">[C] How to Set Reading Goals</span>
+      <span class="opt no">[D] How to Read Extensively</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ B（如何找到时间阅读）</b></p>
+      <p><b>定位</b>：全文主旨。开篇"There's never any time to read" → 中间分析为什么没时间（效率心态） → 结尾给出解决方案（固定时间/仪式化行为）。全程围绕"如何找到时间阅读"。</p>
+      <p><b>❌ A</b>：Easy Reading（轻松阅读）——文中强调的是 deep/immersive reading，不是 easy。C：Setting Goals（设定目标）——恰恰是作者批评的做法。D：Read Extensively（广泛阅读）——文中未提广泛性。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2016 英语（二）Text 3 · 19 句 · 5 题 · 答案 DBDAB</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>

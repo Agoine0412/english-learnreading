@@ -976,13 +976,14 @@ body {
     ],
     '2016': [
       { href: '2016/英二-text1.html', title: 'Text 1', desc: '编程教育：从高中课堂到数字素养', num: 1 },
-      { href: '2016/英二-text2.html', title: 'Text 2', desc: '草原榛鸡保护之争——受威胁物种背后的博弈', num: 2 }
+      { href: '2016/英二-text2.html', title: 'Text 2', desc: '草原榛鸡保护之争——受威胁物种背后的博弈', num: 2 },
+      { href: '2016/英二-text3.html', title: 'Text 3', desc: '如何找到阅读的时间——深度阅读与现代心灵', num: 3 }
     ]
   };
 
   // ===== 缓存破坏：强制移动端/浏览器重新请求最新文章页，绕过 HTML 缓存 =====
   (function () {
-    const ART_CACHE_VER = '20260727c';
+    const ART_CACHE_VER = '20260728';
     Object.values(articlesData).forEach(list => list.forEach(a => {
       if (a.href && !a.href.includes('?v=')) a.href += '?v=' + ART_CACHE_VER;
     }));
