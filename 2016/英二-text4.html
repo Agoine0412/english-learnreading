@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016 考研英语（二）Text 4 — 千禧一代的成功观</title>
+<style>
+:root{--bg:#f2f2f0;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#2a4a6e;--accent-light:#e8edf2;--amber:#c9a84c;--amber-light:#fcf6e8;--rust:#6a7a6a;--rust-light:#edefec;--steel:#5a5a6e;--steel-light:#edecf0;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a8030}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(201,168,76,.18) 0%,rgba(201,168,76,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(42,74,110,.15) 0%,rgba(42,74,110,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(106,122,106,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(42,74,110,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(201,168,76,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a8030;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a8030}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>千禧一代的成功观<small>2016 考研英语（二）· Text 4</small></h1>
+  <p class="sub">Younger Americans are drawing a new 21st-century road map to success</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 代际差异</span><span class="badge steel">长难句 4</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 年轻一代规划新的成功路线图</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Against a <u>backdrop</u> of drastic changes in economy and population structure, younger Americans are drawing a new 21st-century road map to success, a latest poll has found.</div>
+  <hr class="sent-hr"><div class="cn">一项最新民调发现，在经济和人口结构剧烈变化的背景下，较年轻的美国人正在绘制一幅崭新的 21 世纪成功路线图。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>主干</b>：younger Americans are drawing a new road map to success（主+谓+宾）。<br><b>独立主格/状语</b>：Against a backdrop of ...（在……背景下），引出背景信息。<br><b>同位语</b>：a latest poll has found → 补充说明信息来源。<br><b>词义</b>：<b>backdrop</b> 背景；<b>drastic</b> 剧烈的；<b>poll</b> 民意调查。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 代际之间目标一致，路径不同</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">Across generational lines, Americans continue to prize many of the same traditional milestones of a successful life, including getting married, having children, owning a home, and retiring in their sixties.</div>
+  <hr class="sent-hr"><div class="cn">跨越代际，美国人仍然珍视许多相同的传统成功人生里程碑——包括结婚、生子、拥有住房和 60 多岁退休。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：Americans prize many of the same traditional milestones（主+谓+宾）。<br><b>列举</b>：including getting married, having children, owning a home, and retiring → 四个动名词短语并列。<br><b>词义</b>：<b>prize</b> 珍视（动词）；<b>milestone</b> 里程碑。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">But while young and old mostly agree on what constitutes the finish line of a fulfilling life, they offer strikingly different paths for reaching it.</div>
+  <hr class="sent-hr"><div class="cn">但是，虽然年轻人和老年人大体同意什么构成充实生活的终点线，但他们提出了截然不同的达到终点的方式。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3"><b>🔍 语法解析</b><br><b>让步状语从句</b>：while young and old mostly agree on what constitutes the finish line（what 引导宾语从句）。<br><b>主句</b>：they offer strikingly different paths。<br><b>词义</b>：<b>strikingly</b> 显著地/惊人地。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 年轻一代的价值观差异</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">Young people who are still getting started in life were more likely than older adults to prioritize personal fulfillment in their work, to believe they will advance their careers most by regularly changing jobs, to favor communities with more public services and a faster pace of life, to agree that couples should be financially secure before getting married or having children, and to maintain that children are best served by two parents working outside the home, the survey found.</div>
+  <hr class="sent-hr"><div class="cn">调查发现，仍处于人生起步阶段的年轻人比老年人更可能：优先考虑工作中的个人成就感；认为定期换工作最能推进职业发展；青睐公共服务更多、生活节奏更快的社区；认为夫妻在结婚或生子前应有经济保障；主张父母双方都在外工作最有利于孩子。</div>
+  <button class="syntax-toggle" id="btn-s4" onclick="toggleSyntax('s4')">▲ 收起解析</button>
+  <div class="syntax" id="s4"><b>🔍 长难句拆解</b><br><b>主干</b>：Young people ... were more likely ... to prioritize ... , to believe ... , to favor ... , to agree ... , and to maintain ...（五个并列不定式短语的复杂结构）。<br><b>定语从句</b>：who are still getting started in life → 修饰 young people。<br><b>比较结构</b>：more likely than older adults。<br><b>五个 to 不定式</b>：每个都是一个独立的观点，列举年轻人的五种不同态度。<br>&nbsp;&nbsp;① to prioritize personal fulfillment in their work<br>&nbsp;&nbsp;② to believe they will advance their careers most by regularly changing jobs<br>&nbsp;&nbsp;③ to favor communities with more public services and a faster pace of life<br>&nbsp;&nbsp;④ to agree that couples should be financially secure before getting married or having children<br>&nbsp;&nbsp;⑤ to maintain that children are best served by two parents working outside the home<br><b>💡 Q37 考点</b>：第四个 to (agree that couples should be financially secure before marriage) 对应 C 选项 "attach importance to pre-marital finance"。<br><b>词义</b>：<b>prioritize</b> 优先考虑；<b>fulfillment</b> 满足感；<b>financially secure</b> 经济上有保障的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 这些差异将影响美国生活的方方面面</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">From career to community and family, these contrasts suggest that in the aftermath of the searing Great Recession, those just starting out in life are defining priorities and expectations that will increasingly spread through virtually all aspects of American life, from consumer preferences to housing patterns to politics.</div>
+  <hr class="sent-hr"><div class="cn">从职业到社区再到家庭，这些对比表明，在灼痛的大衰退之后，那些刚步入人生的人正在定义的优先事项和期望将日益渗透到美国生活的几乎所有方面——从消费偏好到住房模式再到政治。</div>
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5"><b>🔍 长难句拆解</b><br><b>主干</b>：these contrasts suggest that ...（主+谓+宾语从句）。<br><b>宾语从句</b>：those ... are defining priorities and expectations that will ... spread through ...<br>&nbsp;&nbsp;① those just starting out in life → 现在分词短语后置定语<br>&nbsp;&nbsp;② that will increasingly spread through virtually all aspects → 定语从句修饰 priorities and expectations<br>&nbsp;&nbsp;③ from consumer preferences to housing patterns to politics → 列举 affected 的方面<br><b>词义</b>：<b>aftermath</b> 后果/余波；<b>searing</b> 灼热的/剧烈的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 两代人都认为年轻人起步更难</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Young and old converge on one key point: Overwhelming majorities of both groups said they believe it is harder for young people today to get started in life than it was for earlier generations.</div>
+  <hr class="sent-hr"><div class="cn">年轻人和老年人在一个关键点上达成一致：两个群体中的绝大多数人都说，他们认为今天的年轻人起步比前几代人更难。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6"><b>🔍 语法解析</b><br><b>主干</b>：Young and old converge on one key point（主+谓+宾）。<br><b>同位语</b>：冒号后解释 key point 的内容。<br><b>比较级</b>：harder ... than it was for earlier generations。<br><b>词义</b>：<b>converge on</b> 在……上达成一致/趋同；<b>overwhelming majority</b> 绝大多数。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">While younger people are somewhat more optimistic than their elders about the prospects for those starting out today, big majorities in both groups believe those "just getting started in life" face a tougher climb than earlier generations in reaching such signpost achievements as securing a good-paying job, starting a family, managing debt, and finding affordable housing.</div>
+  <hr class="sent-hr"><div class="cn">虽然年轻人比长辈对今天起步者的前景稍微乐观一些，但两个群体中的绝大多数都认为，"刚起步的人"在达到找到高薪工作、组建家庭、管理债务和找到可负担住房等标志性成就方面，面临着比前几代人更艰难的攀登。</div>
+  <button class="syntax-toggle" id="btn-s7" onclick="toggleSyntax('s7')">▲ 收起解析</button>
+  <div class="syntax" id="s7"><b>🔍 长难句拆解</b><br><b>让步状语从句</b>：While younger people are somewhat more optimistic ... about the prospects for those starting out today。<br><b>主句</b>：big majorities believe those ... face a tougher climb ...<br><b>修饰</b>：in reaching such signpost achievements as ... → 介宾短语，列举具体指标。<br><b>词义</b>：<b>somewhat</b> 稍微/有点；<b>signpost</b> 路标/标志性的；<b>good-paying job</b> 高薪工作；<b>affordable housing</b> 可负担住房。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 6 — Pete Schneider 的故事</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">Pete Schneider considers the climb tougher today.</div>
+  <hr class="sent-hr"><div class="cn">Pete Schneider 认为如今的攀登更加艰难。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>主干</b>：Pete Schneider considers the climb tougher（主+谓+宾+宾补）。tougher = more difficult，与前文 a tougher climb 呼应。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Schneider, a 27-year-old auto technician from the Chicago suburbs, says he struggled to find a job after graduating from college.</div>
+  <hr class="sent-hr"><div class="cn">Schneider 是一位来自芝加哥郊区的 27 岁汽车技师，他说大学毕业后他很难找到工作。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9"><b>🔍 语法解析</b><br><b>主干</b>：Schneider says（主+谓）+ （that）he struggled to find a job（宾语从句）。<br><b>同位语</b>：a 27-year-old auto technician from the Chicago suburbs 解释 Schneider 的身份。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Even now that he is working steadily, he said, "I can't afford to pay my monthly mortgage payments on my own, so I have to rent rooms out to people to make that happen."</div>
+  <hr class="sent-hr"><div class="cn">即使现在他工作稳定了，他说，"我自己付不起月供，所以不得不把房间租给别人来凑钱。"</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10"><b>🔍 语法解析</b><br><b>让步状语从句</b>：Even now that he is working steadily（即使/尽管现在他工作稳定了）。<br><b>直接引语</b>：said 后接直接引语。<br><b>词义</b>：<b>mortgage</b> 抵押贷款；<b>rent out</b> 出租。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Looking back, he is <u>stuck</u> that his parents could provide a comfortable life for their children even though neither had completed college when he was young.</div>
+  <hr class="sent-hr"><div class="cn">回顾过去，他感慨他的父母——尽管两人年轻时都没上完大学——却能为孩子们提供舒适的生活。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>主干</b>：he is stuck that ...（主+系+表+表语从句？这里 stuck 是形容词 + that 从句）。<br><b>让步状语从句</b>：even though neither had completed college。<br><b>词义</b>：<b>stuck</b> 被触动/感慨（此处熟词生义）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">"I still grew up in an upper middle-class home with parents who didn't have college degrees," Schneider said. "I don't think people are capable of that anymore."</div>
+  <hr class="sent-hr"><div class="cn">"我仍然在一个中上阶级家庭长大，父母都没有大学学位，"Schneider 说。"我认为人们再也做不到那样了。"</div>
+  <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
+  <div class="syntax" id="s12"><b>🔍 长难句拆解</b><br><b>第一句</b>：I grew up in an upper middle-class home + with parents who didn't have college degrees（定语从句修饰 parents）。<br><b>第二句</b>：I don't think people are capable of that anymore（否定转移：I don't think = "我认为……不"）。<br><b>💡 Q40 考点</b>：Schneider 父母没有大学学位却提供了中上阶级的生活。说明好生活与大学学位关系不大。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 年轻美国人正在绘制新的成功路线图。<br>
+      <span class="num">②</span> P2: 代际间人生目标一致（结婚生子买房退休），但实现路径有别。<br>
+      <span class="num">③</span> P3: 年轻人更重视个人成就感、频繁换工作、婚前经济保障等。<br>
+      <span class="num">④</span> P4: 这些新价值观将渗透到美国生活的所有方面。<br>
+      <span class="num">⑤</span> P5: 两代人都认为年轻人起步比前几代人更难。<br>
+      <span class="num">⑥</span> P6: Schneider 的故事——大学毕业后难找工作，房贷压力大，父母无学位却生活舒适。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>backdrop</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>背景</td><td>against a ~ of</td></tr>
+        <tr><td><b>drastic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>剧烈的</td><td>~ changes</td></tr>
+        <tr><td><b>milestone</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>里程碑</td><td>traditional ~s</td></tr>
+        <tr><td><b>strikingly</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>显著地</td><td>~ different</td></tr>
+        <tr><td><b>prioritize</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>优先考虑</td><td>~ fulfillment</td></tr>
+        <tr><td><b>aftermath</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>后果/余波</td><td>in the ~ of</td></tr>
+        <tr><td><b>searing</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>灼热的</td><td>~ recession</td></tr>
+        <tr><td><b>converge</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>趋同/汇聚</td><td>~ on a point</td></tr>
+        <tr><td><b>signpost</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>路标</td><td>~ achievements</td></tr>
+        <tr><td><b>mortgage</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>抵押贷款</td><td>~ payments</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">Young and old mostly agree on what constitutes the finish line of a fulfilling life, but they offer strikingly different paths for reaching it.</div>
+      <div class="pat-cn">两代人对目标认同，对路径看法迥异。</div>
+      <span class="pat-tag">agree on + what 从句 + but 转折</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Overwhelming majorities of both groups said they believe it is harder for young people today to get started in life than it was for earlier generations.</div>
+      <div class="pat-cn">绝大多数人都认为年轻人起步更难。</div>
+      <span class="pat-tag">it is harder for X to ... than ... 比较结构</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">36. One cross-generation mark of a successful life is ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] trying out different lifestyles</span>
+      <span class="opt ok">[B] having a family with children</span>
+      <span class="opt no">[C] working beyond retirement age</span>
+      <span class="opt no">[D] setting up a profitable business</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis"><p><b>✅ B</b> — P2 S02 "including getting married, <b>having children</b>, owning a home" 结婚生子是跨代际共识的成功标志。</p></div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">37. It can be learned from Paragraph 3 that young people tend to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] favor a slower life pace</span>
+      <span class="opt no">[B] hold an occupation longer</span>
+      <span class="opt ok">[C] attach importance to pre-marital finance</span>
+      <span class="opt no">[D] give priority to childcare outside the home</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis"><p><b>✅ C</b> — P3 S04 "to agree that couples should be <b>financially secure before getting married</b> or having children" 年轻人认为婚前应有经济保障。</p></div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">38. The priorities and expectations defined by the young will ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] become increasingly clear</span>
+      <span class="opt no">[B] focus on materialistic issues</span>
+      <span class="opt no">[C] depend largely on political preferences</span>
+      <span class="opt ok">[D] reach almost all aspects of American life</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis"><p><b>✅ D</b> — P4 S05 "will increasingly spread through <b>virtually all aspects of American life</b>, from consumer preferences to housing patterns to politics"</p></div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">39. Both young and old agree that ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] good-paying jobs are less available</span>
+      <span class="opt no">[B] the old made more life achievements</span>
+      <span class="opt no">[C] housing loans today are easy to obtain</span>
+      <span class="opt ok">[D] getting established is harder for the young</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis"><p><b>✅ D</b> — P5 S06 "Overwhelming majorities of both groups said they believe <b>it is harder for young people today to get started in life</b> than it was for earlier generations"</p></div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">40. Which of the following is true about Schneider?</div>
+    <div class="opts">
+      <span class="opt no">[A] He found a dream job after graduating.</span>
+      <span class="opt no">[B] His parents believe working steadily is a must.</span>
+      <span class="opt ok">[C] His parents' good life has little to do with a college degree.</span>
+      <span class="opt no">[D] He thinks his job as a technician quite challenging.</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis"><p><b>✅ C</b> — P6 S11-S12 "neither had completed college ... I still grew up in an <b>upper middle-class home with parents who didn't have college degrees</b>" 父母无大学学位却提供了中上阶级生活 → 好生活与大学学位关系不大。</p></div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2016 英语（二）Text 4 · 12 句 · 5 题 · 答案 BCDDC</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
