@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2010 考研英语（二）Text 4 — 美国陪审团制度</title>
+<style>
+:root {
+  --bg: #f4f2ed;
+  --card: #fefcf9;
+  --text: #2c2420;
+  --text-soft: #6b5a50;
+  --text-muted: #9c8a7a;
+  --accent: #2c3e7a;          /* 深靛蓝，法律/正义 */
+  --accent-light: #edf0f7;
+  --amber: #b8860b;           /* 古铜金，民主价值 */
+  --amber-light: #fcf6e8;
+  --rust: #7a6a4a;            /* 暖褐 */
+  --rust-light: #f0ece8;
+  --steel: #5a5a6e;           /* 灰紫 */
+  --steel-light: #eeedf0;
+  --panel-bg: #faf8f5;
+  --panel-border: #e8ddd0;
+  --border: #e0d5c8;
+  --shadow: 0 2px 10px rgba(44,36,32,0.06);
+  --shadow-hover: 0 6px 22px rgba(44,36,32,0.12);
+  --radius: 12px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: Georgia, "Noto Serif SC", "Source Han Serif CN", "Songti SC", "SimSun", "PingFang SC", "Microsoft YaHei", "Heiti SC", serif;
+  --font-sans: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 20px 16px 80px;
+  min-height:100vh;
+}
+.container { max-width:800px; margin:0 auto; }
+.header {
+  background:var(--card); border-radius:var(--radius); padding:36px 32px 30px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+  animation: fadeUp .5s ease both;
+}
+.header::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));
+  background-size:200% 100%; animation:shimmer 5s ease infinite;
+}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px;}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px;}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px;}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.badge{
+  font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;
+  background:var(--accent-light);color:var(--accent);
+}
+.badge.amber{background:var(--amber-light);color:#9a7a0a;}
+.badge.rust{background:var(--rust-light);color:var(--rust);}
+.badge.steel{background:var(--steel-light);color:var(--steel);}
+
+.sent{
+  background:var(--card); border-radius:var(--radius); padding:20px 22px 18px;
+  box-shadow:var(--shadow); margin-bottom:14px;
+  animation: fadeUp .45s ease both; position:relative;
+}
+.snum{
+  display:inline-block; width:26px;height:26px;line-height:26px;text-align:center;
+  border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;
+  font-weight:700;margin-right:8px;vertical-align:middle;
+}
+.en{
+  font-family:var(--font); font-size:1.04em; color:var(--text);
+  line-height:1.82; margin:6px 0 2px; word-wrap:break-word;
+}
+.en mark{
+  background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);
+  color:var(--text); border-radius:3px; padding:1px 3px; font-weight:600;
+  cursor:help; border-bottom:1.5px dotted var(--amber);
+}
+.en u{
+  text-decoration:none; background:linear-gradient(180deg,rgba(44,62,122,.15) 0%,rgba(44,62,122,.05) 100%);
+  border-left:3px solid var(--accent); padding:2px 6px; border-radius:3px; font-style:normal;
+  display:inline; font-weight:500;
+}
+.sent-hr{
+  border:0; height:2px; margin:12px 0 10px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:.5;
+}
+.cn{
+  color:var(--text-soft); font-size:.94em; line-height:1.7; padding-left:6px;
+}
+.syntax-toggle{
+  font-size:.76em; font-weight:600; cursor:pointer; user-select:none;
+  background:var(--rust-light); color:var(--rust);
+  border:1px solid var(--rust); border-radius:18px;
+  padding:3px 12px; margin-top:10px; display:inline-flex; align-items:center; gap:4px;
+  transition:all var(--transition); letter-spacing:.3px;
+}
+.syntax-toggle:hover{background:var(--rust); color:#fff; transform:translateY(-1px); box-shadow:0 3px 8px rgba(122,106,74,.28);}
+.syntax-toggle:active{transform:translateY(0); box-shadow:none;}
+.syntax-toggle.collapsed{background:var(--accent-light); color:var(--accent); border-color:var(--accent);}
+.syntax-toggle.collapsed:hover{background:var(--accent); color:#fff;}
+.syntax{
+  margin-top:8px; padding:10px 14px; border-radius:8px;
+  background:#fefcf8; border-left:3px solid var(--accent);
+  font-size:.86em; color:#6b6048; line-height:1.65;
+  overflow:hidden; max-height:2000px;
+  transition:max-height .35s ease, opacity .3s ease, padding .3s ease, margin .3s ease;
+}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0;}
+
+.card{
+  background:var(--card); border-radius:var(--radius); padding:22px 24px 18px;
+  box-shadow:var(--shadow); margin-top:16px; animation:fadeUp .5s ease .1s both;
+}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.card h2 .toggle{
+  font-size:.78em !important; cursor:pointer;
+  color:#fff !important; font-weight:700 !important;
+  background:var(--accent) !important; padding:5px 14px !important;
+  border-radius:20px !important; user-select:none;
+  transition:all var(--transition) !important;
+  display:inline-flex;align-items:center;gap:4px;margin-left:auto;
+  letter-spacing:.5px; border-left:3px solid var(--amber) !important;
+  box-shadow:0 2px 6px rgba(44,62,122,0.2) !important;
+}
+.card h2 .toggle:hover{
+  background:var(--amber) !important; transform:translateY(-1px);
+  box-shadow:0 4px 10px rgba(184,134,11,0.35) !important;
+}
+.card h2 .toggle.collapsed{background:var(--rust) !important; border-left-color:var(--amber) !important;}
+.card h2 .toggle.collapsed:hover{background:var(--steel) !important;}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease;}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none;}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em;}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber);}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:hover td{background:var(--panel-bg);}
+
+.pat{
+  background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;
+  padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;
+  border-left:4px solid var(--amber);
+}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px;}
+.pat-cn{color:var(--text-muted);font-size:.9em;}
+.pat-tag{
+  display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a7a0a;
+  padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600;
+}
+
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);
+  background:var(--panel-bg);border:1px solid var(--panel-border);}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;
+  background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s;}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a7a0a;}
+.opt.no{color:var(--text-muted);}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border);}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72;}
+.analysis p{margin-bottom:6px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+
+@media(max-width:600px){
+  body{padding:12px 10px 60px;}
+  .header{padding:24px 18px 20px;}
+  .header h1{font-size:1.35em;}
+  .sent{padding:16px 14px 14px;}
+  .en{font-size:1em;overflow-wrap:break-word;word-break:break-word;}
+  .opts{grid-template-columns:1fr;}
+  .card{padding:18px 16px 14px;}
+  .card h2{font-size:1.05em;flex-wrap:wrap;}
+  .card h2 .toggle{font-size:.74em !important; padding:4px 10px !important; }
+  .collapsible-body{max-height:200000px!important;}
+  .syntax{max-height:none!important;}
+  .analysis p{overflow-wrap:break-word;word-break:break-word;}
+}
+@media print{
+  .collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  .syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px;}
+  .badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none;}
+  body{padding:0;background:#fff;}
+  .sent,.card,.header{box-shadow:none;break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>美国陪审团制度<small>2010 考研英语（二）· Text 4</small></h1>
+  <p class="sub">Many Americans regard the jury system as a concrete expression of crucial democratic values</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span>
+    <span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 法律与社会</span>
+    <span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 陪审团制度的民主价值</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Many Americans regard the jury system as a concrete expression of crucial democratic values, including the principles that all citizens who meet minimal qualifications of age and literacy are equally competent to serve on juries; that jurors should be selected randomly from a representative cross section of the community; that no citizen should be denied the right to serve on a jury on account of race, religion, sex, or national origin; that defendants are entitled to trial by their peers; and that verdicts should represent the conscience of the community and not just the letter of the law.</div>
+  <hr class="sent-hr">
+  <div class="cn">许多美国人将陪审团制度视为关键民主价值的具体体现，这些原则包括：所有满足年龄和读写能力最低限度的公民都有同等资格担任陪审员；陪审员应从社区中具有代表性的成员中随机挑选；任何公民不得因种族、宗教、性别或民族出身而被剥夺担任陪审员的权利；被告有权由同龄人审判；裁决应代表社区的良知而不仅仅是法律条文。</div>
+  <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
+  <div class="syntax" id="s1">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：Many Americans regard the jury system as a concrete expression（主+谓+宾+宾补）。<br>
+    <b>5 个并列的同位语从句</b>：that ... ; that ... ; that ... ; that ... ; and that ... → 全部由 including the principles 引出，解释 principles 的具体内容。<br>
+    &nbsp;&nbsp;① that all citizens who meet minimal qualifications ... are equally competent → 内含定语从句 who meet minimal qualifications<br>
+    &nbsp;&nbsp;② that jurors should be selected randomly from a representative cross section<br>
+    &nbsp;&nbsp;③ that no citizen should be denied the right ... on account of race, religion, sex, or national origin<br>
+    &nbsp;&nbsp;④ that defendants are entitled to trial by their peers<br>
+    &nbsp;&nbsp;⑤ that verdicts should represent the conscience of the community and not just the letter of the law<br>
+    <b>💡 句式亮点</b>：五个 that 从句并列的长列举，阅读时先抓 including the principles，然后逐个看分号分隔的 that 从句即可。<br>
+    <b>词义</b>：<b>concrete</b> 具体的；<b>competent</b> 有能力的/合格的；<b>on account of</b> 由于；<b>be entitled to</b> 有权做；<b>verdict</b> 裁决；<b>conscience</b> 良知。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">The jury is also said to be the best surviving example of direct rather than representative democracy.</div>
+  <hr class="sent-hr">
+  <div class="cn">陪审团也被说是现存最好的直接民主而非代议制民主的例子。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The jury is said to be the best surviving example（被动语态 + 不定式作主补）。<br>
+    <b>词义</b>：<b>rather than</b> 而不是；<b>representative democracy</b> 代议制民主；<b>direct democracy</b> 直接民主。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">In a direct democracy, citizens take turns governing themselves, rather than electing representatives to govern for them.</div>
+  <hr class="sent-hr">
+  <div class="cn">在直接民主中，公民轮流自我治理，而不是选举代表替他们治理。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：citizens take turns governing themselves（主+谓+宾语+动名词作宾语）。<br>
+    <b>rather than</b> 连接两个并列的动名词：governing vs electing。<br>
+    <b>词义</b>：<b>take turns</b> 轮流。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 1968 年前陪审团遴选中的歧视</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">But as recently as in 1968, jury selection procedures <u>conflicted with</u> these democratic ideals.</div>
+  <hr class="sent-hr">
+  <div class="cn">但就在 1968 年，陪审团遴选程序还与这些民主理想相冲突。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4">
+    <b>🔍 语法解析</b><br>
+    <b>转折</b>：But 与上文的 ideals 形成对比——理想很美好，但现实中存在冲突。<br>
+    <b>词义</b>：<b>conflict with</b> 与……冲突；<b>as recently as</b> 就在（强调时间很近）。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">In some states, for example, jury duty was limited to persons of supposedly superior intelligence, education, and moral character.</div>
+  <hr class="sent-hr">
+  <div class="cn">例如，在一些州，陪审团义务仅限于那些被认为具有更高智力、教育和道德品质的人。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：jury duty was limited to persons（主+被动谓+介宾）。<br>
+    <b>词义</b>：<b>jury duty</b> 陪审义务；<b>supposedly</b> 据说/据认为；<b>superior</b> 更高的/优越的；<b>moral character</b> 道德品质。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Although the Supreme Court of the United States had prohibited intentional racial discrimination in jury selection as early as the 1880 case of <em>Strauder v. West Virginia</em>, the practice of selecting so-called elite or blue-ribbon juries provided a convenient way around this and other <u>antidiscrimination</u> laws.</div>
+  <hr class="sent-hr">
+  <div class="cn">尽管美国最高法院早在 1880 年 Strauder 诉 West Virginia 案中就禁止了陪审团遴选中的蓄意种族歧视，但挑选所谓的精英或蓝带陪审团的做法为规避这项法律及其他反歧视法律提供了便捷途径。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6">
+    <b>🔍 长难句拆解</b><br>
+    <b>主句</b>：the practice of selecting so-called elite or blue-ribbon juries provided a convenient way around this and other antidiscrimination laws（主+谓+宾）。<br>
+    <b>让步状语从句</b>：Although the Supreme Court ... had prohibited intentional racial discrimination in jury selection ... as early as the 1880 case of ...<br>
+    <b>💡 逻辑</b>：虽然最高法院禁止了歧视→但"精英陪审团"的做法成了绕过反歧视法律的途径。注意这里的"精英"实际上是歧视的遮羞布。<br>
+    <b>词义</b>：<b>prohibit</b> 禁止；<b>intentional</b> 故意的；<b>elite</b> 精英；<b>blue-ribbon</b> 蓝带/一流的；<b>antidiscrimination</b> 反歧视的。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 女性被排除在陪审团之外</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">The system also failed to regularly include women on juries until the mid-20th century.</div>
+  <hr class="sent-hr">
+  <div class="cn">该系统直到 20 世纪中期才将女性定期纳入陪审团。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：The system failed to include women（主+谓+宾）。failed to = "未能"（否定含义）。<br>
+    <b>时间状语</b>：until the mid-20th century，注意 until 的翻译："直到……才"。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">Although women first served on state juries in Utah in 1898, it was not until the 1940s that a majority of states made women eligible for jury duty.</div>
+  <hr class="sent-hr">
+  <div class="cn">尽管女性早在 1898 年就在犹他州首次担任州陪审员，但直到 20 世纪 40 年代，大多数州才使女性有资格担任陪审员。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8">
+    <b>🔍 语法解析</b><br>
+    <b>强调句型</b>：it was not until ... that ...（直到……才……），是考研阅读和写作高频句型。正常语序为：A majority of states did not make women eligible until the 1940s。<br>
+    <b>从句</b>：Although women first served ... in 1898 → 让步状语从句。<br>
+    <b>词义</b>：<b>eligible</b> 有资格的/符合条件的。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Even then several states automatically <u>exempted</u> women from jury duty unless they personally asked to have their names included on the jury list.</div>
+  <hr class="sent-hr">
+  <div class="cn">即使在那时，几个州仍然自动免除女性的陪审义务，除非她们亲自要求将自己的名字列入陪审团名单。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：several states exempted women from jury duty（主+谓+宾+宾补）。<br>
+    <b>条件状语从句</b>：unless they personally asked to have their names included on the jury list（unless = 除非）。<br>
+    <b>词义</b>：<b>exempt</b> 免除；<b>personally</b> 亲自。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">This practice was justified by the claim that women were needed at home, and it kept juries unrepresentative of women through the 1960s.</div>
+  <hr class="sent-hr">
+  <div class="cn">这种做法以"家里需要女性"为由被正当化，这导致陪审团在整个 20 世纪 60 年代都缺乏女性代表。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10">
+    <b>🔍 语法解析</b><br>
+    <b>并列句</b>：and 连接两个分句。<br>
+    &nbsp;&nbsp;前分句：This practice was justified by the claim that women were needed at home — that 引导同位语从句解释 claim 的内容。<br>
+    &nbsp;&nbsp;后分句：it kept juries unrepresentative of women through the 1960s。<br>
+    <b>词义</b>：<b>justify</b> 证明…正当/为…辩护；<b>unrepresentative</b> 不具代表性的。
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 1968 年改革：陪审团制度的新时代</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">In 1968, the Congress of the United States passed the Jury Selection and Service Act, ushering in a new era of democratic reforms for the jury.</div>
+  <hr class="sent-hr">
+  <div class="cn">1968 年，美国国会通过了《陪审团遴选与服务法案》，开启了陪审团民主改革的新时代。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11">
+    <b>🔍 语法解析</b><br>
+    <b>主干</b>：the Congress passed the Act（主+谓+宾）。<br>
+    <b>伴随状语</b>：ushering in a new era of democratic reforms for the jury → 现在分词短语作结果/伴随状语。<br>
+    <b>词义</b>：<b>usher in</b> 开启/迎来；<b>era</b> 时代。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">This law abolished special educational requirements for federal jurors and required them to be selected at random from a cross section of the entire community.</div>
+  <hr class="sent-hr">
+  <div class="cn">该法律废除了对联邦陪审员的特殊教育要求，并规定应从整个社区各阶层中随机挑选。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12">
+    <b>🔍 语法解析</b><br>
+    <b>并列谓语</b>：abolished ... and required（两个并列动词）。<br>
+    <b>词义</b>：<b>abolish</b> 废除；<b>at random</b> 随机地；<b>cross section</b> 横截面/各阶层人士。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">In the landmark 1975 decision <em>Taylor v. Louisiana</em>, the Supreme Court extended the requirement that juries be representative of all parts of the community to the state level.</div>
+  <hr class="sent-hr">
+  <div class="cn">在 1975 年具有里程碑意义的 Taylor 诉 Louisiana 案的判决中，最高法院将"陪审团须代表社区各阶层"这一要求扩展到了州一级。</div>
+  <button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13">
+    <b>🔍 长难句拆解</b><br>
+    <b>主干</b>：the Supreme Court extended the requirement ... to the state level（主+谓+宾+介宾）。<br>
+    <b>同位语从句</b>：that juries be representative of all parts of the community → 解释 requirement 的内容（注意从句使用了虚拟语气：be 而非 are）。<br>
+    <b>修饰</b>：In the landmark 1975 decision <em>Taylor v. Louisiana</em> → 时间/背景状语。<br>
+    <b>词义</b>：<b>landmark</b> 里程碑式的；<b>extend ... to</b> 将……扩展到。
+  </div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">The Taylor decision also declared sex discrimination in jury selection to be unconstitutional and ordered states to use the same procedures for selecting male and female jurors.</div>
+  <hr class="sent-hr">
+  <div class="cn">Taylor 案的判决还宣布陪审团遴选中的性别歧视违反宪法，并命令各州在遴选男女陪审员时使用相同的程序。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14">
+    <b>🔍 语法解析</b><br>
+    <b>并列谓语</b>：declared ... and ordered（两个并列动词）。<br>
+    &nbsp;&nbsp;① declared sex discrimination ... to be unconstitutional → declare + 宾语 + to be 补语<br>
+    &nbsp;&nbsp;② ordered states to use the same procedures → order + 宾语 + 不定式<br>
+    <b>词义</b>：<b>declare</b> 宣布；<b>unconstitutional</b> 违宪的（un- 否定 + constitution 宪法 + -al）。
+  </div>
+</div>
+
+
+<!-- ===== Bottom ===== -->
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat">
+      <div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+        <span class="num">①</span> P1: 陪审团制度的民主价值——5 项原则 + 直接民主的体现。<br>
+        <span class="num">②</span> P2: 1968 年前的冲突——精英陪审团规避了反歧视法。<br>
+        <span class="num">③</span> P3: 女性被排除在外——直到 1940s 才有资格，1960s 仍缺乏代表。<br>
+        <span class="num">④</span> P4: 1968 年改革——废除教育要求、随机遴选、Taylor 案禁止性别歧视。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table>
+      <thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>concrete</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>具体的</td><td>~ expression</td></tr>
+        <tr><td><b>competent</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有能力的/合格的</td><td>be ~ to do</td></tr>
+        <tr><td><b>verdict</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>裁决</td><td>法律术语</td></tr>
+        <tr><td><b>conscience</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>良知</td><td>~ of the community</td></tr>
+        <tr><td><b>conflict with</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>与…冲突</td><td>~ democratic ideals</td></tr>
+        <tr><td><b>prohibit</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>禁止</td><td>~ discrimination</td></tr>
+        <tr><td><b>elite</b></td><td style="color:var(--text-muted);font-size:.9em;">n./adj.</td><td>精英</td><td>~ jury</td></tr>
+        <tr><td><b>antidiscrimination</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>反歧视的</td><td>anti- + discrimination</td></tr>
+        <tr><td><b>eligible</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有资格的</td><td>be ~ for</td></tr>
+        <tr><td><b>exempt</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>免除</td><td>~ from</td></tr>
+        <tr><td><b>justify</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>证明…正当</td><td>be justified by</td></tr>
+        <tr><td><b>abolish</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>废除</td><td>~ requirements</td></tr>
+        <tr><td><b>landmark</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>里程碑式的</td><td>~ decision</td></tr>
+        <tr><td><b>unconstitutional</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>违宪的</td><td>un- + constitution + -al</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">It was not until the 1940s that a majority of states made women eligible for jury duty.</div>
+      <div class="pat-cn">直到 1940 年代大多数州才使女性有资格担任陪审员。</div>
+      <span class="pat-tag">it was not until ... that 强调句型</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Although the Supreme Court had prohibited intentional racial discrimination, the practice of selecting elite juries provided a convenient way around antidiscrimination laws.</div>
+      <div class="pat-cn">尽管最高法院禁止了种族歧视，但精英陪审团的做法绕过了反歧视法。</div>
+      <span class="pat-tag">Although 让步 + 主句转折</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">No citizen should be denied the right to serve on a jury on account of race, religion, sex, or national origin.</div>
+      <div class="pat-cn">任何公民不得因种族、宗教、性别或民族出身被剥夺陪审权利。</div>
+      <span class="pat-tag">deny + 双宾语 + on account of 列举</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">36. From the principles of the U.S. jury system, we learn that ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] both literate and illiterate people can serve on juries</span>
+      <span class="opt no">[B] defendants are immune from trial by their peers</span>
+      <span class="opt no">[C] no age limit should be imposed for jury service</span>
+      <span class="opt ok">[D] judgment should consider the opinion of the public</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（judgment should consider the opinion of the public 判决应考虑公众意见）</b></p>
+      <p><b>定位</b>：P1 · S01 — "verdicts should represent the <b>conscience of the community</b> and not just the letter of the law"</p>
+      <p><b>推理</b>：conscience of the community（社区的良知）= opinion of the public（公众意见）。且 "not just the letter of the law"（不仅是法律条文）进一步印证了判决应考虑社会公众的看法。</p>
+      <p><b>❌ A 错误</b>：both literate and illiterate people（有读写能力和无读写能力的人）——S01 明确说 "meet minimal qualifications of age and <b>literacy</b>"，说明 literacy（读写能力）是一项最低要求，不识字的人不符合资格。</p>
+      <p><b>❌ B 错误</b>：defendants are immune from trial by their peers（被告免于由同龄人审判）——与 S01 "defendants are <b>entitled to</b> trial by their peers"（被告<b>有权</b>由同龄人审判）完全相反。</p>
+      <p><b>❌ C 错误</b>：no age limit should be imposed（不应设年龄限制）——S01 说 "meet minimal qualifications of age"，说明有最低年龄要求。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">37. The practice of selecting so-called elite jurors prior to 1968 showed ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] the inadequacy of antidiscrimination laws</span>
+      <span class="opt no">[B] the prevalent discrimination against certain races</span>
+      <span class="opt no">[C] the conflicting ideals in jury selection procedures</span>
+      <span class="opt no">[D] the arrogance common among the Supreme Court judges</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（the inadequacy of antidiscrimination laws 反歧视法律的不完善/不足）</b></p>
+      <p><b>定位</b>：P2 · S06 — "the practice of selecting so-called elite or blue-ribbon juries provided a <b>convenient way around this and other antidiscrimination laws</b>"</p>
+      <p><b>推理</b>：精英陪审团的做法为规避反歧视法提供了"便捷途径"——这说明反歧视法律本身存在漏洞/不足（inadequacy），否则就不会被如此轻易地绕过。</p>
+      <p><b>❌ B 错误</b>：prevalent discrimination against certain races（针对某些种族的普遍歧视）——虽然 discrimination 是背景，但精英陪审团的做法<b>本身</b>展示的是 antidiscrimination laws 的 inadequacy，而不是歧视的 prevalence。</p>
+      <p><b>❌ C 错误</b>：the conflicting ideals in jury selection procedures（陪审团遴选程序中的冲突理念）——conflicting ideals 是 P2 S04 提到的，但精英陪审团制度<i>本身</i>展示的是法律漏洞，不是理念冲突。</p>
+      <p><b>❌ D 错误</b>：arrogance common among the Supreme Court judges（最高法院法官中普遍的傲慢）——文中未提及。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">38. Even in the 1960s, women were seldom on the jury list in some states because ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] they were automatically banned by state laws</span>
+      <span class="opt no">[B] they fell far short of the required qualifications</span>
+      <span class="opt ok">[C] they were supposed to perform domestic duties</span>
+      <span class="opt no">[D] they tended to evade public engagement</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（they were supposed to perform domestic duties 她们被认为应该处理家务）</b></p>
+      <p><b>定位</b>：P3 · S10 — "This practice was justified by the claim that <b>women were needed at home</b>"</p>
+      <p><b>推理</b>：women were needed at home（家里需要女性）= 女性应该做家务/持家（perform domestic duties）。这正是免除女性陪审义务的"正当理由"。</p>
+      <p><b>❌ A 错误</b>：automatically banned by state laws（被州法律自动禁止）——S09 说的是 "automatically <b>exempted</b>"（自动<b>免除</b>），不是 banned（禁止）。exempt = 免除义务，banned = 禁止，含义不同。</p>
+      <p><b>❌ B 错误</b>：fell far short of the required qualifications（远达不到资格要求）——不是不够资格，而是被"自动免除"。</p>
+      <p><b>❌ D 错误</b>：tended to evade public engagement（倾向于逃避公共事务）——文中说是被豁免（被动），不是女性主动逃避。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">39. After the Jury Selection and Service Act was passed, ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] sex discrimination in jury selection was unconstitutional and had to be abolished</span>
+      <span class="opt ok">[B] educational requirements became less rigid in the selection of federal jurors</span>
+      <span class="opt no">[C] jurors at the state level ought to be representative of the entire community</span>
+      <span class="opt no">[D] states ought to conform to the federal court in reforming the jury system</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（educational requirements became less rigid in the selection of federal jurors 联邦陪审员遴选中的教育要求变得不那么严格了）</b></p>
+      <p><b>定位</b>：P4 · S12 — "This law <b>abolished special educational requirements</b> for federal jurors"</p>
+      <p><b>推理</b>：abolished special educational requirements（废除了特殊教育要求）= became less rigid（变得不那么严格）。注意题目问的是 "After the Act was passed"（法案通过后），B 选项说的是联邦（federal）层面的变化，与原文一致。</p>
+      <p><b>❌ A 错误</b>：sex discrimination ... was unconstitutional and had to be abolished（性别歧视违宪且必须废除）——这是 1975 年 Taylor 案的判决内容（S14），不是 1968 年法案的内容。</p>
+      <p><b>❌ C 错误</b>：jurors at the state level ought to be representative of the entire community（州级陪审员应代表整个社区）——这也是 Taylor 案（S13）将要求扩展到州级的，不是 1968 年法案本身的内容。</p>
+      <p><b>❌ D 错误</b>：states ought to conform to the federal court（各州应遵从联邦法院）——文中未提。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">40. In discussing the U.S. jury system, the text centers on ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] its nature and problems</span>
+      <span class="opt no">[B] its characteristics and tradition</span>
+      <span class="opt no">[C] its problems and their solutions</span>
+      <span class="opt ok">[D] its tradition and development</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（its tradition and development 其传统与发展）</b></p>
+      <p><b>定位</b>：全文主旨题。文章结构：<br>
+      P1 → 传统/理想（democratic values, principles）<br>
+      P2-P3 → 问题（精英陪审团、女性排除）<br>
+      P4 → 发展/改革（1968 Act + Taylor 案）</p>
+      <p><b>推理</b>：文章按<b>时间线</b>组织——从陪审团制度的民主理念（传统）→ 历史上的歧视问题 → 1968-1975 年的改革（发展）。D 选项 "tradition and development" 最全面地概括了这种"从传统到发展"的结构。</p>
+      <p><b>❌ A 错误</b>：its nature and problems（本质和问题）——只覆盖了前 3 段，漏掉了第四段的改革/发展。</p>
+      <p><b>❌ C 错误</b>：its problems and their solutions（问题及其解决方案）——虽然 P2-P3 是 problems，P4 是 solution，但 P1 对 democratic ideals 的阐述不属于 problems 或 solutions，而是 tradition/background。</p>
+      <p><b>❌ B 错误</b>：its characteristics and tradition（特点和传统）——漏掉了问题和改革部分。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2010 英语（二）Text 4 · 14 句 · 5 题 · 答案 DACBD</div>
+
+</div>
+
+<script>
+function toggleSyntax(id) {
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el||!btn)return;
+  if(el.classList.contains('hidden')){
+    el.classList.remove('hidden');
+    btn.classList.remove('collapsed');
+    btn.textContent='▲ 收起解析';
+  }else{
+    el.classList.add('hidden');
+    btn.classList.add('collapsed');
+    btn.textContent='▼ 展开解析';
+  }
+}
+function toggleBody(id) {
+  var body=document.getElementById(id);
+  if(!body)return;
+  var toggle=body.parentElement.querySelector('.toggle');
+  var h=body.classList.contains('hidden');
+  body.classList.toggle('hidden',!h);
+  toggle.textContent=h?'▲ 收起':'▼ 展开';
+  toggle.classList.toggle('collapsed',!h);
+}
+</script>
+</body>
+</html>
