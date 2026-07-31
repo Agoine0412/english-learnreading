@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2011 考研英语（二）Text 1 — 外部董事的困境</title>
+<style>
+:root{--bg:#f2f1ed;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#1a3a4a;--accent-light:#e7ecee;--amber:#b8860b;--amber-light:#fcf6e8;--rust:#5a7a7a;--rust-light:#e9efef;--steel:#4a5a6a;--steel-light:#e9edf0;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a7a0a}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(26,58,74,.15) 0%,rgba(26,58,74,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(90,122,122,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(26,58,74,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(184,134,11,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a7a0a;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a7a0a}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>外部董事的困境<small>2011 考研英语（二）· Text 1</small></h1>
+  <p class="sub">Ruth Simmons joined Goldman Sachs's board as an outside director — outside directors' role, risks, and incentives</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 公司治理</span><span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — Ruth Simmons 的案例</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Ruth Simmons joined Goldman Sachs's board as an <u>outside director</u> in January 2000; a year later she became president of Brown University.</div>
+  <hr class="sent-hr"><div class="cn">2000 年 1 月，Ruth Simmons 以外部董事的身份加入高盛董事会；一年后，她成为布朗大学的校长。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>并列句</b>：分号连接两个独立分句，讲述 Simmons 的两个身份转变。<br>&nbsp;&nbsp;前分句：Ruth Simmons（主）+ joined（谓）+ Goldman Sachs's board（宾）+ as an outside director（方式状语）<br>&nbsp;&nbsp;后分句：a year later（时间状语）+ she（主）+ became（系）+ president（表）<br><b>词义</b>：<b>outside director</b> 外部董事（不在公司任职、只参与董事会的独立人士）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">For the rest of the decade she apparently managed both roles without attracting much criticism.</div>
+  <hr class="sent-hr"><div class="cn">在那十年的剩余时间里，她显然同时兼顾两个角色，没有招致太多批评。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：she（主）+ managed（谓）+ both roles（宾）+ without attracting much criticism（方式状语，介词短语）。<br><b>词义</b>：<b>apparently</b> 显然/表面上看；<b>criticism</b> 批评。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">But by the end of 2009, Ms. Simmons was <u>under fire</u> for having sat on Goldman's compensation committee; how could she have let those enormous bonus payouts pass unremarked?</div>
+  <hr class="sent-hr"><div class="cn">但到 2009 年底，Simmons 女士因在高盛薪酬委员会任职而受到抨击：她怎能任由那些巨额奖金支出悄无声息地通过呢？</div>
+  <button class="syntax-toggle" id="btn-s3" onclick="toggleSyntax('s3')">▲ 收起解析</button>
+  <div class="syntax" id="s3"><b>🔍 长难句拆解</b><br><b>主句</b>：Ms. Simmons was under fire for having sat on Goldman's compensation committee（主+系+表 + for 原因状语）。<br><b>分号后反问</b>：how could she have let those enormous bonus payouts pass unremarked? → 反问句，用 could have let 表"本该阻止却未阻止"的责备。<br><b>💡 Q21 考点</b>：Simmons 被批评的原因是她任由巨额奖金通过（未能履行职责）。<br><b>词义</b>：<b>under fire</b> 受到抨击；<b>compensation committee</b> 薪酬委员会；<b>unremarked</b> 未被注意的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">By February the next year, Ms. Simmons had left the board.</div>
+  <hr class="sent-hr"><div class="cn">到第二年 2 月，Simmons 女士已经离开了董事会。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>时态</b>：had left 过去完成时，强调"到 2010 年 2 月这个时间点之前已经离开"。<br><b>词义</b>：<b>board</b> 董事会。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">The position was just taking up too much time, she said.</div>
+  <hr class="sent-hr"><div class="cn">她说，这个职位占用了太多时间。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>引述结构</b>：she said 置于句末。<br><b>词义</b>：<b>take up</b> 占用（时间/空间）。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 外部董事应有的角色</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Outside directors are supposed to serve as helpful, yet less biased, <u>advisers</u> on a firm's board.</div>
+  <hr class="sent-hr"><div class="cn">外部董事本应在公司董事会中充当有益的、然而偏见较少的顾问。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6"><b>🔍 语法解析</b><br><b>主干</b>：Outside directors（主）+ are supposed to serve（谓）+ as ... advisers（主补）。<br><b>修饰</b>：helpful, yet less biased → 两个并列形容词修饰 advisers，yet 表"然而"。<br><b>词义</b>：<b>be supposed to</b> 应该/本应；<b>biased</b> 有偏见的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">Having made their wealth and their reputations elsewhere, they presumably have enough independence to disagree with the chief executive's proposals.</div>
+  <hr class="sent-hr"><div class="cn">由于在其他地方已经积累了财富和声誉，他们大概有足够的独立性去反对首席执行官的建议。</div>
+  <button class="syntax-toggle" id="btn-s7" onclick="toggleSyntax('s7')">▲ 收起解析</button>
+  <div class="syntax" id="s7"><b>🔍 长难句拆解</b><br><b>主干</b>：they（主）+ have（谓）+ enough independence（宾）+ to disagree with ...（不定式后置定语）。<br><b>分词状语</b>：Having made their wealth and their reputations elsewhere → 现在分词完成式作原因状语（"因为已经……所以……"）。<br><b>词义</b>：<b>elsewhere</b> 在别处；<b>presumably</b> 大概/推测起来；<b>chief executive</b> 首席执行官（CEO）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">If the sky, and the share price, is falling, outside directors should be able to give advice based on having weathered their own crises.</div>
+  <hr class="sent-hr"><div class="cn">如果天塌下来——股价下跌——外部董事应该能够基于自己经历过危机的经验提供建议。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>条件状语从句</b>：If the sky, and the share price, is falling（插入语 and the share price 将 sky 和股价并列）。<br><b>主句</b>：outside directors should be able to give advice based on having weathered their own crises（过去分词短语 based on ... 作后置定语修饰 advice）。<br><b>词义</b>：<b>weather</b> 经受住/渡过（危机）；<b>share price</b> 股价。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 俄亥俄大学的研究：外部董事突然离职的后果</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">The researchers from Ohio University used a database that covered more than 10,000 firms and more than 64,000 different directors between 1989 and 2004.</div>
+  <hr class="sent-hr"><div class="cn">俄亥俄大学的研究人员使用了一个数据库，覆盖了 1989 年至 2004 年间超过 10000 家公司和 64000 多位不同的董事。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9"><b>🔍 语法解析</b><br><b>主干</b>：The researchers（主）+ used（谓）+ a database（宾）。<br><b>定语从句</b>：that covered more than 10,000 firms and more than 64,000 different directors between 1989 and 2004 → 修饰 database。<br><b>词义</b>：<b>database</b> 数据库；<b>firm</b> 公司。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Then they simply checked which directors stayed from one proxy statement to the next.</div>
+  <hr class="sent-hr"><div class="cn">然后他们只是核对哪些董事从一份委托书持续到下一份。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10"><b>🔍 语法解析</b><br><b>主干</b>：they checked（主+谓）+ which directors stayed（宾语从句）。<br><b>词义</b>：<b>proxy statement</b> 股东委托书（proxy 代理/委托）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">The most likely reason for departing a board was age, so the researchers concentrated on those "surprise" disappearances by directors under the age of 70.</div>
+  <hr class="sent-hr"><div class="cn">离开董事会最可能的原因是年龄，因此研究人员聚焦于 70 岁以下董事的"突然"消失。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>因果并列句</b>：so 连接结果。<br>&nbsp;&nbsp;前分句：The most likely reason ... was age（主+系+表）<br>&nbsp;&nbsp;后分句：the researchers concentrated on those "surprise" disappearances by directors under the age of 70<br><b>词义</b>：<b>concentrate on</b> 聚焦于；<b>under the age of 70</b> 70 岁以下。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">They found that after a surprise departure, the probability that the company will subsequently have to restate earnings increases by nearly 20%.</div>
+  <hr class="sent-hr"><div class="cn">他们发现，在突然离职之后，公司随后不得不重述收益的概率增加了近 20%。</div>
+  <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
+  <div class="syntax" id="s12"><b>🔍 长难句拆解</b><br><b>主干</b>：They found that ...（主+谓+宾语从句）。<br><b>宾语从句</b>：the probability ... increases by nearly 20%。<br>&nbsp;&nbsp;① after a surprise departure → 时间状语<br>&nbsp;&nbsp;② that the company will subsequently have to restate earnings → 同位语从句修饰 probability<br><b>💡 语法点</b>：probability 后接 that 同位语从句，解释"这种概率的具体内容"。<br><b>词义</b>：<b>restate</b> 重述（收益）；<b>subsequently</b> 随后。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">The likelihood of being named in a federal class-action lawsuit also increases, and the stock is likely to perform worse.</div>
+  <hr class="sent-hr"><div class="cn">被列入联邦集体诉讼的可能性也会增加，股票表现可能更差。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>并列句</b>：and 连接两个分句。<br>&nbsp;&nbsp;前分句：The likelihood of being named in a federal class-action lawsuit increases<br>&nbsp;&nbsp;后分句：the stock is likely to perform worse<br><b>词义</b>：<b>likelihood</b> 可能性；<b>class-action lawsuit</b> 集体诉讼；<b>perform worse</b> 表现更差。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">The effect tended to be larger for larger firms.</div>
+  <hr class="sent-hr"><div class="cn">对于较大的公司，这种影响往往更大。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>主干</b>：The effect（主）+ tended to be（谓）+ larger（表）。<br><b>词义</b>：<b>tend to</b> 倾向于/往往。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Although a correlation between them leaving and subsequent bad performance at the firm is suggestive, it does not mean that such directors are always jumping off a sinking ship.</div>
+  <hr class="sent-hr"><div class="cn">尽管他们的离开与公司随后表现不佳之间的相关性具有启发性，但这并不意味着这些董事总是在跳离一艘正在下沉的船。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15"><b>🔍 长难句拆解</b><br><b>让步状语从句</b>：Although a correlation between them leaving and subsequent bad performance at the firm is suggestive。<br>&nbsp;&nbsp;them leaving → 动名词复合结构（逻辑主语 them + leaving）<br><b>主句</b>：it does not mean that such directors are always jumping off a sinking ship（宾语从句）。<br><b>💡 习语</b>：jump off a sinking ship = 弃船逃生/离开注定失败的事业。<br><b>词义</b>：<b>correlation</b> 相关性；<b>suggestive</b> 有启发性的/暗示性的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">Often they "trade up," leaving riskier, smaller firms for larger and more stable firms.</div>
+  <hr class="sent-hr"><div class="cn">他们常常"向上交易"，离开风险较高、较小的公司，转向更大更稳定的公司。</div>
+  <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s16"><b>🔍 语法解析</b><br><b>主干</b>：they "trade up"（主+谓）。<br><b>伴随状语</b>：leaving riskier, smaller firms for larger and more stable firms → 现在分词短语，说明 trade up 的具体动作。<br><b>词义</b>：<b>trade up</b> 向上换/升级（跳槽到更好的公司）；<b>stable</b> 稳定的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 如何留住外部董事</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">But the researchers believe that outside directors have an easier time of avoiding a blow to their reputations if they leave a firm before bad news breaks, even if a review of history shows they were on the board at the time any wrongdoing occurred.</div>
+  <hr class="sent-hr"><div class="cn">但研究人员认为，如果外部董事在坏消息爆出之前离开公司，他们就能更容易地避免声誉受损，即使历史回顾显示他们在任何不当行为发生时仍在董事会任职。</div>
+  <button class="syntax-toggle" id="btn-s17" onclick="toggleSyntax('s17')">▲ 收起解析</button>
+  <div class="syntax" id="s17"><b>🔍 长难句拆解</b><br><b>主干</b>：the researchers believe that ...（主+谓+宾语从句）。<br><b>宾语从句</b>：outside directors have an easier time of avoiding a blow to their reputations。<br>&nbsp;&nbsp;① if they leave a firm before bad news breaks → 条件状语从句<br>&nbsp;&nbsp;② even if a review of history shows they were on the board at the time any wrongdoing occurred → 让步状语从句，内含宾语从句 shows（that）they were ... 和定语从句 any wrongdoing occurred（省略 when）<br><b>💡 Q24 考点</b>：此句说明外部董事倾向于在坏消息前离开以保声誉。<br><b>词义</b>：<b>a blow to</b> 对……的打击；<b>wrongdoing</b> 不当行为。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">18</span>
+  <div class="en">Firms who want to keep their outside directors through tough times may have to create <u>incentives</u>.</div>
+  <hr class="sent-hr"><div class="cn">想在艰难时期留住外部董事的公司可能不得不创造激励措施。</div>
+  <button class="syntax-toggle collapsed" id="btn-s18" onclick="toggleSyntax('s18')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s18"><b>🔍 语法解析</b><br><b>主干</b>：Firms ... may have to create incentives（主+谓+宾）。<br><b>定语从句</b>：who want to keep their outside directors through tough times → 修饰 Firms。<br><b>💡 Q24 考点</b>：公司需要创造 incentives（激励）来留住外部董事。<br><b>词义</b>：<b>incentive</b> 激励/诱因。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">19</span>
+  <div class="en">Otherwise outside directors will follow the example of Ms. Simmons, once again very popular on campus.</div>
+  <hr class="sent-hr"><div class="cn">否则外部董事将会效仿 Simmons 女士的例子——她再一次在校园里非常受欢迎。</div>
+  <button class="syntax-toggle collapsed" id="btn-s19" onclick="toggleSyntax('s19')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s19"><b>🔍 语法解析</b><br><b>主干</b>：outside directors will follow the example of Ms. Simmons（主+谓+宾）。<br><b>独立主格/补充说明</b>：once again very popular on campus → 补充说明 Simmons 离开董事会后回到大学重新受欢迎。<br><b>词义</b>：<b>otherwise</b> 否则；<b>follow the example of</b> 效仿。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 案例引入——Simmons 因在高盛薪酬委员会放任巨额奖金而受抨击，随后离开董事会。<br>
+      <span class="num">②</span> P2: 外部董事的应有角色——独立、无偏见的顾问，能提出异议。<br>
+      <span class="num">③</span> P3: 俄亥俄研究——外部董事突然离职后，公司重述收益概率升 20%、诉讼风险增加、股价表现更差。<br>
+      <span class="num">④</span> P4: 外部董事常在坏消息前离开自保；公司需要激励措施留人。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>outside director</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>外部董事</td><td>全文核心词</td></tr>
+        <tr><td><b>criticism</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>批评</td><td>attract ~</td></tr>
+        <tr><td><b>under fire</b></td><td style="color:var(--text-muted);font-size:.9em;">phr.</td><td>受到抨击</td><td>Q21 定位词</td></tr>
+        <tr><td><b>compensation</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>薪酬</td><td>~ committee</td></tr>
+        <tr><td><b>biased</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有偏见的</td><td>less ~ 较少偏见</td></tr>
+        <tr><td><b>independence</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>独立性</td><td>独立董事特质</td></tr>
+        <tr><td><b>weather</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>经受住</td><td>~ crises</td></tr>
+        <tr><td><b>restate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>重述</td><td>~ earnings</td></tr>
+        <tr><td><b>likelihood</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>可能性</td><td>~ of</td></tr>
+        <tr><td><b>correlation</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>相关性</td><td>~ between</td></tr>
+        <tr><td><b>suggestive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>有启发性的</td><td>suggest + -ive</td></tr>
+        <tr><td><b>incentive</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>激励</td><td>Q24 定位词</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">Having made their wealth and their reputations elsewhere, they presumably have enough independence to disagree with the chief executive's proposals.</div>
+      <div class="pat-cn">由于在其他地方已积累财富和声誉，他们大概有足够的独立性反对 CEO 的建议。</div>
+      <span class="pat-tag">现在分词完成式作原因状语</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Although a correlation between them leaving and subsequent bad performance is suggestive, it does not mean that such directors are always jumping off a sinking ship.</div>
+      <div class="pat-cn">尽管相关性有启发性，但并不意味着他们总在弃船逃生。</div>
+      <span class="pat-tag">Although 让步 + jumping off a sinking ship 习语</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">21. According to Paragraph 1, Ms. Simmons was criticized for ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] gaining excessive profits</span>
+      <span class="opt ok">[B] failing to fulfill her duty</span>
+      <span class="opt no">[C] refusing to make compromises</span>
+      <span class="opt no">[D] leaving the board in tough times</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（failing to fulfill her duty 未能履行职责）</b></p>
+      <p><b>定位</b>：P1 · S03 — "Ms. Simmons was under fire for having sat on Goldman's compensation committee; how could she have let those <b>enormous bonus payouts pass unremarked</b>?"</p>
+      <p><b>推理</b>：她被批评的核心是"坐在薪酬委员会上却任由巨额奖金通过（pass unremarked）"——作为薪酬委员会成员，她有责任质疑/监督奖金发放，但她没有尽到这个职责。B 选项 failing to fulfill her duty（未履行职责）正是对此的概括。</p>
+      <p><b>❌ A 错误</b>：gaining excessive profits（获取超额利润）——被批评的不是她自己获利，而是她没阻止高盛的巨额奖金。她本人没有 gain profits。</p>
+      <p><b>❌ C 错误</b>：refusing to make compromises（拒绝妥协）——文中未提妥协问题。</p>
+      <p><b>❌ D 错误</b>：leaving the board in tough times（在困难时期离开董事会）——离开董事会是她被批评后的<b>结果</b>，不是她被批评的原因。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">22. We learn from Paragraph 2 that outside directors are supposed to be ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] generous investors</span>
+      <span class="opt no">[B] unbiased executives</span>
+      <span class="opt no">[C] share price forecasters</span>
+      <span class="opt ok">[D] independent advisers</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（independent advisers 独立的顾问）</b></p>
+      <p><b>定位</b>：P2 · S06-S07 — "serve as helpful, yet less biased, <b>advisers</b>" + "they presumably have enough <b>independence</b> to disagree with the chief executive's proposals"</p>
+      <p><b>推理</b>：S06 说外部董事应该是 advisers（顾问），S07 说他们要有 independence（独立性）来反对 CEO。合起来 = independent advisers（独立顾问）。D 选项是两句话的综合概括。</p>
+      <p><b>❌ A 错误</b>：generous investors（慷慨的投资者）——文中未提他们投资。</p>
+      <p><b>❌ B 错误</b>：unbiased executives（无偏见的高管）——executives（高管）不准确，他们是董事（directors），且核心是"独立"而非只是"无偏见"。</p>
+      <p><b>❌ C 错误</b>：share price forecasters（股价预测者）——S08 提到股价，但只是举例"股价下跌时"的场景，不是说他们预测股价。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">23. According to the researchers from Ohio University, after an outside director's surprise departure, the firm is likely to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] become more stable</span>
+      <span class="opt no">[B] report increased earnings</span>
+      <span class="opt ok">[C] do less well in the stock market</span>
+      <span class="opt no">[D] perform worse in lawsuits</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（do less well in the stock market 在股市中表现更差）</b></p>
+      <p><b>定位</b>：P3 · S12-S13 — "the probability that the company will ... have to <b>restate earnings</b> increases" + "the <b>stock is likely to perform worse</b>"</p>
+      <p><b>推理</b>：S13 明确说"the stock is likely to perform worse"（股票表现可能更差）。C 选项 do less well in the stock market 正是 stock perform worse 的同义转述。</p>
+      <p><b>❌ A 错误</b>：become more stable（变得更稳定）——与文意相反，公司变得不稳定。</p>
+      <p><b>❌ B 错误</b>：report increased earnings（报告收益增加）——与文意相反，S12 说重述收益的概率增加（通常是下调收益）。</p>
+      <p><b>❌ D 错误</b>：perform worse in lawsuits（在诉讼中表现更差）——S13 说的是"被列入集体诉讼的<b>可能性</b>增加"（likelihood of being named increases），不是"在诉讼中表现更差"。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">24. It can be inferred from the last paragraph that outside directors ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] may stay for the attractive offers from the firm</span>
+      <span class="opt no">[B] have often had records of wrongdoings in the firm</span>
+      <span class="opt no">[C] are accustomed to stress-free work in the firm</span>
+      <span class="opt no">[D] will decline incentives from the firm</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（may stay for the attractive offers from the firm 可能因公司提供的诱人条件而留下）</b></p>
+      <p><b>定位</b>：P4 · S18 — "Firms who want to keep their outside directors through tough times may have to <b>create incentives</b>"</p>
+      <p><b>推理</b>：公司必须创造 incentives（激励/诱人条件）来留住外部董事 → 反推可知：外部董事<b>可能</b>会因为这些诱人条件而留下（stay for the attractive offers）。A 是合理的推断。</p>
+      <p><b>❌ B 错误</b>：have often had records of wrongdoings（经常有不当行为记录）——S17 说"即使历史显示他们在不当行为发生时在董事会"，但这是说"在场"而非"有不当行为记录"。</p>
+      <p><b>❌ C 错误</b>：are accustomed to stress-free work（习惯了无压力的工作）——文中未提工作压力大小。</p>
+      <p><b>❌ D 错误</b>：will decline incentives（会拒绝激励）——与文意相反！公司正是靠 incentives 来吸引他们留下，推断应是可以被激励留住，而非拒绝。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">25. The author's attitude toward the role of outside directors is ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] permissive</span>
+      <span class="opt ok">[B] positive</span>
+      <span class="opt no">[C] scornful</span>
+      <span class="opt no">[D] critical</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（positive 肯定的）</b></p>
+      <p><b>定位</b>：P2 对外部董事角色的描述 — "helpful, yet less biased, advisers"（有益且偏见较少的顾问）+ "have enough independence to disagree"（有足够独立性提出异议）+ "should be able to give advice based on having weathered their own crises"（应能基于自身危机经验提供建议）</p>
+      <p><b>推理</b>：作者用 helpful（有益的）、less biased（较少偏见的）、should be able to give advice（应能提供建议）等词汇描述外部董事，整体是<b>肯定/正面</b>的态度。P3-P4 的研究虽然指出外部董事离职带来的问题，但对外部董事角色本身的定位是积极的。</p>
+      <p><b>❌ A 错误</b>：permissive（放任的）——permissive 强调"宽容放纵"，不是对角色价值的肯定。</p>
+      <p><b>❌ C 错误</b>：scornful（轻蔑的）——作者没有轻蔑外部董事，反而肯定其价值。这是你当初误选的选项。</p>
+      <p><b>❌ D 错误</b>：critical（批评的）——虽然文章讨论了外部董事的问题（如离职影响），但整体态度不是批评外部董事角色本身。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2011 英语（二）Text 1 · 19 句 · 5 题 · 答案 BDCAB</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
