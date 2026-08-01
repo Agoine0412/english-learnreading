@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2011 考研英语（二）Text 2 — 报业危机与转型</title>
+<style>
+:root{--bg:#f4f1ec;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#3a3a4a;--accent-light:#ececef;--amber:#c0392b;--amber-light:#faeceb;--rust:#8a7a6a;--rust-light:#f0ece8;--steel:#5a6a6a;--steel-light:#e9efef;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#a0281a}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(192,57,43,.18) 0%,rgba(192,57,43,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(58,58,74,.15) 0%,rgba(58,58,74,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(138,122,106,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(58,58,74,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(192,57,43,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#a0281a;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#a0281a}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>报业危机与转型<small>2011 考研英语（二）· Text 2</small></h1>
+  <p class="sub">Whatever happened to the death of newspaper? — the newspaper industry's crisis and comeback</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 传媒产业</span><span class="badge steel">长难句 4</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 报纸会消亡吗？</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Whatever happened to the death of newspaper?</div>
+  <hr class="sent-hr"><div class="cn">报纸的死亡到底怎么了？</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>反问句</b>：作者用"报纸的死亡到底怎么了？"开篇，暗示报纸并没有如预期般死亡。这个设问引出全文"报纸挺过了危机"的主题。<br><b>词义</b>：<b>whatever happened to</b> 到底发生了什么/怎么样了（口语化疑问）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">A year ago the end seemed near.</div>
+  <hr class="sent-hr"><div class="cn">一年前，末日似乎临近了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：the end（主）+ seemed（系）+ near（表）。<br><b>词义</b>：<b>the end</b> 此处指报纸的末日。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">The recession threatened to remove the advertising and readers that had not already fled to the internet.</div>
+  <hr class="sent-hr"><div class="cn">经济衰退威胁着要带走那些尚未逃往互联网的广告和读者。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3"><b>🔍 语法解析</b><br><b>主干</b>：The recession（主）+ threatened（谓）+ to remove the advertising and readers（不定式宾）。<br><b>定语从句</b>：that had not already fled to the internet → 修饰 the advertising and readers。<br><b>词义</b>：<b>recession</b> 经济衰退；<b>flee to</b> 逃往。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">Newspapers like the <em>San Francisco Chronicle</em> were <mark>chronicling their own doom</mark>.</div>
+  <hr class="sent-hr"><div class="cn">像《旧金山纪事报》这样的报纸正在记录自己的厄运。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>主干</b>：Newspapers（主）+ were chronicling（过去进行时谓）+ their own doom（宾）。<br><b>💡 双关</b>：chronicle 既是"记录"（报纸的本职工作），又暗示报纸在"记录自己走向灭亡的过程"。<br><b>词义</b>：<b>chronicle</b> 记录（编年史式记载）；<b>doom</b> 厄运/灭亡。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">America's Federal Trade Commission launched a round of talks about how to save newspapers.</div>
+  <hr class="sent-hr"><div class="cn">美国联邦贸易委员会发起了一轮关于如何拯救报纸的讨论。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>主干</b>：America's Federal Trade Commission（主）+ launched（谓）+ a round of talks（宾）。<br><b>修饰</b>：about how to save newspapers → 介词短语 + 疑问词+不定式结构。<br><b>词义</b>：<b>launch</b> 发起；<b>a round of talks</b> 一轮会谈。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Should they become charitable corporations? Should the state subsidize them? It will hold another meeting soon. But the discussions now seem out of date.</div>
+  <hr class="sent-hr"><div class="cn">它们应该变成慈善公司吗？国家应该补贴它们吗？（委员会）很快就会再开一次会。但这些讨论现在看来已经过时了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6"><b>🔍 语法解析</b><br><b>一般疑问句</b>：Should they become ...? 连续两个反问，列举拯救方案的讨论。<br><b>转折</b>：But the discussions now seem out of date → 为下文的"报纸其实挺过来了"做铺垫。<br><b>词义</b>：<b>charitable corporation</b> 慈善公司；<b>subsidize</b> 补贴；<b>out of date</b> 过时的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 报纸其实挺过了危机</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">In much of the world there is little sign of crisis.</div>
+  <hr class="sent-hr"><div class="cn">在世界大部分地区，几乎没有危机的迹象。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7"><b>🔍 语法解析</b><br><b>there be 句型</b>：there is little sign of crisis。little 表示"几乎没有"（否定含义）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">German and Brazilian papers have <u>shrugged off</u> the recession.</div>
+  <hr class="sent-hr"><div class="cn">德国和巴西的报纸已经摆脱了衰退的影响。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>主干</b>：German and Brazilian papers（主）+ have shrugged off（现在完成谓）+ the recession（宾）。<br><b>词义</b>：<b>shrug off</b> 摆脱/不屑一顾（耸肩甩掉，比喻不受影响）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Even American newspapers, which inhabit the most troubled corner of the global industry, have not only survived but often returned to profit.</div>
+  <hr class="sent-hr"><div class="cn">即使是美国报纸——它们身处全球报业最麻烦的角落——不仅生存了下来，而且常常恢复了盈利。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><b>🔍 长难句拆解</b><br><b>主干</b>：Even American newspapers ... have not only survived but often returned to profit（not only ... but 并列结构）。<br><b>非限制性定语从句</b>：which inhabit the most troubled corner of the global industry → 修饰 American newspapers。<br><b>词义</b>：<b>inhabit</b> 居住于/身处；<b>return to profit</b> 恢复盈利。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Not the 20% profit margins that were routine a few years ago, but profit all the same.</div>
+  <hr class="sent-hr"><div class="cn">不是几年前常见的 20% 利润率，但无论如何还是盈利的。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10"><b>🔍 语法解析</b><br><b>省略句</b>：完整形式为"Not the 20% profit margins ... but (they have returned to) profit all the same"。<br><b>定语从句</b>：that were routine a few years ago → 修饰 margins。<br><b>词义</b>：<b>profit margin</b> 利润率；<b>all the same</b> 无论如何/尽管如此。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 报业为生存付出的代价</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">It has not been much fun.</div>
+  <hr class="sent-hr"><div class="cn">这并不好玩。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>主干</b>：It has not been much fun（主+系+表）。承上启下——虽然活下来了，但过程很痛苦。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Many papers stayed afloat by pushing journalists overboard.</div>
+  <hr class="sent-hr"><div class="cn">许多报纸靠把记者"推下船"来维持生存。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12"><b>🔍 语法解析</b><br><b>主干</b>：Many papers（主）+ stayed afloat（谓）+ by pushing journalists overboard（方式状语）。<br><b>💡 暗喻</b>：stay afloat（保持漂浮）vs push ... overboard（推下船）= 靠裁员来维持经营。<br><b>词义</b>：<b>stay afloat</b> 维持运营/不沉没；<b>push overboard</b> 推下船/解雇。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">The American Society of News Editors reckons that 13,500 newsroom jobs have gone since 2007.</div>
+  <hr class="sent-hr"><div class="cn">美国新闻编辑协会估计，自 2007 年以来已有 13500 个编辑室职位消失。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>主干</b>：The American Society of News Editors（主）+ reckons（谓）+ that ...（宾语从句）。<br><b>词义</b>：<b>reckon</b> 估计；<b>newsroom</b> 编辑室/新闻编辑部。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">Readers are paying more for slimmer products. Some papers even had the <u>nerve</u> to refuse delivery to distant suburbs.</div>
+  <hr class="sent-hr"><div class="cn">读者花更多的钱买更薄的报纸。有些报纸甚至有胆量拒绝向遥远的郊区送报。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>第一句</b>：Readers are paying more for slimmer products（主+谓+宾）。<br><b>第二句</b>：Some papers had the nerve to refuse delivery to distant suburbs（had the nerve to = 有胆量做某事）。<br><b>词义</b>：<b>slim</b> 薄的/缩水的；<b>have the nerve to</b> 有胆量/竟敢。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Yet these <u>desperate</u> measures have proved the right ones and, sadly for many journalists, they can be pushed further.</div>
+  <hr class="sent-hr"><div class="cn">然而这些孤注一掷的措施被证明是正确的，而且——对许多记者来说很悲哀——它们还可以进一步推进。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15"><b>🔍 长难句拆解</b><br><b>主干</b>：these desperate measures have proved the right ones（主+谓+宾补）。<br><b>插入语</b>：sadly for many journalists → 作者对记者处境的同情。<br><b>并列分句</b>：they can be pushed further（被动语态）。<br><b>词义</b>：<b>desperate</b> 孤注一掷的/绝望的；<b>push further</b> 进一步推进（此处指进一步裁员）。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 报纸正在变得更平衡</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">Newspapers are becoming more balanced businesses, with a healthier mix of revenues from readers and advertisers.</div>
+  <hr class="sent-hr"><div class="cn">报纸正变成更平衡的企业，来自读者和广告商的收入结构更健康。</div>
+  <button class="syntax-toggle collapsed" id="btn-s16" onclick="toggleSyntax('s16')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s16"><b>🔍 语法解析</b><br><b>主干</b>：Newspapers are becoming more balanced businesses（主+谓+表）。<br><b>伴随状语</b>：with a healthier mix of revenues from readers and advertisers → 具体说明"更平衡"的含义。<br><b>💡 Q28 考点</b>：balanced businesses = 收入来源更平衡（不单纯依赖广告）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">American papers have long been highly unusual in their <u>reliance</u> on ads. Fully 87% of their revenues came from advertising in 2008, according to the OECD. In Japan the proportion is 35%. Not surprisingly, Japanese newspapers are much more stable.</div>
+  <hr class="sent-hr"><div class="cn">美国报纸长期以来在依赖广告方面极不寻常。据经合组织统计，2008 年它们 87% 的收入来自广告。而在日本这一比例是 35%。毫不奇怪，日本报纸要稳定得多。</div>
+  <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s17"><b>🔍 语法解析</b><br><b>并列句组</b>：四个短句构成对比论证——美国 87% vs 日本 35% → 日本更稳定。<br><b>插入语</b>：according to the OECD → 交代数据来源。<br><b>词义</b>：<b>reliance</b> 依赖；<b>proportion</b> 比例；<b>OECD</b> 经合组织。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 报业裁掉了最不具特色的部分</div>
+
+<div class="sent">
+  <span class="snum">18</span>
+  <div class="en">The whirlwind that swept through newsrooms harmed everybody, but much of the damage has been concentrated in areas where newspapers are least <u>distinctive</u>.</div>
+  <hr class="sent-hr"><div class="cn">席卷编辑室的旋风伤害了每个人，但大部分损害集中在报纸最缺乏特色的领域。</div>
+  <button class="syntax-toggle" id="btn-s18" onclick="toggleSyntax('s18')">▲ 收起解析</button>
+  <div class="syntax" id="s18"><b>🔍 长难句拆解</b><br><b>主干</b>：The whirlwind ... harmed everybody（主+谓+宾）。<br><b>定语从句</b>：that swept through newsrooms → 修饰 whirlwind。<br><b>转折并列句</b>：but much of the damage has been concentrated in areas where newspapers are least distinctive → where 引导定语从句修饰 areas。<br><b>词义</b>：<b>whirlwind</b> 旋风（比喻裁员风暴）；<b>distinctive</b> 独特的/有特色的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">19</span>
+  <div class="en">Car and film reviewers have gone. So have science and general business reporters. Foreign bureaus have been savagely cut off.</div>
+  <hr class="sent-hr"><div class="cn">汽车和电影评论员消失了。科学和普通商业记者也消失了。国外分社被野蛮地砍掉。</div>
+  <button class="syntax-toggle collapsed" id="btn-s19" onclick="toggleSyntax('s19')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s19"><b>🔍 语法解析</b><br><b>So 倒装</b>：So have science and general business reporters = Science and general business reporters have also gone（so 位于句首，主谓倒装）。<br><b>被动语态</b>：have been savagely cut off。<br><b>词义</b>：<b>reviewer</b> 评论员；<b>bureau</b> 分社/办事处；<b>savagely</b> 野蛮地。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">20</span>
+  <div class="en">Newspapers are less complete as a result. But <u>completeness</u> is no longer a virtue in the newspaper business.</div>
+  <hr class="sent-hr"><div class="cn">结果，报纸不那么完整了。但在报业，完整性不再是一种美德。</div>
+  <button class="syntax-toggle collapsed" id="btn-s20" onclick="toggleSyntax('s20')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s20"><b>🔍 语法解析</b><br><b>转折</b>：But 引出作者的观点——报纸虽然不完整了，但在当下的报业环境下，追求完整已不再是优势。<br><b>词义</b>：<b>completeness</b> 完整性；<b>virtue</b> 美德/优点。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 一年前报纸濒临死亡，FTC 讨论拯救方案——但现在这些讨论已过时。<br>
+      <span class="num">②</span> P2: 报纸挺过了危机——德国巴西无恙，连美国报纸也恢复盈利。<br>
+      <span class="num">③</span> P3: 生存的代价——裁员 13500 人、读者多花钱买薄报、拒绝远郊送报。<br>
+      <span class="num">④</span> P4: 报纸收入来源更平衡——美国 87% 依赖广告 vs 日本 35%，日本更稳定。<br>
+      <span class="num">⑤</span> P5: 裁掉的都是最不具特色的内容（评论员、外派记者），完整性不再是美德。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>recession</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>经济衰退</td><td>the Great Recession 大衰退</td></tr>
+        <tr><td><b>chronicle</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>记录</td><td>Q26 定位词</td></tr>
+        <tr><td><b>doom</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>厄运/灭亡</td><td>their own ~</td></tr>
+        <tr><td><b>subsidize</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>补贴</td><td>state ~</td></tr>
+        <tr><td><b>shrug off</b></td><td style="color:var(--text-muted);font-size:.9em;">phr.</td><td>摆脱</td><td>~ the recession</td></tr>
+        <tr><td><b>profit margin</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>利润率</td><td>20% ~</td></tr>
+        <tr><td><b>stay afloat</b></td><td style="color:var(--text-muted);font-size:.9em;">phr.</td><td>维持经营</td><td>暗喻用法</td></tr>
+        <tr><td><b>desperate</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>孤注一掷的</td><td>~ measures</td></tr>
+        <tr><td><b>reliance</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>依赖</td><td>~ on ads</td></tr>
+        <tr><td><b>distinctive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>独特的</td><td>least ~</td></tr>
+        <tr><td><b>completeness</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>完整性</td><td>complete + -ness</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">Even American newspapers, which inhabit the most troubled corner of the global industry, have not only survived but often returned to profit.</div>
+      <div class="pat-cn">即使是身处全球报业最麻烦角落的美国报纸，不仅生存下来还恢复了盈利。</div>
+      <span class="pat-tag">非限制性定语从句 + not only ... but</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Car and film reviewers have gone. So have science and general business reporters.</div>
+      <div class="pat-cn">汽车和电影评论员消失了，科学和商业记者也消失了。</div>
+      <span class="pat-tag">So + 助动词 + 主语 倒装</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Many papers stayed afloat by pushing journalists overboard.</div>
+      <div class="pat-cn">许多报纸靠把记者推下船来维持生存。</div>
+      <span class="pat-tag">暗喻 + by doing 方式状语</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">26. By saying "Newspapers like the San Francisco Chronicle were chronicling their own doom" (Line 3, Para. 1), the author indicates that newspapers ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] neglected the sign of crisis</span>
+      <span class="opt no">[B] failed to get state subsidies</span>
+      <span class="opt no">[C] were not charitable corporations</span>
+      <span class="opt ok">[D] were in a difficult situation</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（were in a difficult situation 处境艰难）</b></p>
+      <p><b>定位</b>：P1 · S04 — "Newspapers like the <em>San Francisco Chronicle</em> were <b>chronicling their own doom</b>"，紧接着 S03 说 "The recession threatened to remove the advertising and readers"。</p>
+      <p><b>推理</b>：chronicling their own doom = "记录自己的厄运/灭亡"。报纸在报道自己走向灭亡的过程，说明它们当时<b>处境非常艰难</b>（in a difficult situation）。这是作者用"记录厄运"来描述报纸的困境。</p>
+      <p><b>❌ A 错误</b>：neglected the sign of crisis（忽视了危机迹象）——恰恰相反，报纸是在"记录"（chronicling）危机，不是忽视。</p>
+      <p><b>❌ B 错误</b>：failed to get state subsidies（未能获得国家补贴）——S05 提到 FTC 讨论"whether the state should subsidize them"，但那是讨论中，不是报纸已经失败。</p>
+      <p><b>❌ C 错误</b>：were not charitable corporations（不是慈善公司）——S06 提到讨论"Should they become charitable corporations"，但这不是报纸困境的描述，而是解决方案的讨论。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">27. Some newspapers refused delivery to distant suburbs probably because ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] they feared potential loss of readers</span>
+      <span class="opt ok">[B] they were worried about increased costs</span>
+      <span class="opt no">[C] they wanted to concentrate on more profitable areas</span>
+      <span class="opt no">[D] they were not good at making delivery arrangements</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（they were worried about increased costs 担心成本增加）</b></p>
+      <p><b>定位</b>：P3 · S14 — "Some papers even had the nerve to refuse delivery to distant suburbs" —— 结合上下文 S14 前文 "Readers are paying more for slimmer products"（读者多花钱买薄报）和 S13 "13,500 newsroom jobs have gone since 2007"（裁员省钱）。</p>
+      <p><b>推理</b>：报纸在危机中大幅削减成本（裁员、缩版）。拒绝向远郊送报是明显的<b>节省配送成本</b>的手段——远郊配送成本高、订阅者少，不划算。B 选项 worried about increased costs 最合理。</p>
+      <p><b>❌ A 错误</b>：feared potential loss of readers（担心失去读者）——拒绝送报恰恰是<b>放弃</b>远郊读者，不是怕失去他们。</p>
+      <p><b>❌ C 错误</b>：concentrate on more profitable areas（聚焦更赚钱的地区）——虽然方向合理，但这是结果而非直接原因；核心动因是远郊配送成本高（costs）。</p>
+      <p><b>❌ D 错误</b>：not good at delivery arrangements（不擅长配送安排）——与成本无关，文中未提配送能力问题。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">28. By saying "Newspapers are becoming more balanced businesses" (Line 1, Para. 4), the author means that newspapers ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] are reducing their dependence on advertising</span>
+      <span class="opt no">[B] are becoming more profitable businesses</span>
+      <span class="opt ok">[C] are relying more on readers' payments</span>
+      <span class="opt no">[D] are developing in a balanced way</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（are relying more on readers' payments 更依赖读者的付费）</b></p>
+      <p><b>定位</b>：P4 · S16 — "Newspapers are becoming more balanced businesses, with a <b>healthier mix of revenues from readers and advertisers</b>"，结合 S14 "Readers are paying more for slimmer products" 和 S17 美国 87% vs 日本 35% 的数据对比。</p>
+      <p><b>推理</b>："more balanced businesses" = 收入来源更平衡。过去美国报纸 87% 收入靠广告（过度依赖单一来源），现在读者付费（paying more）的比重上升，使收入结构更健康、更平衡。C 选项"更依赖读者付费"正是"更平衡"的核心含义。</p>
+      <p><b>❌ A 错误</b>：reducing their dependence on advertising（减少对广告的依赖）——这是"更平衡"的<b>结果</b>之一，但表述太笼统。C 更具体地说明了新的收入来源（读者付费）。</p>
+      <p><b>❌ B 错误</b>：becoming more profitable（变得更赚钱）——"balanced"强调结构健康，不是单纯盈利。</p>
+      <p><b>❌ D 错误</b>：developing in a balanced way（以平衡的方式发展）——这是对"balanced"字面的同义重复，没有点出"收入来源变化"的实质。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">29. Which of the following is TRUE according to the text?</div>
+    <div class="opts">
+      <span class="opt ok">[A] Newspapers are in trouble but not dying.</span>
+      <span class="opt no">[B] Newspaper advertising revenues are increasing.</span>
+      <span class="opt no">[C] The newspaper industry is losing more and more readers.</span>
+      <span class="opt no">[D] The newspaper industry is becoming more diversified.</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（Newspapers are in trouble but not dying 报纸处境艰难但没有消亡）</b></p>
+      <p><b>定位</b>：全文主旨——P1 说危机逼近（in trouble），P2 说报纸 "not only survived but often returned to profit"（不但没死还盈利了）。</p>
+      <p><b>推理</b>：文章的核心论点是"报纸没有死"。虽然经历了裁员、缩版等艰难措施（in trouble），但最终幸存并恢复盈利（not dying）。A 准确概括了全文主旨。</p>
+      <p><b>❌ B 错误</b>：advertising revenues are increasing（广告收入在增加）——S17 说美国 87% 收入来自广告，但没有说广告收入在<b>增加</b>；反而强调报纸要减少对广告的依赖。</p>
+      <p><b>❌ C 错误</b>：losing more and more readers（失去越来越多读者）——P1 提到读者流向互联网是背景，但全文重点是"幸存"，并未说读者持续流失。</p>
+      <p><b>❌ D 错误</b>：becoming more diversified（变得更多元化）——文章说的是"更平衡"（balanced），不是"多元化"（diversified），两个概念不同。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">30. The author's attitude toward the future of newspapers is ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] optimistic</span>
+      <span class="opt no">[B] pessimistic</span>
+      <span class="opt no">[C] neutral</span>
+      <span class="opt no">[D] uncertain</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（optimistic 乐观的）</b></p>
+      <p><b>定位</b>：全文语气——P2 "have not only survived but often returned to profit"（不仅幸存还恢复盈利）、P4 "Newspapers are becoming more balanced businesses"（变得更平衡）、P5 "completeness is no longer a virtue"（说明报业在适应新环境）。</p>
+      <p><b>推理</b>：虽然文中提到裁员等艰难措施（带着同情），但整体基调是积极的——报纸挺过了危机、恢复盈利、收入结构更健康。作者对报纸的未来持<b>乐观</b>态度。</p>
+      <p><b>❌ B 错误</b>：pessimistic（悲观的）——与全文"幸存并恢复盈利"的主线相反。</p>
+      <p><b>❌ C 错误</b>：neutral（中立的）——作者有明显的正面倾向，不是中立。</p>
+      <p><b>❌ D 错误</b>：uncertain（不确定的）——作者态度明确（乐观），没有不确定性。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2011 英语（二）Text 2 · 20 句 · 5 题 · 答案 DBCAA</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
