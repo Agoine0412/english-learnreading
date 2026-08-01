@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2011 考研英语（二）Text 4 — 欧盟的危机与未来</title>
+<style>
+:root{--bg:#eef1f4;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#2a4a7a;--accent-light:#e7edf5;--amber:#b8860b;--amber-light:#fcf6e8;--rust:#5a6a8a;--rust-light:#e9edf3;--steel:#4a5a6a;--steel-light:#e9edf0;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a7a0a}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(42,74,122,.15) 0%,rgba(42,74,122,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(90,106,138,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(42,74,122,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(184,134,11,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a7a0a;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a7a0a}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>欧盟的危机与未来<small>2011 考研英语（二）· Text 4</small></h1>
+  <p class="sub">Will the European Union make it? — the euro crisis and the debate over its future</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 国际政治经济</span><span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 欧盟陷入困境</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Will the European Union make it? The question would have sounded strange not long ago.</div>
+  <hr class="sent-hr"><div class="cn">欧盟能挺过去吗？这个问题在不久前听起来还会很奇怪。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>设问句</b>：作者以"欧盟能挺过去吗？"开篇，引出欧盟危机的主题。<br><b>虚拟语气</b>：would have sounded strange 表示与过去事实相反的推测（"在不久前人们根本不会问这个问题"）。<br><b>词义</b>：<b>make it</b> 挺过去/成功；<b>not long ago</b> 不久前。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">Now even the project's greatest cheerleaders talk of a continent facing a "Bermuda triangle" of debt, population decline and lower growth.</div>
+  <hr class="sent-hr"><div class="cn">如今，连这个计划最热情的支持者都在谈论欧洲大陆正面临一个由债务、人口下降和增长放缓构成的"百慕大三角"。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：even the project's greatest cheerleaders（主）+ talk of（谓）+ a continent facing ...（宾）。<br><b>现在分词后置定语</b>：facing a "Bermuda triangle" of debt, population decline and lower growth → 修饰 a continent。<br><b>💡 暗喻</b>：Bermuda triangle（百慕大三角）= 神秘消失之地，喻指吞噬欧盟的三大危机。<br><b>词义</b>：<b>cheerleader</b> 支持者/啦啦队长；<b>decline</b> 下降；<b>lower growth</b> 增长放缓。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 经济核心的危机</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">As well as those chronic problems, the EU faces an acute crisis in its economic core, the 16 countries that use the single currency.</div>
+  <hr class="sent-hr"><div class="cn">除了这些长期问题，欧盟的经济核心——使用单一货币的 16 个国家——还面临一场严峻的危机。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3"><b>🔍 语法解析</b><br><b>主干</b>：the EU（主）+ faces（谓）+ an acute crisis（宾）。<br><b>同位语</b>：the 16 countries that use the single currency → 解释 economic core。<br><b>词义</b>：<b>chronic</b> 慢性的/长期的；<b>acute</b> 严重的/急性的；<b>single currency</b> 单一货币（欧元）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">Markets have lost faith that the euro zone's economies, weaker or stronger, will one day converge thanks to the discipline of sharing a single currency, which denies uncompetitive members the quick fix of devaluation.</div>
+  <hr class="sent-hr"><div class="cn">市场已经不再相信欧元区各国经济——无论强弱——有一天会趋于一致，因为共享单一货币的纪律让缺乏竞争力的成员国失去了通过货币贬值快速解决问题的途径。</div>
+  <button class="syntax-toggle" id="btn-s4" onclick="toggleSyntax('s4')">▲ 收起解析</button>
+  <div class="syntax" id="s4"><b>🔍 长难句拆解</b><br><b>主干</b>：Markets（主）+ have lost（谓）+ faith（宾）。<br><b>同位语从句</b>：that the euro zone's economies ... will one day converge → 解释 faith 的内容。<br><b>插入语</b>：weaker or stronger 修饰 economies。<br><b>原因状语</b>：thanks to the discipline of sharing a single currency。<br><b>非限制性定语从句</b>：which denies uncompetitive members the quick fix of devaluation → 修饰 sharing a single currency 这件事。<br><b>💡 背景知识</b>：欧元区成员国不能用"贬值货币"来刺激出口（因为共用欧元），所以竞争力弱的成员国会陷入困境。<br><b>词义</b>：<b>converge</b> 趋同/汇合；<b>deny sb. sth.</b> 剥夺某人某物；<b>devaluation</b> 货币贬值。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 拯救欧元的争论陷入僵局</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">Yet the debate about how to save Europe's single currency from disintegration is <u>stuck</u>.</div>
+  <hr class="sent-hr"><div class="cn">然而，关于如何拯救欧洲单一货币免于解体的争论陷入了僵局。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>主干</b>：the debate ... is stuck（主+系+表）。<br><b>修饰</b>：about how to save Europe's single currency from disintegration → 介词短语 + 疑问词+不定式结构。<br><b>词义</b>：<b>disintegration</b> 解体；<b>stuck</b> 卡住的/陷入僵局。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">It is stuck because the euro zone's dominant powers, France and Germany, agree on the need for greater harmonisation within the euro zone, but disagree about what to harmonise.</div>
+  <hr class="sent-hr"><div class="cn">争论陷入僵局是因为欧元区的主导力量法国和德国虽然同意欧元区需要更大程度的协调统一，但在协调什么的问题上意见相左。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6"><b>🔍 长难句拆解</b><br><b>原因状语从句</b>：because the euro zone's dominant powers ... agree on ... but disagree about ...<br><b>同位语</b>：France and Germany 解释 dominant powers。<br><b>对比并列</b>：agree on the need for greater harmonisation（同意需要更多协调）but disagree about what to harmonise（但在协调什么上有分歧）。<br><b>💡 Q37 考点</b>：争论僵局的原因 = 法德在 harmonisation（协调）的具体内容上无法达成一致。<br><b>词义</b>：<b>dominant</b> 主导的；<b>harmonisation</b> 协调/统一；<b>disagree about</b> 在……上有分歧。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 德国的方案</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">Germany thinks the euro must be saved by stricter rules on borrowing, spending and competitiveness, backed by <u>quasi-automatic</u> sanctions for governments that do not obey.</div>
+  <hr class="sent-hr"><div class="cn">德国认为必须通过对借贷、支出和竞争力制定更严格的规则来拯救欧元，并以针对不守规则政府的准自动制裁作为支撑。</div>
+  <button class="syntax-toggle" id="btn-s7" onclick="toggleSyntax('s7')">▲ 收起解析</button>
+  <div class="syntax" id="s7"><b>🔍 长难句拆解</b><br><b>主干</b>：Germany thinks（主+谓）+ the euro must be saved by stricter rules ...（宾语从句）。<br><b>过去分词后置定语</b>：backed by quasi-automatic sanctions for governments that do not obey → 修饰 stricter rules。内含定语从句 that do not obey 修饰 governments。<br><b>💡 Q38 考点</b>：德国主张 stricter rules（更严格的规则）。<br><b>词义</b>：<b>quasi-automatic</b> 准自动的（quasi- 准/半）；<b>sanction</b> 制裁。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">These might include threats to freeze EU funds for poorer regions and EU mega-projects and even the suspension of a country's voting rights in EU ministerial councils.</div>
+  <hr class="sent-hr"><div class="cn">这些制裁可能包括威胁冻结欧盟对较贫困地区和欧盟大型项目的资金，甚至暂停一个国家在欧盟部长理事会中的投票权。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>主干</b>：These（主）+ might include（谓）+ threats（宾）。<br><b>三个并列宾语</b>：① threats to freeze EU funds for poorer regions ② EU mega-projects ③ the suspension of a country's voting rights。<br><b>词义</b>：<b>freeze</b> 冻结；<b>mega-project</b> 大型项目；<b>suspension</b> 暂停/中止；<b>ministerial council</b> 部长理事会。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">It insists that economic co-ordination should involve all 27 members of the EU club, among whom there is a small majority for free-market liberalism and economic rigour; in the inner core alone, Germany fears, a small majority favour French interference.</div>
+  <hr class="sent-hr"><div class="cn">它坚持认为经济协调应涉及欧盟俱乐部全部 27 个成员，其中支持自由市场自由主义和经济严苛纪律的略占多数；德国担心，仅在核心成员国中，就有略占多数的人支持法国干预。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><b>🔍 长难句拆解</b><br><b>分号并列句</b>：分号连接两个分句。<br>&nbsp;&nbsp;前分句：It insists that economic co-ordination should involve all 27 members（宾语从句）+ among whom there is a small majority for ...（定语从句）<br>&nbsp;&nbsp;后分句：in the inner core alone, a small majority favour French interference + 插入语 Germany fears<br><b>💡 对比逻辑</b>：德国主张 27 国（全体）协调（因为在全体中亲市场派占多数）；若只在核心国协调，则亲法派占多数——所以德国反对核心国单独协调。<br><b>词义</b>：<b>co-ordination</b> 协调；<b>rigour</b> 严格/严苛纪律；<b>interference</b> 干预。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 法国的方案</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">A "southern" camp headed by French wants something different: "European economic government" within an inner core of euro-zone members.</div>
+  <hr class="sent-hr"><div class="cn">以法国为首的"南方"阵营想要不同的东西：在欧元区核心成员国内部建立"欧洲经济政府"。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10"><b>🔍 语法解析</b><br><b>主干</b>：A "southern" camp（主）+ wants（谓）+ something different（宾）。<br><b>过去分词后置定语</b>：headed by French 修饰 camp。<br><b>同位语</b>：冒号后 "European economic government" ... 解释 something different。<br><b>词义</b>：<b>camp</b> 阵营；<b>head</b> 领导/为首；<b>inner core</b> 核心圈。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Translated, that means politicians intervening in monetary policy and a system of redistribution from richer to poorer members, via cheaper borrowing for governments through common Eurobonds or complete fiscal transfers.</div>
+  <hr class="sent-hr"><div class="cn">说白了，这意味着政治家干预货币政策，以及通过共同欧元债券或完全财政转移为政府提供更廉价借贷，从而建立从富国到穷国的再分配体系。</div>
+  <button class="syntax-toggle" id="btn-s11" onclick="toggleSyntax('s11')">▲ 收起解析</button>
+  <div class="syntax" id="s11"><b>🔍 长难句拆解</b><br><b>主干</b>：that means politicians intervening ... and a system of redistribution ...（主+谓+两个并列宾语）。<br><b>方式状语</b>：via cheaper borrowing for governments through common Eurobonds or complete fiscal transfers。<br><b>💡 词义注意</b>：Translated 在此 = "换句话说/说白了"（translate 的熟词生义）。<br><b>词义</b>：<b>intervene</b> 干预；<b>redistribution</b> 再分配；<b>Eurobond</b> 欧元债券；<b>fiscal transfer</b> 财政转移。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Finally, figures close to the France government have murmured, euro-zone members should agree to some fiscal and social harmonisation: e.g., curbing competition in corporate-tax rates or labour costs.</div>
+  <hr class="sent-hr"><div class="cn">最后，接近法国政府的人士私下表示，欧元区成员国应就某些财政和社会协调达成一致：例如抑制公司税率或劳动力成本方面的竞争。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12"><b>🔍 语法解析</b><br><b>主干</b>：figures（主）+ have murmured（谓）+ （that）euro-zone members should agree to ...（宾语从句，省略 that）。<br><b>冒号后列举</b>：e.g., curbing competition in corporate-tax rates or labour costs。<br><b>词义</b>：<b>figure</b> 人物/人士（此处指接近法国政府的人）；<b>murmur</b> 低声说/私下说；<b>curb</b> 抑制；<b>corporate-tax</b> 公司税。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 6 — 欧盟不会消亡</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">It is too soon to <u>write off</u> the EU. It remains the world's largest trading block.</div>
+  <hr class="sent-hr"><div class="cn">现在断言欧盟失败还为时过早。它仍然是世界上最大的贸易集团。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>第一句</b>：It is too soon to write off the EU（it 形式主语 + 不定式真正主语）。<br><b>第二句</b>：It remains the world's largest trading block（主+系+表）。<br><b>词义</b>：<b>write off</b> 认定……失败/勾销；<b>trading block</b> 贸易集团。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">At its best, the European project is remarkably liberal: built around a single market of 27 rich and poor countries, its internal borders are far more open to goods, capital and labour than any comparable trading area.</div>
+  <hr class="sent-hr"><div class="cn">在最理想的状态下，欧洲一体化项目非常自由开放：它建立在 27 个贫富国家的单一市场之上，其内部边界对商品、资本和劳动力的开放程度远超任何同类贸易区。</div>
+  <button class="syntax-toggle" id="btn-s14" onclick="toggleSyntax('s14')">▲ 收起解析</button>
+  <div class="syntax" id="s14"><b>🔍 长难句拆解</b><br><b>主干</b>：the European project is remarkably liberal（主+系+表）。<br><b>冒号后解释</b>：built around a single market ... → 过去分词短语作原因状语。<br><b>主句（冒号后）</b>：its internal borders are far more open ... than any comparable trading area（比较级）。<br><b>词义</b>：<b>at its best</b> 在最理想状态下；<b>liberal</b> 自由的/开放的；<b>comparable</b> 可比的/类似的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">It is an ambitious attempt to <u>blunt</u> the sharpest edges of globalization, and make capitalism benign.</div>
+  <hr class="sent-hr"><div class="cn">这是一次雄心勃勃的尝试，旨在钝化全球化最锋利的边缘，让资本主义变得温和。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15"><b>🔍 语法解析</b><br><b>主干</b>：It（主）+ is（系）+ an ambitious attempt（表）。<br><b>不定式目的</b>：to blunt the sharpest edges of globalization, and make capitalism benign → 两个并列不定式。<br><b>💡 Q40 考点</b>：作者用 ambitious（雄心勃勃的）、liberal（开放的）等正面词汇描述欧盟，态度是 hopeful（充满希望的）。<br><b>词义</b>：<b>ambitious</b> 雄心勃勃的；<b>blunt</b> 使变钝/缓和；<b>benign</b> 温和的/良性的。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 欧盟面临"百慕大三角"危机——债务、人口下降、增长放缓。<br>
+      <span class="num">②</span> P2: 经济核心（欧元区）陷入严重危机，市场失去信心。<br>
+      <span class="num">③</span> P3: 拯救欧元的争论僵局——法德同意需要协调，但协调什么有分歧。<br>
+      <span class="num">④</span> P4: 德国主张——更严格规则 + 制裁，27 国全体协调。<br>
+      <span class="num">⑤</span> P5: 法国主张——核心国"欧洲经济政府"+ 再分配。<br>
+      <span class="num">⑥</span> P6: 但欧盟不会消亡——仍是最大贸易集团，是全球化的重要平衡力量。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>chronic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>慢性的/长期的</td><td>~ problems</td></tr>
+        <tr><td><b>acute</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>严重的/急性的</td><td>~ crisis</td></tr>
+        <tr><td><b>converge</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>趋同/汇合</td><td>economies ~</td></tr>
+        <tr><td><b>devaluation</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>货币贬值</td><td>deny the quick fix of ~</td></tr>
+        <tr><td><b>disintegration</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>解体</td><td>~ of currency</td></tr>
+        <tr><td><b>stuck</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>陷入僵局</td><td>debate is ~</td></tr>
+        <tr><td><b>harmonisation</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>协调/统一</td><td>Q37 考点词</td></tr>
+        <tr><td><b>quasi-automatic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>准自动的</td><td>quasi- 准/半</td></tr>
+        <tr><td><b>sanction</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>制裁</td><td>~ for governments</td></tr>
+        <tr><td><b>suspension</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>暂停/中止</td><td>~ of voting rights</td></tr>
+        <tr><td><b>intervene</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>干预</td><td>~ in policy</td></tr>
+        <tr><td><b>redistribution</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>再分配</td><td>~ from rich to poor</td></tr>
+        <tr><td><b>write off</b></td><td style="color:var(--text-muted);font-size:.9em;">phr.</td><td>认定失败</td><td>too soon to ~</td></tr>
+        <tr><td><b>blunt</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>使变钝/缓和</td><td>~ the edges</td></tr>
+        <tr><td><b>benign</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>温和的</td><td>capitalism ~</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">The euro zone's dominant powers, France and Germany, agree on the need for greater harmonisation, but disagree about what to harmonise.</div>
+      <div class="pat-cn">法德同意需要更多协调，但在协调什么上有分歧。</div>
+      <span class="pat-tag">agree on ... but disagree about 对比结构</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">Markets have lost faith that the euro zone's economies will one day converge thanks to the discipline of sharing a single currency.</div>
+      <div class="pat-cn">市场已不相信欧元区经济会因共享单一货币的纪律而趋同。</div>
+      <span class="pat-tag">lose faith that 同位语从句</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">36. The EU is faced with so many problems that ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] it has more or less lost faith in markets</span>
+      <span class="opt ok">[B] even its supporters begin to feel concerned</span>
+      <span class="opt no">[C] some of its member countries plan to abandon euro</span>
+      <span class="opt no">[D] it intends to deny the possibility of devaluation</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（even its supporters begin to feel concerned 连它的支持者都开始担忧）</b></p>
+      <p><b>定位</b>：P1 · S02 — "Now even the project's <b>greatest cheerleaders</b> talk of a continent facing a 'Bermuda triangle' of debt, population decline and lower growth"</p>
+      <p><b>推理</b>：cheerleaders（最热情的支持者）都开始谈论欧盟面临的"百慕大三角"危机 → 说明连支持者都感到担忧了。B 选项 supporters begin to feel concerned 正是 cheerleaders talk of the crisis 的同义转述。</p>
+      <p><b>❌ A 错误</b>：lost faith in markets（对市场失去信心）——P2 S04 说的是 "Markets have lost faith"（市场对欧元区经济失去信心），主语是 markets 而非 EU，且方向相反。</p>
+      <p><b>❌ C 错误</b>：member countries plan to abandon euro（成员国计划放弃欧元）——文中说的是如何<b>拯救</b>欧元，没有说放弃。</p>
+      <p><b>❌ D 错误</b>：intends to deny the possibility of devaluation（打算否认贬值的可能性）——S04 说的是单一货币"denies uncompetitive members the quick fix of devaluation"（剥夺了成员国贬值的快捷方式），是客观结果，不是 EU 的主观意图。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">37. The debate over the EU's single currency is stuck because the dominant powers ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] are competing for the leading position</span>
+      <span class="opt no">[B] are busy handling their own crises</span>
+      <span class="opt ok">[C] fail to reach an agreement on harmonisation</span>
+      <span class="opt no">[D] disagree on the steps towards disintegration</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（fail to reach an agreement on harmonisation 无法就协调达成一致）</b></p>
+      <p><b>定位</b>：P3 · S06 — "France and Germany, agree on the need for greater <b>harmonisation</b> within the euro zone, but <b>disagree about what to harmonise</b>"</p>
+      <p><b>推理</b>：法德虽然都同意需要 harmonisation（协调），但在"协调什么"上意见相左 → 无法就 harmonisation 的具体内容达成一致。C 选项 fail to reach an agreement on harmonisation 准确概括。</p>
+      <p><b>❌ A 错误</b>：competing for the leading position（争夺领导地位）——文中未提权力争夺。</p>
+      <p><b>❌ B 错误</b>：busy handling their own crises（忙于处理自己的危机）——文中未提。</p>
+      <p><b>❌ D 错误</b>：disagree on the steps towards disintegration（在解体步骤上有分歧）——恰恰相反！他们讨论的是如何<b>防止</b>解体（save ... from disintegration），不是如何解体。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">38. To solve the euro problem, Germany proposed that ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] EU funds for poor regions be increased</span>
+      <span class="opt ok">[B] stricter regulations be imposed</span>
+      <span class="opt no">[C] only core members be involved in economic co-ordination</span>
+      <span class="opt no">[D] voting rights of the EU members be guaranteed</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（stricter regulations be imposed 施加更严格的规则）</b></p>
+      <p><b>定位</b>：P4 · S07 — "Germany thinks the euro must be saved by <b>stricter rules</b> on borrowing, spending and competitiveness"</p>
+      <p><b>推理</b>：德国主张通过 stricter rules（更严格的规则）来拯救欧元。B 选项 stricter regulations 是 stricter rules 的同义替换。</p>
+      <p><b>❌ A 错误</b>：funds for poor regions be increased（增加对贫困地区的资金）——S08 说的是威胁<b>冻结</b>（freeze）对贫困地区的资金，方向相反。</p>
+      <p><b>❌ C 错误</b>：only core members be involved（只让核心国参与协调）——S09 说德国坚持 "should involve <b>all 27 members</b>"（全体 27 国参与），与 C 相反。主张核心国参与的是法国。</p>
+      <p><b>❌ D 错误</b>：voting rights be guaranteed（保证投票权）——S08 说的是威胁<b>暂停</b>（suspension）投票权作为制裁，不是保证。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">39. The French proposal of handling the crisis implies that ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] poor countries are more likely to get funds</span>
+      <span class="opt no">[B] strict monetary policy will be applied to poorer countries</span>
+      <span class="opt no">[C] loans will be readily available to rich countries</span>
+      <span class="opt no">[D] rich countries will basically control Eurobonds</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（poor countries are more likely to get funds 穷国更有可能获得资金）</b></p>
+      <p><b>定位</b>：P5 · S11 — "a system of <b>redistribution from richer to poorer members</b>, via cheaper borrowing for governments through common Eurobonds"</p>
+      <p><b>推理</b>：法国的方案核心是"从富国向穷国再分配"（redistribution from richer to poorer members）→ 穷国会获得更多资金支持。A 选项 poor countries more likely to get funds 是 redistribution 的直接推论。</p>
+      <p><b>❌ B 错误</b>：strict monetary policy applied to poorer countries（对穷国实施严格货币政策）——法国主张的是 politician intervening in monetary policy（政治家干预货币政策），未提"严格"且是针对富国穷国共同的政策。</p>
+      <p><b>❌ C 错误</b>：loans readily available to rich countries（富国容易获得贷款）——再分配方向是向穷国倾斜，不是富国。</p>
+      <p><b>❌ D 错误</b>：rich countries control Eurobonds（富国控制欧元债券）——文中说通过 common Eurobonds（共同债券）为政府提供廉价借贷，未提谁控制。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">40. Regarding the future of the EU, the author seems to feel ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] pessimistic</span>
+      <span class="opt no">[B] desperate</span>
+      <span class="opt no">[C] conceited</span>
+      <span class="opt ok">[D] hopeful</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（hopeful 充满希望的）</b></p>
+      <p><b>定位</b>：P6 · S13-S15 — "It is too soon to <b>write off</b> the EU. It remains the world's largest trading block." + "the European project is remarkably <b>liberal</b>" + "an <b>ambitious</b> attempt to blunt the sharpest edges of globalization"</p>
+      <p><b>推理</b>：作者用 too soon to write off（断言失败为时过早）、remarkably liberal（非常开放）、ambitious（雄心勃勃的）等正面词汇描述欧盟 → 作者对欧盟的未来持<b>乐观/充满希望</b>的态度。</p>
+      <p><b>❌ A 错误</b>：pessimistic（悲观的）——虽然前文讲了不少危机，但结尾明确转向积极评价。</p>
+      <p><b>❌ B 错误</b>：desperate（绝望的）——与 "too soon to write off" 相反。</p>
+      <p><b>❌ C 错误</b>：conceited（自负的）——不是态度类别词（hopeful/pessimistic 才是态度题常用选项）。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2011 英语（二）Text 4 · 15 句 · 5 题 · 答案 BCBAD</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
