@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2012 考研英语（二）Text 1 — 家庭作业政策之争</title>
+<style>
+:root{--bg:#f2f1ed;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#2a6a8a;--accent-light:#e6eef2;--amber:#c9a84c;--amber-light:#fcf6e8;--rust:#5a8a7a;--rust-light:#e8f0ed;--steel:#5a5a6a;--steel-light:#ecedef;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a8030}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(201,168,76,.18) 0%,rgba(201,168,76,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(42,106,138,.15) 0%,rgba(42,106,138,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(90,138,122,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(42,106,138,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(201,168,76,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a8030;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a8030}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>家庭作业政策之争<small>2012 考研英语（二）· Text 1</small></h1>
+  <p class="sub">Homework has never been terribly popular — L.A. Unified's flawed homework policy</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 教育政策</span><span class="badge steel">长难句 4</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 家庭作业越来越受冷落</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Homework has never been terribly popular with students and even many parents, but in recent years it has been particularly <mark>scorned</mark>.</div>
+  <hr class="sent-hr"><div class="cn">家庭作业从来就不太受学生甚至许多家长欢迎，但近年来它尤其受到鄙视。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>转折并列句</b>：but 连接两个分句。<br>&nbsp;&nbsp;前分句：Homework has never been terribly popular（主+系+表，never 表否定）<br>&nbsp;&nbsp;后分句：in recent years it has been particularly scorned（现在完成时被动）<br><b>💡 Q21 考点</b>：scorned（被鄙视）= receiving more criticism（受到更多批评）。<br><b>词义</b>：<b>terribly</b> 非常（口语）；<b>scorn</b> 鄙视/嘲笑。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">School districts across the country, most recently Los Angeles Unified, are revising their thinking on this educational <u>ritual</u>.</div>
+  <hr class="sent-hr"><div class="cn">全国各地的学区——最近是洛杉矶联合学区——正在重新思考这一教育惯例。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：School districts ... are revising their thinking（主+谓+宾）。<br><b>插入语</b>：most recently Los Angeles Unified 举例说明哪个学区最近在修订。<br><b>词义</b>：<b>district</b> 学区；<b>ritual</b> 惯例/仪式（此处指家庭作业这个教育惯例）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">Unfortunately, L. A. Unified has produced an inflexible policy which <u>mandates</u> that with the exception of some advanced courses, homework may no longer count for more than 10% of a student's academic grade.</div>
+  <hr class="sent-hr"><div class="cn">不幸的是，洛杉矶联合学区制定了一项僵化的政策，规定除了一些高级课程外，家庭作业在学生的学业成绩中所占比例不得超过 10%。</div>
+  <button class="syntax-toggle" id="btn-s3" onclick="toggleSyntax('s3')">▲ 收起解析</button>
+  <div class="syntax" id="s3"><b>🔍 长难句拆解</b><br><b>主干</b>：L. A. Unified has produced an inflexible policy（主+谓+宾）。<br><b>定语从句</b>：which mandates that ... → 修饰 policy。<br><b>宾语从句</b>：that ... homework may no longer count for more than 10% of a student's academic grade → mandates 的宾语。<br><b>插入语</b>：with the exception of some advanced courses（除了一些高级课程外）。<br><b>💡 核心政策</b>：家庭作业最多只占成绩的 10%——这就是全文批评的对象。<br><b>词义</b>：<b>inflexible</b> 僵化的（in- 否定 + flexible）；<b>mandate</b> 强制规定；<b>with the exception of</b> 除……之外。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 政策初衷与矛盾</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">This rule is meant to address the difficulty that students from impoverished or chaotic homes might have in completing their homework.</div>
+  <hr class="sent-hr"><div class="cn">这项规则旨在解决来自贫困或混乱家庭的学生在完成作业方面可能遇到的困难。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>主干</b>：This rule（主）+ is meant to address（被动谓）+ the difficulty（宾）。<br><b>定语从句</b>：that students ... might have in completing their homework → 修饰 difficulty。<br><b>💡 Q22 考点</b>：政策初衷 = 帮助贫困家庭学生解决完成作业的困难。<br><b>词义</b>：<b>be meant to</b> 旨在；<b>impoverished</b> 贫困的；<b>chaotic</b> 混乱的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">But the policy is unclear and contradictory.</div>
+  <hr class="sent-hr"><div class="cn">但这项政策既不明确又自相矛盾。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>主干</b>：the policy is unclear and contradictory（主+系+并列表语）。转折词 But 引出作者对政策的批评。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Certainly, no homework should be assigned that students cannot complete on their own or that they cannot do without expensive equipment.</div>
+  <hr class="sent-hr"><div class="cn">当然，不应该布置学生无法独立完成或没有昂贵设备就无法完成的作业。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6"><b>🔍 长难句拆解</b><br><b>主干</b>：no homework should be assigned（被动语态）。<br><b>两个并列定语从句</b>（分隔定语）：<br>&nbsp;&nbsp;① that students cannot complete on their own<br>&nbsp;&nbsp;② or that they cannot do without expensive equipment<br>两个 that 从句修饰 homework，与谓语 should be assigned 分隔（"分隔定语从句"结构）。<br><b>词义</b>：<b>on one's own</b> 独立地；<b>equipment</b> 设备。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">But if the district is essentially giving a <u>pass</u> to students who do not do their homework because of complicated family lives, it is going <u>risibly</u> close to the implication that standards need to be lowered for poor children.</div>
+  <hr class="sent-hr"><div class="cn">但如果该学区实际上是在给那些因家庭生活复杂而不做作业的学生放行，那就近乎荒谬地暗示：需要为贫困儿童降低标准。</div>
+  <button class="syntax-toggle" id="btn-s7" onclick="toggleSyntax('s7')">▲ 收起解析</button>
+  <div class="syntax" id="s7"><b>🔍 长难句拆解</b><br><b>条件状语从句</b>：if the district is essentially giving a pass to students who do not do their homework because of complicated family lives（内含定语从句修饰 students）。<br><b>主句</b>：it is going risibly close to the implication that standards need to be lowered for poor children。<br><b>同位语从句</b>：that standards need to be lowered for poor children → 解释 implication。<br><b>词义</b>：<b>give a pass to</b> 给……放行/免于处罚；<b>risibly</b> 荒谬地/可笑地；<b>implication</b> 暗示。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 政策带来的问题</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">District administrators say that homework will still be a part of schooling; teachers are allowed to assign as much of it as they want.</div>
+  <hr class="sent-hr"><div class="cn">学区管理者说家庭作业仍将是学校教育的一部分；教师可以随心所欲地布置作业。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>分号并列句</b>：两个分句。<br>&nbsp;&nbsp;前分句：District administrators say that ...（宾语从句）<br>&nbsp;&nbsp;后分句：teachers are allowed to assign as much of it as they want（被动语态 + as much as 比较）。<br><b>词义</b>：<b>administrator</b> 管理者；<b>assign</b> 布置（作业）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">But with homework counting for no more than 10% of their grades, students can easily skip half their homework and see very little difference on their report cards.</div>
+  <hr class="sent-hr"><div class="cn">但由于家庭作业在成绩中占比不超过 10%，学生可以轻松跳过一半作业，而成绩单上几乎看不出差别。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><b>🔍 长难句拆解</b><br><b>独立主格结构</b>：with homework counting for no more than 10% of their grades（with + 名词 + 现在分词）。<br><b>主干</b>：students can easily skip half their homework and see very little difference（并列谓语）。<br><b>💡 Q23 考点</b>：学生可以跳过一半作业而成绩几乎不变 → 学生对成绩单不敏感（indifference）。<br><b>词义</b>：<b>count for</b> 占（比例）；<b>skip</b> 跳过；<b>report card</b> 成绩单。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Some students might do well on state tests without completing their homework, but what about the students who performed well on the tests and did their homework?</div>
+  <hr class="sent-hr"><div class="cn">有些学生不做作业也可能在州考中表现良好，但那些考试成绩好又做了作业的学生呢？</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10"><b>🔍 语法解析</b><br><b>转折并列句</b>：but 连接。<br>&nbsp;&nbsp;前分句：Some students might do well on state tests without completing their homework<br>&nbsp;&nbsp;后分句：what about the students who performed well on the tests and did their homework?（反问句 + 定语从句修饰 students）<br><b>词义</b>：<b>state test</b> 州级考试（美国各州统考）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">It is quite possible that the homework helped. Yet rather than empowering teachers to find what works best for their students, the policy imposes a flat, across-the-board rule.</div>
+  <hr class="sent-hr"><div class="cn">家庭作业很可能起到了帮助作用。然而，这项政策没有赋予教师寻找最适合学生方法的权力，而是强加了一条一刀切的规则。</div>
+  <button class="syntax-toggle" id="btn-s11" onclick="toggleSyntax('s11')">▲ 收起解析</button>
+  <div class="syntax" id="s11"><b>🔍 长难句拆解</b><br><b>第一句</b>：It is quite possible that the homework helped（it 形式主语 + that 主语从句）。<br><b>第二句</b>：Yet rather than empowering teachers ... , the policy imposes a flat, across-the-board rule。<br>&nbsp;&nbsp;rather than empowering ... → 介词短语作比较状语（"不是……而是……"）<br>&nbsp;&nbsp;what works best for their students → 宾语从句作 find 的宾语<br><b>词义</b>：<b>empower</b> 赋予权力；<b>flat</b> 统一的/无差别的；<b>across-the-board</b> 一刀切的/全面的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 政策回避了真正的关键问题</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">At the same time, the policy addresses none of the truly <u>thorny</u> questions about homework.</div>
+  <hr class="sent-hr"><div class="cn">与此同时，这项政策没有解决任何关于家庭作业的真正棘手问题。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12"><b>🔍 语法解析</b><br><b>主干</b>：the policy addresses none of the truly thorny questions（主+谓+宾）。<br><b>词义</b>：<b>address</b> 解决/处理（熟词生义，不是"地址"）；<b>thorny</b> 棘手的（thorn 刺 + -y）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">If the district finds homework to be unimportant to its students' academic achievement, it should move to reduce or eliminate the assignments, not make them count for almost nothing.</div>
+  <hr class="sent-hr"><div class="cn">如果学区认为家庭作业对学生的学业成绩不重要，就应该着手减少或取消作业，而不是让它们几乎不计入成绩。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>条件状语从句</b>：If the district finds homework to be unimportant ...（find + 宾 + to be 补语）。<br><b>主句</b>：it should move to reduce or eliminate the assignments, not make them count for almost nothing。<br><b>💡 Q24 考点</b>：政策没有回答"家庭作业对成绩到底重不重要"这个关键问题。<br><b>词义</b>：<b>eliminate</b> 消除；<b>academic achievement</b> 学业成绩。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">Conversely, if homework matters, it should account for a significant portion of the grade.</div>
+  <hr class="sent-hr"><div class="cn">相反，如果家庭作业重要，它就应该在成绩中占相当大的比重。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>条件状语从句</b>：if homework matters。<br><b>主句</b>：it should account for a significant portion of the grade。<br><b>词义</b>：<b>matter</b> 重要/要紧；<b>account for</b> 占（比例）；<b>significant</b> 相当大的/显著的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Meanwhile, this policy does nothing to ensure that the homework students receive is meaningful or appropriate to their age and the subject, or that teachers are not assigning more than they are willing to review and correct.</div>
+  <hr class="sent-hr"><div class="cn">与此同时，这项政策没有采取任何措施确保学生收到的作业有意义、适合他们的年龄和科目，也没有确保教师布置的作业不超过他们愿意批改的量。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15"><b>🔍 长难句拆解</b><br><b>主干</b>：this policy does nothing to ensure that ... , or that ...（主+谓+宾 + 不定式目的 + 两个并列宾语从句）。<br>&nbsp;&nbsp;① that the homework students receive is meaningful or appropriate to their age and the subject（内含省略关系代词的定语从句 students receive）<br>&nbsp;&nbsp;② or that teachers are not assigning more than they are willing to review and correct<br><b>词义</b>：<b>appropriate to</b> 适合……的；<b>review and correct</b> 批改（作业）。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 建议：暂停该政策</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">The homework rules should be put on hold while the school board, which is responsible for setting educational policy, looks into the matter and conducts public hearings.</div>
+  <hr class="sent-hr"><div class="cn">在负责制定教育政策的校董事会调查此事并举行公开听证会期间，这项家庭作业规则应该暂停执行。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16"><b>🔍 长难句拆解</b><br><b>主干</b>：The homework rules should be put on hold（主+被动谓）。<br><b>时间状语从句</b>：while the school board ... looks into the matter and conducts public hearings。<br><b>非限制性定语从句</b>：which is responsible for setting educational policy → 修饰 school board。<br><b>词义</b>：<b>put on hold</b> 暂停/搁置；<b>look into</b> 调查；<b>public hearing</b> 公开听证会。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">17</span>
+  <div class="en">It is not too late for L. A. Unified to do homework right.</div>
+  <hr class="sent-hr"><div class="cn">对洛杉矶联合学区来说，把家庭作业这件事做对还为时不晚。</div>
+  <button class="syntax-toggle collapsed" id="btn-s17" onclick="toggleSyntax('s17')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s17"><b>🔍 语法解析</b><br><b>主干</b>：It is not too late for L. A. Unified to do homework right（it 形式主语 + for sb. to do 真正主语）。<br><b>💡 结尾呼吁</b>：作者建议学区别急着一刀切，先把作业问题搞清楚。<br><b>词义</b>：<b>do sth. right</b> 把某事做对。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 家庭作业近年饱受批评；洛杉矶联合学区出台僵化政策（作业占比不超 10%）。<br>
+      <span class="num">②</span> P2: 政策初衷是帮贫困学生，但自相矛盾，近乎暗示要为穷孩子降标准。<br>
+      <span class="num">③</span> P3: 政策问题——学生可跳过一半作业而成绩不变；一刀切剥夺教师自主权。<br>
+      <span class="num">④</span> P4: 政策回避关键问题——作业到底重不重要？质量谁保证？<br>
+      <span class="num">⑤</span> P5: 建议暂停政策，待校董事会调查后再决定。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>scorn</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>鄙视</td><td>Q21 考点词</td></tr>
+        <tr><td><b>ritual</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>惯例/仪式</td><td>educational ~</td></tr>
+        <tr><td><b>inflexible</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>僵化的</td><td>in- + flexible</td></tr>
+        <tr><td><b>mandate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>强制规定</td><td>~ that</td></tr>
+        <tr><td><b>impoverished</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>贫困的</td><td>impoverish + -ed</td></tr>
+        <tr><td><b>chaotic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>混乱的</td><td>chaos 形容词</td></tr>
+        <tr><td><b>contradictory</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>矛盾的</td><td>contra- + dict</td></tr>
+        <tr><td><b>risibly</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>荒谬地</td><td>risible 可笑的</td></tr>
+        <tr><td><b>implication</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>暗示</td><td>imply 名词</td></tr>
+        <tr><td><b>empower</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>赋予权力</td><td>em- + power</td></tr>
+        <tr><td><b>thorny</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>棘手的</td><td>Q25 标题关键词</td></tr>
+        <tr><td><b>eliminate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>消除</td><td>~ assignments</td></tr>
+        <tr><td><b>account for</b></td><td style="color:var(--text-muted);font-size:.9em;">phr.</td><td>占（比例）</td><td>~ a portion</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">With homework counting for no more than 10% of their grades, students can easily skip half their homework and see very little difference on their report cards.</div>
+      <div class="pat-cn">由于作业只占成绩 10%，学生跳过一半作业成绩也几乎不变。</div>
+      <span class="pat-tag">with + n. + 现在分词 独立主格</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">If the district finds homework to be unimportant, it should move to reduce or eliminate the assignments, not make them count for almost nothing.</div>
+      <div class="pat-cn">如果学区认为作业不重要，就应该减少或取消，而不是让它们几乎不计分。</div>
+      <span class="pat-tag">If 条件句 + find + 宾 + to be</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">21. It is implied in Paragraph 1 that nowadays homework ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] is receiving more criticism</span>
+      <span class="opt no">[B] is no longer an educational ritual</span>
+      <span class="opt no">[C] is not required for advanced courses</span>
+      <span class="opt no">[D] is gaining more preferences</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（is receiving more criticism 受到更多批评）</b></p>
+      <p><b>定位</b>：P1 · S01 — "in recent years it has been particularly <b>scorned</b>"（近年来尤其受到鄙视）</p>
+      <p><b>推理</b>：scorned（被鄙视）≈ receiving more criticism（受到更多批评）。虽然它从来不受欢迎，但"近年来"程度加重（particularly）→ 现在受到更多批评。</p>
+      <p><b>❌ B 错误</b>：no longer an educational ritual（不再是教育惯例）——S02 明确称其为 "this educational ritual"（这一教育惯例），说明它仍是惯例。</p>
+      <p><b>❌ C 错误</b>：not required for advanced courses（高级课程不要求）——S03 说 "with the exception of some advanced courses"（高级课程是<b>例外</b>），意思恰恰相反：高级课程可能不受 10% 限制，不是不要求作业。</p>
+      <p><b>❌ D 错误</b>：gaining more preferences（获得更多偏好）——与 scorned（被鄙视）完全相反。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">22. L. A. Unified has made the rule about homework mainly because poor students ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] tend to have moderate expectations for their education</span>
+      <span class="opt no">[B] have asked for a different educational standard</span>
+      <span class="opt ok">[C] may have problems finishing their homework</span>
+      <span class="opt no">[D] have voiced their complaints about homework</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（may have problems finishing their homework 完成作业可能有困难）</b></p>
+      <p><b>定位</b>：P2 · S04 — "This rule is meant to address the difficulty that students from impoverished or chaotic homes might have <b>in completing their homework</b>"</p>
+      <p><b>推理</b>：政策初衷 = 解决贫困/混乱家庭学生完成作业的困难（address the difficulty in completing homework）。C 选项 may have problems finishing homework 是原文的同义转述。</p>
+      <p><b>❌ A 错误</b>：moderate expectations for education（对教育期望适中）——文中未提学生的教育期望。</p>
+      <p><b>❌ B 错误</b>：asked for a different educational standard（要求不同的教育标准）——文中没有说贫困学生提出要求，是学区单方面制定政策。</p>
+      <p><b>❌ D 错误</b>：voiced their complaints about homework（表达了作业抱怨）——文中未提学生投诉。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">23. According to Paragraph 3, one problem with the policy is that it may ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] discourage students from doing homework</span>
+      <span class="opt ok">[B] result in students' indifference to their report cards</span>
+      <span class="opt no">[C] undermine the authority of state tests</div>
+      <span class="opt no">[D] restrict teachers' power in education</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（result in students' indifference to their report cards 导致学生对成绩单漠不关心）</b></p>
+      <p><b>定位</b>：P3 · S09 — "students can easily skip half their homework and see <b>very little difference on their report cards</b>"</p>
+      <p><b>推理</b>：因为作业只占成绩 10%，学生跳过一半作业成绩单也几乎没差别 → 学生对成绩单变得无所谓（indifference）。B 选项直接对应。</p>
+      <p><b>❌ A 错误</b>：discourage students from doing homework（打消学生做作业的积极性）——虽然跳过作业看起来像"不做"，但核心问题是"成绩没差别"导致的不在乎，不是"气馁"（discourage）。</p>
+      <p><b>❌ C 错误</b>：undermine the authority of state tests（削弱州考权威）——S10 提到州考，但没说政策削弱州考权威。</p>
+      <p><b>❌ D 错误</b>：restrict teachers' power（限制教师权力）——S12 提到 "rather than empowering teachers"（没有赋予教师权力），但这是另一个问题；且"restrict"（限制）与"没有赋予"（empower 的否定）略有不同。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">24. As mentioned in Paragraph 4, a key question unanswered about homework is whether ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] it should be eliminated</span>
+      <span class="opt no">[B] it counts much in schooling</span>
+      <span class="opt no">[C] it places extra burdens on teachers</span>
+      <span class="opt ok">[D] it is important for grades</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（it is important for grades 它对成绩是否重要）</b></p>
+      <p><b>定位</b>：P4 · S13-S14 — "If the district finds homework to be <b>unimportant to its students' academic achievement</b> ... Conversely, if homework <b>matters</b>, it should account for a significant portion of the grade"</p>
+      <p><b>推理</b>：作者用两个相反的假设指出：政策没有回答"家庭作业对学业成绩到底重不重要"这个问题——如果重要就该占大比重，如果不重要就该取消，而不是让它在成绩里占 10% 这种尴尬位置。D 选项 is important for grades 是核心问题。</p>
+      <p><b>❌ A 错误</b>：it should be eliminated（是否该取消）——这是"If 不重要"时的结论之一，不是问题的核心。</p>
+      <p><b>❌ B 错误</b>：counts much in schooling（在学校教育中占比大）——不精确，核心是"对成绩是否重要"。</p>
+      <p><b>❌ C 错误</b>：extra burdens on teachers（给教师额外负担）——S15 提到教师批改负担，但不是"关键问题"（key question）的核心。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">25. A suitable title for this text could be ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] Wrong Interpretation of an Educational Policy</span>
+      <span class="opt no">[B] A Welcomed Policy for Poor Students</span>
+      <span class="opt no">[C] Thorny Questions about Homework</span>
+      <span class="opt ok">[D] A Faulty Approach to Homework</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（A Faulty Approach to Homework 一种有缺陷的作业处理方式）</b></p>
+      <p><b>定位</b>：全文主旨。文章围绕洛杉矶学区的家庭作业政策展开，从 P2 "unclear and contradictory"（不明确且矛盾）、P3 政策导致学生无所谓、P4 "addresses none of the truly thorny questions"（没解决关键问题）到 P5 建议暂停——全程批评这项政策是<b>有缺陷的处理方式</b>。</p>
+      <p><b>推理</b>：D 选项 faulty approach（有缺陷的方式）准确概括了全文对这项政策的批评态度。</p>
+      <p><b>❌ A 错误</b>：Wrong Interpretation of an Educational Policy（对教育政策的错误解读）——文章批评的是政策本身，不是对政策的"解读"。</p>
+      <p><b>❌ B 错误</b>：A Welcomed Policy for Poor Students（受穷学生欢迎的政策）——文章对政策持批评态度，且"welcomed"与全文基调相反。</p>
+      <p><b>❌ C 错误</b>：Thorny Questions about Homework（关于作业的棘手问题）——thorny questions 只是 P4 的一个点，不是全文主线；全文主线是批评这个政策。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2012 英语（二）Text 1 · 17 句 · 5 题 · 答案 ACBDD</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
