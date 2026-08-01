@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2011 考研英语（二）Text 3 — "少即是多"的建筑风潮</title>
+<style>
+:root{--bg:#f2f0ec;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#6a5a4a;--accent-light:#efece8;--amber:#b88a3a;--amber-light:#faf3e6;--rust:#8a7a6a;--rust-light:#f0ece8;--steel:#5a6a7a;--steel-light:#e9edf0;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#966b1a}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(184,138,58,.18) 0%,rgba(184,138,58,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(106,90,74,.15) 0%,rgba(106,90,74,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(138,122,106,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(106,90,74,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(184,138,58,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:5000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#966b1a;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#966b1a}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>"少即是多"的建筑风潮<small>2011 考研英语（二）· Text 3</small></h1>
+  <p class="sub">Less is more — the postwar American housing trend and its architects</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 建筑与设计</span><span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 战后的繁荣年代</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">We tend to think of the decades immediately following World War II as a time of prosperity and growth, with soldiers returning home by the millions, going off to college on the G. I. Bill and lining up at the marriage bureaus.</div>
+  <hr class="sent-hr"><div class="cn">我们往往把二战结束后的几十年视为繁荣发展的时代——数以百万计的士兵返乡，凭《退伍军人权利法案》上大学，在婚姻登记处排队结婚。</div>
+  <button class="syntax-toggle" id="btn-s1" onclick="toggleSyntax('s1')">▲ 收起解析</button>
+  <div class="syntax" id="s1"><b>🔍 长难句拆解</b><br><b>主干</b>：We（主）+ tend to think of（谓）+ the decades ... as a time of prosperity and growth（宾+宾补）。<br><b>伴随状语</b>：with soldiers returning home ... going off to college ... and lining up ... → with + 名词 + 三个并列现在分词（独立主格结构）。<br><b>词义</b>：<b>G.I. Bill</b> 退伍军人权利法案（美国政府为退伍军人提供的教育/住房福利）；<b>lining up</b> 排队。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 但住房风格却是"少即是多"</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">But when it came to their houses, it was a time of common sense and a belief that <mark>less could truly be more</mark>.</div>
+  <hr class="sent-hr"><div class="cn">但说到住房，那是一个讲求常识、信奉"少确实能成为多"的时代。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>时间状语从句</b>：when it came to their houses（说到……时，固定搭配）。<br><b>同位语从句</b>：that less could truly be more → 解释 belief 的内容。<br><b>💡 主题句</b>：less is more 是全文核心概念。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">During the Depression and the war, Americans had learned to live with less, and that restraint, in combination with the postwar confidence in the future, made small, efficient housing positively <u>stylish</u>.</div>
+  <hr class="sent-hr"><div class="cn">在大萧条和战争期间，美国人学会了过更简朴的生活；而这种克制，加上战后对未来的信心，使小而高效的住房变得真正时髦起来。</div>
+  <button class="syntax-toggle" id="btn-s3" onclick="toggleSyntax('s3')">▲ 收起解析</button>
+  <div class="syntax" id="s3"><b>🔍 长难句拆解</b><br><b>并列句</b>：and 连接两个分句。<br>&nbsp;&nbsp;前分句：Americans had learned to live with less（主+谓+宾）<br>&nbsp;&nbsp;后分句：that restraint ... made small, efficient housing positively stylish（主+谓+宾+宾补）<br><b>插入语</b>：in combination with the postwar confidence in the future。<br><b>💡 Q31 考点</b>：住房风格反映的是 restraint（克制）+ confidence（信心）。<br><b>词义</b>：<b>restraint</b> 克制；<b>in combination with</b> 与……结合；<b>stylish</b> 时髦的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — "少即是多"的起源：Mies 与包豪斯</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">Economic condition was only a stimulus for the trend toward efficient living.</div>
+  <hr class="sent-hr"><div class="cn">经济状况只是高效生活趋势的一个刺激因素。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>主干</b>：Economic condition（主）+ was（系）+ only a stimulus（表）。<br><b>词义</b>：<b>stimulus</b> 刺激/促进因素（复数 stimuli）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">The phrase "less is more" was actually first popularized by a German, the architect Ludwig Mies van der Rohe, who like other people associated with the <u>Bauhaus</u>, a school of design, emigrated to the United States before World War II and took up posts at American architecture schools.</div>
+  <hr class="sent-hr"><div class="cn">"少即是多"这一说法实际上最初是由德国人、建筑师路德维希·密斯·凡·德·罗推广开来的。他与其他与包豪斯（一所设计学校）有关的人一样，在二战前移民到美国，并在美国建筑学院任教。</div>
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5"><b>🔍 长难句拆解</b><br><b>主干</b>：The phrase "less is more" was popularized by Ludwig Mies van der Rohe（被动语态）。<br><b>非限制性定语从句</b>：who ... emigrated ... and took up posts ... → 修饰 Mies。<br>&nbsp;&nbsp;① like other people associated with the Bauhaus → 插入语，说明 Mies 与包豪斯的关系<br>&nbsp;&nbsp;② a school of design → 同位语解释 Bauhaus<br><b>词义</b>：<b>popularize</b> 推广/普及；<b>emigrate</b> 移民（出国）；<b>take up posts</b> 任职。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">These designers came to exert enormous influence on the course of American architecture, but none more so than Mies.</div>
+  <hr class="sent-hr"><div class="cn">这些设计师对美国建筑的发展进程产生了巨大影响，但没有人比密斯的影响更大。</div>
+  <button class="syntax-toggle collapsed" id="btn-s6" onclick="toggleSyntax('s6')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s6"><b>🔍 语法解析</b><br><b>并列句</b>：but 连接转折。<br>&nbsp;&nbsp;后分句省略：none more so than Mies = none exerted more influence than Mies。<br><b>💡 Q32 考点</b>：Bauhaus（包豪斯）对美国建筑有巨大影响。<br><b>词义</b>：<b>exert influence on</b> 对……施加影响；<b>course</b> 进程。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — Mies 的设计理念</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">Mies's signature phrase means that less decoration, properly organized, has more impact than a lot.</div>
+  <hr class="sent-hr"><div class="cn">密斯的标志性理念意味着：经过恰当组织的少量装饰，比大量装饰更有影响力。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7"><b>🔍 语法解析</b><br><b>主干</b>：Mies's signature phrase（主）+ means（谓）+ that ...（宾语从句）。<br><b>插入语</b>：properly organized 夹在 less decoration 和 has 之间。<br><b>词义</b>：<b>signature phrase</b> 标志性口号；<b>impact</b> 影响力。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">Elegance, he believed, did not derive from <u>abundance</u>.</div>
+  <hr class="sent-hr"><div class="cn">他相信，优雅并不源于丰富繁复。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>插入语</b>：he believed 夹在主语 Elegance 和谓语 did not derive 之间。<br><b>💡 Q33 考点</b>：Mies 认为优雅不依赖大量装饰。<br><b>词义</b>：<b>derive from</b> 源于；<b>abundance</b> 丰富/大量。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Like other modern architects, he employed metal, glass and laminated wood—materials that we take for granted today but that in the 1940s symbolized the future.</div>
+  <hr class="sent-hr"><div class="cn">与其他现代建筑师一样，他使用金属、玻璃和胶合板——这些材料今天我们习以为常，但在 1940 年代象征着未来。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><b>🔍 长难句拆解</b><br><b>主干</b>：he（主）+ employed（谓）+ metal, glass and laminated wood（宾）。<br><b>同位语</b>：materials → 补充说明前面列举的材料。<br><b>并列定语从句</b>：that we take for granted today but that in the 1940s symbolized the future → 两个 that 从句并列修饰 materials。<br><b>词义</b>：<b>laminated wood</b> 胶合板；<b>take for granted</b> 习以为常；<b>symbolize</b> 象征。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Mies's sophisticated presentation <u>masked</u> the fact that the spaces he designed were small and efficient, rather than big and often empty.</div>
+  <hr class="sent-hr"><div class="cn">密斯精巧的呈现方式掩盖了一个事实：他设计的空间小而高效，而不是又大又常常空荡荡。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10"><b>🔍 语法解析</b><br><b>主干</b>：Mies's sophisticated presentation（主）+ masked（谓）+ the fact（宾）。<br><b>同位语从句</b>：that the spaces he designed were small and efficient → 解释 fact。<br>&nbsp;&nbsp;he designed → 省略关系代词的定语从句修饰 spaces<br><b>词义</b>：<b>sophisticated</b> 精巧的/复杂的；<b>mask</b> 掩盖。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 湖滨大道公寓的例子</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">The apartments in the elegant towers Mies built on Chicago's Lake Shore Drive, for example, were smaller—two-bedroom units under 1,000 square feet—than those in their older neighbors along the city's Gold Coast.</div>
+  <hr class="sent-hr"><div class="cn">例如，密斯在芝加哥湖滨大道建造的雅致高楼里的公寓——两居室不到 1000 平方英尺——比该市黄金海岸沿线老邻居的公寓更小。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>主干</b>：The apartments ... were smaller ... than those（比较级结构）。<br><b>修饰</b>：Mies built on Chicago's Lake Shore Drive → 省略关系代词的定语从句修饰 towers；破折号内 two-bedroom units ... → 同位语补充说明大小。<br><b>词义</b>：<b>square feet</b> 平方英尺；<b>Gold Coast</b> 黄金海岸（芝加哥富人区）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">But they were popular because of their airy glass walls, the views they afforded and the elegance of the buildings' details and proportions, the architectural equivalent of the abstract art so popular at the time.</div>
+  <hr class="sent-hr"><div class="cn">但它们很受欢迎，因为其通透的玻璃墙、所提供的视野，以及建筑细节和比例的优雅——这些在建筑上相当于当时非常流行的抽象艺术。</div>
+  <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
+  <div class="syntax" id="s12"><b>🔍 长难句拆解</b><br><b>主干</b>：they were popular because of ...（主+系+表 + because of 原因状语）。<br><b>三个并列名词</b>：their airy glass walls, the views they afforded and the elegance of ...<br>&nbsp;&nbsp;they afforded → 定语从句修饰 views<br><b>同位语</b>：the architectural equivalent of the abstract art so popular at the time → 补充说明优雅的效果。<br><b>💡 Q34 考点</b>：公寓与当时流行的抽象艺术有共通之处。<br><b>词义</b>：<b>airy</b> 通透的；<b>equivalent</b> 对等物/等价物。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 6 — 美国本土的呼应：Frank Lloyd Wright</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">The trend toward "less" was not entirely foreign. In the 1930s Frank Lloyd Wright started building more modest and efficient houses—usually around 1,200 square feet—than the spreading two-story ones he had designed in the 1890s and the early 20th century.</div>
+  <hr class="sent-hr"><div class="cn">"少"的趋势并非完全是外来的。在 1930 年代，弗兰克·劳埃德·赖特开始建造比他在 1890 年代和 20 世纪初设计的铺展式两层住宅更简朴高效的房子——通常约 1200 平方英尺。</div>
+  <button class="syntax-toggle" id="btn-s13" onclick="toggleSyntax('s13')">▲ 收起解析</button>
+  <div class="syntax" id="s13"><b>🔍 长难句拆解</b><br><b>第一句</b>：The trend（主）+ was（系）+ not entirely foreign（表）。<br><b>第二句</b>：Frank Lloyd Wright started building more modest and efficient houses ... than the spreading two-story ones（比较级）。<br>&nbsp;&nbsp;he had designed ... → 定语从句修饰 ones；破折号内 around 1,200 square feet → 补充说明大小。<br><b>词义</b>：<b>modest</b> 简朴的；<b>spreading</b> 铺展式的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 7 — 本土影响："案例住宅"计划</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">The "Case Study Houses" commissioned from talented modern architects by <em>California Arts & Architecture</em> magazine between 1945 and 1962 were yet another homegrown influence on the "less is more" trend.</div>
+  <hr class="sent-hr"><div class="cn">1945 年至 1962 年间由《加州艺术与建筑》杂志委托才华横溢的现代建筑师设计的"案例住宅"，是"少即是多"趋势的又一个本土影响。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>主干</b>：The "Case Study Houses" ... were yet another homegrown influence（主+系+表）。<br><b>过去分词后置定语</b>：commissioned from talented modern architects by the magazine between 1945 and 1962 → 修饰 Houses。<br><b>词义</b>：<b>commission</b> 委托；<b>homegrown</b> 本土的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Aesthetic effect came from the landscape, new materials and <u>forthright</u> detailing.</div>
+  <hr class="sent-hr"><div class="cn">美学效果来自景观、新材料和直率的细部处理。</div>
+  <button class="syntax-toggle collapsed" id="btn-s15" onclick="toggleSyntax('s15')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s15"><b>🔍 语法解析</b><br><b>主干</b>：Aesthetic effect（主）+ came from（谓）+ the landscape, new materials and forthright detailing（三个并列宾语）。<br><b>💡 Q35 考点</b>：景观（natural scenes）是美学效果的来源之一。<br><b>词义</b>：<b>aesthetic</b> 美学的；<b>forthright</b> 直率的/直截了当的；<b>detailing</b> 细部处理。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">In his Case Study House, Ralph Rapson may have mispredicted just how the mechanical revolution would impact everyday life—few American families acquired helicopters, though most eventually got clothes dryers—but his belief that self-sufficiency was both desirable and inevitable was widely shared.</div>
+  <hr class="sent-hr"><div class="cn">在他的案例住宅中，拉尔夫·拉普森可能错误地预测了机械革命将如何影响日常生活——很少有美国家庭拥有直升机，尽管大多数最终用上了干衣机——但他认为自给自足既可取又不可避免的信念得到了广泛认同。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16"><b>🔍 长难句拆解</b><br><b>主干</b>：Ralph Rapson may have mispredicted ... but his belief ... was widely shared（but 连接转折）。<br>&nbsp;&nbsp;前分句：may have mispredicted just how the mechanical revolution would impact everyday life（宾语从句）<br>&nbsp;&nbsp;后分句：his belief that self-sufficiency was both desirable and inevitable was widely shared（同位语从句解释 belief）<br><b>破折号插入</b>：few American families acquired helicopters, though most eventually got clothes dryers → 具体例子说明 mispredicted。<br><b>词义</b>：<b>mispredict</b> 错误预测；<b>self-sufficiency</b> 自给自足；<b>inevitable</b> 不可避免的。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 战后繁荣——士兵返乡、上大学、结婚。<br>
+      <span class="num">②</span> P2: 但住房风格却是"少即是多"——克制 + 信心造就小而高效的住宅。<br>
+      <span class="num">③</span> P3: "少即是多"由 Mies 推广，他与包豪斯一同移民美国，影响深远。<br>
+      <span class="num">④</span> P4: Mies 的理念——优雅不依赖丰富，而靠精心组织；小空间用新材料。<br>
+      <span class="num">⑤</span> P5: 湖滨大道公寓例证——小但受欢迎，媲美抽象艺术。<br>
+      <span class="num">⑥</span> P6-P7: 本土呼应——Wright 的简朴住宅 + "案例住宅"计划。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>prosperity</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>繁荣</td><td>prosper + -ity</td></tr>
+        <tr><td><b>restraint</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>克制</td><td>Q31 考点词</td></tr>
+        <tr><td><b>stylish</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>时髦的</td><td>style + -ish</td></tr>
+        <tr><td><b>stimulus</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>刺激因素</td><td>复数 stimuli</td></tr>
+        <tr><td><b>popularize</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>推广/普及</td><td>popular + -ize</td></tr>
+        <tr><td><b>emigrate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>移民（出国）</td><td>e-出 + migrate</td></tr>
+        <tr><td><b>exert</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>施加</td><td>~ influence on</td></tr>
+        <tr><td><b>abundance</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>丰富/大量</td><td>abundant 名词</td></tr>
+        <tr><td><b>laminated</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>层压的</td><td>~ wood 胶合板</td></tr>
+        <tr><td><b>sophisticated</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>精巧的</td><td>sophisticate + -ed</td></tr>
+        <tr><td><b>mask</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>掩盖</td><td>~ the fact</td></tr>
+        <tr><td><b>equivalent</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>对等物</td><td>the ~ of</td></tr>
+        <tr><td><b>commission</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>委托</td><td>~ from</td></tr>
+        <tr><td><b>self-sufficiency</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>自给自足</td><td>self- + sufficiency</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">We tend to think of the decades immediately following World War II as a time of prosperity and growth.</div>
+      <div class="pat-cn">我们往往把二战后的几十年视为繁荣发展的时代。</div>
+      <span class="pat-tag">tend to think of ... as</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">He employed metal, glass and laminated wood—materials that we take for granted today but that in the 1940s symbolized the future.</div>
+      <div class="pat-cn">他使用金属玻璃胶合板——这些材料今天习以为常但当年象征未来。</div>
+      <span class="pat-tag">同位语 + 并列定语从句</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">31. The postwar American housing style largely reflected the Americans' ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] prosperity and growth</span>
+      <span class="opt no">[B] efficiency and practicality</span>
+      <span class="opt ok">[C] restraint and confidence</span>
+      <span class="opt no">[D] pride and faithfulness</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（restraint and confidence 克制与信心）</b></p>
+      <p><b>定位</b>：P2 · S03 — "that <b>restraint</b>, in combination with the postwar <b>confidence</b> in the future, made small, efficient housing positively stylish"</p>
+      <p><b>推理</b>：作者明确说"克制 + 战后对未来的信心"使小户型住房变得时髦。住房风格反映的正是 restraint（克制）和 confidence（信心）这两种心态。</p>
+      <p><b>❌ A 错误</b>：prosperity and growth（繁荣与增长）——这是 P1 对战后<b>整体时代</b>的描述，但住房风格恰恰与之相反（小而简朴）。</p>
+      <p><b>❌ B 错误</b>：efficiency and practicality（效率与实用）——这是住房<b>本身的特点</b>（small, efficient housing），不是住房风格所反映的美国人<b>心态</b>。</p>
+      <p><b>❌ D 错误</b>：pride and faithfulness（骄傲与忠诚）——文中未提。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">32. Which of the following can be inferred from Paragraph 3 about the Bauhaus?</div>
+    <div class="opts">
+      <span class="opt no">[A] It was founded by Ludwig Mies van der Rohe.</span>
+      <span class="opt no">[B] Its designing concept was affected by World War II.</span>
+      <span class="opt no">[C] Most American architects used to be associated with it.</span>
+      <span class="opt ok">[D] It had a great influence upon American architecture.</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（It had a great influence upon American architecture 它对美国建筑产生了巨大影响）</b></p>
+      <p><b>定位</b>：P3 · S06 — "These designers came to <b>exert enormous influence on the course of American architecture</b>, but none more so than Mies."</p>
+      <p><b>推理</b>：these designers 指代 "other people associated with the Bauhaus"（与包豪斯相关的人）。这些人"对美国建筑进程施加了巨大影响"→ 包豪斯对美国建筑影响巨大。D 是对此的直接概括。</p>
+      <p><b>❌ A 错误</b>：founded by Mies（由密斯创立）——文中只说 Mies "associated with"（与……相关）包豪斯，没说他是创始人。事实上包豪斯由 Walter Gropius 创立。</p>
+      <p><b>❌ B 错误</b>：designing concept affected by WWII（设计理念受二战影响）——文中说这些人因二战前移民美国，但没说设计理念被战争影响。</p>
+      <p><b>❌ C 错误</b>：Most American architects associated with it（大多数美国建筑师与它有关）——文中说的是这些人来到美国并影响美国建筑，不是说"大多数美国建筑师"曾与包豪斯有关。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">33. Mies held that elegance of architectural design ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] was related to large space</span>
+      <span class="opt no">[B] was identified with emptiness</span>
+      <span class="opt ok">[C] was not reliant on abundant decoration</span>
+      <span class="opt no">[D] was not associated with efficiency</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（was not reliant on abundant decoration 不依赖于大量装饰）</b></p>
+      <p><b>定位</b>：P4 · S07-S08 — "less decoration, properly organized, has more impact than a lot" + "Elegance, he believed, did not <b>derive from abundance</b>"</p>
+      <p><b>推理</b>：Mies 认为"优雅不源于丰富"（abundance = 大量装饰）→ 即优雅不依赖于大量装饰。C 选项 not reliant on abundant decoration 正是 "did not derive from abundance" 的同义转述。</p>
+      <p><b>❌ A 错误</b>：related to large space（与大空间有关）——恰恰相反，Mies 设计的是小空间。</p>
+      <p><b>❌ B 错误</b>：identified with emptiness（等同于空荡荡）——S10 说 Mies 的空间 "small and efficient, rather than big and often <b>empty</b>"，他把优雅与"空"区分开来。</p>
+      <p><b>❌ D 错误</b>：not associated with efficiency（与效率无关）——Mies 的空间恰恰是 efficient（高效的），所以优雅是与效率相关的。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">34. What is true about the apartments Mies built on Chicago's Lake Shore Drive?</div>
+    <div class="opts">
+      <span class="opt no">[A] They ignored details and proportions.</span>
+      <span class="opt no">[B] They were built with materials popular at that time.</span>
+      <span class="opt no">[C] They were more spacious than neighboring buildings.</span>
+      <span class="opt ok">[D] They shared some characteristics of abstract art.</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（They shared some characteristics of abstract art 它们与抽象艺术有某些共同特征）</b></p>
+      <p><b>定位</b>：P5 · S12 — "the elegance of the buildings' details and proportions, the architectural <b>equivalent of the abstract art</b> so popular at the time"</p>
+      <p><b>推理</b>：作者说这些公寓在建筑上"相当于当时流行的抽象艺术"（the architectural equivalent of abstract art）→ 公寓与抽象艺术有共通之处（如对比例、细节的抽象化追求）。D 正确。</p>
+      <p><b>❌ A 错误</b>：ignored details and proportions（忽视细节和比例）——与原文相反！S12 说其受欢迎正因 "the elegance of the buildings' <b>details and proportions</b>"。</p>
+      <p><b>❌ B 错误</b>：built with materials popular at that time（用当时流行的材料建造）——P4 S09 说 Mies 用的金属玻璃等材料在 1940 年代 <b>symbolized the future</b>（象征未来），不是当时流行的。</p>
+      <p><b>❌ C 错误</b>：more spacious than neighboring（比邻居更宽敞）——与原文相反！S11 说公寓 <b>smaller</b> than older neighbors（比老邻居的公寓更小）。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">35. What can we learn about the design of the "Case Study Houses"?</div>
+    <div class="opts">
+      <span class="opt no">[A] Mechanical devices were widely used.</span>
+      <span class="opt ok">[B] Natural scenes were taken into consideration.</span>
+      <span class="opt no">[C] Details were sacrificed for the overall effect.</span>
+      <span class="opt no">[D] Eco-friendly materials were employed.</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（Natural scenes were taken into consideration 考虑了自然景观）</b></p>
+      <p><b>定位</b>：P7 · S15 — "Aesthetic effect came from the <b>landscape</b>, new materials and forthright detailing."</p>
+      <p><b>推理</b>：案例住宅的美学效果来自 landscape（景观/自然景色）等 → 设计时考虑了自然景观。B 选项 natural scenes 是 landscape 的同义替换。</p>
+      <p><b>❌ A 错误</b>：Mechanical devices widely used（机械装置被广泛使用）——S16 说 Rapson 错误预测了机械革命的影响（直升机没普及），说明机械装置并未广泛使用。</p>
+      <p><b>❌ C 错误</b>：Details sacrificed（牺牲细节）——与原文相反！S15 说美学来自 "forthright detailing"（直率的细部处理），细节是被重视的。</p>
+      <p><b>❌ D 错误</b>：Eco-friendly materials employed（使用环保材料）——文中提到 new materials（新材料），但没说 eco-friendly（环保的）。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2011 英语（二）Text 3 · 16 句 · 5 题 · 答案 CDCDB</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
