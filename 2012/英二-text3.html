@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2012 考研英语（二）Text 3 — 基因专利之争</title>
+<style>
+:root{--bg:#eff3f0;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#3a7a5a;--accent-light:#e8f1ec;--amber:#c9a84c;--amber-light:#fcf6e8;--rust:#5a8a7a;--rust-light:#e8f0ed;--steel:#4a6a7a;--steel-light:#e8eef1;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a8030}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(58,122,90,.18) 0%,rgba(58,122,90,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(58,122,90,.15) 0%,rgba(58,122,90,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(90,138,122,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(58,122,90,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(201,168,76,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:200000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a8030;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a8030}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>基因专利之争<small>2012 考研英语（二）· Text 3</small></h1>
+  <p class="sub">In 2010, a federal judge shook America's biotech industry to its core — the battle over gene patents</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 生物科技</span><span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 法官裁决震动生物科技行业</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">In 2010, a federal judge shook America's biotech industry to its core.</div>
+  <hr class="sent-hr"><div class="cn">2010 年，一位联邦法官从根本上撼动了美国生物科技行业。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>主干</b>：a federal judge（主）+ shook（谓）+ America's biotech industry（宾）+ to its core（程度状语）。<br><b>词义</b>：<b>biotech</b> 生物科技（biotechnology 缩写）；<b>to its core</b> 从根本上。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">Companies had won patents for isolated DNA for decades—by 2005 some 20% of human genes were patented.</div>
+  <hr class="sent-hr"><div class="cn">几十年来，公司一直为分离的 DNA 赢得专利——到 2005 年，约 20% 的人类基因已被授予专利。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>主干</b>：Companies（主）+ had won（过去完成谓）+ patents（宾）。<br><b>破折号后补充</b>：by 2005 some 20% of human genes were patented（被动语态）。<br><b>词义</b>：<b>isolated DNA</b> 分离的 DNA；<b>patent</b> 专利（n./v.）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">But in March 2010 a judge ruled that genes were unpatentable. Executives were violently agitated.</div>
+  <hr class="sent-hr"><div class="cn">但在 2010 年 3 月，一名法官裁定基因不可授予专利。高管们极为激动。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3"><b>🔍 语法解析</b><br><b>第一句</b>：a judge ruled that ...（主+谓+宾语从句）。<br><b>第二句</b>：Executives were violently agitated（主+系+表）。<br><b>💡 Q31 考点</b>：高管们极度不安，说明生物科技公司希望基因可以被专利。<br><b>词义</b>：<b>unpatentable</b> 不可申请专利的；<b>violently</b> 激烈地；<b>agitated</b> 激动的/不安的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">The Biotechnology Industry Organisation (BIO), a trade group, assured members that this was just a "preliminary step" in a longer battle.</div>
+  <hr class="sent-hr"><div class="cn">生物科技行业组织（BIO）——一个贸易团体——向成员保证，这只是更漫长斗争中的"初步一步"。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>主干</b>：The BIO（主）+ assured（谓）+ members（间接宾语）+ that ...（宾语从句）。<br><b>同位语</b>：a trade group 解释 BIO。<br><b>词义</b>：<b>assure</b> 向……保证；<b>preliminary</b> 初步的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 上诉法院推翻原判</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">On July 29th they were relieved, at least temporarily.</div>
+  <hr class="sent-hr"><div class="cn">7 月 29 日，他们松了一口气，至少暂时如此。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>主干</b>：they were relieved（主+系+表）。<br><b>插入语</b>：at least temporarily 表程度的限定。<br><b>词义</b>：<b>relieved</b> 松一口气的；<b>temporarily</b> 暂时地。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">A federal appeals court overturned the prior decision, ruling that Myriad Genetics could indeed hold patents to two genes that help forecast a woman's risk of breast cancer.</div>
+  <hr class="sent-hr"><div class="cn">联邦上诉法院推翻了先前的裁决，裁定 Myriad Genetics 公司确实可以持有两项基因的专利，这两项基因有助于预测女性患乳腺癌的风险。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6"><b>🔍 长难句拆解</b><br><b>主干</b>：A federal appeals court（主）+ overturned（谓）+ the prior decision（宾）。<br><b>伴随状语</b>：ruling that Myriad Genetics could indeed hold patents to two genes（现在分词短语作伴随状语）。<br><b>定语从句</b>：that help forecast a woman's risk of breast cancer → 修饰 two genes。<br><b>词义</b>：<b>appeals court</b> 上诉法院；<b>overturn</b> 推翻；<b>forecast</b> 预测；<b>breast cancer</b> 乳腺癌。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">The chief executive of Myriad, a company in Utah, said the ruling was a blessing to firms and patients alike.</div>
+  <hr class="sent-hr"><div class="cn">犹他州公司 Myriad 的首席执行官说，这项裁决对公司和患者都是福音。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7"><b>🔍 语法解析</b><br><b>主干</b>：The chief executive of Myriad（主）+ said（谓）+ （that）the ruling was a blessing（宾语从句，省略 that）。<br><b>同位语</b>：a company in Utah 解释 Myriad。<br><b>词义</b>：<b>blessing</b> 福音/好事；<b>alike</b> 同样地。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 批评者的反对理由</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">But as companies continue their attempts at personalised medicine, the courts will remain rather busy.</div>
+  <hr class="sent-hr"><div class="cn">但随着公司继续推进个性化医疗的尝试，法院将仍然相当繁忙。</div>
+  <button class="syntax-toggle collapsed" id="btn-s8" onclick="toggleSyntax('s8')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s8"><b>🔍 语法解析</b><br><b>时间状语从句</b>：as companies continue their attempts at personalised medicine（as = 随着）。<br><b>主句</b>：the courts will remain rather busy（主+系+表）。<br><b>词义</b>：<b>personalised medicine</b> 个性化医疗。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">The Myriad case itself is probably not over. Critics make three main arguments against gene patents: a gene is a product of nature, so it may not be patented; gene patents suppress innovation rather than reward it; and patents' monopolies restrict access to genetic tests such as Myriad's.</div>
+  <hr class="sent-hr"><div class="cn">Myriad 案本身可能还没有结束。批评者提出了反对基因专利的三个主要论点：基因是自然产物，因此不可授予专利；基因专利抑制而非奖励创新；专利垄断限制了对基因检测（如 Myriad 的检测）的获取。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><b>🔍 长难句拆解</b><br><b>第一句</b>：The Myriad case is probably not over（主+系+表）。<br><b>第二句</b>：Critics make three main arguments against gene patents（主+谓+宾）+ 冒号引出三个并列分句：<br>&nbsp;&nbsp;① a gene is a product of nature, so it may not be patented<br>&nbsp;&nbsp;② gene patents suppress innovation rather than reward it<br>&nbsp;&nbsp;③ patents' monopolies restrict access to genetic tests such as Myriad's<br><b>💡 Q32 考点</b>：批评者认为自然产物（如基因）不可专利——只有人造产品才能专利。<br><b>词义</b>：<b>suppress</b> 抑制；<b>monopoly</b> 垄断；<b>restrict access to</b> 限制获取。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">A growing number seem to agree. Last year a federal task-force urged reform for patents related to genetic tests. In October the Department of Justice filed a brief in the Myriad case, arguing that an isolated DNA molecule "is no less a product of nature...than are cotton fibres that have been separated from cotton seeds."</div>
+  <hr class="sent-hr"><div class="cn">越来越多的人似乎认同这一点。去年，一个联邦特别工作组敦促对基因检测相关专利进行改革。10 月，司法部在 Myriad 案中提交了一份意见书，辩称分离的 DNA 分子"与从棉籽中分离出的棉纤维一样，同样是自然产物"。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10"><b>🔍 长难句拆解</b><br><b>第一句</b>：A growing number seem to agree（主+系+不定式表语）。<br><b>第二句</b>：a federal task-force urged reform for patents related to genetic tests。<br><b>第三句</b>：the Department of Justice filed a brief ... arguing that ...（现在分词作伴随状语）。<br><b>从句内比较</b>："is no less a product of nature ... than are cotton fibres that have been separated from cotton seeds" → no less ... than（与……一样）；than are cotton fibres 为倒装结构；that have been separated → 定语从句修饰 fibres。<br><b>词义</b>：<b>task-force</b> 特别工作组；<b>file a brief</b> 提交意见书；<b>molecule</b> 分子。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 悬而未决的大问题</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Despite the appeals court's decision, big questions remain unanswered. For example, it is unclear whether the sequencing of a whole genome violates the patents of individual genes within it.</div>
+  <hr class="sent-hr"><div class="cn">尽管上诉法院作出了裁决，但重大问题仍未得到解答。例如，尚不清楚对整个人类基因组的测序是否侵犯了其中单个基因的专利。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>第一句</b>：big questions remain unanswered（主+系+表）。<br><b>第二句</b>：it is unclear whether ...（it 形式主语 + whether 主语从句）。<br><b>词义</b>：<b>sequencing</b> 测序；<b>genome</b> 基因组；<b>violate</b> 侵犯/违反。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">The case may yet reach the Supreme Court.</div>
+  <hr class="sent-hr"><div class="cn">此案可能还会上诉至最高法院。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12"><b>🔍 语法解析</b><br><b>主干</b>：The case（主）+ may yet reach（谓）+ the Supreme Court（宾）。<br><b>词义</b>：<b>Supreme Court</b> 最高法院。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 行业的新动向</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">As the industry advances, however, other suits may have an even greater impact. Companies are unlikely to file many more patents for human DNA molecules—most are already patented or in the public domain.</div>
+  <hr class="sent-hr"><div class="cn">然而，随着行业发展，其他诉讼可能产生更大的影响。公司不太可能为人类 DNA 分子申请更多专利——大多数已经获得专利或进入公共领域。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>第一句</b>：As the industry advances（时间状语从句）+ other suits may have an even greater impact。<br><b>第二句</b>：Companies are unlikely to file many more patents for human DNA molecules + 破折号后解释（most are already patented or in the public domain）。<br><b>词义</b>：<b>file patents</b> 申请专利；<b>public domain</b> 公共领域（不受专利保护）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">Firms are now studying how genes interact, looking for correlations that might be used to determine the causes of disease or predict a drug's efficacy, companies are eager to win patents for "connecting the dots", explains Hans Sauer, a lawyer for the BIO.</div>
+  <hr class="sent-hr"><div class="cn">公司现在正在研究基因如何相互作用，寻找可能用于确定疾病原因或预测药物疗效的相关性；BIO 的律师 Hans Sauer 解释说，公司渴望赢得"串联线索"的专利。</div>
+  <button class="syntax-toggle" id="btn-s14" onclick="toggleSyntax('s14')">▲ 收起解析</button>
+  <div class="syntax" id="s14"><b>🔍 长难句拆解</b><br><b>主干</b>：Firms are now studying how genes interact（主+谓+宾语从句），looking for correlations ...（现在分词作伴随状语）。<br><b>破折号后</b>：companies are eager to win patents for "connecting the dots", explains Hans Sauer（引述结构）。<br><b>💡 Q33 考点</b>：公司渴望赢得"connecting the dots"（串联线索）的专利 = 建立疾病相关性（disease correlations）。<br><b>词义</b>：<b>interact</b> 相互作用；<b>correlation</b> 相关性；<b>efficacy</b> 药效；<b>connect the dots</b> 串联线索（喻指发现基因间的联系）。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 6 — 即将到来的重大诉讼</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Their success may be determined by a suit related to this issue, brought by the Mayo Clinic, which the Supreme Court will hear in its next term.</div>
+  <hr class="sent-hr"><div class="cn">他们的成功可能取决于 Mayo 诊所提起的一起与此问题相关的诉讼，最高法院将在下一开庭期审理此案。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15"><b>🔍 长难句拆解</b><br><b>主干</b>：Their success may be determined by a suit（主+被动谓）。<br><b>过去分词后置定语</b>：brought by the Mayo Clinic 修饰 a suit。<br><b>非限制性定语从句</b>：which the Supreme Court will hear in its next term 修饰 a suit。<br><b>词义</b>：<b>determine</b> 决定；<b>term</b> （法庭）开庭期。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">The BIO recently held a convention which included sessions to coach lawyers on the shifting landscape for patents. Each meeting was <mark>packed</mark>.</div>
+  <hr class="sent-hr"><div class="cn">BIO 最近举办了一次大会，其中包括为律师提供关于专利格局变化的培训课程。每场会议都座无虚席。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16"><b>🔍 长难句拆解</b><br><b>第一句</b>：The BIO held a convention（主+谓+宾）+ which included sessions to coach lawyers on the shifting landscape for patents（定语从句修饰 convention）。<br><b>第二句</b>：Each meeting was packed（主+系+表）。<br><b>💡 Q34 考点</b>：会议座无虚席 → 基因专利问题广受关注（a great concern）。<br><b>词义</b>：<b>convention</b> 大会；<b>coach</b> 培训；<b>shifting landscape</b> 不断变化的格局；<b>packed</b> 座无虚席的。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 2010 年法官裁定基因不可专利，震动生物科技行业。<br>
+      <span class="num">②</span> P2: 上诉法院推翻原判，Myriad 可持有乳腺癌基因专利。<br>
+      <span class="num">③</span> P3: 批评者三大理由——基因是自然产物、专利抑制创新、垄断限制检测；司法部也反对。<br>
+      <span class="num">④</span> P4: 重大问题未决——全基因组测序是否侵权，可能上最高法院。<br>
+      <span class="num">⑤</span> P5-P6: 行业转向"串联线索"专利；Mayo 案可能定乾坤，律师培训会座无虚席。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>biotech</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>生物科技</td><td>biotechnology 缩写</td></tr>
+        <tr><td><b>patent</b></td><td style="color:var(--text-muted);font-size:.9em;">n./v.</td><td>专利</td><td>全文核心词</td></tr>
+        <tr><td><b>isolated</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>分离的</td><td>~ DNA</td></tr>
+        <tr><td><b>unpatentable</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>不可专利的</td><td>un- + patent + -able</td></tr>
+        <tr><td><b>agitated</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>激动的</td><td>Q31 考点词</td></tr>
+        <tr><td><b>overturn</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>推翻</td><td>~ the decision</td></tr>
+        <tr><td><b>forecast</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>预测</td><td>~ risk</td></tr>
+        <tr><td><b>suppress</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>抑制</td><td>~ innovation</td></tr>
+        <tr><td><b>monopoly</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>垄断</td><td>patents' ~</td></tr>
+        <tr><td><b>correlation</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>相关性</td><td>Q33 考点词</td></tr>
+        <tr><td><b>efficacy</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>药效</td><td>drug's ~</td></tr>
+        <tr><td><b>packed</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>座无虚席的</td><td>Q34 考点词</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">A gene is a product of nature, so it may not be patented.</div>
+      <div class="pat-cn">基因是自然产物，因此不可授予专利。</div>
+      <span class="pat-tag">简洁因果句 + 被动语态</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">An isolated DNA molecule is no less a product of nature than are cotton fibres that have been separated from cotton seeds.</div>
+      <div class="pat-cn">分离的 DNA 分子与分离出的棉纤维一样，都是自然产物。</div>
+      <span class="pat-tag">no less ... than + 倒装 + 定语从句</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">31. It can be learned from Paragraph 1 that the biotech companies would like ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] their executives to be active</span>
+      <span class="opt no">[B] judges to rule out gene patenting</span>
+      <span class="opt ok">[C] genes to be patentable</span>
+      <span class="opt no">[D] the BIO to issue a warning</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（genes to be patentable 基因可以被专利）</b></p>
+      <p><b>定位</b>：P1 · S02-S04 — "Companies had won patents for isolated DNA for decades"（公司几十年一直赢取基因专利）+ "a judge ruled that genes were unpatentable"（法官裁定基因不可专利）+ "Executives were violently <b>agitated</b>"（高管们极度不安）</p>
+      <p><b>推理</b>：公司几十年来一直在为基因申请专利并取得成功，当法官裁定"基因不可专利"时高管们极度不安（violently agitated）——这说明公司希望基因继续可以被专利（patentable）。C 选项直接对应。</p>
+      <p><b>❌ A 错误</b>：their executives to be active（希望高管积极）——executives 是"因裁决而激动"的主体，不是公司希望的对象。</p>
+      <p><b>❌ B 错误</b>：judges to rule out gene patenting（希望法官排除基因专利）——恰恰相反！公司不希望排除基因专利，而是希望保留它。</p>
+      <p><b>❌ D 错误</b>：the BIO to issue a warning（希望 BIO 发出警告）——S04 说 BIO 主动"assured members"（向成员保证），不是公司希望它警告。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">32. Those who are against gene patents believe that ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] genetic tests are not reliable</span>
+      <span class="opt ok">[B] only man-made products are patentable</span>
+      <span class="opt no">[C] patents on genes depend much on innovation</span>
+      <span class="opt no">[D] courts should restrict access to genetic tests</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（only man-made products are patentable 只有人造产品才能专利）</b></p>
+      <p><b>定位</b>：P3 · S09 — 批评者第一个论点："a gene is a <b>product of nature</b>, so it may not be patented"（基因是自然产物，因此不可专利）</p>
+      <p><b>推理</b>：批评者的核心逻辑是"自然产物不可专利"——言下之意：只有人造的（man-made）产品才可专利。基因是自然产物，所以不可专利。B 选项是对这一逻辑的反向概括。</p>
+      <p><b>❌ A 错误</b>：genetic tests are not reliable（基因检测不可靠）——文中未说检测不可靠，只是说专利垄断"restrict access to"（限制获取）检测。</p>
+      <p><b>❌ C 错误</b>：patents on genes depend much on innovation（基因专利很大程度上依赖创新）——批评者恰恰说基因专利"suppress innovation rather than reward it"（抑制而非奖励创新），与 C 相反。</p>
+      <p><b>❌ D 错误</b>：courts should restrict access to genetic tests（法院应限制检测获取）——S09 说的是专利<b>垄断</b>（monopolies）在限制获取，批评者反对这种限制，不是主张限制。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">33. According to Hans Sauer, companies are eager to win patents for ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] establishing disease correlations</span>
+      <span class="opt ok">[B] discovering gene interactions</span>
+      <span class="opt no">[C] drawing pictures of genes</span>
+      <span class="opt no">[D] identifying human DNA</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（discovering gene interactions 发现基因相互作用）</b></p>
+      <p><b>定位</b>：P5 · S14 — "Firms are now studying how <b>genes interact</b>, looking for correlations ... companies are eager to win patents for 'connecting the dots'"</p>
+      <p><b>推理</b>：Hans Sauer 说公司"正在研究基因如何相互作用（genes interact）……渴望赢得'串联线索'（connecting the dots）的专利"。"connecting the dots" 正是指发现基因之间的相互联系/相互作用。B 选项 discovering gene interactions 是对此最直接的概括。</p>
+      <p><b>❌ A 错误</b>：establishing disease correlations（建立疾病相关性）——looking for correlations 是研究方法/目的之一，但 Sauer 说的"connecting the dots"核心是<b>基因相互作用</b>，相关性是寻找的结果。</p>
+      <p><b>❌ C 错误</b>：drawing pictures of genes（绘制基因图谱）——"dots"（点）是比喻，不是真的画图。</p>
+      <p><b>❌ D 错误</b>：identifying human DNA（识别人类 DNA）——这是过去的事（P5 S13 说 DNA 专利已饱和），不是现在渴望的方向。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">34. By saying "Each meeting was packed" (line 4, Para. 6) the author means that ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] the supreme court was authoritative</span>
+      <span class="opt no">[B] the BIO was a powerful organisation</span>
+      <span class="opt ok">[C] gene patenting was a great concern</span>
+      <span class="opt no">[D] lawyers were keen to attend conventions</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（gene patenting was a great concern 基因专利问题广受关注）</b></p>
+      <p><b>定位</b>：P6 · S16 — "The BIO recently held a convention which included sessions to coach lawyers on the shifting landscape for patents. Each meeting was <b>packed</b>."</p>
+      <p><b>推理</b>：BIO 举办的专利培训会"每场都座无虚席（packed）"——那么多律师挤着去听基因专利的培训，说明基因专利是大家高度关注的问题（a great concern）。作者用"座无虚席"的细节来强调该问题的重要性。</p>
+      <p><b>❌ A 错误</b>：the supreme court was authoritative（最高法院有权威）——这是 S15 的背景，不是"packed"要表达的意思。</p>
+      <p><b>❌ B 错误</b>：the BIO was a powerful organisation（BIO 是强大组织）——"packed"形容的是会议出席情况，不是组织的权力。</p>
+      <p><b>❌ D 错误</b>：lawyers were keen to attend conventions（律师热衷于参加会议）——虽然律师确实去了，但"packed"强调的是<b>议题受关注</b>，而非律师爱开会。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">35. Generally speaking, the author's attitude toward gene patenting is ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] critical</span>
+      <span class="opt no">[B] supportive</span>
+      <span class="opt no">[C] scornful</span>
+      <span class="opt ok">[D] objective</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（objective 客观的）</b></p>
+      <p><b>定位</b>：全文叙事方式——作者以<b>中性、客观</b>的口吻陈述事实：P1 公司赢得专利（客观陈述）、P2 上诉法院推翻原判（客观陈述）、P3 批评者的三大理由（转述他人观点，用 "critics make ... arguments"）、P4-P6 未决问题和行业动向（客观报道）。</p>
+      <p><b>推理</b>：作者通篇都在<b>呈现双方观点</b>——既写了公司对专利的渴望（S02-S03），也写了批评者的反对理由（S09），但没有明确表达自己的立场。这种"两边都讲、不表态"的写法是典型的<b>客观（objective）</b>态度。</p>
+      <p><b>❌ A 错误</b>：critical（批评的）——作者虽然报道了批评者的观点，但那是"转述"（critics make arguments），不是作者自己的立场。</p>
+      <p><b>❌ B 错误</b>：supportive（支持的）——同样，作者没有表达对基因专利的支持。</p>
+      <p><b>❌ C 错误</b>：scornful（轻蔑的）——全文没有轻蔑的语气。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2012 英语（二）Text 3 · 16 句 · 5 题 · 答案 CBBCD</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
