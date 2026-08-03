@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2012 考研英语（二）Text 4 — 衰退阴影下的社会</title>
+<style>
+:root{--bg:#f0f1f2;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#4a5a6a;--accent-light:#eaedf0;--amber:#b8860b;--amber-light:#fcf6e8;--rust:#6a5a4a;--rust-light:#f0ece8;--steel:#3a6a7a;--steel-light:#e6eef1;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a7a0a}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(184,134,11,.18) 0%,rgba(184,134,11,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(74,90,106,.15) 0%,rgba(74,90,106,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(106,90,74,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(74,90,106,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(184,134,11,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:200000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a7a0a;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a7a0a}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>衰退阴影下的社会<small>2012 考研英语（二）· Text 4</small></h1>
+  <p class="sub">The great recession may be over, but this era of high joblessness is probably beginning</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 经济与社会</span><span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 高失业时代的影响</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">The great recession may be over, but this era of high joblessness is probably beginning.</div>
+  <hr class="sent-hr"><div class="cn">大衰退或许已经结束，但高失业的时代可能才刚刚开始。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>转折并列句</b>：but 连接。<br>&nbsp;&nbsp;前分句：The great recession may be over（主+系+表）<br>&nbsp;&nbsp;后分句：this era of high joblessness is probably beginning（现在进行时表即将开始）<br><b>词义</b>：<b>recession</b> 衰退；<b>joblessness</b> 失业。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">Before it ends, it will likely change the life course and character of a generation of young adults.</div>
+  <hr class="sent-hr"><div class="cn">在它结束之前，它很可能会改变一代年轻人的生活轨迹和性格。</div>
+  <button class="syntax-toggle collapsed" id="btn-s2" onclick="toggleSyntax('s2')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s2"><b>🔍 语法解析</b><br><b>时间状语从句</b>：Before it ends。<br><b>主句</b>：it will likely change the life course and character（主+谓+宾）。<br><b>词义</b>：<b>life course</b> 生活轨迹；<b>young adults</b> 年轻人。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">And ultimately, it is likely to reshape our politics, our culture, and the character of our society for years.</div>
+  <hr class="sent-hr"><div class="cn">而最终，它很可能会在未来多年重塑我们的政治、文化和社会特质。</div>
+  <button class="syntax-toggle collapsed" id="btn-s3" onclick="toggleSyntax('s3')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s3"><b>🔍 语法解析</b><br><b>主干</b>：it is likely to reshape our politics, our culture, and the character of our society（主+系+不定式表语）。<br><b>词义</b>：<b>reshape</b> 重塑；<b>ultimately</b> 最终。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 失业者寻找一线希望</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">No one tries harder than the jobless to find <mark>silver linings</mark> in this national economic disaster.</div>
+  <hr class="sent-hr"><div class="cn">在这场全国性的经济灾难中，没有人比失业者更努力地寻找一线希望。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>比较级表最高级</b>：No one tries harder than the jobless = 失业者最努力（否定+比较级=最高级）。<br><b>💡 Q36 考点</b>：silver linings = 乌云背后的银边 = 困境中的一线希望/乐观面。<br><b>词义</b>：<b>silver lining</b> 一线希望（习语）；<b>disaster</b> 灾难。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">Many said that unemployment, while extremely painful, had improved them in some ways: they had become less materialistic and more financially prudent; they were more aware of the struggles of others.</div>
+  <hr class="sent-hr"><div class="cn">许多人说，失业虽然极其痛苦，但在某些方面让他们变好了：他们变得更不物质、更节俭；他们更理解他人的挣扎。</div>
+  <button class="syntax-toggle" id="btn-s5" onclick="toggleSyntax('s5')">▲ 收起解析</button>
+  <div class="syntax" id="s5"><b>🔍 长难句拆解</b><br><b>主干</b>：Many said that ...（主+谓+宾语从句）。<br><b>插入语</b>：while extremely painful（= while it was extremely painful，省略了主语和 be 动词）。<br><b>冒号后两个并列分句</b>：<br>&nbsp;&nbsp;① they had become less materialistic and more financially prudent<br>&nbsp;&nbsp;② they were more aware of the struggles of others<br><b>💡 Q37 考点</b>：衰退让人们"重新考虑生活方式"（reconsider their lifestyle）——变节俭、不物质。<br><b>词义</b>：<b>materialistic</b> 物质主义的；<b>prudent</b> 节俭的/谨慎的；<b>aware of</b> 意识到。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">In limited respects, perhaps the recession will leave society better off. At the very least, it has awoken us from our national fever dream of easy riches and bigger houses, and put a necessary end to an era of reckless personal spending.</div>
+  <hr class="sent-hr"><div class="cn">在有限的方面，衰退或许会让社会变得更好。至少，它把我们从"轻松致富、大房子"的民族狂热梦中唤醒，并给一个鲁莽个人消费的时代画上了必要的句号。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6"><b>🔍 长难句拆解</b><br><b>第一句</b>：the recession will leave society better off（leave + 宾 + 宾补）。<br><b>第二句</b>：it has awoken us from our national fever dream ... and put a necessary end to an era ...（两个并列谓语 has awoken ... and put）。<br><b>💡 关键短语</b>：fever dream（狂热梦）；put an end to（终结）。<br><b>词义</b>：<b>better off</b> 更富裕/更好；<b>fever dream</b> 狂热之梦；<b>reckless</b> 鲁莽的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 衰退的负面影响更大</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">But for the most part, these benefits seem thin, uncertain, and far off.</div>
+  <hr class="sent-hr"><div class="cn">但总体而言，这些好处显得单薄、不确定且遥不可及。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7"><b>🔍 语法解析</b><br><b>转折</b>：But 与上一段的"好处"形成对比——作者认为好处有限。<br><b>词义</b>：<b>for the most part</b> 总体而言；<b>far off</b> 遥远的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">In <em>The Moral Consequences of Economic Growth</em>, the economic historian Benjamin Friedman argues that both inside and outside the U.S., lengthy periods of economic stagnation or decline have almost always left society more <u>mean-spirited</u> and less inclusive, and have usually stopped or reversed the advance of rights and freedoms.</div>
+  <hr class="sent-hr"><div class="cn">在《经济增长的道德后果》一书中，经济史学家 Benjamin Friedman 认为，在美国内外，长期的经济停滞或衰退几乎总是让社会变得更加狭隘、包容性更低，并且通常停止或逆转了权利与自由的进步。</div>
+  <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8"><b>🔍 长难句拆解</b><br><b>主干</b>：Benjamin Friedman argues that ...（主+谓+宾语从句）。<br><b>宾语从句</b>：lengthy periods of economic stagnation ... have almost always left society more mean-spirited and less inclusive, and have usually stopped or reversed the advance of rights and freedoms。<br>&nbsp;&nbsp;leave + 宾 + 宾补（more mean-spirited and less inclusive）<br>&nbsp;&nbsp;and 连接两个并列谓语（have left ... and have stopped/reversed）<br><b>💡 Q38 考点</b>：衰退让人性更坏（mean-spirited 狭隘小气）→ bring out more evils of human nature。<br><b>词义</b>：<b>stagnation</b> 停滞；<b>mean-spirited</b> 狭隘小气的；<b>inclusive</b> 包容的；<b>reverse</b> 逆转。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">Anti-immigrant sentiment typically increases, as does conflict between races and classes.</div>
+  <hr class="sent-hr"><div class="cn">反移民情绪通常会加剧，种族和阶级之间的冲突也是如此。</div>
+  <button class="syntax-toggle collapsed" id="btn-s9" onclick="toggleSyntax('s9')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s9"><b>🔍 语法解析</b><br><b>So 倒装</b>：as does conflict between races and classes = conflict between races and classes also increases（as 引导的方式从句倒装）。<br><b>词义</b>：<b>sentiment</b> 情绪；<b>immigrant</b> 移民。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 不平等加剧，精英与大众分化</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">Income inequality usually falls during a recession, but it has not shrunk in this one.</div>
+  <hr class="sent-hr"><div class="cn">收入不平等通常在衰退期间下降，但这一次却没有缩小。</div>
+  <button class="syntax-toggle collapsed" id="btn-s10" onclick="toggleSyntax('s10')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s10"><b>🔍 语法解析</b><br><b>转折并列句</b>：but 连接——"通常下降" vs "这次没有缩小"的对比。<br><b>词义</b>：<b>inequality</b> 不平等；<b>shrink</b> 缩小。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Indeed, this period of economic weakness may <u>reinforce</u> class divides, and decrease opportunities to cross them—especially for young people.</div>
+  <hr class="sent-hr"><div class="cn">事实上，这段经济疲软期可能会加剧阶级分化，减少跨越阶级的机会——尤其是对年轻人而言。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>主干</b>：this period of economic weakness（主）+ may reinforce and decrease（并列谓）+ class divides / opportunities（并列宾）。<br><b>词义</b>：<b>reinforce</b> 加剧/强化；<b>class divide</b> 阶级鸿沟。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">The research of Till Von Wachter, the economist at Columbia University, suggests that not all people graduating into a recession see their life chances dimmed: those with degrees from elite universities catch up fairly quickly to where they otherwise would have been if they had graduated in better times; it is the masses beneath them that are left behind.</div>
+  <hr class="sent-hr"><div class="cn">哥伦比亚大学经济学家 Till Von Wachter 的研究表明，并非所有在衰退期毕业的人都会看到人生机会暗淡：拥有精英大学学位的人能相当快地追平他们本应在好时代达到的位置；被落下的，是那些精英之下的普通大众。</div>
+  <button class="syntax-toggle" id="btn-s12" onclick="toggleSyntax('s12')">▲ 收起解析</button>
+  <div class="syntax" id="s12"><b>🔍 长难句拆解</b><br><b>主干</b>：The research ... suggests that ...（主+谓+宾语从句）。<br><b>宾语从句</b>：not all people graduating into a recession see their life chances dimmed（部分否定）。<br><b>冒号后两个分句</b>：<br>&nbsp;&nbsp;① those with degrees from elite universities catch up fairly quickly to where they otherwise would have been if they had graduated in better times（虚拟语气：would have been if they had graduated）<br>&nbsp;&nbsp;② it is the masses beneath them that are left behind（强调句型 it is ... that ...）<br><b>💡 Q39 考点</b>：精英大学毕业生比其他人恢复更快。<br><b>词义</b>：<b>dim</b> 使暗淡；<b>elite</b> 精英；<b>catch up</b> 追上；<b>left behind</b> 被落下。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 5 — 社会结构必将被重塑</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">In the Internet age, it is particularly easy to see the <u>resentment</u> that has always been hidden within American society.</div>
+  <hr class="sent-hr"><div class="cn">在互联网时代，尤其容易看到一直隐藏在美国社会内部的不满情绪。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>主干</b>：it is particularly easy to see the resentment（it 形式主语 + 不定式真正主语）。<br><b>定语从句</b>：that has always been hidden within American society → 修饰 resentment。<br><b>词义</b>：<b>resentment</b> 怨恨/不满。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">More difficult, in the moment, is discerning precisely how these lean times are affecting society's character.</div>
+  <hr class="sent-hr"><div class="cn">而在当下，更难的是确切辨别这些艰难时期如何影响社会的特质。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>倒装句</b>：More difficult is discerning ... = Discerning ... is more difficult（表语前置的倒装，与上句 easy 形成对比）。<br><b>宾语从句</b>：how these lean times are affecting society's character。<br><b>词义</b>：<b>discern</b> 辨别；<b>lean times</b> 艰难时期；<b>character</b> 特质/品格。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">In many respects, the U.S. was more socially tolerant entering this recession than at any time in its history, and a variety of national polls on social conflict since then have shown mixed results.</div>
+  <hr class="sent-hr"><div class="cn">在许多方面，美国进入这次衰退时的社会包容度比历史上任何时候都高，此后关于社会冲突的各种全国性民调结果不一。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15"><b>🔍 长难句拆解</b><br><b>并列句</b>：and 连接两个分句。<br>&nbsp;&nbsp;前分句：the U.S. was more socially tolerant ... than at any time in its history（比较级）<br>&nbsp;&nbsp;后分句：a variety of national polls ... have shown mixed results<br><b>现在分词作时间状语</b>：entering this recession。<br><b>词义</b>：<b>tolerant</b> 包容的；<b>poll</b> 民调；<b>mixed results</b> 结果不一。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">16</span>
+  <div class="en">We will have to wait and see exactly how these hard times will reshape our social fabric. But they certainly will reshape it, and all the more so the longer they extend.</div>
+  <hr class="sent-hr"><div class="cn">我们将不得不拭目以待，看看这些艰难时期究竟会如何重塑我们的社会结构。但它们肯定会重塑它，而且持续得越久，重塑得越厉害。</div>
+  <button class="syntax-toggle" id="btn-s16" onclick="toggleSyntax('s16')">▲ 收起解析</button>
+  <div class="syntax" id="s16"><b>🔍 长难句拆解</b><br><b>第一句</b>：We will have to wait and see exactly how these hard times will reshape our social fabric（宾语从句）。<br><b>第二句</b>：But they certainly will reshape it + and all the more so the longer they extend（the more ... the longer 结构，省略了主句部分）。<br><b>💡 Q40 考点</b>：作者认为影响是"确定的"（certainly will reshape）→ certain。<br><b>词义</b>：<b>social fabric</b> 社会结构；<b>all the more so</b> 更是如此。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 大衰退结束但高失业开始，将改变一代年轻人并重塑社会。<br>
+      <span class="num">②</span> P2: 失业者寻找一线希望——变得更节俭、更理解他人；但也仅此而已。<br>
+      <span class="num">③</span> P3: Friedman 认为衰退让社会更狭隘、更不包容，逆转权利进步。<br>
+      <span class="num">④</span> P4: 这次衰退加剧阶级分化——精英毕业生恢复快，大众被落下。<br>
+      <span class="num">⑤</span> P5: 社会结构必被重塑，只是具体影响有待观察。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>recession</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>经济衰退</td><td>the great ~</td></tr>
+        <tr><td><b>joblessness</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>失业</td><td>jobless + -ness</td></tr>
+        <tr><td><b>silver lining</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>一线希望</td><td>Q36 考点词</td></tr>
+        <tr><td><b>materialistic</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>物质主义的</td><td>material + -istic</td></tr>
+        <tr><td><b>prudent</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>节俭的/谨慎的</td><td>Q37 考点词</td></tr>
+        <tr><td><b>reckless</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>鲁莽的</td><td>~ spending</td></tr>
+        <tr><td><b>stagnation</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>停滞</td><td>stagnate + -tion</td></tr>
+        <tr><td><b>mean-spirited</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>狭隘小气的</td><td>Q38 考点词</td></tr>
+        <tr><td><b>inclusive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>包容的</td><td>in- + clusive</td></tr>
+        <tr><td><b>inequality</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>不平等</td><td>in- + equality</td></tr>
+        <tr><td><b>reinforce</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>加剧/强化</td><td>~ divides</td></tr>
+        <tr><td><b>elite</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>精英的</td><td>Q39 考点词</td></tr>
+        <tr><td><b>resentment</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>怨恨</td><td>resent + -ment</td></tr>
+        <tr><td><b>reshape</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>重塑</td><td>Q40 考点词</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">No one tries harder than the jobless to find silver linings in this national economic disaster.</div>
+      <div class="pat-cn">没有人比失业者更努力寻找一线希望。</div>
+      <span class="pat-tag">否定 + 比较级 = 最高级</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">It is the masses beneath them that are left behind.</div>
+      <div class="pat-cn">被落下的，是那些精英之下的普通大众。</div>
+      <span class="pat-tag">it is ... that 强调句型</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">They certainly will reshape it, and all the more so the longer they extend.</div>
+      <div class="pat-cn">它们肯定重塑社会，且持续越久重塑越深。</div>
+      <span class="pat-tag">all the more so + the longer 结构</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">36. By saying "to find silver linings" (Line 1, Para. 2), the author suggests that the jobless try to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] seek subsidies from the government</span>
+      <span class="opt no">[B] explore reasons for the unemployment</span>
+      <span class="opt no">[C] make profits from the troubled economy</span>
+      <span class="opt ok">[D] look on the bright side of the recession</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（look on the bright side of the recession 看到衰退的积极面）</b></p>
+      <p><b>定位</b>：P2 · S04-S05 — "No one tries harder than the jobless to find <b>silver linings</b> ... Many said that unemployment ... had <b>improved them</b> in some ways: they had become less materialistic and more financially prudent"</p>
+      <p><b>推理</b>：silver lining 是英语习语，字面义"乌云周围的银边"，引申义为"困境中的一线希望/积极面"。下文紧接着举例说明失业者在哪些方面"变好了"（improved them）——正是"看积极面"的具体表现。D 选项 look on the bright side 是 silver lining 的最佳同义转述。</p>
+      <p><b>❌ A 错误</b>：seek subsidies from the government（寻求政府补贴）——文中未提政府补贴。</p>
+      <p><b>❌ B 错误</b>：explore reasons for the unemployment（探究失业原因）——失业者不是在分析失业原因，而是在找失业的好处。</p>
+      <p><b>❌ C 错误</b>：make profits from the troubled economy（从困境经济中获利）——"获利"与语境不符，他们是从个人成长角度找积极面。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">37. According to Paragraph 2, the recession has made people ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] realize the national dream</span>
+      <span class="opt no">[B] struggle against each other</span>
+      <span class="opt no">[C] challenge their prudence</span>
+      <span class="opt ok">[D] reconsider their lifestyle</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（reconsider their lifestyle 重新考虑生活方式）</b></p>
+      <p><b>定位</b>：P2 · S05-S06 — "they had become less <b>materialistic</b> and more financially <b>prudent</b>" + "it has awoken us from our national fever dream of easy riches and bigger houses, and put a necessary end to an era of <b>reckless personal spending</b>"</p>
+      <p><b>推理</b>：衰退让人们从"轻松致富、大房子"的狂热梦中醒来（awoken us from our fever dream），结束了鲁莽消费的时代（put an end to reckless spending），变得节俭（prudent）——这些都是<b>重新审视生活方式</b>的表现。D 选项 reconsider their lifestyle 最全面。</p>
+      <p><b>❌ A 错误</b>：realize the national dream（实现民族梦想）——恰恰相反，是"从梦想中醒来"（awoken from the dream）。</p>
+      <p><b>❌ B 错误</b>：struggle against each other（互相争斗）——这是 P3 的内容（冲突加剧），不是 P2。</p>
+      <p><b>❌ C 错误</b>：challenge their prudence（挑战节俭）——与原文相反！原文说人们变得"more prudent"（更节俭）。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">38. Benjamin Friedman believes that economic recessions may ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] impose a heavier burden on immigrants</span>
+      <span class="opt ok">[B] bring out more evils of human nature</span>
+      <span class="opt no">[C] promote the advance of rights and freedoms</span>
+      <span class="opt no">[D] ease conflicts between races and classes</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（bring out more evils of human nature 暴露出更多人性之恶）</b></p>
+      <p><b>定位</b>：P3 · S08-S09 — "lengthy periods of economic stagnation or decline have almost always left society more <b>mean-spirited</b> and less <b>inclusive</b>" + "Anti-immigrant sentiment typically increases, as does <b>conflict between races and classes</b>"</p>
+      <p><b>推理</b>：Friedman 认为衰退让社会"更狭隘小气（mean-spirited）、更不包容（less inclusive）"，加剧反移民情绪和种族阶级冲突——这些都是<b>人性的阴暗面</b>被激发出来。B 选项 bring out more evils of human nature（暴露人性之恶）是对此的概括。</p>
+      <p><b>❌ A 错误</b>：heavier burden on immigrants（加重移民负担）——文中说"反移民情绪上升"（anti-immigrant sentiment increases），说的是态度，不是负担。</p>
+      <p><b>❌ C 错误</b>：promote the advance of rights and freedoms（促进权利自由进步）——与原文相反！S08 说衰退"usually stopped or <b>reversed</b> the advance of rights and freedoms"（停止或逆转了权利进步）。</p>
+      <p><b>❌ D 错误</b>：ease conflicts（缓解冲突）——与原文相反！冲突是"加剧"（increases），不是缓解。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">39. The research of Till Von Wachter suggests that in recession graduates from elite universities tend to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] lag behind the others due to decreased opportunities</span>
+      <span class="opt no">[B] catch up quickly with experienced employees</span>
+      <span class="opt no">[C] see their life chances as dimmed as the others'</span>
+      <span class="opt ok">[D] recover more quickly than the others</span>
+    </div>
+    <div class="ua">参考答案：D</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：D（recover more quickly than the others 比其他人恢复更快）</b></p>
+      <p><b>定位</b>：P4 · S12 — "not all people graduating into a recession see their life chances dimmed: those with degrees from <b>elite universities</b> <b>catch up fairly quickly</b> to where they otherwise would have been ... it is the <b>masses beneath them</b> that are left behind"</p>
+      <p><b>推理</b>：Wachter 的研究显示：精英大学毕业生能"相当快地追上"（catch up fairly quickly）他们本应达到的位置，而被落下的是"他们之下的普通大众"（the masses beneath them that are left behind）。D 选项 recover more quickly than the others 准确概括了这种差异。</p>
+      <p><b>❌ A 错误</b>：lag behind the others（落后于他人）——与原文相反！精英毕业生是追上来的，被落下的是大众。</p>
+      <p><b>❌ B 错误</b>：catch up quickly with experienced employees（追上经验丰富的员工）——原文说的是追上"他们本应在好时代达到的位置"（where they otherwise would have been），不是追上有经验的员工。</p>
+      <p><b>❌ C 错误</b>：see their life chances as dimmed as the others'（人生机会与其他人一样暗淡）——与原文相反！精英毕业生的机会并没有同样暗淡。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">40. The author thinks that the influence of hard times on society is ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] certain</span>
+      <span class="opt no">[B] positive</span>
+      <span class="opt no">[C] trivial</span>
+      <span class="opt no">[D] destructive</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（certain 确定的）</b></p>
+      <p><b>定位</b>：P5 · S16 — "We will have to <b>wait and see</b> exactly how these hard times will reshape our social fabric. But they <b>certainly</b> will reshape it, and all the more so the longer they extend."</p>
+      <p><b>推理</b>：作者说"我们得拭目以待具体会怎么重塑"——但"它们<b>肯定</b>会重塑（certainly will reshape）"。作者对"影响是否会发生"是<b>确定</b>的，只是对"具体内容"还不确定。A 选项 certain 正是对 "certainly will reshape" 的概括。</p>
+      <p><b>❌ B 错误</b>：positive（积极的）——作者在 P3-P4 更多强调负面影响（更狭隘、不平等加剧），不能说影响是"积极"的。</p>
+      <p><b>❌ C 错误</b>：trivial（微不足道的）——恰恰相反！作者认为影响重大（重塑社会结构）。</p>
+      <p><b>❌ D 错误</b>：destructive（破坏性的）——虽然有一些负面描述，但作者的结论是"影响确定且深远"，没有明确说"破坏性"。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2012 英语（二）Text 4 · 16 句 · 5 题 · 答案 DDBDA</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
