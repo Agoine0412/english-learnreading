@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2012 考研英语（二）Text 2 — 粉色与性别营销</title>
+<style>
+:root{--bg:#f7f1f0;--card:#fefcf9;--text:#2c2420;--text-soft:#6b5a50;--text-muted:#9c8a7a;--accent:#c96a7a;--accent-light:#faeef0;--amber:#c9a84c;--amber-light:#fcf6e8;--rust:#9a6a7a;--rust-light:#f3ecef;--steel:#5a5a6a;--steel-light:#ececf0;--panel-bg:#faf8f5;--panel-border:#e8ddd0;--border:#e0d5c8;--shadow:0 2px 10px rgba(44,36,32,0.06);--shadow-hover:0 6px 22px rgba(44,36,32,0.12);--radius:12px;--transition:0.28s cubic-bezier(0.4,0,0.2,1);--font:Georgia,"Noto Serif SC","Source Han Serif CN","Songti SC","SimSun","PingFang SC","Microsoft YaHei","Heiti SC",serif;--font-sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:var(--font-sans);color:var(--text);line-height:1.75;padding:20px 16px 80px;min-height:100vh}
+.container{max-width:800px;margin:0 auto}
+.header{background:var(--card);border-radius:var(--radius);padding:36px 32px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--rust),var(--steel));background-size:200% 100%;animation:shimmer 5s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header h1{font-size:1.65em;font-weight:700;color:var(--text);margin-bottom:6px}
+.header h1 small{display:block;font-size:.52em;color:var(--amber);font-weight:600;letter-spacing:.5px;margin-top:4px}
+.sub{color:var(--text-muted);font-size:.92em;margin-top:8px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{font-size:.76em;padding:4px 12px;border-radius:20px;font-weight:600;letter-spacing:.3px;background:var(--accent-light);color:var(--accent)}
+.badge.amber{background:var(--amber-light);color:#9a8030}
+.badge.rust{background:var(--rust-light);color:var(--rust)}
+.badge.steel{background:var(--steel-light);color:var(--steel)}
+.sent{background:var(--card);border-radius:var(--radius);padding:20px 22px 18px;box-shadow:var(--shadow);margin-bottom:14px;animation:fadeUp .45s ease both;position:relative}
+.snum{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.75em;font-weight:700;margin-right:8px;vertical-align:middle}
+.en{font-family:var(--font);font-size:1.04em;color:var(--text);line-height:1.82;margin:6px 0 2px;word-wrap:break-word}
+.en mark{background:linear-gradient(180deg,rgba(201,106,122,.18) 0%,rgba(201,106,122,.08) 100%);color:var(--text);border-radius:3px;padding:1px 3px;font-weight:600;cursor:help;border-bottom:1.5px dotted var(--amber)}
+.en u{text-decoration:none;background:linear-gradient(180deg,rgba(201,106,122,.15) 0%,rgba(201,106,122,.05) 100%);border-left:3px solid var(--accent);padding:2px 6px;border-radius:3px;font-style:normal;display:inline;font-weight:500}
+.sent-hr{border:0;height:2px;margin:12px 0 10px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5}
+.cn{color:var(--text-soft);font-size:.94em;line-height:1.7;padding-left:6px}
+.syntax-toggle{font-size:.76em;font-weight:600;cursor:pointer;user-select:none;background:var(--rust-light);color:var(--rust);border:1px solid var(--rust);border-radius:18px;padding:3px 12px;margin-top:10px;display:inline-flex;align-items:center;gap:4px;transition:all var(--transition);letter-spacing:.3px}
+.syntax-toggle:hover{background:var(--rust);color:#fff;transform:translateY(-1px);box-shadow:0 3px 8px rgba(154,106,122,.28)}
+.syntax-toggle:active{transform:translateY(0);box-shadow:none}
+.syntax-toggle.collapsed{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.syntax-toggle.collapsed:hover{background:var(--accent);color:#fff}
+.syntax{margin-top:8px;padding:10px 14px;border-radius:8px;background:#fefcf8;border-left:3px solid var(--accent);font-size:.86em;color:#6b6048;line-height:1.65;overflow:hidden;max-height:2000px;transition:max-height .35s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.syntax.hidden{max-height:0!important;opacity:0;margin-top:0;padding-top:0;padding-bottom:0;border-left-width:0}
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px 18px;box-shadow:var(--shadow);margin-top:16px;animation:fadeUp .5s ease .1s both}
+.card h2{font-size:1.15em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .toggle{font-size:.78em!important;cursor:pointer;color:#fff!important;font-weight:700!important;background:var(--accent)!important;padding:5px 14px!important;border-radius:20px!important;user-select:none;transition:all var(--transition)!important;display:inline-flex;align-items:center;gap:4px;margin-left:auto;letter-spacing:.5px;border-left:3px solid var(--amber)!important;box-shadow:0 2px 6px rgba(201,106,122,0.2)!important}
+.card h2 .toggle:hover{background:var(--amber)!important;transform:translateY(-1px);box-shadow:0 4px 10px rgba(201,168,76,0.35)!important}
+.card h2 .toggle.collapsed{background:var(--rust)!important;border-left-color:var(--amber)!important}
+.card h2 .toggle.collapsed:hover{background:var(--steel)!important}
+.collapsible-body{overflow:hidden;max-height:200000px;transition:max-height .38s ease,opacity .35s ease,padding .3s ease,margin .3s ease}
+.collapsible-body.hidden{max-height:0!important;opacity:0;margin:0;padding:0;border:none}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}
+th{background:var(--accent-light);color:var(--accent);padding:8px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--amber)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:var(--panel-bg)}
+.pat{background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:var(--font);font-size:.96em;border-left:4px solid var(--amber)}
+.pat-en{color:var(--text);line-height:1.75;margin-bottom:6px}
+.pat-cn{color:var(--text-muted);font-size:.9em}
+.pat-tag{display:inline-block;font-size:.72em;background:var(--amber-light);color:#9a8030;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:600}
+.q-block{margin:18px 0 12px;padding:18px 20px;border-radius:var(--radius);background:var(--panel-bg);border:1px solid var(--panel-border)}
+.q-title{font-weight:700;font-size:.98em;color:var(--accent);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt{padding:8px 12px;border-radius:8px;font-size:.88em;background:var(--card);border:1px solid var(--border);cursor:default;transition:all .2s}
+.opt.ok{border-color:var(--amber);background:var(--amber-light);font-weight:700;color:#9a8030}
+.opt.no{color:var(--text-muted)}
+.ua{text-align:center;font-size:.84em;color:var(--text-muted);margin:8px 0 4px;padding:4px;border-top:1px dashed var(--border)}
+.analysis{font-size:.86em;color:var(--text-soft);padding:10px 14px 4px;line-height:1.72}
+.analysis p{margin-bottom:6px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sent:nth-child(1){animation-delay:.02s}.sent:nth-child(2){animation-delay:.04s}
+.sent:nth-child(3){animation-delay:.06s}.sent:nth-child(4){animation-delay:.08s}
+.sent:nth-child(5){animation-delay:.10s}.sent:nth-child(6){animation-delay:.12s}
+.sent:nth-child(7){animation-delay:.14s}.sent:nth-child(8){animation-delay:.16s}
+.sent:nth-child(9){animation-delay:.18s}.sent:nth-child(n+10){animation-delay:.20s}
+@media(max-width:600px){body{padding:12px 10px 60px}.header{padding:24px 18px 20px}.header h1{font-size:1.35em}.sent{padding:16px 14px 14px}.en{font-size:1em;overflow-wrap:break-word;word-break:break-word}.opts{grid-template-columns:1fr}.card{padding:18px 16px 14px}.card h2{font-size:1.05em;flex-wrap:wrap}.card h2 .toggle{font-size:.74em!important;padding:4px 10px!important}.collapsible-body{max-height:200000px!important}.syntax{max-height:none!important}.analysis p{overflow-wrap:break-word;word-break:break-word}}
+@media print{.collapsible-body.hidden{max-height:none!important;opacity:1!important;overflow:visible!important}.syntax.hidden{max-height:none!important;opacity:1!important;overflow:visible!important;margin-top:8px;padding:10px 14px;border-left-width:3px}.badge,.divider,.toggle,.sent-hr,.syntax-toggle{display:none}body{padding:0;background:#fff}.sent,.card,.header{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>粉色与性别营销<small>2012 考研英语（二）· Text 2</small></h1>
+  <p class="sub">Pretty in pink — how marketing invented girls' obsession with pink</p>
+  <div class="badges">
+    <span class="badge">难度 考研级</span><span class="badge amber">词汇·语法·结构</span>
+    <span class="badge rust">主题 · 消费心理</span><span class="badge steel">长难句 5</span>
+  </div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 1 — 粉色与女孩身份的绑定</div>
+
+<div class="sent">
+  <span class="snum">1</span>
+  <div class="en">Pretty in pink: adult women do not remember being so obsessed with the colour, yet it is <u>pervasive</u> in our young girls' lives.</div>
+  <hr class="sent-hr"><div class="cn">穿粉色真好看：成年女性不记得自己曾如此痴迷这种颜色，但它在小女孩的生活中无处不在。</div>
+  <button class="syntax-toggle collapsed" id="btn-s1" onclick="toggleSyntax('s1')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s1"><b>🔍 语法解析</b><br><b>主干</b>：adult women do not remember being so obsessed（主+谓+动名词宾语）。<br><b>转折并列</b>：yet 连接，形成"成年女性不记得痴迷 vs 小女孩生活中无处不在"的对比。<br><b>词义</b>：<b>pretty in pink</b> 穿粉色很好看（标题双关）；<b>obsessed with</b> 痴迷于；<b>pervasive</b> 无处不在的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">2</span>
+  <div class="en">It is not that pink is intrinsically bad, but it is such a tiny slice of the rainbow and, though it may celebrate girlhood in one way, it also repeatedly and firmly <mark>fuses girls' identity to appearance</mark>.</div>
+  <hr class="sent-hr"><div class="cn">并不是说粉色天生不好，而是它只是彩虹中极小的一段；而且，尽管它在某一方面或许颂扬了少女时代，它也不断地、坚定地把女孩的身份与外表联系在一起。</div>
+  <button class="syntax-toggle" id="btn-s2" onclick="toggleSyntax('s2')">▲ 收起解析</button>
+  <div class="syntax" id="s2"><b>🔍 长难句拆解</b><br><b>主干</b>：It is not that ... but it is such a tiny slice of the rainbow and ... it also fuses girls' identity to appearance。<br><b>句型</b>：not that ... but ...（不是因为……而是因为……）<br><b>让步状语从句</b>：though it may celebrate girlhood in one way。<br><b>💡 Q26 考点</b>：粉色只是彩虹的一小段——作者认为粉色不该是女孩身份的唯一代表。<br><b>词义</b>：<b>intrinsically</b> 天生地；<b>fuse ... to</b> 把……与……融合；<b>appearance</b> 外表。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">3</span>
+  <div class="en">Then it presents that connection, even among two-year-olds, between girls as not only innocent but as evidence of innocence.</div>
+  <hr class="sent-hr"><div class="cn">然后它呈现出这样一种联系——即使在两岁的孩子中——即女孩不仅被视为天真，而且被视为天真的证据。</div>
+  <button class="syntax-toggle" id="btn-s3" onclick="toggleSyntax('s3')">▲ 收起解析</button>
+  <div class="syntax" id="s3"><b>🔍 长难句拆解</b><br><b>主干</b>：it presents that connection ... between girls as not only innocent but as evidence of innocence。<br><b>插入语</b>：even among two-year-olds。<br><b>结构</b>：present A as B（把 A 表现为 B）；not only ... but ... 连接两个并列的补语。<br><b>词义</b>：<b>innocent</b> 天真的；<b>evidence of innocence</b> 天真的证据（女孩因粉色而显得更天真）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">4</span>
+  <div class="en">Looking around, I <u>despaired at</u> the singular lack of imagination about girls' lives and interests.</div>
+  <hr class="sent-hr"><div class="cn">环顾四周，我对女孩生活和兴趣所展现出的那种极其缺乏想象力的状况感到绝望。</div>
+  <button class="syntax-toggle collapsed" id="btn-s4" onclick="toggleSyntax('s4')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s4"><b>🔍 语法解析</b><br><b>伴随状语</b>：Looking around → 现在分词短语作状语。<br><b>主干</b>：I despaired at the singular lack of imagination（主+谓+宾）。<br><b>词义</b>：<b>despair at</b> 对……绝望；<b>singular</b> 异常的/突出的。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 2 — 颜色的性别编码是后天形成的</div>
+
+<div class="sent">
+  <span class="snum">5</span>
+  <div class="en">Girls' attraction to pink may seem unavoidable, somehow <u>encoded</u> in their DNA, but according to Jo Paoletti, an associate professor of American Studies, it is not.</div>
+  <hr class="sent-hr"><div class="cn">女孩对粉色的喜爱似乎不可避免，仿佛编码在她们的 DNA 里，但美国研究副教授 Jo Paoletti 认为，事实并非如此。</div>
+  <button class="syntax-toggle collapsed" id="btn-s5" onclick="toggleSyntax('s5')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s5"><b>🔍 语法解析</b><br><b>转折并列句</b>：but 连接。<br>&nbsp;&nbsp;前分句：Girls' attraction to pink may seem unavoidable（主+系+表）<br>&nbsp;&nbsp;后分句：it is not（省略 = it is not unavoidable）<br><b>插入语</b>：encoded in their DNA（过去分词短语作补充说明）+ according to Jo Paoletti（交代来源）。<br><b>词义</b>：<b>attraction to</b> 对……的喜爱；<b>encode</b> 编码；<b>associate professor</b> 副教授。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">6</span>
+  <div class="en">Children were not colour-coded at all until the early 20th century: in the era before domestic washing machines all babies wore white as a practical matter, since the only way of getting clothes clean was to boil them.</div>
+  <hr class="sent-hr"><div class="cn">直到 20 世纪初，儿童才完全没有按颜色分类：在家用洗衣机问世之前的年代，所有婴儿都穿白色衣服，这是出于实用考虑，因为清洗衣服的唯一方法是煮沸。</div>
+  <button class="syntax-toggle" id="btn-s6" onclick="toggleSyntax('s6')">▲ 收起解析</button>
+  <div class="syntax" id="s6"><b>🔍 长难句拆解</b><br><b>主干</b>：Children were not colour-coded at all until the early 20th century。<br><b>冒号后解释</b>：in the era before domestic washing machines all babies wore white as a practical matter。<br><b>原因状语从句</b>：since the only way of getting clothes clean was to boil them。<br><b>词义</b>：<b>colour-coded</b> 按颜色分类；<b>practical matter</b> 务实之举；<b>boil</b> 煮沸。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">7</span>
+  <div class="en">What's more, both boys and girls wore what were thought of as gender-neutral dresses.</div>
+  <hr class="sent-hr"><div class="cn">更重要的是，男孩和女孩都穿被视为性别中立的服装。</div>
+  <button class="syntax-toggle collapsed" id="btn-s7" onclick="toggleSyntax('s7')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s7"><b>🔍 语法解析</b><br><b>宾语从句</b>：wore what were thought of as gender-neutral dresses（what 引导宾语从句）。<br><b>词义</b>：<b>gender-neutral</b> 性别中立的。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">8</span>
+  <div class="en">When nursery colours were introduced, pink was actually considered the more <u>masculine</u> colour, a pastel version of red, which was associated with strength. Blue, with its intimations of the Virgin Mary, constancy and faithfulness, symbolized femininity.</div>
+  <hr class="sent-hr"><div class="cn">当婴幼儿颜色引入时，粉色实际上被认为是更男性化的颜色——红色的柔和版本，与力量相关联。而蓝色，因其令人联想到圣母玛利亚、忠贞和忠诚，象征着女性气质。</div>
+  <button class="syntax-toggle" id="btn-s8" onclick="toggleSyntax('s8')">▲ 收起解析</button>
+  <div class="syntax" id="s8"><b>🔍 长难句拆解</b><br><b>第一句</b>：When nursery colours were introduced（时间状语从句）+ pink was considered the more masculine colour（主句）+ a pastel version of red（同位语）+ which was associated with strength（非限制性定语从句）。<br><b>第二句</b>：Blue ... symbolized femininity（主+谓+宾），with its intimations ... → 介词短语补充说明。<br><b>💡 Q27 考点</b>：过去蓝色象征女性（femininity）——与今天相反！<br><b>词义</b>：<b>masculine</b> 男性化的；<b>pastel</b> 柔和的（浅色）；<b>intimation</b> 暗示；<b>femininity</b> 女性气质。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">9</span>
+  <div class="en">It was not until the mid-1980s, when amplifying age and sex differences became a dominant children's marketing strategy, that pink fully came into its own, when it began to seem inherently attractive to girls, part of what defined them as female, at least for the first few critical years.</div>
+  <hr class="sent-hr"><div class="cn">直到 1980 年代中期——当时放大年龄和性别差异成为儿童营销的主导策略——粉色才完全崭露头角，开始对女孩显得天生具有吸引力，成为定义她们女性身份的一部分，至少在最初关键的几年里是如此。</div>
+  <button class="syntax-toggle" id="btn-s9" onclick="toggleSyntax('s9')">▲ 收起解析</button>
+  <div class="syntax" id="s9"><b>🔍 长难句拆解</b><br><b>强调句型</b>：It was not until ... that ...（直到……才……）<br><b>两个 when 从句</b>：<br>&nbsp;&nbsp;① when amplifying age and sex differences became a dominant children's marketing strategy → 定语从句修饰 mid-1980s<br>&nbsp;&nbsp;② when it began to seem inherently attractive to girls → 补充说明 came into its own 的时间<br><b>同位语</b>：part of what defined them as female。<br><b>💡 核心观点</b>：粉色成为女孩专属是 1980 年代营销策略的结果，不是天生的。<br><b>词义</b>：<b>amplify</b> 放大；<b>dominant</b> 主导的；<b>come into its own</b> 崭露头角；<b>inherently</b> 天生地。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 3 — 营销塑造了我们对孩子的认知</div>
+
+<div class="sent">
+  <span class="snum">10</span>
+  <div class="en">I had not realised how profoundly marketing trends <u>dictated</u> our perception of what is natural to kids, including our core beliefs about their psychological development.</div>
+  <hr class="sent-hr"><div class="cn">我之前没有意识到，营销趋势在多大程度上支配了我们对于什么是孩子天性的认知，包括我们对其心理发展的核心信念。</div>
+  <button class="syntax-toggle" id="btn-s10" onclick="toggleSyntax('s10')">▲ 收起解析</button>
+  <div class="syntax" id="s10"><b>🔍 长难句拆解</b><br><b>主干</b>：I had not realised（主+谓）+ how profoundly marketing trends dictated our perception of ...（宾语从句）。<br><b>宾语从句内</b>：what is natural to kids → 宾语从句作 of 的宾语。<br><b>💡 Q28 考点</b>：作者认为我们对孩子心理发展的认知被"营销趋势"（marketing trends）深刻影响。<br><b>词义</b>：<b>profoundly</b> 深刻地；<b>dictate</b> 支配/决定；<b>perception</b> 认知。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">11</span>
+  <div class="en">Take the toddler, I assumed that phase was something experts developed after years of research into children's behaviour: wrong.</div>
+  <hr class="sent-hr"><div class="cn">以"toddler"（学步儿童）这个词为例，我曾以为这个阶段是专家们对儿童行为进行多年研究后提出的：错了。</div>
+  <button class="syntax-toggle collapsed" id="btn-s11" onclick="toggleSyntax('s11')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s11"><b>🔍 语法解析</b><br><b>祈使句 Take</b>：Take the toddler = 以学步儿童为例（口语化用法）。<br><b>宾语从句</b>：that phase was something experts developed after years of research。<br><b>词义</b>：<b>toddler</b> 学步儿童；<b>assume</b> 以为/假定。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">12</span>
+  <div class="en">Turns out, according to Daniel Cook, a historian of childhood consumerism, it was popularised as a marketing trick by clothing manufacturers in the 1930s.</div>
+  <hr class="sent-hr"><div class="cn">结果发现，据童年消费主义历史学家 Daniel Cook 所说，这个词是 1930 年代服装制造商作为一种营销技巧推广开来的。</div>
+  <button class="syntax-toggle collapsed" id="btn-s12" onclick="toggleSyntax('s12')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s12"><b>🔍 语法解析</b><br><b>省略句</b>：Turns out = It turns out（结果发现）。<br><b>插入语</b>：according to Daniel Cook + 同位语 a historian of childhood consumerism。<br><b>被动语态</b>：it was popularised as a marketing trick by clothing manufacturers。<br><b>💡 Q28 考点</b>："toddler" 一词也是营销的产物。<br><b>词义</b>：<b>consumerism</b> 消费主义；<b>marketing trick</b> 营销技巧。</div>
+</div>
+
+<div class="section" style="margin:28px 0 14px;font-size:.82em;font-weight:700;color:var(--text-soft);">Paragraph 4 — 细分市场的营销策略</div>
+
+<div class="sent">
+  <span class="snum">13</span>
+  <div class="en">Trade publications counselled department stores that, in order to increase sales, they should create a "third stepping stone" between infant wear and older kids' clothes.</div>
+  <hr class="sent-hr"><div class="cn">行业刊物建议百货商店，为了增加销售，应该在婴儿服装和较大儿童服装之间创造一块"第三块垫脚石"。</div>
+  <button class="syntax-toggle collapsed" id="btn-s13" onclick="toggleSyntax('s13')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s13"><b>🔍 语法解析</b><br><b>主干</b>：Trade publications counselled department stores that ...（主+谓+间接宾语+宾语从句）。<br><b>目的状语</b>：in order to increase sales。<br><b>词义</b>：<b>trade publication</b> 行业刊物；<b>counsel</b> 建议；<b>stepping stone</b> 垫脚石（喻指中间过渡阶段）。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">14</span>
+  <div class="en">It was only after "toddler" became a common shoppers' term that it evolved into a broadly accepted developmental stage.</div>
+  <hr class="sent-hr"><div class="cn">直到"toddler"成为购物者常用词之后，它才演变成一个被广泛接受的发育阶段。</div>
+  <button class="syntax-toggle collapsed" id="btn-s14" onclick="toggleSyntax('s14')">▼ 展开解析</button>
+  <div class="syntax hidden" id="s14"><b>🔍 语法解析</b><br><b>强调句型</b>：It was only after ... that ...（正是在……之后，……才……）。<br><b>词义</b>：<b>shoppers' term</b> 购物者术语；<b>developmental stage</b> 发育阶段。</div>
+</div>
+
+<div class="sent">
+  <span class="snum">15</span>
+  <div class="en">Splitting kids, or adults, into ever-tinier categories has proved a sure-fire way to boost profits. And one of the easiest ways to segment a market is to <u>magnify</u> gender differences—or invent them where they did not previously exist.</div>
+  <hr class="sent-hr"><div class="cn">把孩子或成人分成越来越细的类别，已被证明是提高利润的稳妥方法。而细分市场最简单的方法之一，就是放大性别差异——或者在原本不存在的地方发明它们。</div>
+  <button class="syntax-toggle" id="btn-s15" onclick="toggleSyntax('s15')">▲ 收起解析</button>
+  <div class="syntax" id="s15"><b>🔍 长难句拆解</b><br><b>第一句</b>：Splitting kids ... into ever-tinier categories（动名词主语）+ has proved（谓）+ a sure-fire way（宾补）。<br><b>第二句</b>：one of the easiest ways ... is to magnify gender differences（主+系+不定式表语）+ or invent them where they did not previously exist（并列不定式 + where 状语从句）。<br><b>💡 Q29 / Q30 考点</b>：细分市场 = 放大/发明性别差异 → 女孩对粉色的喜爱是被利润驱动的商人强加的。<br><b>词义</b>：<b>sure-fire</b> 稳操胜券的；<b>boost profits</b> 提高利润；<b>segment</b> 细分；<b>magnify</b> 放大。</div>
+</div>
+
+
+<div class="bottom">
+<div class="card">
+  <h2>📋 全文脉络 <span class="toggle" onclick="toggleBody('summary')">▲ 收起</span></h2>
+  <div class="collapsible-body" id="summary">
+    <div class="pat"><div class="pat-en" style="font-style:normal;font-size:.9em;color:var(--text-soft);">
+      <span class="num">①</span> P1: 粉色无处不在，将女孩身份与外表绑定，作者对此缺乏想象力感到失望。<br>
+      <span class="num">②</span> P2: 粉色偏爱不是天生的——过去颜色无性别编码，粉色曾代表男性、蓝色代表女性，1980 年代营销才让粉色成为女孩专属。<br>
+      <span class="num">③</span> P3: 营销塑造了我们对孩子心理发展的认知，"toddler"一词也是营销产物。<br>
+      <span class="num">④</span> P4: 细分市场 = 放大/发明性别差异，是提高利润的稳妥方法。
+    </div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📖 重点词汇 <span class="toggle collapsed" onclick="toggleBody('vocab')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="vocab">
+    <table><thead><tr><th>词汇</th><th>词性</th><th>释义</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td><b>pervasive</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>无处不在的</td><td>pervade + -sive</td></tr>
+        <tr><td><b>intrinsically</b></td><td style="color:var(--text-muted);font-size:.9em;">adv.</td><td>天生地</td><td>intrinsic + -ally</td></tr>
+        <tr><td><b>fuse</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>融合</td><td>~ identity to</td></tr>
+        <tr><td><b>despair at</b></td><td style="color:var(--text-muted);font-size:.9em;">phr.</td><td>对…绝望</td><td>despair + at</td></tr>
+        <tr><td><b>encode</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>编码</td><td>DNA 语境</td></tr>
+        <tr><td><b>masculine</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>男性化的</td><td>Q27 考点词</td></tr>
+        <tr><td><b>femininity</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>女性气质</td><td>feminine 名词</td></tr>
+        <tr><td><b>amplify</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>放大</td><td>~ differences</td></tr>
+        <tr><td><b>dictate</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>支配</td><td>~ perception</td></tr>
+        <tr><td><b>consumerism</b></td><td style="color:var(--text-muted);font-size:.9em;">n.</td><td>消费主义</td><td>consume + -erism</td></tr>
+        <tr><td><b>sure-fire</b></td><td style="color:var(--text-muted);font-size:.9em;">adj.</td><td>稳操胜券的</td><td>口语</td></tr>
+        <tr><td><b>segment</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>细分</td><td>~ a market</td></tr>
+        <tr><td><b>magnify</b></td><td style="color:var(--text-muted);font-size:.9em;">v.</td><td>放大</td><td>Q30 考点词</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✨ 值得背诵的句型 <span class="toggle collapsed" onclick="toggleBody('patterns')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="patterns">
+    <div class="pat">
+      <div class="pat-en">It was not until the mid-1980s, when amplifying age and sex differences became a dominant children's marketing strategy, that pink fully came into its own.</div>
+      <div class="pat-cn">直到 1980 年代中期营销策略放大性别差异，粉色才崭露头角。</div>
+      <span class="pat-tag">It was not until ... that 强调句型 + when 定语从句</span>
+    </div>
+    <div class="pat">
+      <div class="pat-en">One of the easiest ways to segment a market is to magnify gender differences—or invent them where they did not previously exist.</div>
+      <div class="pat-cn">细分市场最简单的方法就是放大性别差异——或在原本不存在的地方发明它们。</div>
+      <span class="pat-tag">不定式表语 + or 并列 + where 状语从句</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📝 题目答案速查 <span class="toggle collapsed" onclick="toggleBody('exam')">▼ 展开</span></h2>
+  <div class="collapsible-body hidden" id="exam">
+
+  <div class="q-block">
+    <div class="q-title">26. By saying "it is ... the rainbow" (Line 2~3, Para. 1), the author means pink ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] should not be the sole representation of girlhood</span>
+      <span class="opt no">[B] should not be associated with girls' innocence</span>
+      <span class="opt no">[C] cannot explain girls' lack of imagination</span>
+      <span class="opt no">[D] cannot influence girls' lives and interests</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（should not be the sole representation of girlhood 粉色不应是少女时代的唯一代表）</b></p>
+      <p><b>定位</b>：P1 · S02 — "it is such a <b>tiny slice of the rainbow</b> and, though it may celebrate girlhood in one way, it also ... <b>fuses girls' identity to appearance</b>"</p>
+      <p><b>推理</b>：作者说粉色只是"彩虹中极小的一段"（a tiny slice of the rainbow）——彩虹代表多彩多样的女孩特质，而粉色只是其中之一，却被当成了女孩身份的全部代表。紧接着说它"把女孩身份与外表绑定"（fuses girls' identity to appearance），说明作者认为粉色<b>不应该成为少女时代的唯一代表</b>。</p>
+      <p><b>❌ B 错误</b>：should not be associated with girls' innocence（不应与女孩的天真联系起来）——S03 说粉色把女孩呈现为"天真的证据"（evidence of innocence），作者是在批评这种<b>过度绑定</b>，但核心意思是"粉色不该是唯一代表"，不是完全否认天真与粉色的联系。</p>
+      <p><b>❌ C 错误</b>：cannot explain girls' lack of imagination（不能解释女孩缺乏想象力）——S04 说的是作者对"女孩生活缺乏想象力"感到失望，是另一件事。</p>
+      <p><b>❌ D 错误</b>：cannot influence girls' lives and interests（不能影响女孩的生活和兴趣）——与原文相反！S01 说粉色在女孩生活中"pervasive"（无处不在），说明它确实影响了女孩。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">27. According to Paragraph 2, which of the following is true of colours?</div>
+    <div class="opts">
+      <span class="opt no">[A] Colours are encoded in girls' DNA.</span>
+      <span class="opt ok">[B] Blue used to be regarded as the colour for girls.</span>
+      <span class="opt no">[C] Pink used to be a neutral colour in symbolising genders.</span>
+      <span class="opt no">[D] White is preferred by babies.</span>
+    </div>
+    <div class="ua">参考答案：B</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：B（Blue used to be regarded as the colour for girls 蓝色过去被视为女孩的颜色）</b></p>
+      <p><b>定位</b>：P2 · S08 — "Blue, with its intimations of the Virgin Mary, constancy and faithfulness, <b>symbolized femininity</b>"</p>
+      <p><b>推理</b>：S08 明确说蓝色象征女性气质（symbolized femininity）——即过去蓝色被视为女孩的颜色，这与今天的观念（粉色代表女孩）完全相反。B 选项是原文的直接对应。</p>
+      <p><b>❌ A 错误</b>：Colours are encoded in girls' DNA（颜色编码在女孩 DNA 里）——S05 说女孩对粉色的喜爱 "may seem ... encoded in their DNA, but ... it is <b>not</b>"（似乎编码在 DNA 里，但并非如此）——A 正是作者否定的观点！</p>
+      <p><b>❌ C 错误</b>：Pink used to be a neutral colour（粉色过去是中性色）——S08 说粉色过去被认为更男性化（masculine），不是中性（neutral）。</p>
+      <p><b>❌ D 错误</b>：White is preferred by babies（白色被婴儿偏爱）——S06 说婴儿穿白色是"practical matter"（务实选择），因为白色耐煮洗，不是"偏爱"。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">28. The author suggests that our perception of children's psychological development was much influenced by ______.</div>
+    <div class="opts">
+      <span class="opt ok">[A] the marketing of products for children</span>
+      <span class="opt no">[B] the observation of children's nature</span>
+      <span class="opt no">[C] researches into children's behaviour</span>
+      <span class="opt no">[D] studies of childhood consumption</span>
+    </div>
+    <div class="ua">参考答案：A</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：A（the marketing of products for children 儿童产品的营销）</b></p>
+      <p><b>定位</b>：P3 · S10-S12 — "how profoundly <b>marketing trends</b> dictated our perception of what is natural to kids, including our core beliefs about their <b>psychological development</b>" + "toddler ... was popularised as a <b>marketing trick</b> by clothing manufacturers"</p>
+      <p><b>推理</b>：作者明确说"营销趋势支配了我们对孩子天性的认知，包括对其心理发展的核心信念"。而且用 "toddler"（学步儿童）这个所谓"发育阶段"其实是 1930 年代服装制造商的营销技巧为例证。A 选项 the marketing of products for children 是对 marketing trends / marketing trick 的概括。</p>
+      <p><b>❌ B 错误</b>：observation of children's nature（观察儿童天性）——作者恰恰认为我们的认知不是来自观察，而是被营销扭曲的。</p>
+      <p><b>❌ C 错误</b>：researches into children's behaviour（对儿童行为的研究）——S11 作者说"我曾以为 toddler 是专家研究后的成果：错了"（wrong），C 正是被否定的假设。</p>
+      <p><b>❌ D 错误</b>：studies of childhood consumption（童年消费研究）——Daniel Cook 是研究童年消费的历史学家，但作者强调的是营销本身塑造认知，不是"对消费的研究"。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">29. We may learn from Paragraph 4 that department stores were advised to ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] focus on infant wear and older kids' clothes</span>
+      <span class="opt no">[B] attach equal importance to different genders</span>
+      <span class="opt ok">[C] classify consumers into smaller groups</span>
+      <span class="opt no">[D] create some common shoppers' terms</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（classify consumers into smaller groups 把消费者分成更小的群体）</b></p>
+      <p><b>定位</b>：P4 · S13-S15 — "they should create a 'third stepping stone' between infant wear and older kids' clothes" + "Splitting kids ... into <b>ever-tinier categories</b> has proved a sure-fire way to boost profits"</p>
+      <p><b>推理</b>：行业刊物建议百货商店在婴儿装和大童装之间创造"第三块垫脚石"（即 toddler 装）——本质上就是<b>把消费群体细分得更小</b>（ever-tinier categories）。C 选项 classify consumers into smaller groups 是对此的准确概括。</p>
+      <p><b>❌ A 错误</b>：focus on infant wear and older kids' clothes（聚焦婴儿装和大童装）——恰恰相反，建议是在两者之间创造<b>新</b>的中间类别。</p>
+      <p><b>❌ B 错误</b>：attach equal importance to different genders（同等重视不同性别）——文中说的是放大性别差异（magnify gender differences），不是同等重视。</p>
+      <p><b>❌ D 错误</b>：create some common shoppers' terms（创造常用购物术语）——"toddler"成为常用词是细分市场的结果/手段，不是建议本身的目标；建议的核心是创造中间类别来细分市场。</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-title">30. It can be concluded that girls' attraction to pink seems to be ______.</div>
+    <div class="opts">
+      <span class="opt no">[A] clearly explained by their inborn tendency</span>
+      <span class="opt no">[B] fully understood by clothing manufacturers</span>
+      <span class="opt ok">[C] mainly imposed by profit-driven businessmen</span>
+      <span class="opt no">[D] well interpreted by psychological experts</span>
+    </div>
+    <div class="ua">参考答案：C</div>
+    <div class="analysis">
+      <p><b>✅ 正确答案：C（mainly imposed by profit-driven businessmen 主要是被逐利的商人强加的）</b></p>
+      <p><b>定位</b>：P2 · S09 "pink fully came into its own, when it began to seem inherently attractive to girls"（1980 年代营销策略让它显得天生吸引女孩）+ P4 · S15 "Splitting kids ... into ever-tinier categories has proved a sure-fire way to <b>boost profits</b>" + "magnify gender differences—or invent them where they did not previously exist"</p>
+      <p><b>推理</b>：全文的结论是：女孩对粉色的喜爱<b>不是天生的</b>，而是 1980 年代营销策略（放大性别差异、细分市场）为了<b>提高利润</b>（boost profits）而制造/强加的。C 选项 profit-driven businessmen（逐利的商人）准确概括了"营销/商人/利润"这三个关键词。</p>
+      <p><b>❌ A 错误</b>：clearly explained by their inborn tendency（由天生倾向清楚解释）——与全文主旨相反！作者明确否定"天生论"（it is not / wrong）。</p>
+      <p><b>❌ B 错误</b>：fully understood by clothing manufacturers（被服装制造商完全理解）——这是事实（制造商确实利用它），但不是"结论"的重点；且"fully understood"表述过强。</p>
+      <p><b>❌ D 错误</b>：well interpreted by psychological experts（被心理学专家很好地解释）——S11 明确说作者曾以为专家研究解释了它："wrong"（错了）。</p>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align:center;margin-top:28px;padding:14px;font-size:.72em;color:var(--text-muted);border-top:1px solid var(--border);">Echo · 精读笔记 · 2012 英语（二）Text 2 · 15 句 · 5 题 · 答案 ABACC</div>
+</div>
+<script>
+function toggleSyntax(id){var el=document.getElementById(id);var btn=document.getElementById('btn-'+id);if(!el||!btn)return;if(el.classList.contains('hidden')){el.classList.remove('hidden');btn.classList.remove('collapsed');btn.textContent='▲ 收起解析';}else{el.classList.add('hidden');btn.classList.add('collapsed');btn.textContent='▼ 展开解析';}}
+function toggleBody(id){var body=document.getElementById(id);if(!body)return;var toggle=body.parentElement.querySelector('.toggle');var h=body.classList.contains('hidden');body.classList.toggle('hidden',!h);toggle.textContent=h?'▲ 收起':'▼ 展开';toggle.classList.toggle('collapsed',!h);}
+</script>
+</body>
+</html>
